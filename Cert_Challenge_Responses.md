@@ -7,55 +7,9 @@
 
 ---
 
-## 📁 Code Files for Review
-
-### **Core Architecture & Workflow**
-- `backend/app/workflows/multi_agent_workflow.py` - Main orchestrator using LangGraph for stateful multi-agent workflow
-- `backend/app/agents/base_agent.py` - Base agent class with performance tracking and LangSmith integration
-- `backend/app/agents/specialized_agents.py` - 6 specialized agents (Document Processing, Classification, Question Analysis, Context Retrieval, Response Synthesis, Compliance Analyzer)
-- `backend/app/main.py` - FastAPI application entry point with service initialization
-
-### **Advanced Retrieval & RAG**
-- `backend/app/services/advanced_retrieval.py` - 7 advanced retrieval techniques (hybrid, query expansion, multi-hop, ensemble, compression, metadata filtering, conversational)
-- `backend/app/services/vector_database.py` - Qdrant vector database service with in-memory fallback and similarity search
-- `backend/app/services/document_processor.py` - Document processing, chunking, and embedding generation
-- `backend/app/services/chat_engine.py` - RAG chat engine for document-based conversations
-
-### **Evaluation & Monitoring**
-- `backend/app/services/ragas_evaluation.py` - Complete RAGAS evaluation framework with 6 metrics (faithfulness, relevancy, correctness, precision, recall, similarity)
-- `backend/app/services/langsmith_service.py` - LangSmith monitoring and tracing service for performance tracking
-- `scripts/test_ragas_evaluation.py` - RAGAS evaluation testing with synthetic data generation
-- `scripts/test_advanced_retrieval_simple.py` - Simplified advanced retrieval testing without external dependencies
-
-### **Configuration & Infrastructure**
-- `backend/app/config.py` - Application configuration with environment variables and settings
-- `env.example` - Environment variables template including API keys for OpenAI, Cohere, LangSmith, Tavily
-- `pyproject.toml` - Project dependencies and build configuration
-
-### **Testing & Assessment**
-- `scripts/test_multi_agent_workflow.py` - Multi-agent workflow testing with performance reporting
-- `scripts/test_langsmith_integration.py` - LangSmith integration testing and validation
-- `scripts/test_end_to_end_multi_agent.py` - End-to-end system testing with all components
-- `scripts/test_infrastructure_fixes.py` - Infrastructure validation (vector DB, advanced retrieval, LangSmith)
-- `scripts/task_7_simplified_assessment.py` - Task 7 performance assessment with core metrics
-- `scripts/task_7_performance_assessment.py` - Full RAGAS-based performance assessment
-
-### **Frontend Implementation (Completed)**
-- `frontend/src/app/layout.tsx` - Root layout with global styling and toast notifications
-- `frontend/src/app/page.tsx` - Main page component with document upload, analysis, and chat integration
-- `frontend/src/app/globals.css` - Global Tailwind CSS styles and custom component classes
-- `frontend/src/components/Header.tsx` - Application header with branding and demo mode indicator
-- `frontend/src/components/DocumentUpload.tsx` - Drag & drop file upload with validation and progress feedback
-- `frontend/src/components/AnalysisPanel.tsx` - Document analysis results display with risk level indicators
-- `frontend/src/components/QuestionSuggestions.tsx` - Smart question suggestions with one-click integration
-- `frontend/src/components/ChatInterface.tsx` - Interactive chat interface with message history and source citations
-- `frontend/src/components/ui/Button.tsx` - Reusable button component with variants and loading states
-- `frontend/src/components/ui/Card.tsx` - Card component for content organization
-- `frontend/src/app/api/upload/route.ts` - Next.js API route for document upload handling
-- `frontend/src/app/api/analysis/route.ts` - API route for document analysis workflow
-- `frontend/src/app/api/chat/route.ts` - API route for chat interactions with backend
-- `frontend/next.config.js` - Next.js configuration with API proxy setup
-- `frontend/package.json` - Frontend dependencies and build scripts
+## 📹 **Demo Video**
+**🎬 [LOOM VIDEO LINK - TO BE ADDED]**
+> *Live demonstration of the Verityn AI application showing document upload, classification, smart questions, chat interface, and compliance insights*
 
 ---
 
@@ -795,3 +749,57 @@ Verityn AI represents a **solid foundation** in audit technology, providing audi
 **What we've built is functional and demonstrates real value** - it's not just a prototype, but a working system that can actually help auditors. The system achieves 100% success rates with both baseline and advanced retrieval methods, providing 12% more comprehensive responses with the advanced system.
 
 The focused scope of our prototype demonstrates the core value proposition while providing a solid foundation for future expansion. We've shown that the technology works, the architecture is sound, and the approach is viable. The quality-focused approach prioritizes thoroughness over speed, which is crucial for audit and compliance applications where accuracy and completeness are more important than speed. 
+
+---
+
+## 📁 Code Files for Review
+
+### **Core Architecture & Workflow**
+- `backend/app/workflows/multi_agent_workflow.py` - Main orchestrator using LangGraph for stateful multi-agent workflow
+- `backend/app/agents/base_agent.py` - Base agent class with performance tracking and LangSmith integration
+- `backend/app/agents/specialized_agents.py` - 6 specialized agents (Document Processing, Classification, Question Analysis, Context Retrieval, Response Synthesis, Compliance Analyzer)
+- `backend/app/main.py` - FastAPI application entry point with service initialization
+
+### **Advanced Retrieval & RAG**
+- `backend/app/services/advanced_retrieval.py` - 7 advanced retrieval techniques (hybrid, query expansion, multi-hop, ensemble, compression, metadata filtering, conversational)
+- `backend/app/services/vector_database.py` - Qdrant vector database service with in-memory fallback and similarity search
+- `backend/app/services/document_processor.py` - Document processing, chunking, and embedding generation
+- `backend/app/services/chat_engine.py` - RAG chat engine for document-based conversations
+
+### **Evaluation & Monitoring**
+- `backend/app/services/ragas_evaluation.py` - Complete RAGAS evaluation framework with 6 metrics (faithfulness, relevancy, correctness, precision, recall, similarity)
+- `backend/app/services/langsmith_service.py` - LangSmith monitoring and tracing service for performance tracking
+- `scripts/test_ragas_evaluation.py` - RAGAS evaluation testing with synthetic data generation
+- `scripts/test_advanced_retrieval_simple.py` - Simplified advanced retrieval testing without external dependencies
+
+### **Configuration & Infrastructure**
+- `backend/app/config.py` - Application configuration with environment variables and settings
+- `env.example` - Environment variables template including API keys for OpenAI, Cohere, LangSmith, Tavily
+- `pyproject.toml` - Project dependencies and build configuration
+
+### **Testing & Assessment**
+- `scripts/test_multi_agent_workflow.py` - Multi-agent workflow testing with performance reporting
+- `scripts/test_langsmith_integration.py` - LangSmith integration testing and validation
+- `scripts/test_end_to_end_multi_agent.py` - End-to-end system testing with all components
+- `scripts/test_infrastructure_fixes.py` - Infrastructure validation (vector DB, advanced retrieval, LangSmith)
+- `scripts/task_7_simplified_assessment.py` - Task 7 performance assessment with core metrics
+- `scripts/task_7_performance_assessment.py` - Full RAGAS-based performance assessment
+
+### **Frontend Implementation (Completed)**
+- `frontend/src/app/layout.tsx` - Root layout with global styling and toast notifications
+- `frontend/src/app/page.tsx` - Main page component with document upload, analysis, and chat integration
+- `frontend/src/app/globals.css` - Global Tailwind CSS styles and custom component classes
+- `frontend/src/components/Header.tsx` - Application header with branding and demo mode indicator
+- `frontend/src/components/DocumentUpload.tsx` - Drag & drop file upload with validation and progress feedback
+- `frontend/src/components/AnalysisPanel.tsx` - Document analysis results display with risk level indicators
+- `frontend/src/components/QuestionSuggestions.tsx` - Smart question suggestions with one-click integration
+- `frontend/src/components/ChatInterface.tsx` - Interactive chat interface with message history and source citations
+- `frontend/src/components/ui/Button.tsx` - Reusable button component with variants and loading states
+- `frontend/src/components/ui/Card.tsx` - Card component for content organization
+- `frontend/src/app/api/upload/route.ts` - Next.js API route for document upload handling
+- `frontend/src/app/api/analysis/route.ts` - API route for document analysis workflow
+- `frontend/src/app/api/chat/route.ts` - API route for chat interactions with backend
+- `frontend/next.config.js` - Next.js configuration with API proxy setup
+- `frontend/package.json` - Frontend dependencies and build scripts
+
+---

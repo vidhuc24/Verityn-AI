@@ -170,7 +170,7 @@ This project is developed for educational and demonstration purposes as part of 
 
 ## 🔗 **Related Documentation**
 
-- **[Challenge Responses](./CHALLENGE_RESPONSES.md)**: Detailed responses to all 7 bootcamp challenge tasks
+- **[Challenge Responses](./Cert_Challenge_Responses.md)**: Detailed responses to all 7 bootcamp challenge tasks
 - **[System Flowchart](./verityn_ai_flowchart_clean_detailed.mmd)**: Visual representation of the multi-agent architecture
 - **[Bootcamp Reference](./BOOTCAMP_REFERENCE.md)**: Links to relevant bootcamp materials
 
