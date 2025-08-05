@@ -435,6 +435,13 @@ class ResponseSynthesisAgent(BaseAgent):
         Document Classifications:
         {classifications}
         
+        **CRITICAL SOURCE REFERENCE RULES**:
+        - Only reference documents that are actually provided in the context above
+        - Use the exact Document ID, Document Type, and Company information from the context
+        - Do NOT invent or fabricate document names
+        - If the context shows "Document ID: abc123, Document Type: audit_report", reference it as "Document ID: abc123 (audit_report)"
+        - If no documents are provided in context, state "No specific documents referenced" in the Source Documents section
+        
         Please provide your analysis in this format:
         
         **Subject:** [Clear subject line]
@@ -443,7 +450,7 @@ class ResponseSynthesisAgent(BaseAgent):
         
         **Compliance Insights:** [Key compliance considerations]
         
-        **Source Documents:** [Reference to specific documents used]
+        **Source Documents:** [Reference to specific documents used - ONLY use actual document information from context]
         """)
     
     async def _execute_logic(self, context) -> Dict[str, Any]:
@@ -455,11 +462,22 @@ class ResponseSynthesisAgent(BaseAgent):
             search_results = input_data.get("context", [])
             classifications = input_data.get("classifications", [])
             
-            # Prepare context from search results
-            context_text = "\n\n".join([
-                f"Document {i+1}: {result.get('chunk_text', '')[:500]}..."
-                for i, result in enumerate(search_results[:5])
-            ])
+            # Prepare context from search results with actual document information
+            context_parts = []
+            for i, result in enumerate(search_results[:5]):
+                doc_id = result.get('document_id', f'unknown_{i+1}')
+                doc_type = result.get('document_type', 'Unknown')
+                company = result.get('company', 'Unknown')
+                chunk_text = result.get('chunk_text', '')[:500]
+                
+                context_part = f"""Document {i+1}:
+- Document ID: {doc_id}
+- Document Type: {doc_type}
+- Company: {company}
+- Content: {chunk_text}..."""
+                context_parts.append(context_part)
+            
+            context_text = "\n\n".join(context_parts) if context_parts else "No relevant document context found."
             
             # Prepare classifications summary
             classifications_text = "\n".join([
@@ -469,7 +487,7 @@ class ResponseSynthesisAgent(BaseAgent):
             
             # Synthesize response
             messages = [
-                SystemMessage(content="You are a senior audit professional with expertise in SOX compliance."),
+                SystemMessage(content="You are a senior audit professional with expertise in SOX compliance. Only reference actual documents provided in the context."),
                 HumanMessage(content=self.synthesis_prompt.format(
                     question=question,
                     context=context_text,
