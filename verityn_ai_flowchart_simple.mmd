@@ -1,0 +1,64 @@
+
+graph TD
+    %% User Interface Layer
+    A[User/Auditor] --> B[Next.js Frontend]
+    B --> C[FastAPI Backend]
+    
+    %% Multi-Agent Workflow
+    C --> D[Document Processing Agent]
+    D --> E[Classification Agent]
+    E --> F[Question Analysis Agent]
+    F --> G[Context Retrieval Agent]
+    G --> H[Response Synthesis Agent]
+    H --> I[Compliance Analyzer Agent]
+    
+    %% Advanced Retrieval Techniques
+    G --> J[Advanced Retrieval Techniques]
+    J --> J1[Hybrid Search]
+    J --> J2[Query Expansion]
+    J --> J3[Multi-Hop Retrieval]
+    J --> J4[Metadata Filtering]
+    J --> J5[Conversational Retrieval]
+    J --> J6[Classification-Enhanced]
+    J --> J7[Ensemble Retrieval]
+    
+    %% Data Processing Layer
+    D --> K[Document Chunking]
+    K --> L[Embedding Generation]
+    L --> M[Vector Database - Qdrant]
+    M --> N[Metadata Storage]
+    
+    %% LLM Integration
+    H --> O[OpenAI GPT-4]
+    I --> O
+    
+    %% External Integrations
+    O --> P[Tavily API]
+    P --> Q[Regulatory Guidance]
+    
+    %% Evaluation & Monitoring
+    H --> R[RAGAS Evaluation]
+    I --> S[Performance Monitoring - LangSmith]
+    H --> T[Quality Assessment]
+    I --> U[Business Impact]
+    
+    %% Response Flow
+    O --> V[Generate Response]
+    V --> W[Return to Frontend]
+    W --> X[Display Results]
+    
+    %% Styling
+    classDef userInterface fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef backend fill:#E8F5E8,stroke:#388E3C,stroke-width:2px
+    classDef agent fill:#FFF3E0,stroke:#F57C00,stroke-width:2px
+    classDef database fill:#FCE4EC,stroke:#C2185B,stroke-width:2px
+    classDef external fill:#F1F8E9,stroke:#689F38,stroke-width:2px
+    classDef evaluation fill:#F9FBE7,stroke:#AFB42B,stroke-width:2px
+    
+    class A,B userInterface
+    class C,D,E,F,G,H,I,K,L backend
+    class J,J1,J2,J3,J4,J5,J6,J7 agent
+    class M,N database
+    class O,P,Q external
+    class R,S,T,U evaluation
+    

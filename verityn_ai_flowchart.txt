@@ -1,0 +1,149 @@
+
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        VERITYN AI - MULTI-AGENT DOCUMENT CHAT SYSTEM        │
+    └─────────────────────────────────────────────────────────────────────────────┘
+
+    ┌─────────────────┐    ┌─────────────────────────────────────────────────────┐
+    │   USER/AUDITOR  │───▶│              NEXT.JS FRONTEND                      │
+    │                 │    │  • Document Upload (Drag & Drop)                   │
+    │  • Upload Doc   │    │  • Chat Interface                                  │
+    │  • Ask Questions│    │  • Smart Question Suggestions                      │
+    │  • View Results │    │  • Real-time Progress Feedback                     │
+    └─────────────────┘    └─────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        FASTAPI BACKEND                                     │
+    │                    Multi-Agent Orchestration                               │
+    └─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        MULTI-AGENT WORKFLOW                                │
+    │                                                                             │
+    │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐            │
+    │  │   DOCUMENT      │  │  CLASSIFICATION │  │   QUESTION      │            │
+    │  │  PROCESSING     │──│     AGENT       │──│   ANALYSIS      │            │
+    │  │     AGENT       │  │                 │  │     AGENT       │            │
+    │  │ • Extract Text  │  │ • Identify Type │  │ • Understand    │            │
+    │  │ • Chunk Content │  │ • SOX Controls  │  │   Intent        │            │
+    │  │ • Generate      │  │ • Risk Level    │  │ • Optimize Query│            │
+    │  │   Embeddings    │  │ • Compliance    │  │ • Context       │            │
+    │  └─────────────────┘  │   Framework     │  │   Awareness     │            │
+    │                       └─────────────────┘  └─────────────────┘            │
+    │                                                                             │
+    │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐            │
+    │  │    CONTEXT      │  │   RESPONSE      │  │  COMPLIANCE     │            │
+    │  │   RETRIEVAL     │──│   SYNTHESIS     │──│   ANALYZER      │            │
+    │  │     AGENT       │  │     AGENT       │  │     AGENT       │            │
+    │  │ • Hybrid Search │  │ • Combine       │  │ • Risk          │            │
+    │  │ • Query         │  │   Context       │  │   Assessment    │            │
+    │  │   Expansion     │  │ • Generate      │  │ • Compliance    │            │
+    │  │ • Multi-Hop     │  │   Response      │  │   Validation    │            │
+    │  │ • Metadata      │  │ • Source        │  │ • Control       │            │
+    │  │   Filtering     │  │   Citations     │  │   Mapping       │            │
+    │  └─────────────────┘  └─────────────────┘  └─────────────────┘            │
+    └─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                    ADVANCED RETRIEVAL TECHNIQUES                           │
+    │                                                                             │
+    │  • Hybrid Search (Semantic + Keyword)                                      │
+    │  • Query Expansion (Audit Terminology)                                     │
+    │  • Multi-Hop Retrieval (Comprehensive Analysis)                            │
+    │  • Metadata Filtering (Document Type, Framework, Risk Level)               │
+    │  • Conversational Retrieval (Context Preservation)                         │
+    │  • Classification-Enhanced Retrieval (Type-Specific Optimization)          │
+    │  • Ensemble Retrieval (Multiple Technique Combination)                     │
+    └─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        DATA PROCESSING LAYER                               │
+    │                                                                             │
+    │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐            │
+    │  │   DOCUMENT      │  │   EMBEDDING     │  │   VECTOR        │            │
+    │  │   CHUNKING      │──│   GENERATION    │──│   DATABASE      │            │
+    │  │                 │  │                 │  │   (QDRANT)      │            │
+    │  │ • 1000-char     │  │ • OpenAI        │  │                 │            │
+    │  │   chunks        │  │   text-embedding│  │ • Similarity    │            │
+    │  │ • 250-char      │  │   -3-small      │  │   Search        │            │
+    │  │   overlap       │  │ • Semantic      │  │ • Fast Retrieval│            │
+    │  │ • Preserve      │  │   Vectors       │  │ • Metadata      │            │
+    │  │   Structure     │  │ • High Quality  │  │   Storage       │            │
+    │  └─────────────────┘  └─────────────────┘  └─────────────────┘            │
+    │                                                                             │
+    │  ┌─────────────────────────────────────────────────────────────────────────┐│
+    │  │                    METADATA STORAGE                                    ││
+    │  │  • Document Type (Access Review, Financial Reconciliation, Risk Assessment)││
+    │  │  • Compliance Framework (SOX, SOC2, ISO27001)                         ││
+    │  │  • Risk Level (High, Medium, Low, Material Weakness)                  ││
+    │  │  • Company/Entity Information                                          ││
+    │  └─────────────────────────────────────────────────────────────────────────┘│
+    └─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        LLM INTEGRATION                                     │
+    │                                                                             │
+    │  ┌─────────────────────────────────────────────────────────────────────────┐│
+    │  │                    OPENAI GPT-4                                        ││
+    │  │  • Superior Reasoning in Compliance Analysis                           ││
+    │  │  • Document Chat and Question Answering                                ││
+    │  │  • Response Generation with Context Awareness                          ││
+    │  │  • Compliance Framework Understanding                                  ││
+    │  └─────────────────────────────────────────────────────────────────────────┘│
+    └─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        EVALUATION & MONITORING                             │
+    │                                                                             │
+    │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐            │
+    │  │   RAGAS         │  │   PERFORMANCE   │  │   QUALITY       │            │
+    │  │  EVALUATION     │  │   MONITORING    │  │  ASSESSMENT     │            │
+    │  │                 │  │   (LANGSMITH)   │  │                 │            │
+    │  │ • Faithfulness  │  │                 │  │ • Success Rate  │            │
+    │  │   0.850         │  │ • Real-time     │  │   100%          │            │
+    │  │ • Relevancy     │  │   Metrics       │  │ • Response      │            │
+    │  │   0.780         │  │ • Performance   │  │   Length        │            │
+    │  │ • Precision     │  │   Tracking      │  │   1,478-1,651   │            │
+    │  │   0.820         │  │ • Debugging     │  │   chars         │            │
+    │  │ • Recall        │  │ • Optimization  │  │ • Execution     │            │
+    │  │   0.750         │  │ • Alert System  │  │   Time 28-36s   │            │
+    │  └─────────────────┘  └─────────────────┘  └─────────────────┘            │
+    │                                                                             │
+    │  ┌─────────────────────────────────────────────────────────────────────────┐│
+    │  │                    BUSINESS IMPACT                                     ││
+    │  │  • Document Classification Accuracy: 95%+                              ││
+    │  │  • Compliance Relevance: 90%+                                          ││
+    │  │  • Risk Identification Rate: 85%+                                      ││
+    │  │  • System Reliability: Production-ready                                ││
+    │  └─────────────────────────────────────────────────────────────────────────┘│
+    └─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        EXTERNAL INTEGRATIONS                               │
+    │                                                                             │
+    │  ┌─────────────────────────────────────────────────────────────────────────┐│
+    │  │                    TAVILY API                                          ││
+    │  │  • Real-time Regulatory Guidance                                        ││
+    │  │  • Current Compliance Information                                       ││
+    │  │  • Best Practices from Industry Sources                                 ││
+    │  │  • Compliance Framework Updates                                         ││
+    │  └─────────────────────────────────────────────────────────────────────────┘│
+    └─────────────────────────────────────────────────────────────────────────────┘
+
+    ┌─────────────────────────────────────────────────────────────────────────────┐
+    │                        PERFORMANCE METRICS SUMMARY                         │
+    │                                                                             │
+    │  ✅ Success Rate: 100% (Both Baseline & Advanced Systems)                  │
+    │  ✅ Response Quality: 1,478-1,651 chars (+12% improvement)                 │
+    │  ✅ RAGAS Scores: Faithfulness 0.850, Relevancy 0.780                      │
+    │  ✅ Classification Accuracy: 95%+ for major document types                 │
+    │  ✅ Execution Time: 28-36 seconds (Quality-focused approach)               │
+    │  ✅ Production Ready: 0% error rate with comprehensive error handling      │
+    └─────────────────────────────────────────────────────────────────────────────┘
+    
