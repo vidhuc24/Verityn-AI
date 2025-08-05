@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Send } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface ChatInterfaceProps {
   document: any
@@ -19,6 +21,38 @@ interface Message {
   confidence?: number
 }
 
+// Helper function to format AI responses
+const formatAIResponse = (content: string): string => {
+  // If content already has markdown headers, return as is
+  if (content.includes('## ')) {
+    return content
+  }
+  
+  // If content is plain text, format it nicely
+  const lines = content.split('\n').filter(line => line.trim())
+  
+  if (lines.length === 1) {
+    // Single line response
+    return content
+  }
+  
+  // Multi-line response - add some structure
+  let formatted = ''
+  
+  // Check if it looks like a list
+  if (lines.some(line => line.trim().startsWith('-') || line.trim().startsWith('•'))) {
+    formatted = '## 📋 Response\n\n' + content
+  } else if (lines.length > 3) {
+    // Long response - add structure
+    formatted = '## 📋 Analysis\n\n' + content
+  } else {
+    // Short response - keep as is
+    formatted = content
+  }
+  
+  return formatted
+}
+
 export default function ChatInterface({ 
   document, 
   analysisResults, 
@@ -30,7 +64,25 @@ export default function ChatInterface({
     {
       id: '1',
       type: 'ai',
-      content: `I've analyzed your ${analysisResults.documentType} document. I can help you understand the compliance findings, identify risks, and answer questions about the audit results. What would you like to know?`,
+      content: `## 📋 Welcome to Verityn AI
+
+I've analyzed your **${analysisResults.documentType}** document and I'm ready to help you understand the compliance findings, identify risks, and answer questions about the audit results.
+
+## 🔍 What I Can Help With
+- **Compliance Analysis**: Identify SOX controls, PCI-DSS requirements, and other frameworks
+- **Risk Assessment**: Evaluate material weaknesses and control deficiencies  
+- **Audit Findings**: Explain specific findings and their implications
+- **Recommendations**: Provide actionable remediation steps
+- **Document Navigation**: Help you find specific sections and references
+
+## 🎯 Getting Started
+Ask me anything about your document! I can help with questions like:
+- "What are the main compliance issues identified?"
+- "Which SOX controls are deficient?"
+- "What are the material weaknesses?"
+- "What remediation steps are recommended?"
+
+What would you like to know about your audit document?`,
       timestamp: new Date()
     }
   ])
@@ -91,7 +143,7 @@ export default function ChatInterface({
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: result.chat.response,
+        content: formatAIResponse(result.chat.response),
         timestamp: new Date(),
         sources: result.chat.sources,
         confidence: result.chat.confidence
@@ -113,7 +165,7 @@ export default function ChatInterface({
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: 'Sorry, I encountered an error while processing your question. Please try again.',
+        content: formatAIResponse('Sorry, I encountered an error while processing your question. Please try again.'),
         timestamp: new Date()
       }
       setMessages(prev => [...prev, errorMessage])
@@ -140,21 +192,88 @@ export default function ChatInterface({
               className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-3xl rounded-lg px-4 py-2 ${
+                className={`max-w-4xl rounded-lg px-4 py-3 ${
                   message.type === 'user'
                     ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-900'
+                    : 'bg-gray-50 text-gray-900 border border-gray-200'
                 }`}
               >
-                <p className="text-sm">{message.content}</p>
+                {message.type === 'user' ? (
+                  <p className="text-sm">{message.content}</p>
+                ) : (
+                  <div className="chat-markdown">
+                    <ReactMarkdown 
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        h2: ({children}) => (
+                          <h2 className="text-lg font-semibold text-gray-900 mt-4 mb-2 first:mt-0">
+                            {children}
+                          </h2>
+                        ),
+                        h3: ({children}) => (
+                          <h3 className="text-base font-medium text-gray-800 mt-3 mb-1">
+                            {children}
+                          </h3>
+                        ),
+                        ul: ({children}) => (
+                          <ul className="list-disc list-inside space-y-1 my-2">
+                            {children}
+                          </ul>
+                        ),
+                        ol: ({children}) => (
+                          <ol className="list-decimal list-inside space-y-1 my-2">
+                            {children}
+                          </ol>
+                        ),
+                        li: ({children}) => (
+                          <li className="text-sm text-gray-700">
+                            {children}
+                          </li>
+                        ),
+                        p: ({children}) => (
+                          <p className="text-sm text-gray-700 mb-2 last:mb-0">
+                            {children}
+                          </p>
+                        ),
+                        strong: ({children}) => (
+                          <strong className="font-semibold text-gray-900">
+                            {children}
+                          </strong>
+                        ),
+                        em: ({children}) => (
+                          <em className="italic text-gray-800">
+                            {children}
+                          </em>
+                        ),
+                        blockquote: ({children}) => (
+                          <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-3 bg-blue-50">
+                            {children}
+                          </blockquote>
+                        ),
+                        code: ({children}) => (
+                          <code className="bg-gray-100 px-1 py-0.5 rounded text-xs font-mono">
+                            {children}
+                          </code>
+                        ),
+                        pre: ({children}) => (
+                          <pre className="bg-gray-100 p-3 rounded text-xs font-mono overflow-x-auto">
+                            {children}
+                          </pre>
+                        ),
+                      }}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
+                  </div>
+                )}
                 
                 {/* Show sources for AI messages */}
                 {message.type === 'ai' && message.sources && message.sources.length > 0 && (
-                  <div className="mt-2 pt-2 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 mb-1">Sources:</p>
+                  <div className="mt-3 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 mb-2 font-medium">📚 Sources:</p>
                     {message.sources.map((source: any, index: number) => (
-                      <p key={index} className="text-xs text-gray-600">
-                        • {source.title || source.content?.substring(0, 50)}...
+                      <p key={index} className="text-xs text-gray-600 mb-1">
+                        • {source.title || source.content?.substring(0, 60)}...
                       </p>
                     ))}
                   </div>
@@ -162,14 +281,14 @@ export default function ChatInterface({
                 
                 {/* Show confidence for AI messages */}
                 {message.type === 'ai' && message.confidence && (
-                  <div className="mt-1">
+                  <div className="mt-2 pt-2 border-t border-gray-200">
                     <p className="text-xs text-gray-500">
-                      Confidence: {(message.confidence * 100).toFixed(1)}%
+                      🎯 Confidence: {(message.confidence * 100).toFixed(1)}%
                     </p>
                   </div>
                 )}
                 
-                <p className={`text-xs mt-1 ${
+                <p className={`text-xs mt-2 ${
                   message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
                 }`}>
                   {message.timestamp.toLocaleTimeString()}

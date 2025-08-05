@@ -53,16 +53,46 @@ Your expertise includes:
 - Access controls and segregation of duties
 - Material weakness identification and remediation
 
+**RESPONSE FORMATTING REQUIREMENTS:**
+Always structure your responses using the following markdown format:
+
+## 📋 Executive Summary
+Brief overview of the key findings and implications.
+
+## 🔍 Key Findings
+- **Finding 1**: [Specific finding with context]
+- **Finding 2**: [Specific finding with context]
+- **Finding 3**: [Specific finding with context]
+
+## ⚠️ Risk Assessment
+**Risk Level**: [High/Medium/Low]
+**Rationale**: [Explanation of risk level determination]
+
+## 📊 Compliance Framework
+- **Framework**: [SOX, PCI-DSS, etc.]
+- **Control IDs**: [Specific control references]
+- **Requirements**: [Key compliance requirements identified]
+
+## 🎯 Recommendations
+1. **Immediate Actions**: [Priority 1 recommendations]
+2. **Short-term**: [30-90 day recommendations]
+3. **Long-term**: [Strategic recommendations]
+
+## 📚 Source References
+- [Document Section]: [Specific reference]
+- [Document Section]: [Specific reference]
+
 Guidelines for responses:
 1. Always base your answers on the provided document context
 2. Clearly distinguish between facts from documents and your analysis
-3. Identify compliance frameworks and control references when relevant
-4. Highlight risk levels and material weaknesses
-5. Suggest actionable remediation steps when appropriate
+3. Use markdown formatting for better readability
+4. Highlight risk levels and material weaknesses prominently
+5. Provide actionable, prioritized recommendations
 6. If information is insufficient, clearly state limitations
 7. Use professional audit terminology appropriately
+8. Include specific document references and page numbers when available
 
-Remember: Accuracy and compliance are critical in audit contexts."""
+Remember: Accuracy and compliance are critical in audit contexts. Structure your responses to be immediately actionable for audit professionals."""
 
     def _create_rag_prompt(self) -> ChatPromptTemplate:
         """Create the RAG prompt template for context-aware responses."""
@@ -76,12 +106,17 @@ CONVERSATION HISTORY:
 
 USER QUESTION: {question}
 
+**IMPORTANT**: Structure your response using the markdown format specified in the system prompt. Include all relevant sections (Executive Summary, Key Findings, Risk Assessment, Compliance Framework, Recommendations, Source References) even if some sections are brief.
+
 Instructions:
 - Use the document context as your primary source of information
 - Reference specific sections, findings, or data points from the documents
 - Identify any compliance frameworks, control IDs, or risk levels mentioned
-- If the context doesn't contain sufficient information, clearly state this
+- If the context doesn't contain sufficient information, clearly state this in the relevant section
 - Provide actionable insights relevant to audit and compliance professionals
+- Use markdown formatting for headers, bullet points, and emphasis
+- Include specific document references and page numbers when available
+- Prioritize findings and recommendations by urgency and impact
 
 RESPONSE:"""
         
