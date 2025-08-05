@@ -42,13 +42,17 @@ class RAGASEvaluationService:
             ChatOpenAI(
                 model="gpt-4",
                 temperature=0.1,
-                openai_api_key=settings.OPENAI_API_KEY
+                openai_api_key=settings.OPENAI_API_KEY,
+                request_timeout=120,  # Increased timeout
+                max_retries=3  # Add retries
             )
         )
         self.evaluator_embeddings = LangchainEmbeddingsWrapper(
             OpenAIEmbeddings(
                 model=settings.OPENAI_EMBEDDING_MODEL,
-                openai_api_key=settings.OPENAI_API_KEY
+                openai_api_key=settings.OPENAI_API_KEY,
+                request_timeout=120,  # Increased timeout
+                max_retries=3  # Add retries
             )
         )
         
@@ -64,6 +68,10 @@ class RAGASEvaluationService:
             context_recall,
             answer_similarity
         ]
+        
+        # Rate limiting configuration
+        self.rate_limit_delay = 2.0  # Seconds between API calls
+        self.batch_size = 3  # Process questions in smaller batches
         
         # Audit-specific test questions
         self.audit_test_questions = [
@@ -97,6 +105,43 @@ class RAGASEvaluationService:
                 ]
             }
         ]
+    
+    async def _rate_limited_delay(self):
+        """Add rate limiting delay between API calls."""
+        await asyncio.sleep(self.rate_limit_delay)
+    
+    async def _process_batch_with_rate_limiting(self, batch_items: List[Dict], retrieval_method: str) -> List[Dict]:
+        """Process a batch of items with rate limiting."""
+        results = []
+        for i, item in enumerate(batch_items):
+            try:
+                logger.info(f"Processing item {i+1}/{len(batch_items)}")
+                
+                # Get system response
+                system_response = await self._get_system_response(item["question"], retrieval_method)
+                
+                results.append({
+                    "question": item["question"],
+                    "answer": system_response["answer"],
+                    "contexts": system_response["contexts"],
+                    "ground_truth": item["ground_truth"]
+                })
+                
+                # Add rate limiting delay between items
+                if i < len(batch_items) - 1:  # Don't delay after the last item
+                    await self._rate_limited_delay()
+                    
+            except Exception as e:
+                logger.error(f"Error processing item {i+1}: {str(e)}")
+                # Add fallback response
+                results.append({
+                    "question": item["question"],
+                    "answer": "Unable to generate response due to system error.",
+                    "contexts": [],
+                    "ground_truth": item["ground_truth"]
+                })
+                
+        return results
     
     async def generate_synthetic_test_data(self, num_questions: int = 10) -> Dataset:
         """
@@ -177,7 +222,7 @@ class RAGASEvaluationService:
         retrieval_method: str = "hybrid"
     ) -> Dict[str, Any]:
         """
-        Evaluate retrieval system using RAGAS metrics.
+        Evaluate retrieval system using RAGAS metrics with rate limiting.
         
         Args:
             test_dataset: Dataset with test questions and ground truth
@@ -189,7 +234,10 @@ class RAGASEvaluationService:
         try:
             logger.info(f"Evaluating retrieval system with {retrieval_method} method")
             
-            # Generate answers using our system
+            # Convert dataset to list for batch processing
+            dataset_list = list(test_dataset)
+            
+            # Process in batches with rate limiting
             evaluation_data = {
                 "question": [],
                 "answer": [],
@@ -197,23 +245,33 @@ class RAGASEvaluationService:
                 "ground_truth": []
             }
             
-            for item in test_dataset:
-                question = item["question"]
-                ground_truth = item["ground_truth"]
-                expected_contexts = item["contexts"]
+            # Process in smaller batches to avoid rate limits
+            for i in range(0, len(dataset_list), self.batch_size):
+                batch = dataset_list[i:i + self.batch_size]
+                logger.info(f"Processing batch {i//self.batch_size + 1}/{(len(dataset_list) + self.batch_size - 1)//self.batch_size}")
                 
-                # Get answer from our system
-                system_response = await self._get_system_response(question, retrieval_method)
+                batch_results = await self._process_batch_with_rate_limiting(batch, retrieval_method)
                 
-                evaluation_data["question"].append(question)
-                evaluation_data["answer"].append(system_response["answer"])
-                evaluation_data["contexts"].append(system_response["contexts"])
-                evaluation_data["ground_truth"].append(ground_truth)
+                # Add batch results to evaluation data
+                for result in batch_results:
+                    evaluation_data["question"].append(result["question"])
+                    evaluation_data["answer"].append(result["answer"])
+                    evaluation_data["contexts"].append(result["contexts"])
+                    evaluation_data["ground_truth"].append(result["ground_truth"])
+                
+                # Add delay between batches
+                if i + self.batch_size < len(dataset_list):
+                    logger.info("Adding delay between batches...")
+                    await asyncio.sleep(5.0)  # 5 second delay between batches
             
             # Create evaluation dataset
             eval_dataset = Dataset.from_dict(evaluation_data)
             
-            # Run RAGAS evaluation
+            logger.info("Running RAGAS evaluation...")
+            
+            # Run RAGAS evaluation with additional delay
+            await asyncio.sleep(3.0)  # Delay before RAGAS evaluation
+            
             result = evaluate(
                 dataset=eval_dataset,
                 metrics=self.metrics,
@@ -319,7 +377,7 @@ class RAGASEvaluationService:
         methods: List[str] = ["semantic", "hybrid", "query_expansion"]
     ) -> Dict[str, Any]:
         """
-        Compare different retrieval methods using RAGAS evaluation.
+        Compare different retrieval methods using RAGAS evaluation with rate limiting.
         
         Args:
             test_dataset: Test dataset for evaluation
@@ -337,11 +395,28 @@ class RAGASEvaluationService:
                 "summary": {}
             }
             
-            # Evaluate each method
-            for method in methods:
-                logger.info(f"Evaluating method: {method}")
-                method_results = await self.evaluate_retrieval_system(test_dataset, method)
-                comparison_results["methods"][method] = method_results
+            # Evaluate each method with delays between them
+            for i, method in enumerate(methods):
+                logger.info(f"Evaluating method {i+1}/{len(methods)}: {method}")
+                
+                try:
+                    method_results = await self.evaluate_retrieval_system(test_dataset, method)
+                    comparison_results["methods"][method] = method_results
+                    
+                    logger.info(f"Completed evaluation for {method}")
+                    
+                    # Add delay between method evaluations
+                    if i < len(methods) - 1:  # Don't delay after the last method
+                        logger.info("Adding delay between method evaluations...")
+                        await asyncio.sleep(10.0)  # 10 second delay between methods
+                        
+                except Exception as e:
+                    logger.error(f"Failed to evaluate method {method}: {str(e)}")
+                    comparison_results["methods"][method] = {
+                        "error": str(e),
+                        "method": method,
+                        "timestamp": datetime.now().isoformat()
+                    }
             
             # Generate comparison summary
             comparison_results["summary"] = self._generate_comparison_summary(comparison_results["methods"])
