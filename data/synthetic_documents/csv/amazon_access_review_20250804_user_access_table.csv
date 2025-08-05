@@ -1,0 +1,51 @@
+UserID,Employee_Name,Department,Job_Title,System_Access,Access_Level,Last_Login,SOX_Critical,Review_Status,Findings
+U1000,Employee_001,IT,Director,Data_1,Read Only,Data_1,Yes,Exception,Data_1
+U1001,Employee_002,Accounting,VP,Data_2,Power User,Data_2,Yes,Approved,Data_2
+U1002,Employee_003,Treasury,Manager,Data_3,Read Only,Data_3,No,Approved,Data_3
+U1003,Employee_004,IT,Senior Analyst,Data_4,Standard User,Data_4,No,Exception,Data_4
+U1004,Employee_005,Finance,Analyst,Data_5,Read Only,Data_5,No,Pending,Data_5
+U1005,Employee_006,Finance,Analyst,Data_6,Power User,Data_6,Yes,Approved,Data_6
+U1006,Employee_007,Finance,Manager,Data_7,Administrator,Data_7,Yes,Exception,Data_7
+U1007,Employee_008,IT,Manager,Data_8,Standard User,Data_8,No,Pending,Data_8
+U1008,Employee_009,Finance,VP,Data_9,Power User,Data_9,No,Exception,Data_9
+U1009,Employee_010,Legal,Analyst,Data_10,Standard User,Data_10,No,Exception,Data_10
+U1010,Employee_011,Finance,Director,Data_11,Administrator,Data_11,Yes,Approved,Data_11
+U1011,Employee_012,Treasury,Manager,Data_12,Administrator,Data_12,Yes,Pending,Data_12
+U1012,Employee_013,Operations,Analyst,Data_13,Administrator,Data_13,No,Approved,Data_13
+U1013,Employee_014,Operations,VP,Data_14,Standard User,Data_14,Yes,Approved,Data_14
+U1014,Employee_015,Legal,Analyst,Data_15,Standard User,Data_15,No,Approved,Data_15
+U1015,Employee_016,Legal,VP,Data_16,Administrator,Data_16,Yes,Exception,Data_16
+U1016,Employee_017,Treasury,Manager,Data_17,Power User,Data_17,Yes,Exception,Data_17
+U1017,Employee_018,Treasury,Manager,Data_18,Administrator,Data_18,No,Approved,Data_18
+U1018,Employee_019,IT,Analyst,Data_19,Read Only,Data_19,Yes,Pending,Data_19
+U1019,Employee_020,Finance,Manager,Data_20,Standard User,Data_20,No,Exception,Data_20
+U1020,Employee_021,Accounting,VP,Data_21,Standard User,Data_21,No,Pending,Data_21
+U1021,Employee_022,Accounting,Senior Analyst,Data_22,Read Only,Data_22,No,Pending,Data_22
+U1022,Employee_023,Treasury,Analyst,Data_23,Power User,Data_23,Yes,Exception,Data_23
+U1023,Employee_024,Finance,VP,Data_24,Administrator,Data_24,Yes,Pending,Data_24
+U1024,Employee_025,Treasury,Director,Data_25,Power User,Data_25,Yes,Exception,Data_25
+U1025,Employee_026,Accounting,Director,Data_26,Administrator,Data_26,Yes,Exception,Data_26
+U1026,Employee_027,Operations,Manager,Data_27,Administrator,Data_27,Yes,Approved,Data_27
+U1027,Employee_028,Treasury,Director,Data_28,Power User,Data_28,No,Exception,Data_28
+U1028,Employee_029,Finance,Analyst,Data_29,Power User,Data_29,No,Exception,Data_29
+U1029,Employee_030,IT,VP,Data_30,Read Only,Data_30,No,Approved,Data_30
+U1030,Employee_031,Legal,Manager,Data_31,Power User,Data_31,No,Pending,Data_31
+U1031,Employee_032,Finance,Manager,Data_32,Standard User,Data_32,No,Pending,Data_32
+U1032,Employee_033,Finance,VP,Data_33,Power User,Data_33,Yes,Approved,Data_33
+U1033,Employee_034,Accounting,VP,Data_34,Read Only,Data_34,Yes,Exception,Data_34
+U1034,Employee_035,Finance,Manager,Data_35,Standard User,Data_35,Yes,Pending,Data_35
+U1035,Employee_036,Finance,VP,Data_36,Standard User,Data_36,Yes,Pending,Data_36
+U1036,Employee_037,Treasury,VP,Data_37,Power User,Data_37,Yes,Approved,Data_37
+U1037,Employee_038,Finance,Senior Analyst,Data_38,Power User,Data_38,No,Approved,Data_38
+U1038,Employee_039,Accounting,Manager,Data_39,Read Only,Data_39,No,Approved,Data_39
+U1039,Employee_040,Treasury,Senior Analyst,Data_40,Administrator,Data_40,No,Pending,Data_40
+U1040,Employee_041,Finance,Analyst,Data_41,Power User,Data_41,No,Approved,Data_41
+U1041,Employee_042,Operations,Manager,Data_42,Administrator,Data_42,No,Exception,Data_42
+U1042,Employee_043,Operations,Manager,Data_43,Read Only,Data_43,Yes,Approved,Data_43
+U1043,Employee_044,Accounting,VP,Data_44,Standard User,Data_44,Yes,Pending,Data_44
+U1044,Employee_045,IT,Manager,Data_45,Standard User,Data_45,Yes,Approved,Data_45
+U1045,Employee_046,Accounting,Analyst,Data_46,Administrator,Data_46,No,Approved,Data_46
+U1046,Employee_047,Legal,Manager,Data_47,Read Only,Data_47,Yes,Pending,Data_47
+U1047,Employee_048,Operations,Director,Data_48,Standard User,Data_48,No,Pending,Data_48
+U1048,Employee_049,Treasury,Manager,Data_49,Power User,Data_49,Yes,Exception,Data_49
+U1049,Employee_050,Operations,Director,Data_50,Read Only,Data_50,No,Exception,Data_50

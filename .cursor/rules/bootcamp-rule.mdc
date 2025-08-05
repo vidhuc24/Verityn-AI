@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### Rules for Bootcamp Integration
+
+- You must always reference the relevant bootcamp material in `bootcamp_reference/` when building features for Verityn AI.
+- You must check the session-specific notebooks and examples before implementing any new functionality.
+- You must follow the patterns and best practices demonstrated in the bootcamp sessions.
+- You must use the mapping guide in `bootcamp_reference/VERITYN_AI_MAPPING.md` to identify relevant sessions.
+- You must reference the quick guide in `BOOTCAMP_REFERENCE.md` for easy access to key files.
+- You must implement features following the bootcamp curriculum structure and progression.
+- You must ensure all 7 challenge tasks are addressed using bootcamp session materials as reference.
+- You must use bootcamp examples as templates for implementation patterns.

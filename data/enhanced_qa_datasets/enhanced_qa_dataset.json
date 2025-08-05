@@ -1,0 +1,2776 @@
+{
+  "generation_summary": {
+    "timestamp": "2025-08-04T13:35:30.190284",
+    "total_documents": 36,
+    "total_questions": 135,
+    "questions_by_quality": {
+      "high": 36,
+      "medium": 27,
+      "low": 36,
+      "fail": 36
+    },
+    "questions_by_evidence_type": {
+      "exception_handling": 48,
+      "role_segregation": 24,
+      "standard": 36,
+      "quality_detection": 27
+    },
+    "gap_analysis_addressed": {
+      "missing_evidence_types": [
+        "exception_handling",
+        "role_segregation"
+      ],
+      "insufficient_detail_areas": [],
+      "quality_level_gaps": [],
+      "control_coverage_gaps": [
+        "Insufficient SOX 404 control questions",
+        "Insufficient SOX 302 control questions"
+      ],
+      "recommendations": [
+        "Generate 2 additional evidence types: exception_handling, role_segregation",
+        "Create quality-stratified documents (High/Medium/Low/Fail)",
+        "Add specific SOX control ID references to all documents",
+        "Include role-based approval workflows in evidence",
+        "Add technical validation logs and system timestamps"
+      ]
+    }
+  },
+  "enhanced_qa_datasets": {
+    "uber_access_review_high": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "uber",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256306",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Uber Technologies Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191368"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191372"
+        },
+        {
+          "question": "How does Uber Technologies Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation. Advanced automated controls provide real-time segregation monitoring with comprehensive reporting.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191374"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified. Advanced automated controls provide real-time segregation monitoring with comprehensive reporting.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191376"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191377"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this access review?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191379"
+        }
+      ]
+    },
+    "uber_access_review_medium": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "uber",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256318",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Uber Technologies Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191389"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191390"
+        },
+        {
+          "question": "How does Uber Technologies Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191392"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191393"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191394"
+        }
+      ]
+    },
+    "uber_access_review_low": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "uber",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256327",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Uber Technologies Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken. However, some exception handling procedures lack complete documentation.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191402"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines. However, some exception handling procedures lack complete documentation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191403"
+        },
+        {
+          "question": "How does Uber Technologies Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation. Some segregation controls rely on manual procedures that need enhancement.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191405"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified. Some segregation controls rely on manual procedures that need enhancement.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191406"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191407"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this access review documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191408"
+        }
+      ]
+    },
+    "uber_access_review_fail": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "uber",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256338",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Uber Technologies Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191415"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191416"
+        },
+        {
+          "question": "How does Uber Technologies Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Segregation of duties controls are inadequate with multiple violations identified. This represents a material weakness in internal controls.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191417"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Segregation of duties controls are inadequate with multiple violations identified. This represents a material weakness in internal controls.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191420"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191421"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this access review?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191423"
+        }
+      ]
+    },
+    "uber_financial_reconciliation_high": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "uber",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256384",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Uber Technologies Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191428"
+        },
+        {
+          "question": "What procedures does Uber Technologies Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management. 302.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191430"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this financial reconciliation?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191431"
+        }
+      ]
+    },
+    "uber_financial_reconciliation_medium": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "uber",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256410",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Uber Technologies Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191435"
+        },
+        {
+          "question": "What procedures does Uber Technologies Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191437"
+        }
+      ]
+    },
+    "uber_financial_reconciliation_low": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "uber",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256423",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Uber Technologies Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close. However, some exception handling procedures lack complete documentation.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191441"
+        },
+        {
+          "question": "What procedures does Uber Technologies Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management. 302.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191442"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this financial reconciliation documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191443"
+        }
+      ]
+    },
+    "uber_financial_reconciliation_fail": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "uber",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256433",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Uber Technologies Inc.?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191447"
+        },
+        {
+          "question": "What procedures does Uber Technologies Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191450"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this financial reconciliation?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191452"
+        }
+      ]
+    },
+    "uber_risk_assessment_high": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "uber",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256489",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191456"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191457"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this risk assessment?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191458"
+        }
+      ]
+    },
+    "uber_risk_assessment_medium": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "uber",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256504",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191462"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191463"
+        }
+      ]
+    },
+    "uber_risk_assessment_low": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "uber",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256542",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation. However, some exception handling procedures lack complete documentation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191468"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191469"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this risk assessment documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191470"
+        }
+      ]
+    },
+    "uber_risk_assessment_fail": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "uber",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256566",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191474"
+        },
+        {
+          "question": "How does Uber Technologies Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191476"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this risk assessment?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "uber",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191477"
+        }
+      ]
+    },
+    "walmart_access_review_high": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "walmart",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256579",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Walmart Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191482"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191483"
+        },
+        {
+          "question": "How does Walmart Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation. Advanced automated controls provide real-time segregation monitoring with comprehensive reporting.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191484"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified. Advanced automated controls provide real-time segregation monitoring with comprehensive reporting.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191485"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191487"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this access review?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191488"
+        }
+      ]
+    },
+    "walmart_access_review_medium": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "walmart",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256586",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Walmart Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191492"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191493"
+        },
+        {
+          "question": "How does Walmart Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191494"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191496"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191497"
+        }
+      ]
+    },
+    "walmart_access_review_low": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "walmart",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256595",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Walmart Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken. However, some exception handling procedures lack complete documentation.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191502"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines. However, some exception handling procedures lack complete documentation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191504"
+        },
+        {
+          "question": "How does Walmart Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation. Some segregation controls rely on manual procedures that need enhancement.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191505"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified. Some segregation controls rely on manual procedures that need enhancement.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191506"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191507"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this access review documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191509"
+        }
+      ]
+    },
+    "walmart_access_review_fail": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "walmart",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256603",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Walmart Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191513"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191514"
+        },
+        {
+          "question": "How does Walmart Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Segregation of duties controls are inadequate with multiple violations identified. This represents a material weakness in internal controls.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191555"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Segregation of duties controls are inadequate with multiple violations identified. This represents a material weakness in internal controls.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191556"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191558"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this access review?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191559"
+        }
+      ]
+    },
+    "walmart_financial_reconciliation_high": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "walmart",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256615",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Walmart Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191563"
+        },
+        {
+          "question": "What procedures does Walmart Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management. 302.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191565"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this financial reconciliation?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191566"
+        }
+      ]
+    },
+    "walmart_financial_reconciliation_medium": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "walmart",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256625",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Walmart Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191569"
+        },
+        {
+          "question": "What procedures does Walmart Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191570"
+        }
+      ]
+    },
+    "walmart_financial_reconciliation_low": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "walmart",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256643",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Walmart Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close. However, some exception handling procedures lack complete documentation.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191574"
+        },
+        {
+          "question": "What procedures does Walmart Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management. 302.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191575"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this financial reconciliation documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191577"
+        }
+      ]
+    },
+    "walmart_financial_reconciliation_fail": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "walmart",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256651",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Walmart Inc.?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191580"
+        },
+        {
+          "question": "What procedures does Walmart Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191581"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this financial reconciliation?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191583"
+        }
+      ]
+    },
+    "walmart_risk_assessment_high": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "walmart",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256666",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191586"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191588"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this risk assessment?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191589"
+        }
+      ]
+    },
+    "walmart_risk_assessment_medium": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "walmart",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256678",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191592"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191593"
+        }
+      ]
+    },
+    "walmart_risk_assessment_low": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "walmart",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256690",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation. However, some exception handling procedures lack complete documentation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191597"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191599"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this risk assessment documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191600"
+        }
+      ]
+    },
+    "walmart_risk_assessment_fail": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "walmart",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256702",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191604"
+        },
+        {
+          "question": "How does Walmart Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191605"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this risk assessment?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "walmart",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191606"
+        }
+      ]
+    },
+    "amazon_access_review_high": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "amazon",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256712",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Amazon.com Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191611"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191612"
+        },
+        {
+          "question": "How does Amazon.com Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation. Advanced automated controls provide real-time segregation monitoring with comprehensive reporting.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191613"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified. Advanced automated controls provide real-time segregation monitoring with comprehensive reporting.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191615"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191617"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this access review?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191618"
+        }
+      ]
+    },
+    "amazon_access_review_medium": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "amazon",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256719",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Amazon.com Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191622"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191624"
+        },
+        {
+          "question": "How does Amazon.com Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191625"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191626"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191628"
+        }
+      ]
+    },
+    "amazon_access_review_low": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "amazon",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256727",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Amazon.com Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Terminated employee access exceptions are escalated to the SOX Compliance Team for immediate investigation. Standard procedure requires access revocation within 24 hours and documentation of the remediation steps taken. However, some exception handling procedures lack complete documentation.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191632"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Segregation of duties violations trigger immediate management notification and require approval from the CFO for any temporary exceptions. All violations must be remediated within 30 days with documented approval for any extended timelines. However, some exception handling procedures lack complete documentation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191634"
+        },
+        {
+          "question": "How does Amazon.com Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Role-based access controls prevent the same individual from both initiating and approving payments. The system enforces a minimum of two-person authorization for all payments exceeding $5,000, with automated segregation validation. Some segregation controls rely on manual procedures that need enhancement.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191635"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Automated segregation of duties matrix validates user access across all financial systems. Quarterly access reviews specifically test for conflicting access combinations, with immediate remediation required for any violations identified. Some segregation controls rely on manual procedures that need enhancement.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191636"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191637"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this access review documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191639"
+        }
+      ]
+    },
+    "amazon_access_review_fail": {
+      "document_metadata": {
+        "document_type": "access_review",
+        "company": "amazon",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "404.1",
+          "404.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256734",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How does Amazon.com Inc. handle exceptions when terminated employees are found with active system access?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_001",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191644"
+        },
+        {
+          "question": "What is the escalation procedure when segregation of duties violations are identified?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_002",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191646"
+        },
+        {
+          "question": "How does Amazon.com Inc. ensure segregation of duties between payment initiation and approval roles?",
+          "answer": "Segregation of duties controls are inadequate with multiple violations identified. This represents a material weakness in internal controls.",
+          "complexity": "intermediate",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_003",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191647"
+        },
+        {
+          "question": "What controls prevent users from having conflicting access across financial systems?",
+          "answer": "Segregation of duties controls are inadequate with multiple violations identified. This represents a material weakness in internal controls.",
+          "complexity": "advanced",
+          "evidence_type": "role_segregation",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_004",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191648"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_ACCESS_REVIEW_005",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191650"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this access review?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_ACCESS_REVIEW_006",
+          "document_type": "access_review",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191651"
+        }
+      ]
+    },
+    "amazon_financial_reconciliation_high": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "amazon",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256745",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Amazon.com Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191655"
+        },
+        {
+          "question": "What procedures does Amazon.com Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management. 302.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191656"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this financial reconciliation?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191658"
+        }
+      ]
+    },
+    "amazon_financial_reconciliation_medium": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "amazon",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256753",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Amazon.com Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191662"
+        },
+        {
+          "question": "What procedures does Amazon.com Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191664"
+        }
+      ]
+    },
+    "amazon_financial_reconciliation_low": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "amazon",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256763",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Amazon.com Inc.?",
+          "answer": "Variances exceeding $10,000 require immediate investigation by the Accounting Manager with documented root cause analysis. All material variances must be approved by the Assistant Controller before month-end close. However, some exception handling procedures lack complete documentation.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191667"
+        },
+        {
+          "question": "What procedures does Amazon.com Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 procedures include quarterly assessment of disclosure controls effectiveness, documented management review of financial reporting processes, and certification of internal control adequacy by senior management. 302.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191669"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this financial reconciliation documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191670"
+        }
+      ]
+    },
+    "amazon_financial_reconciliation_fail": {
+      "document_metadata": {
+        "document_type": "financial_reconciliation",
+        "company": "amazon",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "302.1",
+          "302.2"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256820",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "How are reconciliation variances exceeding the materiality threshold handled at Amazon.com Inc.?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "intermediate",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_001",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191673"
+        },
+        {
+          "question": "What procedures does Amazon.com Inc. follow for SOX 302.1 management assessment of disclosure controls?",
+          "answer": "SOX 302.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "intermediate",
+          "sox_control_id": "302.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_002",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191675"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this financial reconciliation?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_FINANCIAL_RECONCILIATION_003",
+          "document_type": "financial_reconciliation",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "302.1",
+            "302.2"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191676"
+        }
+      ]
+    },
+    "amazon_risk_assessment_high": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "amazon",
+        "quality_level": "high",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256845",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation. All exception handling procedures are fully documented with comprehensive audit trails and management oversight.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191679"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 implementation exceeds regulatory requirements with comprehensive documentation and testing.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191681"
+        },
+        {
+          "question": "How comprehensive is the control documentation and testing in this risk assessment?",
+          "answer": "The documentation is comprehensive with detailed procedures, thorough testing, and robust management oversight that exceeds standard compliance requirements.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "high",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "high",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191682"
+        }
+      ]
+    },
+    "amazon_risk_assessment_medium": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "amazon",
+        "quality_level": "medium",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256857",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191685"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "medium",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191686"
+        }
+      ]
+    },
+    "amazon_risk_assessment_low": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "amazon",
+        "quality_level": "low",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256868",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "High-risk findings requiring extended remediation timelines must be escalated to the Risk Committee with documented justification and interim compensating controls. Monthly progress reporting is required until full remediation. However, some exception handling procedures lack complete documentation.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191690"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is demonstrated through comprehensive documentation of internal controls, quarterly management assessments, and annual effectiveness testing. All key financial processes have documented control procedures with defined testing frequencies. 404.1 procedures need improvement in documentation and testing frequency.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191691"
+        },
+        {
+          "question": "What gaps or deficiencies are noted in this risk assessment documentation?",
+          "answer": "The documentation shows some gaps in procedures and limited detail in certain areas that need improvement to meet full compliance standards.",
+          "complexity": "intermediate",
+          "evidence_type": "quality_detection",
+          "expected_quality": "low",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "low",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191693"
+        }
+      ]
+    },
+    "amazon_risk_assessment_fail": {
+      "document_metadata": {
+        "document_type": "risk_assessment",
+        "company": "amazon",
+        "quality_level": "fail",
+        "sox_control_ids": [
+          "404.1",
+          "404.3"
+        ],
+        "generated_at": "2025-08-04T13:34:09.256918",
+        "template_version": "2.0_enhanced",
+        "content_type": "ragas_enhanced"
+      },
+      "questions": [
+        {
+          "question": "What happens when high-risk findings cannot be remediated within the standard timeline?",
+          "answer": "Exception handling procedures are inadequate and fail to meet SOX compliance requirements. Significant remediation is required.",
+          "complexity": "advanced",
+          "evidence_type": "exception_handling",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_001",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191696"
+        },
+        {
+          "question": "How does Amazon.com Inc. demonstrate compliance with SOX 404.1 internal control over financial reporting requirements?",
+          "answer": "SOX 404.1 compliance is inadequate and represents a material weakness requiring immediate remediation.",
+          "complexity": "advanced",
+          "sox_control_id": "404.1",
+          "quality_sensitive": true,
+          "question_id": "ENH_RISK_ASSESSMENT_002",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191698"
+        },
+        {
+          "question": "Are there any material weaknesses or significant deficiencies identified in this risk assessment?",
+          "answer": "Yes, this document identifies material weaknesses and significant deficiencies that require immediate management attention and remediation.",
+          "complexity": "basic",
+          "evidence_type": "quality_detection",
+          "expected_quality": "fail",
+          "question_id": "ENH_RISK_ASSESSMENT_003",
+          "document_type": "risk_assessment",
+          "company": "amazon",
+          "quality_level": "fail",
+          "sox_control_ids": [
+            "404.1",
+            "404.3"
+          ],
+          "generated_at": "2025-08-04T13:35:30.191700"
+        }
+      ]
+    }
+  }
+}

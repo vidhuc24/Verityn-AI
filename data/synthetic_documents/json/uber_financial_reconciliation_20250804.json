@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "document_type": "financial_reconciliation",
+    "company": "uber",
+    "generated_at": "2025-08-04T13:23:12.730833",
+    "template_version": "1.0",
+    "content_type": "mock_generated"
+  },
+  "template_structure": {
+    "document_type": "financial_reconciliation",
+    "sox_section": "302",
+    "company_context": {
+      "name": "Uber Technologies Inc.",
+      "business_model": "Global ride-sharing and delivery platform",
+      "industry": "Transportation Technology"
+    },
+    "document_structure": {
+      "header": {
+        "title": "Monthly Bank Reconciliation",
+        "account_name": "Operating Cash Account - Primary",
+        "account_number": "****7089",
+        "period": "March 2024",
+        "preparer": "Senior Staff Accountant",
+        "reviewer": "Accounting Manager",
+        "approver": "Assistant Controller"
+      },
+      "reconciliation_summary": {
+        "book_balance": 24942159,
+        "bank_balance": 24931633,
+        "total_adjustments": 10526,
+        "reconciled_balance": 24942159,
+        "variance_threshold": "$10,000",
+        "variance_explanation_required": true
+      },
+      "reconciling_items": {
+        "deposits_in_transit": 15,
+        "outstanding_checks": 43,
+        "bank_fees": 3,
+        "interest_earned": 2,
+        "nsf_charges": 1,
+        "wire_transfers": 7
+      },
+      "sox_controls": {
+        "three_way_match": "Completed and documented",
+        "management_review": "Approved by Assistant Controller",
+        "supporting_documentation": "Bank statements and transaction details attached",
+        "approval_signatures": "Electronic signatures captured",
+        "exception_handling": "All variances >$10K investigated and documented"
+      }
+    },
+    "data_tables": {
+      "reconciling_items_detail": {
+        "columns": [
+          "Date",
+          "Description",
+          "Reference_Number",
+          "Amount",
+          "Type",
+          "Status",
+          "SOX_Control_Point",
+          "Reviewer"
+        ],
+        "estimated_rows": 64
+      },
+      "outstanding_items": {
+        "columns": [
+          "Check_Number",
+          "Date_Issued",
+          "Payee",
+          "Amount",
+          "Days_Outstanding",
+          "Follow_up_Required",
+          "Status"
+        ],
+        "estimated_rows": 36
+      }
+    }
+  },
+  "generated_content": {
+    "reconciliation_overview": "This monthly reconciliation for the Operating Cash Account - Primary shows a book balance of $23,456,789 and bank balance of $23,491,234, resulting in a net difference of $34,445 requiring detailed analysis and adjustment.",
+    "reconciling_items_analysis": "The reconciliation includes 67 reconciling items totaling $34,445. Major categories include: deposits in transit ($156,780), outstanding checks ($189,225), bank fees ($2,340), and wire transfer timing differences ($8,560). All items have been verified against supporting documentation.",
+    "outstanding_items": "Outstanding items analysis reveals 34 checks outstanding for more than 30 days totaling $45,670. Investigation confirmed all items are legitimate business payments with no stale date concerns. Three wire transfers totaling $12,450 are pending due to beneficiary bank processing delays.",
+    "sox_controls": "SOX 302 control procedures have been executed including: (1) Three-way matching completed for all reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting documentation attached and filed, (4) Electronic signatures captured per company policy, (5) All variances exceeding $10,000 threshold investigated and documented.",
+    "management_review": "The Assistant Controller reviewed and approved this reconciliation on March 31, 2024. All supporting documentation has been reviewed and variance explanations validated. The reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness.",
+    "variance_analysis": "Variance analysis confirms all differences are timing-related with no unexplained discrepancies. The $34,445 net difference falls within acceptable tolerance levels and has been properly documented with management approval."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "missing_evidence_types": [
+    "exception_handling",
+    "role_segregation"
+  ],
+  "insufficient_detail_areas": [],
+  "quality_level_gaps": [],
+  "control_coverage_gaps": [
+    "Insufficient SOX 404 control questions",
+    "Insufficient SOX 302 control questions"
+  ],
+  "recommendations": [
+    "Generate 2 additional evidence types: exception_handling, role_segregation",
+    "Create quality-stratified documents (High/Medium/Low/Fail)",
+    "Add specific SOX control ID references to all documents",
+    "Include role-based approval workflows in evidence",
+    "Add technical validation logs and system timestamps"
+  ]
+}

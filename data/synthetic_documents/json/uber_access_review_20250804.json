@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "document_type": "access_review",
+    "company": "uber",
+    "generated_at": "2025-08-04T13:23:12.726715",
+    "template_version": "1.0",
+    "content_type": "mock_generated"
+  },
+  "template_structure": {
+    "document_type": "access_review",
+    "sox_section": "404",
+    "company_context": {
+      "name": "Uber Technologies Inc.",
+      "business_model": "Global ride-sharing and delivery platform",
+      "industry": "Transportation Technology",
+      "financial_scale": "$31B annual revenue"
+    },
+    "document_structure": {
+      "header": {
+        "title": "Quarterly User Access Review Report",
+        "period": "Q1 2024",
+        "review_date": "2024-03-31",
+        "reviewer": "SOX Compliance Team",
+        "approver": "Chief Financial Officer"
+      },
+      "executive_summary": {
+        "total_users_reviewed": 369,
+        "systems_covered": 4,
+        "high_risk_findings": 2,
+        "medium_risk_findings": 11,
+        "low_risk_findings": 7,
+        "control_effectiveness": "Generally effective"
+      },
+      "systems_reviewed": [
+        "Driver Payment Platform",
+        "Rider Billing System",
+        "Financial Reporting System",
+        "Regulatory Compliance Portal"
+      ],
+      "departments_covered": [
+        "Driver Operations",
+        "Finance & Accounting",
+        "Risk Management",
+        "Legal & Compliance",
+        "Product Engineering",
+        "Business Intelligence"
+      ],
+      "user_access_analysis": {
+        "privileged_users": 25,
+        "terminated_users_found": 1,
+        "excessive_access": 7,
+        "segregation_violations": 4
+      },
+      "sox_findings": {
+        "control_gaps": [
+          "Segregation of duties violations in payment processing",
+          "Terminated user access not promptly removed",
+          "Excessive administrative privileges granted"
+        ],
+        "management_response": [
+          "Implement automated access removal process",
+          "Enhanced quarterly access reviews",
+          "Privilege escalation approval workflow"
+        ]
+      }
+    },
+    "data_tables": {
+      "user_access_table": {
+        "columns": [
+          "UserID",
+          "Employee_Name",
+          "Department",
+          "Job_Title",
+          "System_Access",
+          "Access_Level",
+          "Last_Login",
+          "SOX_Critical",
+          "Review_Status",
+          "Findings"
+        ],
+        "estimated_rows": 420
+      },
+      "findings_summary": {
+        "columns": [
+          "Finding_ID",
+          "System",
+          "User",
+          "Issue_Type",
+          "Risk_Level",
+          "SOX_Impact",
+          "Remediation",
+          "Due_Date"
+        ],
+        "estimated_rows": 23
+      }
+    }
+  },
+  "generated_content": {
+    "executive_summary": "This quarterly user access review evaluated 347 user accounts across 4 critical financial systems. The review identified 3 high-risk findings related to segregation of duties violations and 12 medium-risk findings primarily concerning excessive administrative privileges. Overall control effectiveness is rated as 'Needs Improvement' with specific remediation actions required.",
+    "scope_methodology": "The review covered all users with access to SOX-critical financial systems including the Driver Payment Platform, Rider Billing System, Financial Reporting System, and Regulatory Compliance Portal. Testing methodology included automated access reports, manual verification of high-risk accounts, and validation of termination procedures.",
+    "key_findings": "Key findings include: (1) Three instances of segregation of duties violations in the payment processing workflow, (2) Two terminated employees with active system access discovered, (3) Eight users with excessive administrative privileges not required for their roles, (4) Insufficient documentation for emergency access grants during Q1 2024.",
+    "sox_compliance_analysis": "Per SOX Section 404 requirements, the review identified material weaknesses in user access controls. Specifically, the lack of automated access removal processes and inadequate quarterly review procedures present risks to internal controls over financial reporting (ICFR).",
+    "management_response": "Management has committed to implementing an automated access removal process within 60 days, enhancing quarterly access review procedures, and establishing a formal privilege escalation approval workflow. The CFO will oversee remediation efforts with monthly progress reporting to the Audit Committee.",
+    "conclusion": "While the overall access control framework is fundamentally sound, the identified deficiencies require immediate attention to ensure SOX 404 compliance. Implementation of the proposed remediation plan will significantly strengthen the control environment."
+  }
+}

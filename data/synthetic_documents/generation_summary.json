@@ -1,0 +1,1040 @@
+{
+  "generation_summary": {
+    "timestamp": "2025-08-04T13:23:12.726593",
+    "total_documents": 9,
+    "successful_documents": 9,
+    "files_created": {
+      "pdf": 9,
+      "csv": 18,
+      "json": 9
+    }
+  },
+  "documents": {
+    "uber": {
+      "access_review": {
+        "document_data": {
+          "metadata": {
+            "document_type": "access_review",
+            "company": "uber",
+            "generated_at": "2025-08-04T13:23:12.726715",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "access_review",
+            "sox_section": "404",
+            "company_context": {
+              "name": "Uber Technologies Inc.",
+              "business_model": "Global ride-sharing and delivery platform",
+              "industry": "Transportation Technology",
+              "financial_scale": "$31B annual revenue"
+            },
+            "document_structure": {
+              "header": {
+                "title": "Quarterly User Access Review Report",
+                "period": "Q1 2024",
+                "review_date": "2024-03-31",
+                "reviewer": "SOX Compliance Team",
+                "approver": "Chief Financial Officer"
+              },
+              "executive_summary": {
+                "total_users_reviewed": 369,
+                "systems_covered": 4,
+                "high_risk_findings": 2,
+                "medium_risk_findings": 11,
+                "low_risk_findings": 7,
+                "control_effectiveness": "Generally effective"
+              },
+              "systems_reviewed": [
+                "Driver Payment Platform",
+                "Rider Billing System",
+                "Financial Reporting System",
+                "Regulatory Compliance Portal"
+              ],
+              "departments_covered": [
+                "Driver Operations",
+                "Finance & Accounting",
+                "Risk Management",
+                "Legal & Compliance",
+                "Product Engineering",
+                "Business Intelligence"
+              ],
+              "user_access_analysis": {
+                "privileged_users": 25,
+                "terminated_users_found": 1,
+                "excessive_access": 7,
+                "segregation_violations": 4
+              },
+              "sox_findings": {
+                "control_gaps": [
+                  "Segregation of duties violations in payment processing",
+                  "Terminated user access not promptly removed",
+                  "Excessive administrative privileges granted"
+                ],
+                "management_response": [
+                  "Implement automated access removal process",
+                  "Enhanced quarterly access reviews",
+                  "Privilege escalation approval workflow"
+                ]
+              }
+            },
+            "data_tables": {
+              "user_access_table": {
+                "columns": [
+                  "UserID",
+                  "Employee_Name",
+                  "Department",
+                  "Job_Title",
+                  "System_Access",
+                  "Access_Level",
+                  "Last_Login",
+                  "SOX_Critical",
+                  "Review_Status",
+                  "Findings"
+                ],
+                "estimated_rows": 420
+              },
+              "findings_summary": {
+                "columns": [
+                  "Finding_ID",
+                  "System",
+                  "User",
+                  "Issue_Type",
+                  "Risk_Level",
+                  "SOX_Impact",
+                  "Remediation",
+                  "Due_Date"
+                ],
+                "estimated_rows": 23
+              }
+            }
+          },
+          "generated_content": {
+            "executive_summary": "This quarterly user access review evaluated 347 user accounts across 4 critical financial systems. The review identified 3 high-risk findings related to segregation of duties violations and 12 medium-risk findings primarily concerning excessive administrative privileges. Overall control effectiveness is rated as 'Needs Improvement' with specific remediation actions required.",
+            "scope_methodology": "The review covered all users with access to SOX-critical financial systems including the Driver Payment Platform, Rider Billing System, Financial Reporting System, and Regulatory Compliance Portal. Testing methodology included automated access reports, manual verification of high-risk accounts, and validation of termination procedures.",
+            "key_findings": "Key findings include: (1) Three instances of segregation of duties violations in the payment processing workflow, (2) Two terminated employees with active system access discovered, (3) Eight users with excessive administrative privileges not required for their roles, (4) Insufficient documentation for emergency access grants during Q1 2024.",
+            "sox_compliance_analysis": "Per SOX Section 404 requirements, the review identified material weaknesses in user access controls. Specifically, the lack of automated access removal processes and inadequate quarterly review procedures present risks to internal controls over financial reporting (ICFR).",
+            "management_response": "Management has committed to implementing an automated access removal process within 60 days, enhancing quarterly access review procedures, and establishing a formal privilege escalation approval workflow. The CFO will oversee remediation efforts with monthly progress reporting to the Audit Committee.",
+            "conclusion": "While the overall access control framework is fundamentally sound, the identified deficiencies require immediate attention to ensure SOX 404 compliance. Implementation of the proposed remediation plan will significantly strengthen the control environment."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/uber_access_review_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/uber_access_review_20250804_user_access_table.csv",
+            "data/synthetic_documents/csv/uber_access_review_20250804_findings_summary.csv"
+          ],
+          "json": "data/synthetic_documents/json/uber_access_review_20250804.json"
+        }
+      },
+      "financial_reconciliation": {
+        "document_data": {
+          "metadata": {
+            "document_type": "financial_reconciliation",
+            "company": "uber",
+            "generated_at": "2025-08-04T13:23:12.730833",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "financial_reconciliation",
+            "sox_section": "302",
+            "company_context": {
+              "name": "Uber Technologies Inc.",
+              "business_model": "Global ride-sharing and delivery platform",
+              "industry": "Transportation Technology"
+            },
+            "document_structure": {
+              "header": {
+                "title": "Monthly Bank Reconciliation",
+                "account_name": "Operating Cash Account - Primary",
+                "account_number": "****7089",
+                "period": "March 2024",
+                "preparer": "Senior Staff Accountant",
+                "reviewer": "Accounting Manager",
+                "approver": "Assistant Controller"
+              },
+              "reconciliation_summary": {
+                "book_balance": 24942159,
+                "bank_balance": 24931633,
+                "total_adjustments": 10526,
+                "reconciled_balance": 24942159,
+                "variance_threshold": "$10,000",
+                "variance_explanation_required": true
+              },
+              "reconciling_items": {
+                "deposits_in_transit": 15,
+                "outstanding_checks": 43,
+                "bank_fees": 3,
+                "interest_earned": 2,
+                "nsf_charges": 1,
+                "wire_transfers": 7
+              },
+              "sox_controls": {
+                "three_way_match": "Completed and documented",
+                "management_review": "Approved by Assistant Controller",
+                "supporting_documentation": "Bank statements and transaction details attached",
+                "approval_signatures": "Electronic signatures captured",
+                "exception_handling": "All variances >$10K investigated and documented"
+              }
+            },
+            "data_tables": {
+              "reconciling_items_detail": {
+                "columns": [
+                  "Date",
+                  "Description",
+                  "Reference_Number",
+                  "Amount",
+                  "Type",
+                  "Status",
+                  "SOX_Control_Point",
+                  "Reviewer"
+                ],
+                "estimated_rows": 64
+              },
+              "outstanding_items": {
+                "columns": [
+                  "Check_Number",
+                  "Date_Issued",
+                  "Payee",
+                  "Amount",
+                  "Days_Outstanding",
+                  "Follow_up_Required",
+                  "Status"
+                ],
+                "estimated_rows": 36
+              }
+            }
+          },
+          "generated_content": {
+            "reconciliation_overview": "This monthly reconciliation for the Operating Cash Account - Primary shows a book balance of $23,456,789 and bank balance of $23,491,234, resulting in a net difference of $34,445 requiring detailed analysis and adjustment.",
+            "reconciling_items_analysis": "The reconciliation includes 67 reconciling items totaling $34,445. Major categories include: deposits in transit ($156,780), outstanding checks ($189,225), bank fees ($2,340), and wire transfer timing differences ($8,560). All items have been verified against supporting documentation.",
+            "outstanding_items": "Outstanding items analysis reveals 34 checks outstanding for more than 30 days totaling $45,670. Investigation confirmed all items are legitimate business payments with no stale date concerns. Three wire transfers totaling $12,450 are pending due to beneficiary bank processing delays.",
+            "sox_controls": "SOX 302 control procedures have been executed including: (1) Three-way matching completed for all reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting documentation attached and filed, (4) Electronic signatures captured per company policy, (5) All variances exceeding $10,000 threshold investigated and documented.",
+            "management_review": "The Assistant Controller reviewed and approved this reconciliation on March 31, 2024. All supporting documentation has been reviewed and variance explanations validated. The reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness.",
+            "variance_analysis": "Variance analysis confirms all differences are timing-related with no unexplained discrepancies. The $34,445 net difference falls within acceptable tolerance levels and has been properly documented with management approval."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/uber_financial_reconciliation_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/uber_financial_reconciliation_20250804_reconciling_items_detail.csv",
+            "data/synthetic_documents/csv/uber_financial_reconciliation_20250804_outstanding_items.csv"
+          ],
+          "json": "data/synthetic_documents/json/uber_financial_reconciliation_20250804.json"
+        }
+      },
+      "risk_assessment": {
+        "document_data": {
+          "metadata": {
+            "document_type": "risk_assessment",
+            "company": "uber",
+            "generated_at": "2025-08-04T13:23:12.735639",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "risk_assessment",
+            "sox_section": "404",
+            "company_context": {
+              "name": "Uber Technologies Inc.",
+              "business_model": "Global ride-sharing and delivery platform",
+              "industry": "Transportation Technology"
+            },
+            "document_structure": {
+              "header": {
+                "title": "SOX 404 Risk Assessment - Financial Close and Reporting",
+                "assessment_period": "Q1 2024",
+                "assessment_date": "2024-03-31",
+                "lead_assessor": "Internal Audit Manager",
+                "process_owner": "Finance Director",
+                "risk_committee_review": "2024-04-15"
+              },
+              "process_overview": {
+                "process_name": "Financial Close and Reporting",
+                "business_impact": "High - Direct impact on financial reporting accuracy",
+                "annual_volume": "$1043M in transactions",
+                "key_systems": [
+                  "Financial Reporting System",
+                  "Regulatory Compliance Portal"
+                ],
+                "involved_departments": [
+                  "Business Intelligence",
+                  "Product Engineering",
+                  "Legal & Compliance"
+                ]
+              },
+              "risk_summary": {
+                "total_risks_identified": 25,
+                "high_risks": 6,
+                "medium_risks": 12,
+                "low_risks": 6,
+                "inherent_risk_rating": "Medium-High",
+                "residual_risk_rating": "Medium"
+              },
+              "key_risks": [
+                {
+                  "risk_id": "R001",
+                  "description": "Inaccurate financial close and reporting due to system errors",
+                  "likelihood": "High",
+                  "impact": "High",
+                  "risk_rating": "High",
+                  "control_description": "Automated system controls and manual reviews"
+                },
+                {
+                  "risk_id": "R002",
+                  "description": "Unauthorized changes to financial data",
+                  "likelihood": "Medium",
+                  "impact": "High",
+                  "risk_rating": "Medium",
+                  "control_description": "Role-based access controls and approval workflows"
+                }
+              ],
+              "sox_assessment": {
+                "control_design_effectiveness": "Effective with minor gaps",
+                "operating_effectiveness": "Deficiencies noted",
+                "management_response": "Action plan developed for identified deficiencies",
+                "remediation_timeline": "60-90 days for high priority items"
+              }
+            },
+            "data_tables": {
+              "risk_register": {
+                "columns": [
+                  "Risk_ID",
+                  "Risk_Description",
+                  "Process_Step",
+                  "Likelihood",
+                  "Impact",
+                  "Risk_Rating",
+                  "Control_Description",
+                  "Control_Owner",
+                  "Testing_Frequency",
+                  "Last_Test_Date",
+                  "Test_Results",
+                  "Action_Required"
+                ],
+                "estimated_rows": 27
+              },
+              "control_matrix": {
+                "columns": [
+                  "Control_ID",
+                  "Control_Description",
+                  "Control_Type",
+                  "Frequency",
+                  "Owner",
+                  "SOX_Relevant",
+                  "Design_Effective",
+                  "Operating_Effective",
+                  "Deficiencies",
+                  "Management_Response"
+                ],
+                "estimated_rows": 21
+              }
+            }
+          },
+          "generated_content": {
+            "executive_summary": "This SOX 404 risk assessment evaluated the Revenue Recognition Process, identifying 23 risks across the end-to-end workflow. Assessment results show 4 high risks, 12 medium risks, and 7 low risks. The inherent risk rating is High due to transaction volume and complexity, while residual risk is Medium-Low following control implementation.",
+            "methodology": "Risk assessment methodology included process walkthroughs, control testing, system analysis, and stakeholder interviews. The assessment covered all process steps from customer onboarding through revenue recording, focusing on SOX 404 control requirements and financial reporting accuracy.",
+            "detailed_risks": "High risks identified include: (1) Inaccurate revenue recognition due to system calculation errors (Risk ID: R001, Rating: High), (2) Unauthorized revenue adjustments bypassing approval controls (Risk ID: R002, Rating: High), (3) Incomplete revenue capture from third-party platforms (Risk ID: R003, Rating: High), (4) Manual journal entry errors in complex transactions (Risk ID: R004, Rating: High).",
+            "control_assessment": "Control environment assessment indicates effective design for most controls with some operational effectiveness gaps. Key controls include automated system validations, multi-level approval workflows, monthly analytical reviews, and quarterly management certifications. Three controls require enhancement to address identified deficiencies.",
+            "sox_evaluation": "SOX 404 evaluation concludes that control design is generally effective with minor gaps requiring attention. Operating effectiveness shows some exceptions in manual review controls and approval workflow adherence. Management has committed to addressing all identified deficiencies within the prescribed timeline.",
+            "management_response": "Management response includes: (1) Enhanced system validation controls for revenue calculations, (2) Strengthened approval workflow enforcement, (3) Implementation of automated third-party reconciliation processes, (4) Additional training for manual journal entry procedures. All actions have assigned owners and target completion dates.",
+            "monitoring_plan": "Ongoing monitoring includes monthly control testing, quarterly management assessments, and annual independent validation. Key performance indicators have been established to track control effectiveness and remediation progress. The Internal Audit team will conduct follow-up testing in Q2 2024."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/uber_risk_assessment_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/uber_risk_assessment_20250804_risk_register.csv",
+            "data/synthetic_documents/csv/uber_risk_assessment_20250804_control_matrix.csv"
+          ],
+          "json": "data/synthetic_documents/json/uber_risk_assessment_20250804.json"
+        }
+      }
+    },
+    "walmart": {
+      "access_review": {
+        "document_data": {
+          "metadata": {
+            "document_type": "access_review",
+            "company": "walmart",
+            "generated_at": "2025-08-04T13:23:12.740815",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "access_review",
+            "sox_section": "404",
+            "company_context": {
+              "name": "Walmart Inc.",
+              "business_model": "Global retail and e-commerce operations",
+              "industry": "Retail",
+              "financial_scale": "$611B annual revenue"
+            },
+            "document_structure": {
+              "header": {
+                "title": "Quarterly User Access Review Report",
+                "period": "Q1 2024",
+                "review_date": "2024-03-31",
+                "reviewer": "SOX Compliance Team",
+                "approver": "Chief Financial Officer"
+              },
+              "executive_summary": {
+                "total_users_reviewed": 294,
+                "systems_covered": 4,
+                "high_risk_findings": 5,
+                "medium_risk_findings": 13,
+                "low_risk_findings": 8,
+                "control_effectiveness": "Generally effective"
+              },
+              "systems_reviewed": [
+                "Point of Sale Systems",
+                "Supply Chain Management",
+                "Vendor Payment Portal",
+                "Inventory Management System"
+              ],
+              "departments_covered": [
+                "Merchandising",
+                "Supply Chain",
+                "Finance & Accounting",
+                "Store Operations",
+                "E-commerce",
+                "Internal Audit"
+              ],
+              "user_access_analysis": {
+                "privileged_users": 35,
+                "terminated_users_found": 2,
+                "excessive_access": 6,
+                "segregation_violations": 4
+              },
+              "sox_findings": {
+                "control_gaps": [
+                  "Segregation of duties violations in payment processing",
+                  "Terminated user access not promptly removed",
+                  "Excessive administrative privileges granted"
+                ],
+                "management_response": [
+                  "Implement automated access removal process",
+                  "Enhanced quarterly access reviews",
+                  "Privilege escalation approval workflow"
+                ]
+              }
+            },
+            "data_tables": {
+              "user_access_table": {
+                "columns": [
+                  "UserID",
+                  "Employee_Name",
+                  "Department",
+                  "Job_Title",
+                  "System_Access",
+                  "Access_Level",
+                  "Last_Login",
+                  "SOX_Critical",
+                  "Review_Status",
+                  "Findings"
+                ],
+                "estimated_rows": 321
+              },
+              "findings_summary": {
+                "columns": [
+                  "Finding_ID",
+                  "System",
+                  "User",
+                  "Issue_Type",
+                  "Risk_Level",
+                  "SOX_Impact",
+                  "Remediation",
+                  "Due_Date"
+                ],
+                "estimated_rows": 17
+              }
+            }
+          },
+          "generated_content": {
+            "executive_summary": "This quarterly user access review evaluated 347 user accounts across 4 critical financial systems. The review identified 3 high-risk findings related to segregation of duties violations and 12 medium-risk findings primarily concerning excessive administrative privileges. Overall control effectiveness is rated as 'Needs Improvement' with specific remediation actions required.",
+            "scope_methodology": "The review covered all users with access to SOX-critical financial systems including the Driver Payment Platform, Rider Billing System, Financial Reporting System, and Regulatory Compliance Portal. Testing methodology included automated access reports, manual verification of high-risk accounts, and validation of termination procedures.",
+            "key_findings": "Key findings include: (1) Three instances of segregation of duties violations in the payment processing workflow, (2) Two terminated employees with active system access discovered, (3) Eight users with excessive administrative privileges not required for their roles, (4) Insufficient documentation for emergency access grants during Q1 2024.",
+            "sox_compliance_analysis": "Per SOX Section 404 requirements, the review identified material weaknesses in user access controls. Specifically, the lack of automated access removal processes and inadequate quarterly review procedures present risks to internal controls over financial reporting (ICFR).",
+            "management_response": "Management has committed to implementing an automated access removal process within 60 days, enhancing quarterly access review procedures, and establishing a formal privilege escalation approval workflow. The CFO will oversee remediation efforts with monthly progress reporting to the Audit Committee.",
+            "conclusion": "While the overall access control framework is fundamentally sound, the identified deficiencies require immediate attention to ensure SOX 404 compliance. Implementation of the proposed remediation plan will significantly strengthen the control environment."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/walmart_access_review_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/walmart_access_review_20250804_user_access_table.csv",
+            "data/synthetic_documents/csv/walmart_access_review_20250804_findings_summary.csv"
+          ],
+          "json": "data/synthetic_documents/json/walmart_access_review_20250804.json"
+        }
+      },
+      "financial_reconciliation": {
+        "document_data": {
+          "metadata": {
+            "document_type": "financial_reconciliation",
+            "company": "walmart",
+            "generated_at": "2025-08-04T13:23:12.745855",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "financial_reconciliation",
+            "sox_section": "302",
+            "company_context": {
+              "name": "Walmart Inc.",
+              "business_model": "Global retail and e-commerce operations",
+              "industry": "Retail"
+            },
+            "document_structure": {
+              "header": {
+                "title": "Monthly Bank Reconciliation",
+                "account_name": "Operating Cash Account - Primary",
+                "account_number": "****8228",
+                "period": "March 2024",
+                "preparer": "Senior Staff Accountant",
+                "reviewer": "Accounting Manager",
+                "approver": "Assistant Controller"
+              },
+              "reconciliation_summary": {
+                "book_balance": 59948094,
+                "bank_balance": 59968798,
+                "total_adjustments": 20704,
+                "reconciled_balance": 59948094,
+                "variance_threshold": "$10,000",
+                "variance_explanation_required": true
+              },
+              "reconciling_items": {
+                "deposits_in_transit": 14,
+                "outstanding_checks": 45,
+                "bank_fees": 4,
+                "interest_earned": 1,
+                "nsf_charges": 2,
+                "wire_transfers": 6
+              },
+              "sox_controls": {
+                "three_way_match": "Completed and documented",
+                "management_review": "Approved by Assistant Controller",
+                "supporting_documentation": "Bank statements and transaction details attached",
+                "approval_signatures": "Electronic signatures captured",
+                "exception_handling": "All variances >$10K investigated and documented"
+              }
+            },
+            "data_tables": {
+              "reconciling_items_detail": {
+                "columns": [
+                  "Date",
+                  "Description",
+                  "Reference_Number",
+                  "Amount",
+                  "Type",
+                  "Status",
+                  "SOX_Control_Point",
+                  "Reviewer"
+                ],
+                "estimated_rows": 100
+              },
+              "outstanding_items": {
+                "columns": [
+                  "Check_Number",
+                  "Date_Issued",
+                  "Payee",
+                  "Amount",
+                  "Days_Outstanding",
+                  "Follow_up_Required",
+                  "Status"
+                ],
+                "estimated_rows": 31
+              }
+            }
+          },
+          "generated_content": {
+            "reconciliation_overview": "This monthly reconciliation for the Operating Cash Account - Primary shows a book balance of $23,456,789 and bank balance of $23,491,234, resulting in a net difference of $34,445 requiring detailed analysis and adjustment.",
+            "reconciling_items_analysis": "The reconciliation includes 67 reconciling items totaling $34,445. Major categories include: deposits in transit ($156,780), outstanding checks ($189,225), bank fees ($2,340), and wire transfer timing differences ($8,560). All items have been verified against supporting documentation.",
+            "outstanding_items": "Outstanding items analysis reveals 34 checks outstanding for more than 30 days totaling $45,670. Investigation confirmed all items are legitimate business payments with no stale date concerns. Three wire transfers totaling $12,450 are pending due to beneficiary bank processing delays.",
+            "sox_controls": "SOX 302 control procedures have been executed including: (1) Three-way matching completed for all reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting documentation attached and filed, (4) Electronic signatures captured per company policy, (5) All variances exceeding $10,000 threshold investigated and documented.",
+            "management_review": "The Assistant Controller reviewed and approved this reconciliation on March 31, 2024. All supporting documentation has been reviewed and variance explanations validated. The reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness.",
+            "variance_analysis": "Variance analysis confirms all differences are timing-related with no unexplained discrepancies. The $34,445 net difference falls within acceptable tolerance levels and has been properly documented with management approval."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/walmart_financial_reconciliation_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/walmart_financial_reconciliation_20250804_reconciling_items_detail.csv",
+            "data/synthetic_documents/csv/walmart_financial_reconciliation_20250804_outstanding_items.csv"
+          ],
+          "json": "data/synthetic_documents/json/walmart_financial_reconciliation_20250804.json"
+        }
+      },
+      "risk_assessment": {
+        "document_data": {
+          "metadata": {
+            "document_type": "risk_assessment",
+            "company": "walmart",
+            "generated_at": "2025-08-04T13:23:12.751431",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "risk_assessment",
+            "sox_section": "404",
+            "company_context": {
+              "name": "Walmart Inc.",
+              "business_model": "Global retail and e-commerce operations",
+              "industry": "Retail"
+            },
+            "document_structure": {
+              "header": {
+                "title": "SOX 404 Risk Assessment - Revenue Recognition Process",
+                "assessment_period": "Q1 2024",
+                "assessment_date": "2024-03-31",
+                "lead_assessor": "Internal Audit Manager",
+                "process_owner": "Finance Director",
+                "risk_committee_review": "2024-04-15"
+              },
+              "process_overview": {
+                "process_name": "Revenue Recognition Process",
+                "business_impact": "High - Direct impact on financial reporting accuracy",
+                "annual_volume": "$1596M in transactions",
+                "key_systems": [
+                  "Inventory Management System",
+                  "Supply Chain Management"
+                ],
+                "involved_departments": [
+                  "Supply Chain",
+                  "Finance & Accounting",
+                  "Store Operations"
+                ]
+              },
+              "risk_summary": {
+                "total_risks_identified": 25,
+                "high_risks": 6,
+                "medium_risks": 11,
+                "low_risks": 10,
+                "inherent_risk_rating": "High",
+                "residual_risk_rating": "Medium"
+              },
+              "key_risks": [
+                {
+                  "risk_id": "R001",
+                  "description": "Inaccurate revenue recognition process due to system errors",
+                  "likelihood": "Medium",
+                  "impact": "High",
+                  "risk_rating": "High",
+                  "control_description": "Automated system controls and manual reviews"
+                },
+                {
+                  "risk_id": "R002",
+                  "description": "Unauthorized changes to financial data",
+                  "likelihood": "Medium",
+                  "impact": "High",
+                  "risk_rating": "Medium",
+                  "control_description": "Role-based access controls and approval workflows"
+                }
+              ],
+              "sox_assessment": {
+                "control_design_effectiveness": "Effective with minor gaps",
+                "operating_effectiveness": "Deficiencies noted",
+                "management_response": "Action plan developed for identified deficiencies",
+                "remediation_timeline": "60-90 days for high priority items"
+              }
+            },
+            "data_tables": {
+              "risk_register": {
+                "columns": [
+                  "Risk_ID",
+                  "Risk_Description",
+                  "Process_Step",
+                  "Likelihood",
+                  "Impact",
+                  "Risk_Rating",
+                  "Control_Description",
+                  "Control_Owner",
+                  "Testing_Frequency",
+                  "Last_Test_Date",
+                  "Test_Results",
+                  "Action_Required"
+                ],
+                "estimated_rows": 25
+              },
+              "control_matrix": {
+                "columns": [
+                  "Control_ID",
+                  "Control_Description",
+                  "Control_Type",
+                  "Frequency",
+                  "Owner",
+                  "SOX_Relevant",
+                  "Design_Effective",
+                  "Operating_Effective",
+                  "Deficiencies",
+                  "Management_Response"
+                ],
+                "estimated_rows": 18
+              }
+            }
+          },
+          "generated_content": {
+            "executive_summary": "This SOX 404 risk assessment evaluated the Revenue Recognition Process, identifying 23 risks across the end-to-end workflow. Assessment results show 4 high risks, 12 medium risks, and 7 low risks. The inherent risk rating is High due to transaction volume and complexity, while residual risk is Medium-Low following control implementation.",
+            "methodology": "Risk assessment methodology included process walkthroughs, control testing, system analysis, and stakeholder interviews. The assessment covered all process steps from customer onboarding through revenue recording, focusing on SOX 404 control requirements and financial reporting accuracy.",
+            "detailed_risks": "High risks identified include: (1) Inaccurate revenue recognition due to system calculation errors (Risk ID: R001, Rating: High), (2) Unauthorized revenue adjustments bypassing approval controls (Risk ID: R002, Rating: High), (3) Incomplete revenue capture from third-party platforms (Risk ID: R003, Rating: High), (4) Manual journal entry errors in complex transactions (Risk ID: R004, Rating: High).",
+            "control_assessment": "Control environment assessment indicates effective design for most controls with some operational effectiveness gaps. Key controls include automated system validations, multi-level approval workflows, monthly analytical reviews, and quarterly management certifications. Three controls require enhancement to address identified deficiencies.",
+            "sox_evaluation": "SOX 404 evaluation concludes that control design is generally effective with minor gaps requiring attention. Operating effectiveness shows some exceptions in manual review controls and approval workflow adherence. Management has committed to addressing all identified deficiencies within the prescribed timeline.",
+            "management_response": "Management response includes: (1) Enhanced system validation controls for revenue calculations, (2) Strengthened approval workflow enforcement, (3) Implementation of automated third-party reconciliation processes, (4) Additional training for manual journal entry procedures. All actions have assigned owners and target completion dates.",
+            "monitoring_plan": "Ongoing monitoring includes monthly control testing, quarterly management assessments, and annual independent validation. Key performance indicators have been established to track control effectiveness and remediation progress. The Internal Audit team will conduct follow-up testing in Q2 2024."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/walmart_risk_assessment_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/walmart_risk_assessment_20250804_risk_register.csv",
+            "data/synthetic_documents/csv/walmart_risk_assessment_20250804_control_matrix.csv"
+          ],
+          "json": "data/synthetic_documents/json/walmart_risk_assessment_20250804.json"
+        }
+      }
+    },
+    "amazon": {
+      "access_review": {
+        "document_data": {
+          "metadata": {
+            "document_type": "access_review",
+            "company": "amazon",
+            "generated_at": "2025-08-04T13:23:12.759582",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "access_review",
+            "sox_section": "404",
+            "company_context": {
+              "name": "Amazon.com Inc.",
+              "business_model": "E-commerce, cloud services, and digital platforms",
+              "industry": "Technology/Retail",
+              "financial_scale": "$574B annual revenue"
+            },
+            "document_structure": {
+              "header": {
+                "title": "Quarterly User Access Review Report",
+                "period": "Q1 2024",
+                "review_date": "2024-03-31",
+                "reviewer": "SOX Compliance Team",
+                "approver": "Chief Financial Officer"
+              },
+              "executive_summary": {
+                "total_users_reviewed": 320,
+                "systems_covered": 4,
+                "high_risk_findings": 5,
+                "medium_risk_findings": 9,
+                "low_risk_findings": 11,
+                "control_effectiveness": "Needs improvement"
+              },
+              "systems_reviewed": [
+                "AWS Financial Management",
+                "Marketplace Payment System",
+                "Supply Chain Optimization",
+                "Customer Account Management"
+              ],
+              "departments_covered": [
+                "AWS Finance",
+                "Retail Operations",
+                "Finance & Accounting",
+                "Risk Management",
+                "Seller Services",
+                "Customer Experience"
+              ],
+              "user_access_analysis": {
+                "privileged_users": 37,
+                "terminated_users_found": 2,
+                "excessive_access": 4,
+                "segregation_violations": 4
+              },
+              "sox_findings": {
+                "control_gaps": [
+                  "Segregation of duties violations in payment processing",
+                  "Terminated user access not promptly removed",
+                  "Excessive administrative privileges granted"
+                ],
+                "management_response": [
+                  "Implement automated access removal process",
+                  "Enhanced quarterly access reviews",
+                  "Privilege escalation approval workflow"
+                ]
+              }
+            },
+            "data_tables": {
+              "user_access_table": {
+                "columns": [
+                  "UserID",
+                  "Employee_Name",
+                  "Department",
+                  "Job_Title",
+                  "System_Access",
+                  "Access_Level",
+                  "Last_Login",
+                  "SOX_Critical",
+                  "Review_Status",
+                  "Findings"
+                ],
+                "estimated_rows": 373
+              },
+              "findings_summary": {
+                "columns": [
+                  "Finding_ID",
+                  "System",
+                  "User",
+                  "Issue_Type",
+                  "Risk_Level",
+                  "SOX_Impact",
+                  "Remediation",
+                  "Due_Date"
+                ],
+                "estimated_rows": 25
+              }
+            }
+          },
+          "generated_content": {
+            "executive_summary": "This quarterly user access review evaluated 347 user accounts across 4 critical financial systems. The review identified 3 high-risk findings related to segregation of duties violations and 12 medium-risk findings primarily concerning excessive administrative privileges. Overall control effectiveness is rated as 'Needs Improvement' with specific remediation actions required.",
+            "scope_methodology": "The review covered all users with access to SOX-critical financial systems including the Driver Payment Platform, Rider Billing System, Financial Reporting System, and Regulatory Compliance Portal. Testing methodology included automated access reports, manual verification of high-risk accounts, and validation of termination procedures.",
+            "key_findings": "Key findings include: (1) Three instances of segregation of duties violations in the payment processing workflow, (2) Two terminated employees with active system access discovered, (3) Eight users with excessive administrative privileges not required for their roles, (4) Insufficient documentation for emergency access grants during Q1 2024.",
+            "sox_compliance_analysis": "Per SOX Section 404 requirements, the review identified material weaknesses in user access controls. Specifically, the lack of automated access removal processes and inadequate quarterly review procedures present risks to internal controls over financial reporting (ICFR).",
+            "management_response": "Management has committed to implementing an automated access removal process within 60 days, enhancing quarterly access review procedures, and establishing a formal privilege escalation approval workflow. The CFO will oversee remediation efforts with monthly progress reporting to the Audit Committee.",
+            "conclusion": "While the overall access control framework is fundamentally sound, the identified deficiencies require immediate attention to ensure SOX 404 compliance. Implementation of the proposed remediation plan will significantly strengthen the control environment."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/amazon_access_review_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/amazon_access_review_20250804_user_access_table.csv",
+            "data/synthetic_documents/csv/amazon_access_review_20250804_findings_summary.csv"
+          ],
+          "json": "data/synthetic_documents/json/amazon_access_review_20250804.json"
+        }
+      },
+      "financial_reconciliation": {
+        "document_data": {
+          "metadata": {
+            "document_type": "financial_reconciliation",
+            "company": "amazon",
+            "generated_at": "2025-08-04T13:23:12.764414",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "financial_reconciliation",
+            "sox_section": "302",
+            "company_context": {
+              "name": "Amazon.com Inc.",
+              "business_model": "E-commerce, cloud services, and digital platforms",
+              "industry": "Technology/Retail"
+            },
+            "document_structure": {
+              "header": {
+                "title": "Monthly Bank Reconciliation",
+                "account_name": "Operating Cash Account - Primary",
+                "account_number": "****9010",
+                "period": "March 2024",
+                "preparer": "Senior Staff Accountant",
+                "reviewer": "Accounting Manager",
+                "approver": "Assistant Controller"
+              },
+              "reconciliation_summary": {
+                "book_balance": 116728245,
+                "bank_balance": 116762031,
+                "total_adjustments": 33786,
+                "reconciled_balance": 116728245,
+                "variance_threshold": "$10,000",
+                "variance_explanation_required": true
+              },
+              "reconciling_items": {
+                "deposits_in_transit": 12,
+                "outstanding_checks": 44,
+                "bank_fees": 5,
+                "interest_earned": 1,
+                "nsf_charges": 1,
+                "wire_transfers": 2
+              },
+              "sox_controls": {
+                "three_way_match": "Completed and documented",
+                "management_review": "Approved by Assistant Controller",
+                "supporting_documentation": "Bank statements and transaction details attached",
+                "approval_signatures": "Electronic signatures captured",
+                "exception_handling": "All variances >$10K investigated and documented"
+              }
+            },
+            "data_tables": {
+              "reconciling_items_detail": {
+                "columns": [
+                  "Date",
+                  "Description",
+                  "Reference_Number",
+                  "Amount",
+                  "Type",
+                  "Status",
+                  "SOX_Control_Point",
+                  "Reviewer"
+                ],
+                "estimated_rows": 60
+              },
+              "outstanding_items": {
+                "columns": [
+                  "Check_Number",
+                  "Date_Issued",
+                  "Payee",
+                  "Amount",
+                  "Days_Outstanding",
+                  "Follow_up_Required",
+                  "Status"
+                ],
+                "estimated_rows": 30
+              }
+            }
+          },
+          "generated_content": {
+            "reconciliation_overview": "This monthly reconciliation for the Operating Cash Account - Primary shows a book balance of $23,456,789 and bank balance of $23,491,234, resulting in a net difference of $34,445 requiring detailed analysis and adjustment.",
+            "reconciling_items_analysis": "The reconciliation includes 67 reconciling items totaling $34,445. Major categories include: deposits in transit ($156,780), outstanding checks ($189,225), bank fees ($2,340), and wire transfer timing differences ($8,560). All items have been verified against supporting documentation.",
+            "outstanding_items": "Outstanding items analysis reveals 34 checks outstanding for more than 30 days totaling $45,670. Investigation confirmed all items are legitimate business payments with no stale date concerns. Three wire transfers totaling $12,450 are pending due to beneficiary bank processing delays.",
+            "sox_controls": "SOX 302 control procedures have been executed including: (1) Three-way matching completed for all reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting documentation attached and filed, (4) Electronic signatures captured per company policy, (5) All variances exceeding $10,000 threshold investigated and documented.",
+            "management_review": "The Assistant Controller reviewed and approved this reconciliation on March 31, 2024. All supporting documentation has been reviewed and variance explanations validated. The reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness.",
+            "variance_analysis": "Variance analysis confirms all differences are timing-related with no unexplained discrepancies. The $34,445 net difference falls within acceptable tolerance levels and has been properly documented with management approval."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/amazon_financial_reconciliation_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/amazon_financial_reconciliation_20250804_reconciling_items_detail.csv",
+            "data/synthetic_documents/csv/amazon_financial_reconciliation_20250804_outstanding_items.csv"
+          ],
+          "json": "data/synthetic_documents/json/amazon_financial_reconciliation_20250804.json"
+        }
+      },
+      "risk_assessment": {
+        "document_data": {
+          "metadata": {
+            "document_type": "risk_assessment",
+            "company": "amazon",
+            "generated_at": "2025-08-04T13:23:12.770349",
+            "template_version": "1.0",
+            "content_type": "mock_generated"
+          },
+          "template_structure": {
+            "document_type": "risk_assessment",
+            "sox_section": "404",
+            "company_context": {
+              "name": "Amazon.com Inc.",
+              "business_model": "E-commerce, cloud services, and digital platforms",
+              "industry": "Technology/Retail"
+            },
+            "document_structure": {
+              "header": {
+                "title": "SOX 404 Risk Assessment - Revenue Recognition Process",
+                "assessment_period": "Q1 2024",
+                "assessment_date": "2024-03-31",
+                "lead_assessor": "Internal Audit Manager",
+                "process_owner": "Finance Director",
+                "risk_committee_review": "2024-04-15"
+              },
+              "process_overview": {
+                "process_name": "Revenue Recognition Process",
+                "business_impact": "High - Direct impact on financial reporting accuracy",
+                "annual_volume": "$1533M in transactions",
+                "key_systems": [
+                  "Supply Chain Optimization",
+                  "AWS Financial Management"
+                ],
+                "involved_departments": [
+                  "AWS Finance",
+                  "Retail Operations",
+                  "Risk Management"
+                ]
+              },
+              "risk_summary": {
+                "total_risks_identified": 21,
+                "high_risks": 4,
+                "medium_risks": 9,
+                "low_risks": 8,
+                "inherent_risk_rating": "Medium-High",
+                "residual_risk_rating": "Medium"
+              },
+              "key_risks": [
+                {
+                  "risk_id": "R001",
+                  "description": "Inaccurate revenue recognition process due to system errors",
+                  "likelihood": "Medium",
+                  "impact": "Medium",
+                  "risk_rating": "Medium",
+                  "control_description": "Automated system controls and manual reviews"
+                },
+                {
+                  "risk_id": "R002",
+                  "description": "Unauthorized changes to financial data",
+                  "likelihood": "Medium",
+                  "impact": "High",
+                  "risk_rating": "Medium",
+                  "control_description": "Role-based access controls and approval workflows"
+                }
+              ],
+              "sox_assessment": {
+                "control_design_effectiveness": "Needs improvement",
+                "operating_effectiveness": "Generally effective with exceptions",
+                "management_response": "Action plan developed for identified deficiencies",
+                "remediation_timeline": "60-90 days for high priority items"
+              }
+            },
+            "data_tables": {
+              "risk_register": {
+                "columns": [
+                  "Risk_ID",
+                  "Risk_Description",
+                  "Process_Step",
+                  "Likelihood",
+                  "Impact",
+                  "Risk_Rating",
+                  "Control_Description",
+                  "Control_Owner",
+                  "Testing_Frequency",
+                  "Last_Test_Date",
+                  "Test_Results",
+                  "Action_Required"
+                ],
+                "estimated_rows": 24
+              },
+              "control_matrix": {
+                "columns": [
+                  "Control_ID",
+                  "Control_Description",
+                  "Control_Type",
+                  "Frequency",
+                  "Owner",
+                  "SOX_Relevant",
+                  "Design_Effective",
+                  "Operating_Effective",
+                  "Deficiencies",
+                  "Management_Response"
+                ],
+                "estimated_rows": 20
+              }
+            }
+          },
+          "generated_content": {
+            "executive_summary": "This SOX 404 risk assessment evaluated the Revenue Recognition Process, identifying 23 risks across the end-to-end workflow. Assessment results show 4 high risks, 12 medium risks, and 7 low risks. The inherent risk rating is High due to transaction volume and complexity, while residual risk is Medium-Low following control implementation.",
+            "methodology": "Risk assessment methodology included process walkthroughs, control testing, system analysis, and stakeholder interviews. The assessment covered all process steps from customer onboarding through revenue recording, focusing on SOX 404 control requirements and financial reporting accuracy.",
+            "detailed_risks": "High risks identified include: (1) Inaccurate revenue recognition due to system calculation errors (Risk ID: R001, Rating: High), (2) Unauthorized revenue adjustments bypassing approval controls (Risk ID: R002, Rating: High), (3) Incomplete revenue capture from third-party platforms (Risk ID: R003, Rating: High), (4) Manual journal entry errors in complex transactions (Risk ID: R004, Rating: High).",
+            "control_assessment": "Control environment assessment indicates effective design for most controls with some operational effectiveness gaps. Key controls include automated system validations, multi-level approval workflows, monthly analytical reviews, and quarterly management certifications. Three controls require enhancement to address identified deficiencies.",
+            "sox_evaluation": "SOX 404 evaluation concludes that control design is generally effective with minor gaps requiring attention. Operating effectiveness shows some exceptions in manual review controls and approval workflow adherence. Management has committed to addressing all identified deficiencies within the prescribed timeline.",
+            "management_response": "Management response includes: (1) Enhanced system validation controls for revenue calculations, (2) Strengthened approval workflow enforcement, (3) Implementation of automated third-party reconciliation processes, (4) Additional training for manual journal entry procedures. All actions have assigned owners and target completion dates.",
+            "monitoring_plan": "Ongoing monitoring includes monthly control testing, quarterly management assessments, and annual independent validation. Key performance indicators have been established to track control effectiveness and remediation progress. The Internal Audit team will conduct follow-up testing in Q2 2024."
+          }
+        },
+        "files_created": {
+          "pdf": "data/synthetic_documents/pdf/amazon_risk_assessment_20250804.pdf",
+          "csv": [
+            "data/synthetic_documents/csv/amazon_risk_assessment_20250804_risk_register.csv",
+            "data/synthetic_documents/csv/amazon_risk_assessment_20250804_control_matrix.csv"
+          ],
+          "json": "data/synthetic_documents/json/amazon_risk_assessment_20250804.json"
+        }
+      }
+    }
+  }
+}

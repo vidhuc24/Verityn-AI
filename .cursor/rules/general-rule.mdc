@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Rules to Follow
+
+- You must always commit your changes whenever you update code. 
+- You must always try and write code that is well documented. (self or commented is fine)
+- You must only work on a single feature at a time and test it.
+- You must explain your decisions thouroughly to the user.
+- You must always reference the relevant bootcamp material in `bootcamp_reference/` when building features for Verityn AI.
+- You must check the session-specific notebooks and examples before implementing any new functionality.
+- You must follow the patterns and best practices demonstrated in the bootcamp sessions.

@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### Rules for Backend
+
+- You must use FastAPI for the backend framework with proper error handling and validation.
+- You must implement multi-agent architecture using LangChain + LangGraph as specified in the project requirements.
+- You must use Qdrant vector database with OpenAI text-embedding-3-small for document embeddings.
+- You must integrate Tavily API for web-enhanced responses and regulatory guidance.
+- You must set up LangSmith monitoring for debugging and performance tracking.
+- You must implement RAGAS evaluation for chat response quality assessment.
+- You must use Pydantic models for all API request/response schemas.
+- You must follow the multi-agent workflow: Document Processing → Classification → Chat.
+- You must implement advanced retrieval techniques (hybrid search, query expansion).
+- You must ensure proper document processing for PDF, DOCX, TXT, CSV, and XLSX formats.

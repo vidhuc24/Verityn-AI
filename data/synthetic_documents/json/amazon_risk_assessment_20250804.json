@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "document_type": "risk_assessment",
+    "company": "amazon",
+    "generated_at": "2025-08-04T13:23:12.770349",
+    "template_version": "1.0",
+    "content_type": "mock_generated"
+  },
+  "template_structure": {
+    "document_type": "risk_assessment",
+    "sox_section": "404",
+    "company_context": {
+      "name": "Amazon.com Inc.",
+      "business_model": "E-commerce, cloud services, and digital platforms",
+      "industry": "Technology/Retail"
+    },
+    "document_structure": {
+      "header": {
+        "title": "SOX 404 Risk Assessment - Revenue Recognition Process",
+        "assessment_period": "Q1 2024",
+        "assessment_date": "2024-03-31",
+        "lead_assessor": "Internal Audit Manager",
+        "process_owner": "Finance Director",
+        "risk_committee_review": "2024-04-15"
+      },
+      "process_overview": {
+        "process_name": "Revenue Recognition Process",
+        "business_impact": "High - Direct impact on financial reporting accuracy",
+        "annual_volume": "$1533M in transactions",
+        "key_systems": [
+          "Supply Chain Optimization",
+          "AWS Financial Management"
+        ],
+        "involved_departments": [
+          "AWS Finance",
+          "Retail Operations",
+          "Risk Management"
+        ]
+      },
+      "risk_summary": {
+        "total_risks_identified": 21,
+        "high_risks": 4,
+        "medium_risks": 9,
+        "low_risks": 8,
+        "inherent_risk_rating": "Medium-High",
+        "residual_risk_rating": "Medium"
+      },
+      "key_risks": [
+        {
+          "risk_id": "R001",
+          "description": "Inaccurate revenue recognition process due to system errors",
+          "likelihood": "Medium",
+          "impact": "Medium",
+          "risk_rating": "Medium",
+          "control_description": "Automated system controls and manual reviews"
+        },
+        {
+          "risk_id": "R002",
+          "description": "Unauthorized changes to financial data",
+          "likelihood": "Medium",
+          "impact": "High",
+          "risk_rating": "Medium",
+          "control_description": "Role-based access controls and approval workflows"
+        }
+      ],
+      "sox_assessment": {
+        "control_design_effectiveness": "Needs improvement",
+        "operating_effectiveness": "Generally effective with exceptions",
+        "management_response": "Action plan developed for identified deficiencies",
+        "remediation_timeline": "60-90 days for high priority items"
+      }
+    },
+    "data_tables": {
+      "risk_register": {
+        "columns": [
+          "Risk_ID",
+          "Risk_Description",
+          "Process_Step",
+          "Likelihood",
+          "Impact",
+          "Risk_Rating",
+          "Control_Description",
+          "Control_Owner",
+          "Testing_Frequency",
+          "Last_Test_Date",
+          "Test_Results",
+          "Action_Required"
+        ],
+        "estimated_rows": 24
+      },
+      "control_matrix": {
+        "columns": [
+          "Control_ID",
+          "Control_Description",
+          "Control_Type",
+          "Frequency",
+          "Owner",
+          "SOX_Relevant",
+          "Design_Effective",
+          "Operating_Effective",
+          "Deficiencies",
+          "Management_Response"
+        ],
+        "estimated_rows": 20
+      }
+    }
+  },
+  "generated_content": {
+    "executive_summary": "This SOX 404 risk assessment evaluated the Revenue Recognition Process, identifying 23 risks across the end-to-end workflow. Assessment results show 4 high risks, 12 medium risks, and 7 low risks. The inherent risk rating is High due to transaction volume and complexity, while residual risk is Medium-Low following control implementation.",
+    "methodology": "Risk assessment methodology included process walkthroughs, control testing, system analysis, and stakeholder interviews. The assessment covered all process steps from customer onboarding through revenue recording, focusing on SOX 404 control requirements and financial reporting accuracy.",
+    "detailed_risks": "High risks identified include: (1) Inaccurate revenue recognition due to system calculation errors (Risk ID: R001, Rating: High), (2) Unauthorized revenue adjustments bypassing approval controls (Risk ID: R002, Rating: High), (3) Incomplete revenue capture from third-party platforms (Risk ID: R003, Rating: High), (4) Manual journal entry errors in complex transactions (Risk ID: R004, Rating: High).",
+    "control_assessment": "Control environment assessment indicates effective design for most controls with some operational effectiveness gaps. Key controls include automated system validations, multi-level approval workflows, monthly analytical reviews, and quarterly management certifications. Three controls require enhancement to address identified deficiencies.",
+    "sox_evaluation": "SOX 404 evaluation concludes that control design is generally effective with minor gaps requiring attention. Operating effectiveness shows some exceptions in manual review controls and approval workflow adherence. Management has committed to addressing all identified deficiencies within the prescribed timeline.",
+    "management_response": "Management response includes: (1) Enhanced system validation controls for revenue calculations, (2) Strengthened approval workflow enforcement, (3) Implementation of automated third-party reconciliation processes, (4) Additional training for manual journal entry procedures. All actions have assigned owners and target completion dates.",
+    "monitoring_plan": "Ongoing monitoring includes monthly control testing, quarterly management assessments, and annual independent validation. Key performance indicators have been established to track control effectiveness and remediation progress. The Internal Audit team will conduct follow-up testing in Q2 2024."
+  }
+}
