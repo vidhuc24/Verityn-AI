@@ -8,7 +8,7 @@
 ---
 
 ## 📹 **Demo Video**
-**🎬 [LOOM VIDEO LINK - TO BE ADDED]**
+**🎬 [LOOM VIDEO LINK - https://www.loom.com/share/b215517fc0af4e91bd72fb3268a49c99?sid=8a5019b6-21e2-4b6b-bafd-1aa26af57118]**
 > *Live demonstration of the Verityn AI application showing document upload, classification, smart questions, chat interface, and compliance insights*
 
 ---
