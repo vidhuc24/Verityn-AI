@@ -65,6 +65,21 @@ class EnhancedDocumentProcessor:
             # Extract enhanced metadata
             metadata = self._extract_enhanced_metadata(file, description, document_metadata)
             
+            # Classify document to get accurate document type
+            from backend.app.services.classification_engine import ClassificationEngine
+            classifier = ClassificationEngine()
+            classification = await classifier.classify_document(content)
+            
+            # Update metadata with classification results
+            metadata.update({
+                "document_type": classification.get("document_type", "unknown"),
+                "compliance_frameworks": classification.get("compliance_frameworks", ["SOX"]),
+                "risk_level": classification.get("risk_level", "medium"),
+                "key_topics": classification.get("key_topics", []),
+                "classification_confidence": classification.get("confidence", 0.5),
+                "classification_metadata": classification.get("metadata", {})
+            })
+            
             # Store in vector database
             success = await self._store_in_vector_database(document_id, chunks, metadata)
             
@@ -77,6 +92,7 @@ class EnhancedDocumentProcessor:
                 "chunks": chunks,  # Include chunks in response
                 "chunk_count": len(chunks),
                 "metadata": metadata,
+                "classification": classification,
                 "status": "processed",
                 "vector_storage": "success",
             }
@@ -222,6 +238,7 @@ class EnhancedDocumentProcessor:
         """Extract enhanced metadata for audit documents."""
         base_metadata = {
             "filename": file.filename,
+            "display_name": file.filename,  # Use filename as display name
             "file_size": file.size,
             "content_type": file.content_type,
             "description": description,

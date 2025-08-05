@@ -437,9 +437,9 @@ class ResponseSynthesisAgent(BaseAgent):
         
         **CRITICAL SOURCE REFERENCE RULES**:
         - Only reference documents that are actually provided in the context above
-        - Use the exact Document ID, Document Type, and Company information from the context
+        - Use the exact Document Name, Document Type, and Company information from the context
         - Do NOT invent or fabricate document names
-        - If the context shows "Document ID: abc123, Document Type: audit_report", reference it as "Document ID: abc123 (audit_report)"
+        - If the context shows "Document Name: audit_report.pdf, Document Type: access_review", reference it as "audit_report.pdf (access_review)"
         - If no documents are provided in context, state "No specific documents referenced" in the Source Documents section
         
         Please provide your analysis in this format:
@@ -468,10 +468,12 @@ class ResponseSynthesisAgent(BaseAgent):
                 doc_id = result.get('document_id', f'unknown_{i+1}')
                 doc_type = result.get('document_type', 'Unknown')
                 company = result.get('company', 'Unknown')
+                display_name = result.get('display_name', result.get('filename', f'Document {i+1}'))
                 chunk_text = result.get('chunk_text', '')[:500]
                 
                 context_part = f"""Document {i+1}:
 - Document ID: {doc_id}
+- Document Name: {display_name}
 - Document Type: {doc_type}
 - Company: {company}
 - Content: {chunk_text}..."""
