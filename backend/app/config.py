@@ -98,9 +98,10 @@ class Settings(BaseSettings):
     class Config:
         # IMPORTANT: .env file is located in the PROJECT ROOT directory (/Verityn-AI/.env)
         # NOT in the backend directory (/Verityn-AI/backend/.env)
-        # This path "../.env" goes up one level from backend/ to find the .env file
-        # DO NOT CHANGE THIS PATH - it's intentionally set to access the root .env file
-        env_file = "../.env"
+        # This path handles both scenarios:
+        # 1. Running from root directory: .env (current directory)
+        # 2. Running from backend directory: ../.env (parent directory)
+        env_file = [".env", "../.env"]  # Try both paths
         env_file_encoding = "utf-8"
         case_sensitive = True
         extra = "ignore"  # Allow extra fields in .env file
