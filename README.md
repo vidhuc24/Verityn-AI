@@ -177,3 +177,6 @@ This project is developed for educational and demonstration purposes as part of 
 ---
 
 **Verityn AI** - Transforming audit document analysis through intelligent conversation. 
+
+backend: cd backend && uv run uvicorn main:app --reload --host 0.0.0.0 --port 8000
+frontend: cd frontend && npm run dev

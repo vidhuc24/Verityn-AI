@@ -3,6 +3,12 @@ Configuration settings for Verityn AI backend.
 
 This module contains all configuration settings using Pydantic Settings
 for environment variable management and validation.
+
+ENVIRONMENT VARIABLE LOCATION:
+- The .env file is located in the PROJECT ROOT directory: /Verityn-AI/.env
+- NOT in the backend directory: /Verityn-AI/backend/.env
+- The config uses "../.env" to access the root .env file from the backend directory
+- DO NOT change this path - it's intentionally set to access the root .env file
 """
 
 import json
@@ -90,7 +96,11 @@ class Settings(BaseSettings):
         return v
     
     class Config:
-        env_file = ".env"
+        # IMPORTANT: .env file is located in the PROJECT ROOT directory (/Verityn-AI/.env)
+        # NOT in the backend directory (/Verityn-AI/backend/.env)
+        # This path "../.env" goes up one level from backend/ to find the .env file
+        # DO NOT CHANGE THIS PATH - it's intentionally set to access the root .env file
+        env_file = "../.env"
         env_file_encoding = "utf-8"
         case_sensitive = True
         extra = "ignore"  # Allow extra fields in .env file
