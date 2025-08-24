@@ -98,9 +98,9 @@ export default function Home() {
       <Header />
       
       {/* Main Content Area */}
-      <div className="flex gap-6 p-6 h-[calc(100vh-80px)] overflow-hidden">
+      <div className="flex gap-4 p-6 h-[calc(100vh-56px)] overflow-hidden">
         {/* Left Container - Narrowed to ~20-25% */}
-        <div className="w-[22%] flex flex-col gap-6 overflow-hidden">
+        <div className="w-[22%] flex flex-col gap-4 overflow-hidden">
           <div className="rounded-2xl p-6 h-full flex flex-col overflow-hidden" style={{ backgroundColor: '#282828' }}>
             <DocumentUpload 
               onUpload={handleDocumentUpload}
@@ -121,16 +121,22 @@ export default function Home() {
                 <h3 className="mb-4" style={{ color: '#E0E0E0' }}>Document Info</h3>
                 <div className="p-4 rounded-lg" style={{ backgroundColor: '#1A1A1A' }}>
                   <p className="text-sm" style={{ color: '#E0E0E0' }}>
-                    <strong>Name:</strong> {uploadedDocument.name}
+                    <strong>Name:</strong> {uploadedDocument.name.replace(/\.[^/.]+$/, '')}
                   </p>
                   <p className="text-sm mt-2" style={{ color: '#A0A0A0' }}>
-                    <strong>Type:</strong> {uploadedDocument.type}
+                    <strong>Type:</strong> {uploadedDocument.type.split('/')[1] || uploadedDocument.type}
                   </p>
                   <p className="text-sm mt-2" style={{ color: '#A0A0A0' }}>
                     <strong>Size:</strong> {uploadedDocument.size > 1024 * 1024 
                       ? `${(uploadedDocument.size / 1024 / 1024).toFixed(2)} MB`
                       : `${(uploadedDocument.size / 1024).toFixed(2)} KB`
                     }
+                  </p>
+                  <p className="text-sm mt-2" style={{ color: '#A0A0A0' }}>
+                    <strong>Framework:</strong> SOX
+                  </p>
+                  <p className="text-sm mt-2" style={{ color: '#A0A0A0' }}>
+                    <strong>Category:</strong> Access Review
                   </p>
                 </div>
               </div>
@@ -139,11 +145,11 @@ export default function Home() {
         </div>
         
         {/* Right Container - Expanded to ~78% */}
-        <div className="w-[78%] flex flex-col gap-6 overflow-hidden">
+        <div className="w-[78%] flex flex-col gap-4 overflow-hidden">
           <div className="rounded-2xl p-6 h-full flex flex-col overflow-hidden" style={{ backgroundColor: '#282828' }}>
             {/* Analysis Cards */}
             {(analysisResults || isAnalyzing) && (
-              <div className="mb-6 flex-shrink-0">
+              <div className="mb-2 flex-shrink-0">
                 <AnalysisPanel 
                   results={analysisResults}
                   isAnalyzing={isAnalyzing}

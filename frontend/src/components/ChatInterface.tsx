@@ -462,19 +462,9 @@ This will help me provide more specific and actionable information about your do
       </div>
 
       {/* Chat Messages Area - Takes majority of container with scrolling */}
-      <div className="flex-1 overflow-y-auto mb-4 p-4 rounded-lg min-h-0 chat-scrollbar" 
+      <div className="flex-1 overflow-y-auto mb-3 p-4 rounded-lg min-h-0 chat-scrollbar" 
            style={{ backgroundColor: '#1A1A1A' }}>
-        <div className="space-y-4">
-          {messages.length === 1 && (
-            <div className="flex items-center justify-center h-full min-h-[200px]">
-              <div className="text-center">
-                <p className="text-lg" style={{ color: '#A0A0A0' }}>
-                  Start a conversation about your document...
-                </p>
-              </div>
-            </div>
-          )}
-          
+        <div className="space-y-3">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -484,7 +474,7 @@ This will help me provide more specific and actionable information about your do
                 className={`max-w-[80%] p-4 rounded-lg ${
                   message.type === 'user'
                     ? 'bg-[#9600FF] text-white'
-                    : 'bg-[#282828] text-[#E0E0E0]'
+                    : 'bg-[#1A1A1A] text-[#E0E0E0] border border-[#A0A0A0]/20'
                 }`}
               >
                 <ReactMarkdown 
@@ -567,9 +557,7 @@ This will help me provide more specific and actionable information about your do
                   </div>
                 )}
                 
-                <p className="text-xs opacity-70 mt-2">
-                  {message.timestamp.toLocaleTimeString()}
-                </p>
+                {/* Removed timestamp display */}
               </div>
             </div>
           ))}
@@ -587,30 +575,40 @@ This will help me provide more specific and actionable information about your do
         </div>
       </div>
 
-      {/* Input Area */}
-      <div className="flex items-end space-x-3 p-4 rounded-lg" style={{ backgroundColor: '#1A1A1A' }}>
+      {/* Input Area - Clean send button without background box */}
+      <div className="flex items-center space-x-3 p-3 rounded-lg" style={{ backgroundColor: '#1A1A1A' }}>
         <div className="flex-1">
           <textarea
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask about your document..."
-            className="w-full p-3 rounded-lg resize-none"
+            placeholder="Ask anything about your document"
+            className="w-full p-3 rounded-lg resize-none transition-all duration-200"
             style={{ 
               backgroundColor: '#282828',
               color: '#E0E0E0',
-              border: '1px solid #A0A0A0'
+              border: '1px solid #A0A0A0',
+              minHeight: '44px',
+              maxHeight: '120px',
+              overflow: inputValue.length > 50 ? 'auto' : 'hidden'
             }}
-            rows={2}
+            rows={1}
+            onInput={(e) => {
+              const target = e.target as HTMLTextAreaElement;
+              target.style.height = 'auto';
+              target.style.height = Math.min(target.scrollHeight, 120) + 'px';
+            }}
           />
         </div>
         <button
           onClick={() => handleSend()}
           disabled={!inputValue.trim() || isLoading}
-          className="p-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 self-center"
           style={{ 
-            backgroundColor: inputValue.trim() ? '#9600FF' : '#A0A0A0',
-            color: 'white'
+            backgroundColor: 'transparent',
+            color: inputValue.trim() ? '#9600FF' : '#A0A0A0',
+            border: 'none',
+            outline: 'none'
           }}
         >
           <Send className="h-5 w-5" />

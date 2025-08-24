@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Upload } from 'lucide-react'
 
 interface DocumentUploadProps {
@@ -9,7 +9,40 @@ interface DocumentUploadProps {
 
 export default function DocumentUpload({ onUpload, isUploading, uploadedDocument }: DocumentUploadProps) {
   const [isDragOver, setIsDragOver] = useState(false)
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Auto-dismiss success message after 5 seconds
+  useEffect(() => {
+    if (uploadedDocument) {
+      setShowSuccessMessage(true)
+      
+      // Clear any existing timer
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+      
+      // Set new timer
+      timerRef.current = setTimeout(() => {
+        setShowSuccessMessage(false)
+        timerRef.current = null
+      }, 5000)
+      
+      return () => {
+        if (timerRef.current) {
+          clearTimeout(timerRef.current)
+          timerRef.current = null
+        }
+      }
+    } else {
+      setShowSuccessMessage(false)
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+        timerRef.current = null
+      }
+    }
+  }, [uploadedDocument])
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
@@ -63,7 +96,7 @@ export default function DocumentUpload({ onUpload, isUploading, uploadedDocument
     <div className="mb-6">
       <h3 className="mb-4" style={{ color: '#E0E0E0' }}>Upload Document</h3>
       <div
-        className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all duration-300 ${
+        className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all duration-300 ${
           isDragOver ? 'border-[#9600FF] bg-[#9600FF]/10' : 'border-[#A0A0A0] hover:border-[#9600FF]/70'
         }`}
         onDragOver={handleDragOver}
@@ -79,16 +112,16 @@ export default function DocumentUpload({ onUpload, isUploading, uploadedDocument
           onChange={handleFileSelect}
         />
         
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-[#9600FF] flex items-center justify-center">
-            <Upload className="w-6 h-6 text-white" />
+        <div className="flex flex-col items-center gap-2">
+          <div className="w-10 h-10 rounded-full bg-[#9600FF] flex items-center justify-center">
+            <Upload className="w-5 h-5 text-white" />
           </div>
           <div>
-            <p style={{ color: '#E0E0E0' }}>
+            <p className="text-sm" style={{ color: '#E0E0E0' }}>
               Drop your document here or click to browse files
             </p>
           </div>
-          <p className="text-sm" style={{ color: '#A0A0A0' }}>
+          <p className="text-xs" style={{ color: '#A0A0A0' }}>
             Supports PDF, DOC, DOCX, TXT
           </p>
           <p className="text-xs" style={{ color: '#A0A0A0' }}>
@@ -97,7 +130,8 @@ export default function DocumentUpload({ onUpload, isUploading, uploadedDocument
         </div>
       </div>
       
-      {uploadedDocument && (
+      {/* Auto-dismissing success message */}
+      {showSuccessMessage && uploadedDocument && (
         <div className="mt-4 p-3 rounded-lg" style={{ backgroundColor: '#9600FF', color: 'white' }}>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">

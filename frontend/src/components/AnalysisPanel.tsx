@@ -48,53 +48,53 @@ export default function AnalysisPanel({ results, isAnalyzing }: AnalysisPanelPro
 
   return (
     <div>
-      <h3 className="mb-4" style={{ color: '#E0E0E0' }}>Document Analysis</h3>
+      <h3 className="mb-3 text-left" style={{ color: '#E0E0E0' }}>Document Analysis</h3>
       
-      {/* Three Horizontal Analysis Cards */}
-      <div className="grid grid-cols-3 gap-6">
+      {/* Three Horizontal Analysis Cards - Made 25% smaller and more compact */}
+      <div className="grid grid-cols-3 gap-2">
         {/* Compliance Score Card */}
-        <div className="p-6 rounded-lg border" style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-[#9600FF] flex items-center justify-center">
-              <Target className="h-5 w-5 text-white" />
+        <div className="p-1.5 rounded-lg border" style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
+          <div className="flex flex-col items-center gap-1 mb-1">
+            <div className="w-6 h-6 rounded-full bg-[#9600FF] flex items-center justify-center">
+              <Target className="h-3 w-3 text-white" />
             </div>
-            <h4 className="text-lg font-semibold" style={{ color: '#E0E0E0' }}>Compliance Score</h4>
+            <h4 className="text-sm font-semibold text-center" style={{ color: '#E0E0E0' }}>Compliance Score</h4>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-white mb-2">{complianceScore}%</p>
-            <p className="text-sm" style={{ color: complianceStatus.color }}>
+            <p className="text-xl font-bold text-white mb-0.5">{complianceScore}%</p>
+            <p className="text-xs" style={{ color: complianceStatus.color }}>
               {complianceStatus.text}
             </p>
           </div>
         </div>
 
         {/* Risk Factors Card */}
-        <div className="p-6 rounded-lg border" style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#9600FF] flex items-center justify-center">
-              <AlertTriangle className="h-5 w-5 text-white" />
+        <div className="p-1.5 rounded-lg border" style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
+          <div className="flex flex-col items-center gap-1 mb-1">
+            <div className="w-6 h-6 rounded-lg bg-[#9600FF] flex items-center justify-center">
+              <AlertTriangle className="h-3 w-3 text-white" />
             </div>
-            <h4 className="text-lg font-semibold" style={{ color: '#E0E0E0' }}>Risk Factors</h4>
+            <h4 className="text-sm font-semibold text-center" style={{ color: '#E0E0E0' }}>Risk Factors</h4>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-white mb-2">{riskFactors}</p>
-            <p className="text-sm" style={{ color: riskStatus.color }}>
+            <p className="text-xl font-bold text-white mb-0.5">{riskFactors}</p>
+            <p className="text-xs" style={{ color: riskStatus.color }}>
               {riskStatus.text}
             </p>
           </div>
         </div>
 
         {/* Key Requirements Card */}
-        <div className="p-6 rounded-lg border" style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#9600FF] flex items-center justify-center">
-              <CheckSquare className="h-5 w-5 text-white" />
+        <div className="p-1.5 rounded-lg border" style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
+          <div className="flex flex-col items-center gap-1 mb-1">
+            <div className="w-6 h-6 rounded-lg bg-[#9600FF] flex items-center justify-center">
+              <CheckSquare className="h-3 w-3 text-white" />
             </div>
-            <h4 className="text-lg font-semibold" style={{ color: '#E0E0E0' }}>Key Requirements</h4>
+            <h4 className="text-sm font-semibold text-center" style={{ color: '#E0E0E0' }}>Key Requirements</h4>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-white mb-2">{keyRequirements}</p>
-            <p className="text-sm" style={{ color: '#10B981' }}>
+            <p className="text-xl font-bold text-white mb-0.5">{keyRequirements}</p>
+            <p className="text-xs" style={{ color: '#10B981' }}>
               Requirements extracted
             </p>
           </div>
