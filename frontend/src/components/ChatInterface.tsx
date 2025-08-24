@@ -465,6 +465,16 @@ This will help me provide more specific and actionable information about your do
       <div className="flex-1 overflow-y-auto mb-4 p-4 rounded-lg min-h-0 chat-scrollbar" 
            style={{ backgroundColor: '#1A1A1A' }}>
         <div className="space-y-4">
+          {messages.length === 1 && (
+            <div className="flex items-center justify-center h-full min-h-[200px]">
+              <div className="text-center">
+                <p className="text-lg" style={{ color: '#A0A0A0' }}>
+                  Start a conversation about your document...
+                </p>
+              </div>
+            </div>
+          )}
+          
           {messages.map((message) => (
             <div
               key={message.id}
@@ -567,7 +577,7 @@ This will help me provide more specific and actionable information about your do
           {isLoading && (
             <div className="flex justify-start">
               <div className="bg-[#282828] text-[#E0E0E0] p-4 rounded-lg">
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <div className="w-4 h-4 border-2 border-[#9600FF] border-t-transparent rounded-full animate-spin"></div>
                   <span className="text-sm">Thinking...</span>
                 </div>
@@ -584,7 +594,7 @@ This will help me provide more specific and actionable information about your do
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask me anything about this document..."
+            placeholder="Ask about your document..."
             className="w-full p-3 rounded-lg resize-none"
             style={{ 
               backgroundColor: '#282828',

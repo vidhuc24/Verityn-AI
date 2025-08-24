@@ -80,19 +80,19 @@ export default function DocumentUpload({ onUpload, isUploading, uploadedDocument
         />
         
         <div className="flex flex-col items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#9600FF] to-[#4600C8] flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-[#9600FF] flex items-center justify-center">
             <Upload className="w-6 h-6 text-white" />
           </div>
           <div>
             <p style={{ color: '#E0E0E0' }}>
-              Drop your document here
-            </p>
-            <p className="text-sm mt-1" style={{ color: '#A0A0A0' }}>
-              or click to browse files
+              Drop your document here or click to browse files
             </p>
           </div>
+          <p className="text-sm" style={{ color: '#A0A0A0' }}>
+            Supports PDF, DOC, DOCX, TXT
+          </p>
           <p className="text-xs" style={{ color: '#A0A0A0' }}>
-            Supports PDF, DOC, DOCX, TXT, CSV, XLSX
+            10MB limit
           </p>
         </div>
       </div>
