@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Toaster } from 'react-hot-toast'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Verityn AI - Audit Intelligence Platform',
-  description: 'Intelligent Document Chat for Audit & Compliance',
+  description: 'AI-powered document analysis and compliance insights for audit, risk & compliance professionals',
 }
 
 export default function RootLayout({
@@ -16,12 +16,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className="dark">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-50">
+        <ThemeProvider
+          defaultTheme="dark"
+          storageKey="verityn-ui-theme"
+        >
           {children}
-        </div>
-        <Toaster position="top-right" />
+        </ThemeProvider>
       </body>
     </html>
   )

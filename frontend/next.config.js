@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ['localhost'],
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif|svg)$/i,
+      type: 'asset/resource',
+    })
+    return config
   },
   async rewrites() {
     return [

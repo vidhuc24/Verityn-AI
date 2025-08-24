@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import toast from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import Header from '@/components/Header'
 import DocumentUpload from '@/components/DocumentUpload'
 import AnalysisPanel from '@/components/AnalysisPanel'
@@ -79,67 +79,84 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen overflow-hidden" style={{ backgroundColor: '#1A1A1A' }}>
+      {/* Top Banner */}
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="space-y-8">
-          {/* Document Upload Section */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Upload Document
-            </h2>
+      {/* Main Content Area */}
+      <div className="flex gap-6 p-6 h-[calc(100vh-80px)] overflow-hidden">
+        {/* Left Container - Narrowed to ~20-25% */}
+        <div className="w-[22%] flex flex-col gap-6 overflow-hidden">
+          <div className="rounded-2xl p-6 h-full flex flex-col overflow-hidden" style={{ backgroundColor: '#282828' }}>
             <DocumentUpload 
               onUpload={handleDocumentUpload}
               isUploading={isAnalyzing}
               uploadedDocument={uploadedDocument}
             />
-          </section>
-
-          {/* Analysis Results Section */}
-          {(analysisResults || isAnalyzing) && (
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Document Analysis
-              </h2>
-              <AnalysisPanel 
-                results={analysisResults}
-                isAnalyzing={isAnalyzing}
-              />
-            </section>
-          )}
-
-          {/* Question Suggestions Section */}
-          {analysisResults && (
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Smart Questions
-              </h2>
-              <QuestionSuggestions 
-                documentType={analysisResults.documentType}
-                complianceFramework={analysisResults.complianceFramework}
-                onQuestionSelect={handleQuestionSelect}
-              />
-            </section>
-          )}
-
-          {/* Chat Interface Section */}
-          {analysisResults && (
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Chat with Document
-              </h2>
-              <ChatInterface 
-                document={uploadedDocument}
-                analysisResults={analysisResults}
-                documentId={documentId}
-                selectedQuestion={selectedQuestion}
-                onQuestionSent={() => setSelectedQuestion(null)}
-              />
-            </section>
-          )}
+            
+            {/* Document Display */}
+            {uploadedDocument && (
+              <div className="flex-1 overflow-hidden">
+                <h3 className="mb-4" style={{ color: '#E0E0E0' }}>Document Info</h3>
+                <div className="p-4 rounded-lg" style={{ backgroundColor: '#1A1A1A' }}>
+                  <p className="text-sm" style={{ color: '#E0E0E0' }}>
+                    <strong>Name:</strong> {uploadedDocument.name}
+                  </p>
+                  <p className="text-sm mt-2" style={{ color: '#A0A0A0' }}>
+                    <strong>Type:</strong> {uploadedDocument.type}
+                  </p>
+                  <p className="text-sm mt-2" style={{ color: '#A0A0A0' }}>
+                    <strong>Size:</strong> {uploadedDocument.size > 1024 * 1024 
+                      ? `${(uploadedDocument.size / 1024 / 1024).toFixed(2)} MB`
+                      : `${(uploadedDocument.size / 1024).toFixed(2)} KB`
+                    }
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </main>
+        
+        {/* Right Container - Expanded to ~78% */}
+        <div className="w-[78%] flex flex-col gap-6 overflow-hidden">
+          <div className="rounded-2xl p-6 h-full flex flex-col overflow-hidden" style={{ backgroundColor: '#282828' }}>
+            {/* Analysis Cards */}
+            {(analysisResults || isAnalyzing) && (
+              <div className="mb-6 flex-shrink-0">
+                <AnalysisPanel 
+                  results={analysisResults}
+                  isAnalyzing={isAnalyzing}
+                />
+              </div>
+            )}
+
+            {/* Chat Area - Takes majority of container */}
+            {analysisResults && (
+              <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+                <ChatInterface 
+                  document={uploadedDocument}
+                  analysisResults={analysisResults}
+                  documentId={documentId}
+                  selectedQuestion={selectedQuestion}
+                  onQuestionSent={() => setSelectedQuestion(null)}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#282828',
+            color: '#E0E0E0',
+            border: '1px solid #A0A0A0',
+          },
+        }}
+      />
     </div>
   )
 } 
