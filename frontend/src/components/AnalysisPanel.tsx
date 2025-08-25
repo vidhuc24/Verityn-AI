@@ -26,7 +26,7 @@ export default function AnalysisPanel({ results, isAnalyzing }: AnalysisPanelPro
   if (!results) return null
 
   // Extract metrics from results or use defaults
-  const complianceScore = results.complianceScore || 94
+  const complianceScore = results.complianceScore || 90
   const riskFactors = results.riskFactors || 3
   const keyRequirements = results.keyRequirements || 12
 
@@ -43,8 +43,16 @@ export default function AnalysisPanel({ results, isAnalyzing }: AnalysisPanelPro
     return { text: 'Critical issues identified', color: '#EF4444' }
   }
 
+  const getRequirementsStatus = (count: number) => {
+    if (count >= 15) return { text: 'Comprehensive requirements coverage', color: '#10B981' }
+    if (count >= 10) return { text: 'Standard requirements met', color: '#10B981' }
+    if (count >= 5) return { text: 'Basic requirements covered', color: '#F59E0B' }
+    return { text: 'Limited requirements coverage', color: '#EF4444' }
+  }
+
   const complianceStatus = getComplianceStatus(complianceScore)
   const riskStatus = getRiskStatus(riskFactors)
+  const requirementsStatus = getRequirementsStatus(keyRequirements)
 
   return (
     <div>
@@ -94,8 +102,8 @@ export default function AnalysisPanel({ results, isAnalyzing }: AnalysisPanelPro
           </div>
           <div className="text-center">
             <p className="text-xl font-bold text-white mb-0.5">{keyRequirements}</p>
-            <p className="text-xs" style={{ color: '#10B981' }}>
-              Requirements extracted
+            <p className="text-xs" style={{ color: requirementsStatus.color }}>
+              {requirementsStatus.text}
             </p>
           </div>
         </div>

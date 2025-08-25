@@ -60,13 +60,23 @@ export default function ChatInterface({
   selectedQuestion,
   onQuestionSent 
 }: ChatInterfaceProps) {
+  // Helper function to get document category from filename
+  const getDocumentCategory = (fileName: string): string => {
+    const name = fileName.toLowerCase()
+    if (name.includes('access_review')) return 'Access Review'
+    if (name.includes('risk_assessment')) return 'Risk Assessment'
+    if (name.includes('financial_controls')) return 'Financial Controls'
+    if (name.includes('internal_controls')) return 'Internal Controls'
+    return 'Compliance'
+  }
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       type: 'ai',
       content: `## 📋 Welcome to Verityn AI
 
-I've analyzed your **${analysisResults.documentType}** document and I'm ready to help you understand the compliance findings, identify risks, and answer questions about the audit results.
+I've analyzed your **${getDocumentCategory(document?.name || '')}** document and I'm ready to help you understand the compliance findings, identify risks, and answer questions about the audit results.
 
 ## 🔍 What I Can Help With
 - **Compliance Analysis**: Identify SOX controls, PCI-DSS requirements, and other frameworks
