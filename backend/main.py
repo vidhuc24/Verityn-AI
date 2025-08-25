@@ -14,8 +14,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from backend.app.config import settings
-from backend.app.routes import chat, documents, health, workflow
+from app.config import settings
+from app.routes import chat, documents, health, workflow, web_search
 
 
 class HealthResponse(BaseModel):
@@ -67,6 +67,7 @@ def create_app() -> FastAPI:
     app.include_router(documents.router, prefix="/documents", tags=["documents"])
     app.include_router(chat.router, prefix="/chat", tags=["chat"])
     app.include_router(workflow.router, prefix="/workflow", tags=["workflow"])
+    app.include_router(web_search.router, prefix="/api", tags=["web-search"])
     
     return app
 

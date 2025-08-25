@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "document_type": "SOX Financial Controls Assessment",
+    "framework": "SOX 302",
+    "company": "Innovation Tech Solutions",
+    "period": "Q4 2024",
+    "assessment_date": "2024-12-20",
+    "assessor": "Jennifer Lee, Financial Controller",
+    "approver": "Robert Kim, CEO"
+  },
+  "content": {
+    "executive_summary": "Assessment of disclosure controls and procedures for financial reporting as required by SOX 302, ensuring accuracy and completeness of financial statements.",
+    "control_objectives": [
+      "Ensure accurate financial reporting",
+      "Maintain effective internal controls",
+      "Provide timely disclosure of material changes",
+      "Establish accountability for financial reporting"
+    ],
+    "control_activities": {
+      "revenue_recognition": "Automated controls with manual review",
+      "expense_processing": "Multi-level approval workflow",
+      "financial_close": "Standardized closing procedures",
+      "disclosure_controls": "Legal and finance review process"
+    },
+    "testing_results": {
+      "revenue_controls": "Effective - 95% compliance",
+      "expense_controls": "Effective - 92% compliance",
+      "close_procedures": "Needs improvement - 78% compliance",
+      "disclosure_controls": "Effective - 88% compliance"
+    },
+    "deficiencies": [
+      "Financial close procedures need standardization",
+      "Documentation of control activities incomplete"
+    ],
+    "remediation_status": "In progress - target completion Q1 2025"
+  }
+}

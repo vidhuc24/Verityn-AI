@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "document_type": "SOX Access Review Report",
+    "framework": "SOX 404",
+    "company": "TechCorp Solutions Inc.",
+    "period": "Q4 2024",
+    "review_date": "2024-12-15",
+    "reviewer": "Sarah Johnson, Senior Auditor",
+    "approver": "Michael Chen, Audit Director"
+  },
+  "content": {
+    "executive_summary": "This access review evaluates user access controls across critical financial systems to ensure compliance with SOX 404 requirements for the quarter ending December 31, 2024.",
+    "scope": "Review covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.",
+    "key_findings": [
+      "3 users identified with excessive privileges requiring immediate remediation",
+      "2 orphaned accounts found and disabled",
+      "Access review process needs enhancement for quarterly reviews",
+      "Segregation of duties matrix updated for 2025"
+    ],
+    "risk_assessment": "Medium risk level due to excessive privileges and process gaps",
+    "recommendations": [
+      "Implement role-based access controls (RBAC) by Q1 2025",
+      "Establish quarterly access review process",
+      "Enhance monitoring for privileged user activities",
+      "Update access request and approval workflows"
+    ],
+    "compliance_status": "Partially compliant - requires remediation by Q1 2025"
+  }
+}

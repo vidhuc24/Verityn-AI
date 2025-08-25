@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Send, Lightbulb, MessageSquare } from 'lucide-react'
+import { Send, Lightbulb, MessageSquare, Search } from 'lucide-react'
 import toast from 'react-hot-toast'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -88,6 +88,7 @@ What would you like to know about your audit document?`,
   ])
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isWebSearching, setIsWebSearching] = useState(false)
   const [conversationId, setConversationId] = useState<string | null>(null)
   const [showQuestions, setShowQuestions] = useState(false)
 
@@ -99,6 +100,111 @@ What would you like to know about your audit document?`,
       handleSend(selectedQuestion)
     }
   }, [selectedQuestion, documentId])
+
+  // Perform web search using Tavily API
+  const performWebSearch = async () => {
+    if (!documentId || !analysisResults) {
+      toast.error('Please upload and analyze a document first')
+      return
+    }
+
+    setIsWebSearching(true)
+    
+    // Add loading message
+    const loadingMessage: Message = {
+      id: Date.now().toString(),
+      type: 'ai',
+      content: `## 🔍 **Searching for Latest Guidance...**
+
+I'm searching for the most recent compliance guidance and best practices related to your **${analysisResults.documentType}** document and **${analysisResults.complianceFramework}** framework.
+
+This may take a few moments as I gather the latest information from regulatory sources...`,
+      timestamp: new Date()
+    }
+    
+    setMessages(prev => [...prev, loadingMessage])
+    
+    try {
+      // Generate focused search query based on document content
+      const documentType = analysisResults.documentType?.toLowerCase() || 'document'
+      const framework = analysisResults.complianceFramework || 'compliance'
+      
+      // Create more focused search queries
+      let searchQuery = ''
+      if (documentType.includes('access review')) {
+        searchQuery = `${framework} access control best practices 2024 latest guidance`
+      } else if (documentType.includes('risk assessment')) {
+        searchQuery = `${framework} risk assessment methodology 2024 latest standards`
+      } else if (documentType.includes('financial')) {
+        searchQuery = `${framework} financial reporting controls 2024 latest requirements`
+      } else {
+        searchQuery = `${framework} ${documentType} compliance requirements 2024 latest guidance`
+      }
+      
+      // Call backend Tavily API endpoint
+      const response = await fetch('/api/web-search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: searchQuery,
+          document_id: documentId,
+          document_type: analysisResults.documentType,
+          framework: analysisResults.complianceFramework
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Web search failed')
+      }
+
+      const searchResults = await response.json()
+      
+      // Format web search results as AI message
+      const webSearchMessage: Message = {
+        id: Date.now().toString(),
+        type: 'ai',
+        content: `## 🌐 **Latest Compliance Guidance**
+
+Based on your **${analysisResults.documentType}** document and **${analysisResults.complianceFramework}** framework, here are the most relevant recent insights:
+
+${searchResults.results?.slice(0, 3).map((result: any, index: number) => 
+  `**${index + 1}. [${result.title}](${result.url})**\n\n`
+).join('') || 'No recent guidance found.'}
+
+### 📚 **Additional Resources**
+${searchResults.results?.slice(3).map((result: any, index: number) => 
+  `- [${result.title}](${result.url})\n`
+).join('') || ''}
+
+*Search query: "${searchQuery}"*`,
+        timestamp: new Date(),
+        sources: [] // Remove sources to avoid duplication
+      }
+
+      // Replace the loading message with results
+      setMessages(prev => prev.map(msg => 
+        msg.id === loadingMessage.id ? webSearchMessage : msg
+      ))
+      toast.success('Web search completed!')
+      
+    } catch (error) {
+      console.error('Web search failed:', error)
+      toast.error('Web search failed. Please try again.')
+      
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        type: 'ai',
+        content: 'I apologize, but I encountered an error performing the web search. Please try again later.',
+        timestamp: new Date()
+      }
+      
+      setMessages(prev => [...prev, errorMessage])
+    } finally {
+      setIsWebSearching(false)
+    }
+  }
 
   const handleSend = async (message?: string) => {
     const textToSend = message || inputValue.trim()
@@ -410,54 +516,78 @@ This will help me provide more specific and actionable information about your do
 
   return (
     <div className="flex-1 flex flex-col h-full">
-      {/* Header with Smart Questions Button */}
+      {/* Header with Web Search and Smart Questions Buttons */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold" style={{ color: '#E0E0E0' }}>AI Assistant</h3>
         
-        {/* Smart Questions Button */}
-        <div className="relative">
+        {/* Web Search and Smart Questions Buttons */}
+        <div className="flex items-center gap-3">
+          {/* Web Search Button */}
           <button
-            onClick={() => setShowQuestions(!showQuestions)}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10"
+            onClick={performWebSearch}
+            disabled={!documentId || !analysisResults || isWebSearching}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10 disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ 
-              backgroundColor: showQuestions ? '#9600FF20' : 'transparent',
+              backgroundColor: 'transparent',
               border: '1px solid #9600FF',
               color: '#9600FF'
             }}
           >
-            <Lightbulb className="h-4 w-4" />
-            <span className="text-sm font-medium">Smart Questions</span>
+            {isWebSearching ? (
+              <div className="w-4 h-4 border-2 border-[#9600FF] border-t-transparent rounded-full animate-spin"></div>
+            ) : (
+              <Search className="h-4 w-4" />
+            )}
+            <span className="text-sm font-medium">
+              {isWebSearching ? 'Searching...' : 'Web Search'}
+            </span>
           </button>
           
-          {/* Questions Dropdown */}
-          {showQuestions && (
-            <div className="absolute top-full right-0 mt-2 w-80 p-4 rounded-lg border z-10"
-                 style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
-              <div className="space-y-2">
-                {questions.map((question, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setShowQuestions(false)
-                      setInputValue(question)
-                      handleSend(question)
-                    }}
-                    className="w-full text-left p-3 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10"
-                    style={{ 
-                      backgroundColor: '#282828',
-                      color: '#E0E0E0',
-                      border: '1px solid #A0A0A0'
-                    }}
-                  >
-                    <div className="flex items-start space-x-2">
-                      <MessageSquare className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#9600FF' }} />
-                      <p className="text-sm">{question}</p>
-                    </div>
-                  </button>
-                ))}
+          {/* Smart Questions Button */}
+          <div className="relative">
+            <button
+              onClick={() => setShowQuestions(!showQuestions)}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10"
+              style={{ 
+                backgroundColor: showQuestions ? '#9600FF20' : 'transparent',
+                border: '1px solid #9600FF',
+                color: '#9600FF'
+              }}
+            >
+              <Lightbulb className="h-4 w-4" />
+              <span className="text-sm font-medium">Smart Questions</span>
+            </button>
+            
+            {/* Questions Dropdown */}
+            {showQuestions && (
+              <div className="absolute top-full right-0 mt-2 w-80 p-4 rounded-lg border z-10"
+                   style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
+                <div className="space-y-2">
+                  {questions.map((question, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setShowQuestions(false)
+                        setInputValue(question)
+                        handleSend(question)
+                      }}
+                      className="w-full text-left p-3 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10"
+                      style={{ 
+                        backgroundColor: '#282828',
+                        color: '#E0E0E0',
+                        border: '1px solid #A0A0A0'
+                      }}
+                    >
+                      <div className="flex items-start space-x-2">
+                        <MessageSquare className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#9600FF' }} />
+                        <p className="text-sm">{question}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
 
@@ -535,29 +665,26 @@ This will help me provide more specific and actionable information about your do
                     ),
                     pre: ({children}) => (
                       <pre className="p-3 rounded-lg text-xs font-mono overflow-x-auto my-3" 
-                            style={{ backgroundColor: '#1A1A1A', color: '#E0E0A0' }}>
+                           style={{ backgroundColor: '#1A1A1A', color: '#E0E0A0' }}>
                         {children}
                       </pre>
+                    ),
+                    a: ({href, children}) => (
+                      <a 
+                        href={href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[#9600FF] hover:text-[#7C3AED] underline transition-colors duration-200"
+                      >
+                        {children}
+                      </a>
                     ),
                   }}
                 >
                   {formatAIResponse(message.content)}
                 </ReactMarkdown>
                 
-                {message.sources && message.sources.length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-white/20">
-                    <p className="text-xs opacity-80 mb-2">Sources:</p>
-                    <div className="space-y-1">
-                      {message.sources.map((source: any, index: number) => (
-                        <p key={index} className="text-xs opacity-70">
-                          {source.title || source.filename || `Source ${index + 1}`}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                
-                {/* Removed timestamp display */}
+                {/* Removed sources section to avoid duplication */}
               </div>
             </div>
           ))}

@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "document_type": "SOX Internal Controls Evaluation",
+    "framework": "SOX 404",
+    "company": "Healthcare Systems International",
+    "period": "Q4 2024",
+    "evaluation_date": "2024-12-10",
+    "evaluator": "Thomas Wilson, Internal Audit Manager",
+    "approver": "Maria Garcia, Audit Committee Chair"
+  },
+  "content": {
+    "executive_summary": "Comprehensive evaluation of internal controls over financial reporting, identifying control strengths and areas requiring improvement.",
+    "control_environment": {
+      "tone_at_top": "Strong commitment to integrity and ethical values",
+      "organizational_structure": "Clear reporting lines and accountability",
+      "human_resources": "Competent personnel with appropriate training",
+      "risk_assessment": "Systematic process for identifying and analyzing risks"
+    },
+    "control_activities": {
+      "authorization": "Proper approval procedures in place",
+      "segregation": "Duties adequately separated",
+      "documentation": "Controls properly documented",
+      "monitoring": "Ongoing monitoring activities established"
+    },
+    "information_systems": {
+      "general_controls": "Effective IT general controls",
+      "application_controls": "Most application controls effective",
+      "data_integrity": "Strong data validation controls",
+      "security": "Comprehensive security measures"
+    },
+    "monitoring_activities": {
+      "ongoing_monitoring": "Real-time monitoring of key controls",
+      "separate_evaluations": "Regular internal audit reviews",
+      "deficiency_communication": "Effective communication to management"
+    },
+    "conclusion": "Internal controls are effective with minor deficiencies that do not rise to material weakness level"
+  }
+}
