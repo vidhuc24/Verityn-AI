@@ -445,8 +445,6 @@ class ResponseSynthesisAgent(BaseAgent):
         - Use the exact Document Name, Document Type, and Company information from the context
         - Do NOT invent or fabricate document names
         - If the context shows "Document Name: audit_report.pdf, Document Type: access_review", reference it as "audit_report.pdf (access_review)"
-        - If no documents are provided in context, state "No specific documents referenced" in the Source Documents section
-        
         Please provide your analysis in this format:
         
         **Subject:** [Clear subject line]
@@ -456,8 +454,6 @@ class ResponseSynthesisAgent(BaseAgent):
         **Compliance Insights:** [Key compliance considerations with current regulatory context]
         
         **Latest Regulatory Guidance:** [Current best practices and regulatory updates relevant to this analysis]
-        
-        **Source Documents:** [Reference to specific documents used - ONLY use actual document information from context]
         """)
     
     async def _execute_logic(self, context) -> Dict[str, Any]:

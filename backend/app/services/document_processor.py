@@ -23,12 +23,12 @@ class EnhancedDocumentProcessor:
     
     def __init__(self):
         """Initialize the enhanced document processor."""
-        # Optimized chunking strategy (200-300 token overlap as recommended)
+        # Improved chunking strategy: smaller chunks with semantic boundaries
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,  # ~750 tokens
-            chunk_overlap=250,  # ~200 tokens (optimized from 500)
+            chunk_size=300,  # ~200-300 characters for better granularity
+            chunk_overlap=75,  # ~50-100 character overlap for context
             length_function=len,
-            separators=["\n\n", "\n", ". ", "! ", "? ", " ", ""],  # Better for audit documents
+            separators=["\n\n", "\n", ". ", "! ", "? ", " ", ""],  # Semantic boundaries
         )
         
         self.embeddings = OpenAIEmbeddings(
@@ -85,6 +85,11 @@ class EnhancedDocumentProcessor:
             
             if not success:
                 raise Exception("Failed to store document in vector database")
+            
+            # Verify storage was successful by checking if chunks can be retrieved
+            stored_chunks = await vector_db_service.get_document_chunks(document_id)
+            if not stored_chunks:
+                raise Exception("Document was stored but cannot be retrieved - storage verification failed")
             
             return {
                 "document_id": document_id,
@@ -207,27 +212,32 @@ class EnhancedDocumentProcessor:
     
     def _split_text_optimized(self, text: str) -> List[str]:
         """Split text into optimized chunks for audit documents."""
-        # Use optimized chunking strategy
+        # Use improved chunking strategy
         chunks = self.text_splitter.split_text(text)
         
-        # Post-process chunks for audit document optimization
+        # Post-process chunks for better semantic boundaries
         optimized_chunks = []
         for chunk in chunks:
-            # Ensure chunks end at sentence boundaries when possible
-            if len(chunk) > 100 and not chunk.endswith(('.', '!', '?', '\n')):
+            # Ensure chunks end at natural boundaries when possible
+            if len(chunk) > 50 and not chunk.endswith(('.', '!', '?', '\n')):
                 # Try to find a better break point
                 last_sentence = max(
                     chunk.rfind('. '),
                     chunk.rfind('! '),
                     chunk.rfind('? '),
-                    chunk.rfind('\n')
+                    chunk.rfind('\n'),
+                    chunk.rfind(': '),  # Preserve header-content relationships
+                    chunk.rfind(' - '),  # Preserve list items
+                    chunk.rfind(', ')    # Preserve comma-separated items
                 )
-                if last_sentence > len(chunk) * 0.7:  # Only if we don't lose too much content
+                if last_sentence > len(chunk) * 0.6:  # More flexible boundary finding
                     chunk = chunk[:last_sentence + 1]
             
-            optimized_chunks.append(chunk.strip())
+            # Ensure chunk isn't too small after optimization
+            if len(chunk.strip()) >= 50:  # Minimum meaningful chunk size
+                optimized_chunks.append(chunk.strip())
         
-        return [chunk for chunk in optimized_chunks if chunk]  # Remove empty chunks
+        return optimized_chunks
     
     def _extract_enhanced_metadata(
         self, 

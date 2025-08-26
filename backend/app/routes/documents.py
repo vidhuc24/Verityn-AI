@@ -12,7 +12,7 @@ from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel
 
 from backend.app.config import settings
-from backend.app.services.document_processor import DocumentProcessor
+from backend.app.services.document_processor import EnhancedDocumentProcessor
 from backend.app.services.classification_engine import ClassificationEngine
 
 router = APIRouter()
@@ -61,8 +61,15 @@ async def upload_document(
     
     try:
         # Process document
-        processor = DocumentProcessor()
+        processor = EnhancedDocumentProcessor()
         result = await processor.process_document(file, document_id, description)
+        
+        # Verify processing was successful
+        if result.get("status") != "processed" or result.get("vector_storage") != "success":
+            raise HTTPException(
+                status_code=500, 
+                detail=f"Document processing failed. Status: {result.get('status')}, Storage: {result.get('vector_storage')}"
+            )
         
         # Classify document
         classifier = ClassificationEngine()

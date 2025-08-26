@@ -13,7 +13,7 @@ from pydantic import BaseModel
 
 from backend.app.config import settings
 from backend.app.workflows.multi_agent_workflow import MultiAgentWorkflow
-from backend.app.services.document_processor import DocumentProcessor
+from backend.app.services.document_processor import EnhancedDocumentProcessor
 
 router = APIRouter()
 

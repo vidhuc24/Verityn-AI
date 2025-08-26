@@ -232,159 +232,7 @@ ${searchResults.results?.slice(3).map((result: any, index: number) =>
     setIsLoading(true)
 
     try {
-      // Temporary mock response system for testing UI
-      // TODO: Replace with actual API call when backend is ready
-      setTimeout(() => {
-        const mockResponses = {
-          "what is the overall risk assessment": `## 📊 Overall Risk Assessment
-
-Based on my analysis of your **${analysisResults.documentType}** document, here's the comprehensive risk assessment:
-
-### 🚨 **Risk Level: MEDIUM-HIGH**
-
-**Key Risk Factors Identified:**
-- **Access Control Deficiencies**: 3 critical findings
-- **Segregation of Duties Issues**: 2 material weaknesses  
-- **Documentation Gaps**: Incomplete control documentation
-- **Monitoring Weaknesses**: Limited ongoing monitoring
-
-### 📈 **Risk Breakdown:**
-- **High Risk (3)**: Access management, privileged accounts, system controls
-- **Medium Risk (2)**: Documentation, monitoring processes
-- **Low Risk (1)**: Training and awareness
-
-### 🎯 **Immediate Actions Required:**
-1. Review and restrict excessive user privileges
-2. Implement proper segregation of duties controls
-3. Enhance control documentation and procedures
-4. Establish ongoing monitoring mechanisms
-
-The overall risk score is **7.2/10**, indicating significant control weaknesses that require immediate attention.`,
-
-          "which controls are deficient and what are the implications": `## 🔍 Control Deficiency Analysis
-
-I've identified several critical control deficiencies in your **${analysisResults.documentType}** document:
-
-### ❌ **Critical Control Deficiencies:**
-
-**1. Access Management Controls**
-- **Finding**: Excessive user privileges not properly restricted
-- **Implication**: Unauthorized access to sensitive systems and data
-- **Risk**: High - Potential data breaches and compliance violations
-
-**2. Segregation of Duties**
-- **Finding**: Users have conflicting responsibilities
-- **Implication**: Increased fraud risk and control bypass opportunities
-- **Risk**: High - Material weakness in internal controls
-
-**3. System Security Controls**
-- **Finding**: Inadequate password policies and access logging
-- **Implication**: Weak security posture and limited audit trails
-- **Risk**: Medium-High - Security vulnerabilities and compliance gaps
-
-### 📋 **Compliance Implications:**
-- **SOX 404**: Material weakness in internal controls
-- **Regulatory Risk**: Potential enforcement actions
-- **Financial Impact**: Increased audit costs and potential penalties
-- **Reputation Risk**: Loss of stakeholder confidence
-
-### 🚀 **Recommended Remediation:**
-1. Implement role-based access controls (RBAC)
-2. Establish clear segregation of duties matrix
-3. Enhance system security and monitoring
-4. Regular access reviews and control testing`,
-
-          "what are the main compliance issues identified": `## ⚠️ Main Compliance Issues Identified
-
-Based on my analysis of your **${analysisResults.documentType}** document, here are the primary compliance concerns:
-
-### 🚨 **Critical Compliance Issues:**
-
-**1. SOX 404 - Internal Control Weaknesses**
-- **Issue**: Material weaknesses in access controls
-- **Impact**: Non-compliance with financial reporting requirements
-- **Deadline**: Must be resolved before next reporting cycle
-
-**2. Access Control Framework Gaps**
-- **Issue**: Inadequate user access management
-- **Impact**: Violation of data protection requirements
-- **Risk**: Regulatory penalties and audit findings
-
-**3. Documentation Compliance Failures**
-- **Issue**: Incomplete control documentation
-- **Impact**: Non-compliance with audit requirements
-- **Consequence**: Increased audit scrutiny and costs
-
-### 📊 **Compliance Status:**
-- **Overall Score**: 65% (Below acceptable threshold)
-- **Critical Issues**: 3
-- **High Priority**: 2
-- **Medium Priority**: 1
-
-### ⏰ **Timeline for Resolution:**
-- **Immediate (30 days)**: Critical access control issues
-- **Short-term (90 days)**: Documentation and process improvements
-- **Medium-term (6 months)**: Control testing and validation
-
-### 🎯 **Next Steps:**
-1. Prioritize critical compliance gaps
-2. Develop remediation action plans
-3. Implement interim controls where possible
-4. Schedule follow-up compliance reviews`
-        }
-
-        // Check for exact matches first, then partial matches
-        let response = mockResponses[textToSend.toLowerCase()]
-        
-        if (!response) {
-          // Try partial matching
-          for (const [key, value] of Object.entries(mockResponses)) {
-            if (textToSend.toLowerCase().includes(key) || key.includes(textToSend.toLowerCase())) {
-              response = value
-              break
-            }
-          }
-        }
-
-        // Default response if no match found
-        if (!response) {
-          response = `## 💬 Response to: "${textToSend}"
-
-I understand you're asking about **${textToSend}** regarding your **${analysisResults.documentType}** document.
-
-### 🔍 **What I Can Tell You:**
-Based on the document analysis, I can provide insights on:
-- Compliance findings and control deficiencies
-- Risk assessments and material weaknesses
-- Remediation recommendations and timelines
-- Specific framework requirements (${analysisResults.complianceFramework || 'SOX'})
-
-### 💡 **Try Asking:**
-- "What are the main compliance issues identified?"
-- "Which controls are deficient and what are the implications?"
-- "What is the overall risk assessment?"
-- "What remediation steps are recommended?"
-
-This will help me provide more specific and actionable information about your document.`
-        }
-
-        const aiMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          type: 'ai',
-          content: response,
-          timestamp: new Date()
-        }
-
-        setMessages(prev => [...prev, aiMessage])
-        setIsLoading(false)
-        
-        if (onQuestionSent) {
-          onQuestionSent()
-        }
-      }, 1500) // Simulate API delay
-
-      // Comment out the actual API call for now
-      /*
+      // Call the real backend API
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -421,8 +269,7 @@ This will help me provide more specific and actionable information about your do
       if (onQuestionSent) {
         onQuestionSent()
       }
-      */
-
+      
     } catch (error) {
       console.error('Failed to send message:', error)
       toast.error('Failed to send message. Please try again.')
@@ -435,6 +282,7 @@ This will help me provide more specific and actionable information about your do
       }
       
       setMessages(prev => [...prev, errorMessage])
+    } finally {
       setIsLoading(false)
     }
   }
