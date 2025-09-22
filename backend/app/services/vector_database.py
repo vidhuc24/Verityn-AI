@@ -438,14 +438,41 @@ class VectorDatabaseService:
         """Get all chunks for a specific document."""
         try:
             if self.use_memory and self.vector_store:
-                # For in-memory mode, we can't easily filter by document_id
-                # Return a basic response indicating in-memory mode
-                return [{
-                    "id": "in_memory",
-                    "chunk_text": "Document chunks stored in memory",
-                    "chunk_index": 0,
-                    "metadata": {"document_id": document_id, "mode": "in_memory"}
-                }]
+                # For in-memory mode, retrieve chunks from the vector store
+                try:
+                    # Use similarity search to get chunks, then filter by document_id
+                    # This is a workaround since LangChain in-memory doesn't support direct filtering
+                    search_results = self.vector_store.similarity_search("", k=1000)  # Get all chunks
+                    
+                    chunks = []
+                    for i, doc in enumerate(search_results):
+                        # Check if this chunk belongs to our document
+                        doc_metadata = doc.metadata
+                        if doc_metadata.get('document_id') == document_id:
+                            chunk = {
+                                "id": f"chunk_{i}",
+                                "chunk_text": doc.page_content,
+                                "chunk_index": doc_metadata.get('chunk_index', i),
+                                "metadata": doc_metadata
+                            }
+                            chunks.append(chunk)
+                    
+                    # Sort by chunk index
+                    chunks.sort(key=lambda x: x.get("chunk_index", 0))
+                    
+                    logger.info(f"Retrieved {len(chunks)} chunks for document {document_id} from in-memory store")
+                    return chunks
+                    
+                except Exception as e:
+                    logger.warning(f"Failed to retrieve chunks from in-memory store: {str(e)}")
+                    # Fallback to basic response
+                    return [{
+                        "id": "in_memory",
+                        "chunk_text": "Document chunks stored in memory",
+                        "chunk_index": 0,
+                        "metadata": {"document_id": document_id, "mode": "in_memory"}
+                    }]
+                    
             elif hasattr(self, 'qdrant_client') and self.qdrant_client:
                 # For server mode, use Qdrant client
                 filter_condition = Filter(
