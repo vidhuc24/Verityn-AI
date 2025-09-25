@@ -1,0 +1,39 @@
+Document Type: SOX Internal Controls Evaluation
+Framework: SOX 404
+Company: Healthcare Systems International
+Period: Q4 2024
+Date: 2024-12-10
+Prepared By: Thomas Wilson, Internal Audit Manager
+Approved By: Maria Garcia, Audit Committee Chair
+
+================================================================================
+
+Executive Summary:
+Comprehensive evaluation of internal controls over financial reporting, identifying control strengths and areas requiring improvement.
+
+Control Environment:
+  Tone At Top: Strong commitment to integrity and ethical values
+  Organizational Structure: Clear reporting lines and accountability
+  Human Resources: Competent personnel with appropriate training
+  Risk Assessment: Systematic process for identifying and analyzing risks
+
+Control Activities:
+  Authorization: Proper approval procedures in place
+  Segregation: Duties adequately separated
+  Documentation: Controls properly documented
+  Monitoring: Ongoing monitoring activities established
+
+Information Systems:
+  General Controls: Effective IT general controls
+  Application Controls: Most application controls effective
+  Data Integrity: Strong data validation controls
+  Security: Comprehensive security measures
+
+Monitoring Activities:
+  Ongoing Monitoring: Real-time monitoring of key controls
+  Separate Evaluations: Regular internal audit reviews
+  Deficiency Communication: Effective communication to management
+
+Conclusion:
+Internal controls are effective with minor deficiencies that do not rise to material weakness level
+

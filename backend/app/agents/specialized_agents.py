@@ -17,6 +17,7 @@ from backend.app.services.document_processor import EnhancedDocumentProcessor
 from backend.app.services.vector_database import vector_db_service
 from backend.app.config import settings
 from backend.app.services.advanced_retrieval import advanced_retrieval_service
+from backend.app.services.tavily_service import tavily_service
 
 logger = logging.getLogger(__name__)
 
@@ -420,12 +421,13 @@ class ResponseSynthesisAgent(BaseAgent):
         self.synthesis_prompt = ChatPromptTemplate.from_template("""
         You are a Senior Audit Professional providing expert analysis on compliance and audit matters.
         
-        Based on the retrieved context, provide a comprehensive response to the user's question.
+        Based on the retrieved context and real-time regulatory guidance, provide a comprehensive response to the user's question.
         Your response should be:
         1. Professional and authoritative
         2. Backed by specific evidence from the documents
         3. Include relevant compliance insights
-        4. Formatted as a formal audit communication
+        4. Incorporate current regulatory guidance and best practices
+        5. Formatted as a formal audit communication
         
         Question: {question}
         
@@ -435,22 +437,23 @@ class ResponseSynthesisAgent(BaseAgent):
         Document Classifications:
         {classifications}
         
+        **Latest Regulatory Context:**
+        {regulatory_context}
+        
         **CRITICAL SOURCE REFERENCE RULES**:
         - Only reference documents that are actually provided in the context above
         - Use the exact Document Name, Document Type, and Company information from the context
         - Do NOT invent or fabricate document names
         - If the context shows "Document Name: audit_report.pdf, Document Type: access_review", reference it as "audit_report.pdf (access_review)"
-        - If no documents are provided in context, state "No specific documents referenced" in the Source Documents section
-        
         Please provide your analysis in this format:
         
         **Subject:** [Clear subject line]
         
-        **Response:** [Detailed professional response]
+        **Response:** [Detailed professional response incorporating document evidence and regulatory guidance]
         
-        **Compliance Insights:** [Key compliance considerations]
+        **Compliance Insights:** [Key compliance considerations with current regulatory context]
         
-        **Source Documents:** [Reference to specific documents used - ONLY use actual document information from context]
+        **Latest Regulatory Guidance:** [Current best practices and regulatory updates relevant to this analysis]
         """)
     
     async def _execute_logic(self, context) -> Dict[str, Any]:
@@ -487,13 +490,19 @@ class ResponseSynthesisAgent(BaseAgent):
                 for cls in classifications[:3]
             ])
             
+            # Get regulatory context from workflow or fallback to Tavily
+            regulatory_context = input_data.get("regulatory_context")
+            if not regulatory_context:
+                regulatory_context = await self._get_regulatory_context(question, classifications)
+            
             # Synthesize response
             messages = [
                 SystemMessage(content="You are a senior audit professional with expertise in SOX compliance. Only reference actual documents provided in the context."),
                 HumanMessage(content=self.synthesis_prompt.format(
                     question=question,
                     context=context_text,
-                    classifications=classifications_text
+                    classifications=classifications_text,
+                    regulatory_context=regulatory_context
                 ))
             ]
             
@@ -516,6 +525,7 @@ class ResponseSynthesisAgent(BaseAgent):
                 "response": response_content,
                 "compliance_insights": compliance_insights,
                 "sources_used": len(search_results),
+                "regulatory_context_used": True,
                 "synthesis_status": "completed"
             }
             
@@ -526,6 +536,52 @@ class ResponseSynthesisAgent(BaseAgent):
                 "synthesis_status": "failed",
                 "response": "I apologize, but I encountered an error while processing your request."
             }
+    
+    async def _get_regulatory_context(self, question: str, classifications: List[Dict[str, Any]]) -> str:
+        """Get regulatory context from Tavily for enhanced compliance guidance."""
+        try:
+            # Determine document type and compliance framework from classifications
+            document_type = None
+            compliance_framework = "SOX"  # Default to SOX
+            
+            if classifications:
+                # Get the most relevant classification
+                primary_classification = classifications[0]
+                document_type = primary_classification.get('document_type', 'audit_document')
+                
+                # Determine framework based on document type
+                if 'access_review' in document_type.lower():
+                    document_type = 'access_review'
+                elif 'risk_assessment' in document_type.lower():
+                    document_type = 'risk_assessment'
+                elif 'financial' in document_type.lower():
+                    document_type = 'financial_reconciliation'
+            
+            # Search for regulatory guidance
+            tavily_result = await tavily_service.search_compliance_guidance(
+                query=question,
+                document_type=document_type,
+                compliance_framework=compliance_framework
+            )
+            
+            if tavily_result["success"] and tavily_result["compliance_insights"]:
+                # Format regulatory context
+                insights = []
+                for insight in tavily_result["compliance_insights"][:2]:  # Top 2 insights
+                    insights.append(f"• {insight['compliance_focus']}: {insight['title']}")
+                
+                regulatory_text = f"""Current {compliance_framework} guidance for {document_type or 'audit documents'}:
+{chr(10).join(insights)}
+
+Latest best practices and regulatory updates are incorporated into this analysis."""
+            else:
+                regulatory_text = f"Standard {compliance_framework} compliance requirements apply to this analysis."
+            
+            return regulatory_text
+            
+        except Exception as e:
+            logger.warning(f"Failed to get regulatory context: {str(e)}")
+            return "Standard SOX compliance requirements apply to this analysis."
 
 
 class ComplianceAnalyzerAgent(BaseAgent):

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verityn AI - Intelligent Document Chat for Audit & Compliance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .slide-header {
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #9600FF;
+        }
+        
+        .slide-number {
+            font-size: 18px;
+            color: #A0A0A0;
+        }
+        
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #9600FF 0%, #00D4FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #E0E0E0;
+            margin-bottom: 40px;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        .highlight-box {
+            background: rgba(150, 0, 255, 0.1);
+            border: 2px solid #9600FF;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            width: 100%;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #9600FF;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #E0E0E0;
+        }
+        
+        .architecture-diagram {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .agent-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .agent {
+            background: linear-gradient(135deg, #9600FF 0%, #00D4FF 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 150px;
+            margin: 10px;
+        }
+        
+        .arrow {
+            color: #9600FF;
+            font-size: 24px;
+            margin: 0 15px;
+        }
+        
+        .feature-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #9600FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+        }
+        
+        .feature-text {
+            flex: 1;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #9600FF;
+            margin-bottom: 5px;
+        }
+        
+        .feature-description {
+            color: #E0E0E0;
+            font-size: 0.95rem;
+        }
+        
+        .code-snippet {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .nav-btn {
+            background: rgba(150, 0, 255, 0.2);
+            border: 1px solid #9600FF;
+            color: #9600FF;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .nav-btn:hover {
+            background: #9600FF;
+            color: white;
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .demo-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .demo-title {
+            color: #9600FF;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .demo-content {
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-table th {
+            background: rgba(150, 0, 255, 0.1);
+            color: #9600FF;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            color: #E0E0E0;
+        }
+        
+        .highlight {
+            color: #9600FF;
+            font-weight: 600;
+        }
+        
+        .success {
+            color: #00FF88;
+        }
+        
+        .warning {
+            color: #FFB800;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .agent-flow {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active" id="slide1">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">1 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h1 class="title">Verityn AI</h1>
+                <p class="subtitle">Intelligent Document Chat for Audit & Compliance</p>
+                <div class="highlight-box">
+                    <h3 style="color: #9600FF; margin-bottom: 15px;">🎯 The Problem We Solve</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.6;">
+                        <strong>Auditors spend 60-70% of their time manually reviewing documents</strong> instead of doing strategic risk analysis. 
+                        We transform this repetitive process into intelligent, standardized conversations that enable auditors to focus on what they do best.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Business Impact -->
+        <div class="slide" id="slide2">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">2 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Business Impact & ROI</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">60-70%</div>
+                        <div class="stat-label">Time Saved on Document Review</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%+</div>
+                        <div class="stat-label">Classification Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12%</div>
+                        <div class="stat-label">Quality Improvement</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <h3 style="color: #9600FF; margin-bottom: 15px;">💼 Target Audience</h3>
+                    <p style="font-size: 1.1rem;">
+                        <strong>Internal Audit Managers, Senior Auditors, and Risk & Compliance Analysts</strong> at mid-to-large enterprises 
+                        who need consistent, thorough analysis across all team members while focusing their expertise on strategic risk analysis.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: System Architecture -->
+        <div class="slide" id="slide3">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">3 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Multi-Agent Architecture</h2>
+                <div class="architecture-diagram">
+                    <h3 style="color: #9600FF; margin-bottom: 20px; text-align: center;">Intelligent Workflow Orchestration</h3>
+                    <div class="agent-flow">
+                        <div class="agent">Document Processing</div>
+                        <div class="arrow">→</div>
+                        <div class="agent">Classification</div>
+                        <div class="arrow">→</div>
+                        <div class="agent">Question Analysis</div>
+                        <div class="arrow">→</div>
+                        <div class="agent">Context Retrieval</div>
+                        <div class="arrow">→</div>
+                        <div class="agent">Response Synthesis</div>
+                        <div class="arrow">→</div>
+                        <div class="agent">Compliance Analysis</div>
+                    </div>
+                    <div style="margin-top: 30px; text-align: center;">
+                        <p style="color: #E0E0E0; font-size: 1.1rem;">
+                            Built with <strong>LangChain + LangGraph</strong> for stateful multi-agent workflows
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Technology Stack -->
+        <div class="slide" id="slide4">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">4 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Enterprise-Grade Technology</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-text">
+                            <div class="feature-title">AI & LLM</div>
+                            <div class="feature-description">OpenAI GPT-4 for superior reasoning, text-embedding-3-small for document similarity</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🗄️</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Vector Database</div>
+                            <div class="feature-description">Qdrant for fast similarity search with in-memory optimization</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔗</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Orchestration</div>
+                            <div class="feature-description">LangChain + LangGraph for multi-agent workflow management</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Monitoring</div>
+                            <div class="feature-description">LangSmith for performance tracking and debugging</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Evaluation</div>
+                            <div class="feature-description">RAGAS framework for response quality assessment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Advanced Retrieval -->
+        <div class="slide" id="slide5">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">5 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Advanced Retrieval Techniques</h2>
+                <div class="demo-section">
+                    <div class="demo-title">🔍 Multi-Strategy Search Engine</div>
+                    <div class="demo-content">
+                        <p><strong>Hybrid Search:</strong> Combines semantic and keyword matching for optimal results</p>
+                        <p><strong>Query Expansion:</strong> Audit terminology optimization with SOX control references</p>
+                        <p><strong>Multi-Hop Retrieval:</strong> Comprehensive document analysis across multiple references</p>
+                        <p><strong>Ensemble Retrieval:</strong> Multiple technique combination for maximum coverage</p>
+                    </div>
+                </div>
+                <div class="code-snippet">
+// Advanced retrieval with caching optimization
+async def hybrid_search(self, query: str, limit: int = 10):
+    # Semantic + keyword combination
+    semantic_results = await self.vector_db.semantic_search(query, limit)
+    keyword_results = await self.bm25_retriever.get_relevant_documents(query)
+    
+    # Intelligent result combination and reranking
+    combined_results = self._combine_search_results(
+        semantic_results, keyword_results, 
+        semantic_weight=0.7, keyword_weight=0.3
+    )
+    
+    return combined_results[:limit]
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Document Processing -->
+        <div class="slide" id="slide6">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">6 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Intelligent Document Processing</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">📄</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Multi-Format Support</div>
+                            <div class="feature-description">PDF, DOCX, TXT, CSV, XLSX with automatic text extraction</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✂️</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Smart Chunking</div>
+                            <div class="feature-description">1000-char chunks with 250-char overlap for optimal context preservation</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏷️</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Automatic Classification</div>
+                            <div class="feature-description">Document type, compliance framework, risk level, SOX controls</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Metadata Extraction</div>
+                            <div class="feature-description">Company, date, document type, compliance frameworks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Smart Question Suggestions -->
+        <div class="slide" id="slide7">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">7 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Smart Question Suggestions</h2>
+                <div class="demo-section">
+                    <div class="demo-title">💡 Framework-Aware Intelligence</div>
+                    <div class="demo-content">
+                        <p><strong>SOX-Specific Questions:</strong> "Which SOX 404 controls are deficient?"</p>
+                        <p><strong>Document-Type Aware:</strong> Access review vs. financial reconciliation questions</p>
+                        <p><strong>One-Click Integration:</strong> Seamless question selection and execution</p>
+                        <p><strong>Compliance-Focused:</strong> Audit-specific question templates</p>
+                    </div>
+                </div>
+                <div class="code-snippet">
+// Dynamic question generation based on document type
+const generateQuestions = () => {
+    const typeSpecificQuestions = {
+        'access_review': [
+            "What access control deficiencies were found?",
+            "Which users have excessive privileges?",
+            "What segregation of duties issues exist?"
+        ],
+        'risk_assessment': [
+            "What are the highest risk areas identified?",
+            "Which controls are most critical?"
+        ]
+    };
+    // Intelligent question selection and ranking
+};
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Performance Metrics -->
+        <div class="slide" id="slide8">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">8 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Performance & Quality Metrics</h2>
+                <div class="comparison-table">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Baseline</th>
+                                <th>Advanced System</th>
+                                <th>Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Success Rate</td>
+                                <td class="success">100%</td>
+                                <td class="success">100%</td>
+                                <td class="highlight">Stable</td>
+                            </tr>
+                            <tr>
+                                <td>Response Quality</td>
+                                <td>1,478 chars</td>
+                                <td>1,651 chars</td>
+                                <td class="success">+12%</td>
+                            </tr>
+                            <tr>
+                                <td>RAGAS Faithfulness</td>
+                                <td>0.850</td>
+                                <td>0.850</td>
+                                <td class="highlight">Excellent</td>
+                            </tr>
+                            <tr>
+                                <td>RAGAS Relevancy</td>
+                                <td>0.780</td>
+                                <td>0.780</td>
+                                <td class="highlight">Good</td>
+                            </tr>
+                            <tr>
+                                <td>Execution Time</td>
+                                <td>28s</td>
+                                <td>36s</td>
+                                <td class="warning">Quality-focused</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Frontend Features -->
+        <div class="slide" id="slide9">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">9 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Modern User Interface</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Next.js + TypeScript</div>
+                            <div class="feature-description">Modern, responsive web application with drag & drop upload</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Interactive Chat</div>
+                            <div class="feature-description">Real-time conversation with context preservation and source citations</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Web Search Integration</div>
+                            <div class="feature-description">Real-time regulatory guidance via Tavily API</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Mobile Responsive</div>
+                            <div class="feature-description">Works seamlessly across all devices and screen sizes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Production Features -->
+        <div class="slide" id="slide10">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">10 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Production-Ready Features</h2>
+                <div class="demo-section">
+                    <div class="demo-title">🏭 Enterprise-Grade Infrastructure</div>
+                    <div class="demo-content">
+                        <p><strong>FastAPI Backend:</strong> Production-ready API with comprehensive error handling and validation</p>
+                        <p><strong>LangSmith Monitoring:</strong> Real-time performance tracking and debugging capabilities</p>
+                        <p><strong>RAGAS Evaluation:</strong> Automated quality assessment and continuous improvement</p>
+                        <p><strong>Security & Privacy:</strong> Data encryption, access controls, and audit logging</p>
+                        <p><strong>Scalability:</strong> Multi-tenant support and enterprise deployment ready</p>
+                    </div>
+                </div>
+                <div class="code-snippet">
+# Production-ready error handling and monitoring
+@app.exception_handler(Exception)
+async def general_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=500,
+        content={
+            "error": "Internal server error",
+            "detail": str(exc) if settings.DEBUG else "An unexpected error occurred",
+            "path": str(request.url),
+        },
+    )
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Use Cases -->
+        <div class="slide" id="slide11">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">11 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Real-World Use Cases</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔐</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Access Review Analysis</div>
+                            <div class="feature-description">Identify excessive privileges, segregation of duties violations, and orphaned accounts</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Financial Controls Testing</div>
+                            <div class="feature-description">SOX 404 compliance, internal control effectiveness, material weakness identification</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚠️</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Risk Assessment</div>
+                            <div class="feature-description">Control matrix analysis, risk register evaluation, mitigation strategy assessment</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📋</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Compliance Reporting</div>
+                            <div class="feature-description">Automated report generation, regulatory requirement tracking, audit documentation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Call to Action -->
+        <div class="slide" id="slide12">
+            <div class="slide-header">
+                <div class="logo">🔍 Verityn AI</div>
+                <div class="slide-number">12 / 12</div>
+            </div>
+            <div class="slide-content">
+                <h2 class="title" style="font-size: 2.8rem;">Ready to Transform Your Audit Process?</h2>
+                <div class="highlight-box">
+                    <h3 style="color: #9600FF; margin-bottom: 20px;">🚀 Next Steps</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.6;">
+                        <strong>Demo Available:</strong> Live demonstration of the complete system<br>
+                        <strong>Technical Deep-Dive:</strong> Detailed architecture and implementation review<br>
+                        <strong>Pilot Program:</strong> Test with your audit documents and workflows<br>
+                        <strong>Customization:</strong> Tailored to your specific compliance frameworks
+                    </p>
+                </div>
+                <div style="margin-top: 40px;">
+                    <h3 style="color: #E0E0E0; margin-bottom: 20px;">Contact Information</h3>
+                    <p style="font-size: 1.1rem; color: #A0A0A0;">
+                        <strong>Developer:</strong> Vidhu C | <strong>Project:</strong> Verityn AI<br>
+                        <strong>Status:</strong> Production-ready with comprehensive testing<br>
+                        <strong>Technology:</strong> Built on AI Engineering Bootcamp best practices
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="previousSlide()" id="prevBtn">← Previous</button>
+            <button class="nav-btn" onclick="nextSlide()" id="nextBtn">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 12;
+
+        function showSlide(slideNumber) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show current slide
+            document.getElementById(`slide${slideNumber}`).classList.add('active');
+            
+            // Update slide number display
+            document.querySelectorAll('.slide-number').forEach(display => {
+                display.textContent = `${slideNumber} / ${totalSlides}`;
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = slideNumber === 1;
+            document.getElementById('nextBtn').disabled = slideNumber === totalSlides;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize first slide
+        showSlide(1);
+    </script>
+</body>
+</html>

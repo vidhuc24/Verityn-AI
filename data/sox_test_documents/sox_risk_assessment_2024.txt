@@ -1,0 +1,37 @@
+Document Type: SOX Risk Assessment
+Framework: SOX 404
+Company: Global Manufacturing Corp
+Period: Annual 2024
+Date: 2024-12-01
+Prepared By: David Rodriguez, Risk Manager
+Approved By: Lisa Thompson, CFO
+
+================================================================================
+
+Executive Summary:
+Annual risk assessment of internal controls over financial reporting as required by SOX 404, identifying key risks and control effectiveness.
+
+Risk Categories:
+  Financial Reporting: High
+  Access Controls: Medium
+  Change Management: Low
+  Vendor Management: Medium
+
+Key Risks:
+• Revenue recognition complexity in multi-currency operations
+• IT system access controls and segregation of duties
+• Third-party vendor access to financial systems
+• Change management controls for system modifications
+
+Control Effectiveness:
+  Effective: ['Financial reporting controls', 'Audit trail monitoring']
+  Needs Improvement: ['Access controls', 'Vendor management']
+  Ineffective: ['Change management controls']
+
+Material Weaknesses:
+• Inadequate change management controls for financial systems
+• Weak vendor access controls and monitoring
+
+Remediation Plan:
+Implement enhanced change management and vendor controls by Q2 2025
+

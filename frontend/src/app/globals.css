@@ -3,6 +3,60 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: Inter, sans-serif;
+  }
+
   html {
     font-family: Inter, sans-serif;
   }
@@ -10,79 +64,136 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-medium py-2 px-4 rounded-lg transition-all duration-200 border border-border;
+  }
+
+  .btn-outline {
+    @apply border border-border bg-background hover:bg-accent hover:text-accent-foreground text-foreground font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground text-foreground font-medium py-2 px-4 rounded-lg transition-all duration-200;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-sm;
+  }
+
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+  }
+
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
   }
   
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none;
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
-  /* Markdown Chat Styles */
-  .chat-markdown {
-    @apply text-sm leading-relaxed;
+  .textarea-field {
+    @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
-  .chat-markdown h2 {
-    @apply text-lg font-semibold text-gray-900 mt-6 mb-3 first:mt-0 border-b border-gray-200 pb-2;
+  .badge {
+    @apply inline-flex items-center rounded-full border border-border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
 
-  .chat-markdown h3 {
-    @apply text-base font-medium text-gray-800 mt-4 mb-2;
+  .badge-default {
+    @apply bg-primary text-primary-foreground hover:bg-primary/80;
   }
 
-  .chat-markdown p {
-    @apply text-sm text-gray-700 mb-3 last:mb-0;
+  .badge-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
   }
 
-  .chat-markdown ul {
-    @apply list-disc list-inside space-y-1 my-3 ml-4;
+  .badge-outline {
+    @apply text-foreground;
   }
 
-  .chat-markdown ol {
-    @apply list-decimal list-inside space-y-1 my-3 ml-4;
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
   }
 
-  .chat-markdown li {
-    @apply text-sm text-gray-700;
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
   }
 
-  .chat-markdown strong {
-    @apply font-semibold text-gray-900;
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-muted-foreground/50;
   }
 
-  .chat-markdown em {
-    @apply italic text-gray-800;
+  /* Chat area scrollbar */
+  .chat-scrollbar::-webkit-scrollbar {
+    width: 8px;
   }
 
-  .chat-markdown blockquote {
-    @apply border-l-4 border-blue-500 pl-4 py-3 my-4 bg-blue-50 rounded-r-lg;
+  .chat-scrollbar::-webkit-scrollbar-track {
+    background: #1A1A1A;
+    border-radius: 4px;
   }
 
-  .chat-markdown code {
-    @apply bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono text-gray-800;
+  .chat-scrollbar::-webkit-scrollbar-thumb {
+    background: #9600FF;
+    border-radius: 4px;
+    transition: background 0.2s ease;
   }
 
-  .chat-markdown pre {
-    @apply bg-gray-100 p-3 rounded-lg text-xs font-mono overflow-x-auto my-3;
+  .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #7C3AED;
   }
 
-  .chat-markdown table {
-    @apply w-full border-collapse border border-gray-300 my-3;
+  /* Firefox scrollbar */
+  .chat-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #9600FF #1A1A1A;
   }
 
-  .chat-markdown th {
-    @apply bg-gray-50 border border-gray-300 px-3 py-2 text-left text-sm font-medium text-gray-900;
+  /* Animation classes */
+  .animate-in {
+    animation: animateIn 0.2s ease-out;
   }
 
-  .chat-markdown td {
-    @apply border border-gray-300 px-3 py-2 text-sm text-gray-700;
+  .animate-out {
+    animation: animateOut 0.2s ease-in;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes animateOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
   }
 } 

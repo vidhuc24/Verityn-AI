@@ -1,0 +1,326 @@
+/* Verityn AI Presentation - Custom PDF Styling */
+
+/* Base Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 2cm;
+    font-size: 11pt;
+    color: #333;
+    background-color: #ffffff;
+}
+
+/* Headings with Verityn AI Brand Colors */
+h1, h2, h3, h4, h5, h6 {
+    color: #9600FF;
+    border-bottom: 2px solid #9600FF;
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 24pt;
+    page-break-before: always;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 18pt;
+    margin-top: 2em;
+    color: #2d1b69;
+}
+
+h3 {
+    font-size: 14pt;
+    margin-top: 1.5em;
+    color: #4a4a4a;
+}
+
+h4 {
+    font-size: 12pt;
+    margin-top: 1.2em;
+    color: #666;
+}
+
+/* Slide Separators */
+hr {
+    border: none;
+    border-top: 3px solid #9600FF;
+    margin: 2em 0;
+    page-break-after: always;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    font-size: 10pt;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #9600FF;
+    font-weight: 600;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Code Blocks */
+code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    color: #e83e8c;
+}
+
+pre {
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    border-left: 4px solid #9600FF;
+    margin: 1em 0;
+    font-size: 9pt;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #333;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #9600FF;
+    margin: 1em 0;
+    padding-left: 1em;
+    color: #666;
+    font-style: italic;
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+/* Links */
+a {
+    color: #9600FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Special Elements */
+.highlight-box {
+    background-color: #f0f8ff;
+    border: 2px solid #9600FF;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.stat-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #9600FF;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 10pt;
+}
+
+/* Page Breaks */
+.page-break {
+    page-break-before: always;
+}
+
+.no-break {
+    page-break-inside: avoid;
+}
+
+/* Emojis and Icons */
+.emoji {
+    font-size: 1.2em;
+    margin-right: 0.3em;
+}
+
+/* Custom Classes for Verityn AI */
+.verityn-title {
+    text-align: center;
+    font-size: 28pt;
+    color: #9600FF;
+    margin: 2em 0 1em 0;
+    text-shadow: 2px 2px 4px rgba(150, 0, 255, 0.1);
+}
+
+.verityn-subtitle {
+    text-align: center;
+    font-size: 16pt;
+    color: #666;
+    margin-bottom: 2em;
+    font-style: italic;
+}
+
+.verityn-highlight {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 5px;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.verityn-code {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    padding: 1em;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    overflow-x: auto;
+}
+
+.verityn-table {
+    border: 2px solid #9600FF;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.verityn-table th {
+    background-color: #9600FF;
+    color: white;
+    font-weight: 600;
+}
+
+.verityn-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design for PDF */
+@media print {
+    body {
+        margin: 1.5cm;
+        font-size: 10pt;
+    }
+    
+    h1 {
+        font-size: 20pt;
+        margin-top: 1.5em;
+    }
+    
+    h2 {
+        font-size: 16pt;
+        margin-top: 1.5em;
+    }
+    
+    h3 {
+        font-size: 12pt;
+        margin-top: 1.2em;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    pre {
+        font-size: 8pt;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-break {
+        page-break-inside: avoid;
+    }
+}
+
+/* Special Styling for Compliance Content */
+.compliance-framework {
+    background-color: #e8f5e8;
+    border-left: 4px solid #28a745;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.risk-level-high {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.risk-level-medium {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.risk-level-low {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.sox-control {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 0.3em 0.6em;
+    border-radius: 3px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+/* Footer and Header */
+.footer {
+    text-align: center;
+    font-size: 8pt;
+    color: #999;
+    margin-top: 2em;
+    border-top: 1px solid #eee;
+    padding-top: 1em;
+}
+
+.header {
+    text-align: center;
+    font-size: 10pt;
+    color: #9600FF;
+    margin-bottom: 2em;
+    border-bottom: 2px solid #9600FF;
+    padding-bottom: 1em;
+}

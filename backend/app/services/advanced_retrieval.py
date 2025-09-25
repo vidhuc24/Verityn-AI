@@ -7,8 +7,12 @@ bootcamp Session 9 patterns for enhanced RAG performance.
 
 import logging
 from typing import Dict, Any, List, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timedelta
 import asyncio
+import time
+from collections import OrderedDict
+import hashlib
+import json
 
 from langchain_community.retrievers import BM25Retriever
 from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
@@ -32,16 +36,161 @@ from backend.app.services.vector_database import vector_db_service
 from backend.app.config import settings
 
 
-class AdvancedRetrievalService:
-    """Advanced retrieval service with multiple techniques."""
+class InMemoryCache:
+    """In-memory cache with TTL and LRU eviction for Session 9 optimization."""
     
-    def __init__(self, use_memory: bool = False):
-        """Initialize the advanced retrieval service."""
+    def __init__(self, max_size: int = 1000, default_ttl: int = 300):
+        """
+        Initialize the in-memory cache.
+        
+        Args:
+            max_size: Maximum number of cache entries
+            default_ttl: Default time-to-live in seconds (5 minutes)
+        """
+        self.max_size = max_size
+        self.default_ttl = default_ttl
+        self.cache = OrderedDict()
+        self.timestamps = {}
+        self.stats = {
+            "hits": 0,
+            "misses": 0,
+            "evictions": 0,
+            "total_requests": 0
+        }
+    
+    def _generate_cache_key(self, query: str, limit: int, filters: Optional[Dict] = None) -> str:
+        """Generate a unique cache key for the search parameters."""
+        # Create a hash of the search parameters
+        key_data = {
+            "query": query.lower().strip(),
+            "limit": limit,
+            "filters": filters or {}
+        }
+        key_string = json.dumps(key_data, sort_keys=True)
+        return hashlib.md5(key_string.encode()).hexdigest()
+    
+    def get(self, query: str, limit: int, filters: Optional[Dict] = None) -> Optional[Any]:
+        """Get a value from cache if it exists and hasn't expired."""
+        cache_key = self._generate_cache_key(query, limit, filters)
+        self.stats["total_requests"] += 1
+        
+        if cache_key in self.cache:
+            # Check if entry has expired
+            if time.time() - self.timestamps[cache_key] < self.default_ttl:
+                # Move to end (LRU)
+                self.cache.move_to_end(cache_key)
+                self.stats["hits"] += 1
+                logger.debug(f"Cache HIT for query: {query[:50]}...")
+                return self.cache[cache_key]
+            else:
+                # Entry expired, remove it
+                del self.cache[cache_key]
+                del self.timestamps[cache_key]
+                logger.debug(f"Cache entry expired for query: {query[:50]}...")
+        
+        self.stats["misses"] += 1
+        logger.debug(f"Cache MISS for query: {query[:50]}...")
+        return None
+    
+    def set(self, query: str, limit: int, filters: Optional[Dict], value: Any, ttl: Optional[int] = None) -> None:
+        """Set a value in cache with optional TTL override."""
+        cache_key = self._generate_cache_key(query, limit, filters)
+        ttl_seconds = ttl or self.default_ttl
+        
+        # Evict oldest entries if cache is full
+        while len(self.cache) >= self.max_size:
+            oldest_key = next(iter(self.cache))
+            del self.cache[oldest_key]
+            del self.timestamps[oldest_key]
+            self.stats["evictions"] += 1
+            logger.debug(f"Cache eviction due to size limit")
+        
+        # Add new entry
+        self.cache[cache_key] = value
+        self.timestamps[cache_key] = time.time()
+        
+        # Move to end (LRU)
+        self.cache.move_to_end(cache_key)
+        logger.debug(f"Cache SET for query: {query[:50]}... (TTL: {ttl_seconds}s)")
+    
+    def invalidate_pattern(self, pattern: str) -> int:
+        """Invalidate cache entries matching a pattern (e.g., document type)."""
+        invalidated = 0
+        keys_to_remove = []
+        
+        for key in list(self.cache.keys()):
+            # Check if any cached result contains the pattern
+            cached_value = self.cache[key]
+            if isinstance(cached_value, list):
+                for result in cached_value:
+                    if isinstance(result, dict):
+                        metadata = result.get("metadata", {})
+                        if pattern.lower() in str(metadata).lower():
+                            keys_to_remove.append(key)
+                            break
+        
+        # Remove invalidated entries
+        for key in keys_to_remove:
+            del self.cache[key]
+            del self.timestamps[key]
+            invalidated += 1
+        
+        logger.info(f"Cache invalidation: {invalidated} entries removed for pattern '{pattern}'")
+        return invalidated
+    
+    def clear(self) -> None:
+        """Clear all cache entries."""
+        self.cache.clear()
+        self.timestamps.clear()
+        logger.info("Cache cleared")
+    
+    def get_stats(self) -> Dict[str, Any]:
+        """Get cache performance statistics."""
+        hit_rate = (self.stats["hits"] / self.stats["total_requests"] * 100) if self.stats["total_requests"] > 0 else 0
+        
+        return {
+            "cache_size": len(self.cache),
+            "max_size": self.max_size,
+            "hit_rate": f"{hit_rate:.1f}%",
+            "hits": self.stats["hits"],
+            "misses": self.stats["misses"],
+            "evictions": self.stats["evictions"],
+            "total_requests": self.stats["total_requests"],
+            "memory_usage_mb": len(self.cache) * 0.001  # Rough estimate
+        }
+    
+    def set_ttl(self, ttl_seconds: int) -> None:
+        """Set a new default TTL for cache entries."""
+        self.default_ttl = ttl_seconds
+        logger.info(f"Cache TTL updated to {ttl_seconds} seconds")
+
+
+class AdvancedRetrievalService:
+    """Advanced retrieval service with multiple techniques and in-memory caching."""
+    
+    def __init__(self, use_memory: bool = True, cache_size: int = 1000, cache_ttl: int = 300):
+        """
+        Initialize the advanced retrieval service.
+        
+        Args:
+            use_memory: Enable in-memory caching (default: True for Session 9 optimization)
+            cache_size: Maximum cache entries
+            cache_ttl: Cache TTL in seconds
+        """
         self.vector_db = vector_db_service
         self.embeddings = OpenAIEmbeddings(
             model=settings.OPENAI_EMBEDDING_MODEL,
             openai_api_key=settings.OPENAI_API_KEY,
         )
+        
+        # Initialize in-memory cache for Session 9 optimization
+        self.cache_enabled = use_memory
+        if self.cache_enabled:
+            self.cache = InMemoryCache(max_size=cache_size, default_ttl=cache_ttl)
+            logger.info(f"Session 9 in-memory cache initialized (size: {cache_size}, TTL: {cache_ttl}s)")
+        else:
+            self.cache = None
+            logger.info("In-memory caching disabled")
         
         # Initialize different retrievers
         self.bm25_retriever = None
@@ -167,10 +316,11 @@ class AdvancedRetrievalService:
         limit: int = 10,
         filters: Optional[Dict[str, Any]] = None,
         semantic_weight: float = 0.7,
-        keyword_weight: float = 0.3
+        keyword_weight: float = 0.3,
+        use_cache: bool = True
     ) -> List[Dict[str, Any]]:
         """
-        Perform hybrid search combining semantic and keyword approaches.
+        Perform hybrid search combining semantic and keyword approaches with caching.
         
         Args:
             query: Search query
@@ -178,11 +328,35 @@ class AdvancedRetrievalService:
             filters: Optional metadata filters
             semantic_weight: Weight for semantic search (0-1)
             keyword_weight: Weight for keyword search (0-1)
+            use_cache: Enable caching for this search (default: True)
             
         Returns:
-            List of search results with scores
+            List of search results with scores and cache metadata
         """
+        start_time = time.time()
+        
+        # Check cache first if enabled
+        if use_cache and self.cache_enabled:
+            cached_results = self.cache.get(query, limit, filters)
+            if cached_results:
+                execution_time = time.time() - start_time
+                logger.info(f"Cache HIT for query: '{query[:50]}...' - returned in {execution_time:.3f}s")
+                
+                # Add cache metadata to results
+                for result in cached_results:
+                    result["cache_metadata"] = {
+                        "source": "cache",
+                        "cache_hit": True,
+                        "execution_time": execution_time,
+                        "cache_timestamp": datetime.now().isoformat()
+                    }
+                
+                return cached_results
+        
+        # Cache miss or disabled - perform actual search
         try:
+            logger.info(f"Cache MISS for query: '{query[:50]}...' - performing hybrid search")
+            
             # Perform semantic search
             semantic_results = await self.vector_db.semantic_search(
                 query_text=query,
@@ -219,11 +393,81 @@ class AdvancedRetrievalService:
             if filters:
                 combined_results = self._apply_filters(combined_results, filters)
             
-            return combined_results[:limit]
+            final_results = combined_results[:limit]
+            
+            # Add performance metadata
+            execution_time = time.time() - start_time
+            for result in final_results:
+                result["search_metadata"] = {
+                    "source": "hybrid_search",
+                    "cache_hit": False,
+                    "execution_time": execution_time,
+                    "search_timestamp": datetime.now().isoformat(),
+                    "semantic_weight": semantic_weight,
+                    "keyword_weight": keyword_weight,
+                    "total_results_processed": len(combined_results)
+                }
+            
+            # Cache the results if enabled
+            if use_cache and self.cache_enabled:
+                self.cache.set(query, limit, filters, final_results)
+                logger.info(f"Cached hybrid search results for query: '{query[:50]}...' (TTL: {self.cache.default_ttl}s)")
+            
+            logger.info(f"Hybrid search completed in {execution_time:.3f}s for query: '{query[:50]}...'")
+            return final_results
             
         except Exception as e:
-            logger.error(f"Hybrid search failed: {str(e)}")
+            execution_time = time.time() - start_time
+            logger.error(f"Hybrid search failed in {execution_time:.3f}s for query '{query[:50]}...': {str(e)}")
             return []
+    
+    # Cache Management Methods for Session 9 Optimization
+    
+    def get_cache_stats(self) -> Dict[str, Any]:
+        """Get cache performance statistics."""
+        if not self.cache_enabled or not self.cache:
+            return {"status": "cache_disabled"}
+        return self.cache.get_stats()
+    
+    def clear_cache(self) -> None:
+        """Clear all cached search results."""
+        if self.cache_enabled and self.cache:
+            self.cache.clear()
+            logger.info("Advanced retrieval cache cleared")
+    
+    def invalidate_cache_by_pattern(self, pattern: str) -> int:
+        """Invalidate cache entries matching a pattern (e.g., document type)."""
+        if not self.cache_enabled or not self.cache:
+            return 0
+        return self.cache.invalidate_pattern(pattern)
+    
+    def set_cache_ttl(self, ttl_seconds: int) -> None:
+        """Set a new default TTL for cache entries."""
+        if self.cache_enabled and self.cache:
+            self.cache.set_ttl(ttl_seconds)
+    
+    def enable_cache(self, cache_size: int = 1000, cache_ttl: int = 300) -> None:
+        """Enable in-memory caching with specified parameters."""
+        if not self.cache_enabled:
+            self.cache = InMemoryCache(max_size=cache_size, default_ttl=cache_ttl)
+            self.cache_enabled = True
+            logger.info(f"Session 9 in-memory cache enabled (size: {cache_size}, TTL: {cache_ttl}s)")
+    
+    def disable_cache(self) -> None:
+        """Disable in-memory caching."""
+        if self.cache_enabled:
+            self.cache = None
+            self.cache_enabled = False
+            logger.info("In-memory caching disabled")
+    
+    def get_cache_status(self) -> Dict[str, Any]:
+        """Get current cache configuration and status."""
+        return {
+            "cache_enabled": self.cache_enabled,
+            "cache_size": self.cache.max_size if self.cache else 0,
+            "cache_ttl": self.cache.default_ttl if self.cache else 0,
+            "stats": self.get_cache_stats() if self.cache_enabled else {"status": "cache_disabled"}
+        }
     
     def _combine_search_results(
         self,

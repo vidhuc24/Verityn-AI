@@ -78,15 +78,6 @@ Brief overview of the key findings and implications.
 2. **Short-term**: [30-90 day recommendations]
 3. **Long-term**: [Strategic recommendations]
 
-## �� Source References
-**IMPORTANT**: Only reference the actual documents provided in the context. Use the exact document information shown in the context, including:
-- Document ID: [Use the actual Document ID from context]
-- Document Type: [Use the actual Document Type from context]
-- Company: [Use the actual Company from context]
-- Specific sections or findings referenced
-
-Do NOT fabricate or invent document names. If the context shows "Document 1 (Score: 0.xxx): - Document ID: abc123 - Document Type: audit_report", then reference it as "Document ID: abc123 (audit_report)".
-
 Guidelines for responses:
 1. Always base your answers on the provided document context
 2. Clearly distinguish between facts from documents and your analysis
@@ -95,8 +86,7 @@ Guidelines for responses:
 5. Provide actionable, prioritized recommendations
 6. If information is insufficient, clearly state limitations
 7. Use professional audit terminology appropriately
-8. Include specific document references and page numbers when available
-9. **CRITICAL**: Only reference documents that are actually provided in the context
+8. Prioritize findings and recommendations by urgency and impact
 
 Remember: Accuracy and compliance are critical in audit contexts. Structure your responses to be immediately actionable for audit professionals."""
 
@@ -112,14 +102,7 @@ CONVERSATION HISTORY:
 
 USER QUESTION: {question}
 
-**IMPORTANT**: Structure your response using the markdown format specified in the system prompt. Include all relevant sections (Executive Summary, Key Findings, Risk Assessment, Compliance Framework, Recommendations, Source References) even if some sections are brief.
-
-**CRITICAL SOURCE REFERENCE RULES**:
-- Only reference documents that are actually provided in the context above
-- Use the exact Document ID, Document Type, and Company information from the context
-- Do NOT invent or fabricate document names
-- If the context shows "Document 1: Document ID: abc123, Document Type: audit_report", reference it as "Document ID: abc123 (audit_report)"
-- If no documents are provided in context, state "No specific documents referenced" in the Source References section
+**IMPORTANT**: Structure your response using the markdown format specified in the system prompt. Include all relevant sections (Executive Summary, Key Findings, Risk Assessment, Compliance Framework, Recommendations) even if some sections are brief.
 
 Instructions:
 - Use the document context as your primary source of information
@@ -128,7 +111,6 @@ Instructions:
 - If the context doesn't contain sufficient information, clearly state this in the relevant section
 - Provide actionable insights relevant to audit and compliance professionals
 - Use markdown formatting for headers, bullet points, and emphasis
-- Include specific document references and page numbers when available
 - Prioritize findings and recommendations by urgency and impact
 
 RESPONSE:"""

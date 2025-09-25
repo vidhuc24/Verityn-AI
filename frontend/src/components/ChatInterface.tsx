@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Send } from 'lucide-react'
+import { Send, Lightbulb, MessageSquare, Search } from 'lucide-react'
 import toast from 'react-hot-toast'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -60,13 +60,23 @@ export default function ChatInterface({
   selectedQuestion,
   onQuestionSent 
 }: ChatInterfaceProps) {
+  // Helper function to get document category from filename
+  const getDocumentCategory = (fileName: string): string => {
+    const name = fileName.toLowerCase()
+    if (name.includes('access_review')) return 'Access Review'
+    if (name.includes('risk_assessment')) return 'Risk Assessment'
+    if (name.includes('financial_controls')) return 'Financial Controls'
+    if (name.includes('internal_controls')) return 'Internal Controls'
+    return 'Compliance'
+  }
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       type: 'ai',
       content: `## 📋 Welcome to Verityn AI
 
-I've analyzed your **${analysisResults.documentType}** document and I'm ready to help you understand the compliance findings, identify risks, and answer questions about the audit results.
+I've analyzed your **${getDocumentCategory(document?.name || '')}** document and I'm ready to help you understand the compliance findings, identify risks, and answer questions about the audit results.
 
 ## 🔍 What I Can Help With
 - **Compliance Analysis**: Identify SOX controls, PCI-DSS requirements, and other frameworks
@@ -88,7 +98,9 @@ What would you like to know about your audit document?`,
   ])
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isWebSearching, setIsWebSearching] = useState(false)
   const [conversationId, setConversationId] = useState<string | null>(null)
+  const [showQuestions, setShowQuestions] = useState(false)
 
   // Handle selected question from smart questions
   useEffect(() => {
@@ -99,14 +111,119 @@ What would you like to know about your audit document?`,
     }
   }, [selectedQuestion, documentId])
 
-  const handleSend = async (questionToSend?: string) => {
-    const question = questionToSend || inputValue.trim()
-    if (!question || !documentId) return
+  // Perform web search using Tavily API
+  const performWebSearch = async () => {
+    if (!documentId || !analysisResults) {
+      toast.error('Please upload and analyze a document first')
+      return
+    }
+
+    setIsWebSearching(true)
+    
+    // Add loading message
+    const loadingMessage: Message = {
+      id: Date.now().toString(),
+      type: 'ai',
+      content: `## 🔍 **Searching for Latest Guidance...**
+
+I'm searching for the most recent compliance guidance and best practices related to your **${analysisResults.documentType}** document and **${analysisResults.complianceFramework}** framework.
+
+This may take a few moments as I gather the latest information from regulatory sources...`,
+      timestamp: new Date()
+    }
+    
+    setMessages(prev => [...prev, loadingMessage])
+    
+    try {
+      // Generate focused search query based on document content
+      const documentType = analysisResults.documentType?.toLowerCase() || 'document'
+      const framework = analysisResults.complianceFramework || 'compliance'
+      
+      // Create more focused search queries
+      let searchQuery = ''
+      if (documentType.includes('access review')) {
+        searchQuery = `${framework} access control best practices 2024 latest guidance`
+      } else if (documentType.includes('risk assessment')) {
+        searchQuery = `${framework} risk assessment methodology 2024 latest standards`
+      } else if (documentType.includes('financial')) {
+        searchQuery = `${framework} financial reporting controls 2024 latest requirements`
+      } else {
+        searchQuery = `${framework} ${documentType} compliance requirements 2024 latest guidance`
+      }
+      
+      // Call backend Tavily API endpoint
+      const response = await fetch('/api/web-search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: searchQuery,
+          document_id: documentId,
+          document_type: analysisResults.documentType,
+          framework: analysisResults.complianceFramework
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Web search failed')
+      }
+
+      const searchResults = await response.json()
+      
+      // Format web search results as AI message
+      const webSearchMessage: Message = {
+        id: Date.now().toString(),
+        type: 'ai',
+        content: `## 🌐 **Latest Compliance Guidance**
+
+Based on your **${analysisResults.documentType}** document and **${analysisResults.complianceFramework}** framework, here are the most relevant recent insights:
+
+${searchResults.results?.slice(0, 3).map((result: any, index: number) => 
+  `**${index + 1}. [${result.title}](${result.url})**\n\n`
+).join('') || 'No recent guidance found.'}
+
+### 📚 **Additional Resources**
+${searchResults.results?.slice(3).map((result: any, index: number) => 
+  `- [${result.title}](${result.url})\n`
+).join('') || ''}
+
+*Search query: "${searchQuery}"*`,
+        timestamp: new Date(),
+        sources: [] // Remove sources to avoid duplication
+      }
+
+      // Replace the loading message with results
+      setMessages(prev => prev.map(msg => 
+        msg.id === loadingMessage.id ? webSearchMessage : msg
+      ))
+      toast.success('Web search completed!')
+      
+    } catch (error) {
+      console.error('Web search failed:', error)
+      toast.error('Web search failed. Please try again.')
+      
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        type: 'ai',
+        content: 'I apologize, but I encountered an error performing the web search. Please try again later.',
+        timestamp: new Date()
+      }
+      
+      setMessages(prev => [...prev, errorMessage])
+    } finally {
+      setIsWebSearching(false)
+    }
+  }
+
+  const handleSend = async (message?: string) => {
+    const textToSend = message || inputValue.trim()
+    if (!textToSend || !documentId) return
 
     const userMessage: Message = {
       id: Date.now().toString(),
       type: 'user',
-      content: question,
+      content: textToSend,
       timestamp: new Date()
     }
 
@@ -114,60 +231,56 @@ What would you like to know about your audit document?`,
     setInputValue('')
     setIsLoading(true)
 
-    // Clear selected question if it was auto-sent
-    if (questionToSend && onQuestionSent) {
-      onQuestionSent()
-    }
-
     try {
-      // Call backend chat API
+      // Call the real backend API
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: question,
+          message: textToSend,
           document_id: documentId,
           conversation_id: conversationId
         }),
       })
 
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Chat failed')
+        throw new Error('Failed to send message')
       }
 
-      const result = await response.json()
+      const data = await response.json()
       
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: formatAIResponse(result.chat.response),
+        content: data.response || 'I apologize, but I encountered an error processing your request.',
         timestamp: new Date(),
-        sources: result.chat.sources,
-        confidence: result.chat.confidence
+        sources: data.sources,
+        confidence: data.confidence
       }
 
       setMessages(prev => [...prev, aiMessage])
-      setConversationId(result.chat.conversation_id)
-
-      // Show success toast with execution time
-      if (result.chat.execution_time) {
-        toast.success(`Response generated in ${(result.chat.execution_time / 1000).toFixed(1)}s`)
+      
+      if (data.conversation_id && !conversationId) {
+        setConversationId(data.conversation_id)
       }
 
-    } catch (error) {
-      console.error('Chat error:', error)
-      toast.error(error instanceof Error ? error.message : 'Failed to get response')
+      if (onQuestionSent) {
+        onQuestionSent()
+      }
       
-      // Add error message to chat
+    } catch (error) {
+      console.error('Failed to send message:', error)
+      toast.error('Failed to send message. Please try again.')
+      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: formatAIResponse('Sorry, I encountered an error while processing your question. Please try again.'),
+        content: 'I apologize, but I encountered an error processing your request. Please try again.',
         timestamp: new Date()
       }
+      
       setMessages(prev => [...prev, errorMessage])
     } finally {
       setIsLoading(false)
@@ -181,164 +294,310 @@ What would you like to know about your audit document?`,
     }
   }
 
+  // Generate contextual questions based on document type and framework
+  const generateQuestions = () => {
+    const baseQuestions = [
+      "What are the main compliance issues identified in this document?",
+      "Which controls are deficient and what are the implications?",
+      "What remediation steps are recommended?",
+      "What is the overall risk assessment?",
+      "Are there any material weaknesses identified?"
+    ]
+
+    const typeSpecificQuestions = {
+      'access review': [
+        "What access control deficiencies were found?",
+        "Which users have excessive privileges?",
+        "What segregation of duties issues exist?",
+        "How many orphaned accounts were identified?"
+      ],
+      'risk assessment': [
+        "What are the highest risk areas identified?",
+        "Which controls are most critical?",
+        "What is the likelihood vs impact analysis?",
+        "Are there any emerging risks mentioned?"
+      ],
+      'financial reconciliation': [
+        "What reconciliation discrepancies exist?",
+        "Which accounts have outstanding items?",
+        "What is the financial impact of findings?",
+        "Are there any material misstatements?"
+      ]
+    }
+
+    const frameworkSpecificQuestions = {
+      'sox': [
+        "Which SOX controls are deficient?",
+        "What are the control objectives not met?",
+        "Are there any material weaknesses in internal controls?",
+        "What is the impact on financial reporting?"
+      ],
+      'pci-dss': [
+        "Which PCI-DSS requirements are not met?",
+        "What are the data security gaps?",
+        "Are there any vulnerabilities in cardholder data handling?",
+        "What is the compliance level assessment?"
+      ],
+      'iso 27001': [
+        "Which information security controls are weak?",
+        "What are the security policy gaps?",
+        "Are there any asset management issues?",
+        "What is the risk treatment status?"
+      ]
+    }
+
+    const type = analysisResults.documentType?.toLowerCase() || ''
+    const framework = analysisResults.complianceFramework?.toLowerCase() || ''
+
+    let questions = [...baseQuestions]
+
+    // Add type-specific questions
+    for (const [key, typeQuestions] of Object.entries(typeSpecificQuestions)) {
+      if (type.includes(key)) {
+        questions = [...questions, ...typeQuestions]
+        break
+      }
+    }
+
+    // Add framework-specific questions
+    for (const [key, frameworkQuestions] of Object.entries(frameworkSpecificQuestions)) {
+      if (framework.includes(key)) {
+        questions = [...questions, ...frameworkQuestions]
+        break
+      }
+    }
+
+    return questions.slice(0, 8) // Limit to 8 questions
+  }
+
+  const questions = generateQuestions()
+
   return (
-    <div className="card">
-      <div className="h-96 flex flex-col">
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <div className="flex-1 flex flex-col h-full">
+      {/* Header with Web Search and Smart Questions Buttons */}
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-semibold" style={{ color: '#E0E0E0' }}>AI Assistant</h3>
+        
+        {/* Web Search and Smart Questions Buttons */}
+        <div className="flex items-center gap-3">
+          {/* Web Search Button */}
+          <button
+            onClick={performWebSearch}
+            disabled={!documentId || !analysisResults || isWebSearching}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ 
+              backgroundColor: 'transparent',
+              border: '1px solid #9600FF',
+              color: '#9600FF'
+            }}
+          >
+            {isWebSearching ? (
+              <div className="w-4 h-4 border-2 border-[#9600FF] border-t-transparent rounded-full animate-spin"></div>
+            ) : (
+              <Search className="h-4 w-4" />
+            )}
+            <span className="text-sm font-medium">
+              {isWebSearching ? 'Searching...' : 'Web Search'}
+            </span>
+          </button>
+          
+          {/* Smart Questions Button */}
+          <div className="relative">
+            <button
+              onClick={() => setShowQuestions(!showQuestions)}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10"
+              style={{ 
+                backgroundColor: showQuestions ? '#9600FF20' : 'transparent',
+                border: '1px solid #9600FF',
+                color: '#9600FF'
+              }}
+            >
+              <Lightbulb className="h-4 w-4" />
+              <span className="text-sm font-medium">Smart Questions</span>
+            </button>
+            
+            {/* Questions Dropdown */}
+            {showQuestions && (
+              <div className="absolute top-full right-0 mt-2 w-80 p-4 rounded-lg border z-10"
+                   style={{ backgroundColor: '#1A1A1A', borderColor: '#A0A0A0' }}>
+                <div className="space-y-2">
+                  {questions.map((question, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setShowQuestions(false)
+                        setInputValue(question)
+                        handleSend(question)
+                      }}
+                      className="w-full text-left p-3 rounded-lg transition-all duration-200 hover:bg-[#9600FF]/10"
+                      style={{ 
+                        backgroundColor: '#282828',
+                        color: '#E0E0E0',
+                        border: '1px solid #A0A0A0'
+                      }}
+                    >
+                      <div className="flex items-start space-x-2">
+                        <MessageSquare className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#9600FF' }} />
+                        <p className="text-sm">{question}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Chat Messages Area - Takes majority of container with scrolling */}
+      <div className="flex-1 overflow-y-auto mb-3 p-4 rounded-lg min-h-0 chat-scrollbar" 
+           style={{ backgroundColor: '#1A1A1A' }}>
+        <div className="space-y-3">
           {messages.map((message) => (
             <div
               key={message.id}
               className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-4xl rounded-lg px-4 py-3 ${
+                className={`max-w-[80%] p-4 rounded-lg ${
                   message.type === 'user'
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-50 text-gray-900 border border-gray-200'
+                    ? 'bg-[#9600FF] text-white'
+                    : 'bg-[#1A1A1A] text-[#E0E0E0] border border-[#A0A0A0]/20'
                 }`}
               >
-                {message.type === 'user' ? (
-                  <p className="text-sm">{message.content}</p>
-                ) : (
-                  <div className="chat-markdown">
-                    <ReactMarkdown 
-                      remarkPlugins={[remarkGfm]}
-                      components={{
-                        h2: ({children}) => (
-                          <h2 className="text-lg font-semibold text-gray-900 mt-4 mb-2 first:mt-0">
-                            {children}
-                          </h2>
-                        ),
-                        h3: ({children}) => (
-                          <h3 className="text-base font-medium text-gray-800 mt-3 mb-1">
-                            {children}
-                          </h3>
-                        ),
-                        ul: ({children}) => (
-                          <ul className="list-disc list-inside space-y-1 my-2">
-                            {children}
-                          </ul>
-                        ),
-                        ol: ({children}) => (
-                          <ol className="list-decimal list-inside space-y-1 my-2">
-                            {children}
-                          </ol>
-                        ),
-                        li: ({children}) => (
-                          <li className="text-sm text-gray-700">
-                            {children}
-                          </li>
-                        ),
-                        p: ({children}) => (
-                          <p className="text-sm text-gray-700 mb-2 last:mb-0">
-                            {children}
-                          </p>
-                        ),
-                        strong: ({children}) => (
-                          <strong className="font-semibold text-gray-900">
-                            {children}
-                          </strong>
-                        ),
-                        em: ({children}) => (
-                          <em className="italic text-gray-800">
-                            {children}
-                          </em>
-                        ),
-                        blockquote: ({children}) => (
-                          <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-3 bg-blue-50">
-                            {children}
-                          </blockquote>
-                        ),
-                        code: ({children}) => (
-                          <code className="bg-gray-100 px-1 py-0.5 rounded text-xs font-mono">
-                            {children}
-                          </code>
-                        ),
-                        pre: ({children}) => (
-                          <pre className="bg-gray-100 p-3 rounded text-xs font-mono overflow-x-auto">
-                            {children}
-                          </pre>
-                        ),
-                      }}
-                    >
-                      {message.content}
-                    </ReactMarkdown>
-                  </div>
-                )}
-                
-                {/* Show sources for AI messages */}
-                {message.type === 'ai' && message.sources && message.sources.length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 mb-2 font-medium">📚 Sources:</p>
-                    {message.sources.map((source: any, index: number) => (
-                      <p key={index} className="text-xs text-gray-600 mb-1">
-                        • {source.title || source.content?.substring(0, 60)}...
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    h2: ({children}) => (
+                      <h2 className="text-lg font-semibold mt-4 mb-2 first:mt-0 border-b pb-2" 
+                           style={{ color: '#E0E0E0', borderColor: '#A0A0A0' }}>
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({children}) => (
+                      <h3 className="text-base font-medium mt-3 mb-1" style={{ color: '#E0E0E0' }}>
+                        {children}
+                      </h3>
+                    ),
+                    p: ({children}) => (
+                      <p className="text-sm mb-2 last:mb-0" style={{ color: '#E0E0E0' }}>
+                        {children}
                       </p>
-                    ))}
-                  </div>
-                )}
+                    ),
+                    ul: ({children}) => (
+                      <ul className="list-disc list-inside space-y-1 my-2 ml-4">
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({children}) => (
+                      <ol className="list-decimal list-inside space-y-1 my-2 ml-4">
+                        {children}
+                      </ol>
+                    ),
+                    li: ({children}) => (
+                      <li className="text-sm" style={{ color: '#E0E0E0' }}>
+                        {children}
+                      </li>
+                    ),
+                    strong: ({children}) => (
+                      <strong className="font-semibold" style={{ color: '#E0E0E0' }}>
+                        {children}
+                      </strong>
+                    ),
+                    em: ({children}) => (
+                      <em className="italic" style={{ color: '#A0A0A0' }}>
+                        {children}
+                      </em>
+                    ),
+                    blockquote: ({children}) => (
+                      <blockquote className="border-l-4 pl-4 py-2 my-3 rounded-r-lg" 
+                                 style={{ borderColor: '#9600FF', backgroundColor: '#1A1A1A' }}>
+                        {children}
+                      </blockquote>
+                    ),
+                    code: ({children}) => (
+                      <code className="px-1.5 py-0.5 rounded text-xs font-mono" 
+                            style={{ backgroundColor: '#1A1A1A', color: '#E0E0E0' }}>
+                        {children}
+                      </code>
+                    ),
+                    pre: ({children}) => (
+                      <pre className="p-3 rounded-lg text-xs font-mono overflow-x-auto my-3" 
+                           style={{ backgroundColor: '#1A1A1A', color: '#E0E0A0' }}>
+                        {children}
+                      </pre>
+                    ),
+                    a: ({href, children}) => (
+                      <a 
+                        href={href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[#9600FF] hover:text-[#7C3AED] underline transition-colors duration-200"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  }}
+                >
+                  {formatAIResponse(message.content)}
+                </ReactMarkdown>
                 
-                {/* Show confidence for AI messages */}
-                {message.type === 'ai' && message.confidence && (
-                  <div className="mt-2 pt-2 border-t border-gray-200">
-                    <p className="text-xs text-gray-500">
-                      🎯 Confidence: {(message.confidence * 100).toFixed(1)}%
-                    </p>
-                  </div>
-                )}
-                
-                <p className={`text-xs mt-2 ${
-                  message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
-                }`}>
-                  {message.timestamp.toLocaleTimeString()}
-                </p>
+                {/* Removed sources section to avoid duplication */}
               </div>
             </div>
           ))}
           
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-gray-100 rounded-lg px-4 py-2">
-                <div className="flex items-center space-x-2">
-                  <div className="animate-pulse flex space-x-1">
-                    <div className="h-2 w-2 bg-gray-400 rounded-full"></div>
-                    <div className="h-2 w-2 bg-gray-400 rounded-full"></div>
-                    <div className="h-2 w-2 bg-gray-400 rounded-full"></div>
-                  </div>
-                  <span className="text-xs text-gray-500">AI is thinking...</span>
+              <div className="bg-[#282828] text-[#E0E0E0] p-4 rounded-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-4 h-4 border-2 border-[#9600FF] border-t-transparent rounded-full animate-spin"></div>
+                  <span className="text-sm">Thinking...</span>
                 </div>
               </div>
             </div>
           )}
         </div>
+      </div>
 
-        {/* Input */}
-        <div className="border-t border-gray-200 p-4">
-          <div className="flex space-x-2">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Ask me anything about this document..."
-              className="flex-1 input-field"
-              disabled={isLoading || !documentId}
-            />
-            <button
-              onClick={() => handleSend()}
-              disabled={!inputValue.trim() || isLoading || !documentId}
-              className="btn-primary"
-            >
-              <Send className="h-4 w-4" />
-            </button>
-          </div>
-          {!documentId && (
-            <p className="text-xs text-gray-500 mt-2">
-              Please upload a document first to start chatting
-            </p>
-          )}
+      {/* Input Area - Clean send button without background box */}
+      <div className="flex items-center space-x-3 p-3 rounded-lg" style={{ backgroundColor: '#1A1A1A' }}>
+        <div className="flex-1">
+          <textarea
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Ask anything about your document"
+            className="w-full p-3 rounded-lg resize-none transition-all duration-200"
+            style={{ 
+              backgroundColor: '#282828',
+              color: '#E0E0E0',
+              border: '1px solid #A0A0A0',
+              minHeight: '44px',
+              maxHeight: '120px',
+              overflow: inputValue.length > 50 ? 'auto' : 'hidden'
+            }}
+            rows={1}
+            onInput={(e) => {
+              const target = e.target as HTMLTextAreaElement;
+              target.style.height = 'auto';
+              target.style.height = Math.min(target.scrollHeight, 120) + 'px';
+            }}
+          />
         </div>
+        <button
+          onClick={() => handleSend()}
+          disabled={!inputValue.trim() || isLoading}
+          className="p-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 self-center"
+          style={{ 
+            backgroundColor: 'transparent',
+            color: inputValue.trim() ? '#9600FF' : '#A0A0A0',
+            border: 'none',
+            outline: 'none'
+          }}
+        >
+          <Send className="h-5 w-5" />
+        </button>
       </div>
     </div>
   )

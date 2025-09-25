@@ -21,8 +21,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         question: message,
         document_id: document_id,
-        conversation_id: conversation_id,
-        include_web_search: true
+        conversation_id: conversation_id
       }),
     })
 
@@ -43,14 +42,10 @@ export async function POST(request: NextRequest) {
       sources: result.metadata?.sources || [],
       confidence: result.metadata?.confidence || 0.0,
       workflow_id: result.workflow_id,
-      execution_time: result.metadata?.execution_time || 0
+      execution_time: result.metadata?.workflow_execution_time || 0
     }
     
-    return NextResponse.json({
-      success: true,
-      chat: chatResponse,
-      message: 'Chat response generated successfully'
-    })
+    return NextResponse.json(chatResponse)
 
   } catch (error) {
     console.error('Chat error:', error)

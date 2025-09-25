@@ -5,6 +5,7 @@ alwaysApply: true
 ---
 ## Rules to Follow
 
+- Always explain the changes to the code and ask for approval before making changes to the code
 - You must always commit your changes whenever you update code. 
 - You must always try and write code that is well documented. (self or commented is fine)
 - You must only work on a single feature at a time and test it.
