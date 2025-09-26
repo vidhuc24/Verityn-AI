@@ -23,12 +23,23 @@ class EnhancedDocumentProcessor:
     
     def __init__(self):
         """Initialize the enhanced document processor."""
-        # Improved chunking strategy: smaller chunks with semantic boundaries
+        # Optimized chunking strategy: balanced size with high coverage
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=300,  # ~200-300 characters for better granularity
-            chunk_overlap=75,  # ~50-100 character overlap for context
+            chunk_size=400,  # Increased from 300 for better coverage
+            chunk_overlap=150,  # Maximum overlap to ensure no content loss
             length_function=len,
-            separators=["\n\n", "\n", ". ", "! ", "? ", " ", ""],  # Semantic boundaries
+            separators=[
+                "\n\n",          # Paragraphs (highest priority)
+                "\n• ",          # Bullet points
+                "\n- ",          # Dash lists  
+                "\n",            # Line breaks
+                ". ",            # Sentences
+                "! ", "? ",      # Other sentence endings
+                ": ",            # Colons (common in audit docs)
+                "; ",            # Semicolons
+                " ",             # Words
+                ""               # Characters (fallback)
+            ],
         )
         
         self.embeddings = OpenAIEmbeddings(
@@ -117,6 +128,8 @@ class EnhancedDocumentProcessor:
             return await self._extract_txt_text(file)
         elif file_extension in ["csv", "xlsx"]:
             return await self._extract_spreadsheet_text(file)
+        elif file_extension == "json":
+            return await self._extract_json_text(file)
         else:
             raise ValueError(f"Unsupported file type: {file_extension}")
     
@@ -210,6 +223,89 @@ class EnhancedDocumentProcessor:
         except Exception as e:
             raise Exception(f"Spreadsheet text extraction failed: {str(e)}")
     
+    async def _extract_json_text(self, file: UploadFile) -> str:
+        """Extract text from JSON audit documents."""
+        try:
+            import json
+            
+            content = await file.read()
+            json_data = json.loads(content.decode("utf-8"))
+            
+            # Extract text from structured audit JSON
+            text_parts = []
+            
+            # Add metadata section
+            if "metadata" in json_data:
+                text_parts.append("DOCUMENT METADATA:")
+                metadata = json_data["metadata"]
+                for key, value in metadata.items():
+                    text_parts.append(f"{key.replace('_', ' ').title()}: {value}")
+                text_parts.append("")
+            
+            # Add content sections
+            if "content" in json_data:
+                content = json_data["content"]
+                
+                # Executive summary
+                if "executive_summary" in content:
+                    text_parts.append("EXECUTIVE SUMMARY:")
+                    text_parts.append(content["executive_summary"])
+                    text_parts.append("")
+                
+                # Scope
+                if "scope" in content:
+                    text_parts.append("SCOPE:")
+                    text_parts.append(content["scope"])
+                    text_parts.append("")
+                
+                # Key findings
+                if "key_findings" in content:
+                    text_parts.append("KEY FINDINGS:")
+                    for finding in content["key_findings"]:
+                        text_parts.append(f"• {finding}")
+                    text_parts.append("")
+                
+                # Risk assessment
+                if "risk_assessment" in content:
+                    text_parts.append("RISK ASSESSMENT:")
+                    text_parts.append(content["risk_assessment"])
+                    text_parts.append("")
+                
+                # Recommendations
+                if "recommendations" in content:
+                    text_parts.append("RECOMMENDATIONS:")
+                    for rec in content["recommendations"]:
+                        text_parts.append(f"• {rec}")
+                    text_parts.append("")
+                
+                # Controls tested
+                if "controls_tested" in content:
+                    text_parts.append("CONTROLS TESTED:")
+                    for control in content["controls_tested"]:
+                        if isinstance(control, dict):
+                            text_parts.append(f"Control ID: {control.get('control_id', 'N/A')}")
+                            text_parts.append(f"Description: {control.get('description', 'N/A')}")
+                            text_parts.append(f"Status: {control.get('status', 'N/A')}")
+                            text_parts.append("")
+                        else:
+                            text_parts.append(f"• {control}")
+                
+                # Handle other content fields dynamically
+                for key, value in content.items():
+                    if key not in ["executive_summary", "scope", "key_findings", "risk_assessment", "recommendations", "controls_tested"]:
+                        text_parts.append(f"{key.replace('_', ' ').upper()}:")
+                        if isinstance(value, list):
+                            for item in value:
+                                text_parts.append(f"• {item}")
+                        else:
+                            text_parts.append(str(value))
+                        text_parts.append("")
+            
+            return "\n".join(text_parts).strip()
+        
+        except Exception as e:
+            raise Exception(f"JSON text extraction failed: {str(e)}")
+
     def _split_text_optimized(self, text: str) -> List[str]:
         """Split text into optimized chunks for audit documents."""
         # Use improved chunking strategy
@@ -233,9 +329,15 @@ class EnhancedDocumentProcessor:
                 if last_sentence > len(chunk) * 0.6:  # More flexible boundary finding
                     chunk = chunk[:last_sentence + 1]
             
-            # Ensure chunk isn't too small after optimization
-            if len(chunk.strip()) >= 50:  # Minimum meaningful chunk size
+            # Preserve all chunks to maximize coverage (was filtering out small chunks)
+            if len(chunk.strip()) >= 20:  # Reduced minimum size to preserve more content
                 optimized_chunks.append(chunk.strip())
+            elif chunk.strip():  # Even preserve very small chunks if they have content
+                # Merge with previous chunk if possible to avoid losing content
+                if optimized_chunks:
+                    optimized_chunks[-1] += " " + chunk.strip()
+                else:
+                    optimized_chunks.append(chunk.strip())
         
         return optimized_chunks
     

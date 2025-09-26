@@ -12,6 +12,10 @@ from typing import Dict, List, Optional, Any, Tuple
 from datetime import datetime
 import asyncio
 import logging
+import re
+from rank_bm25 import BM25Okapi
+from collections import Counter
+import hashlib
 
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
@@ -35,7 +39,7 @@ logger = logging.getLogger(__name__)
 class VectorDatabaseService:
     """Production vector database service with Qdrant backend."""
     
-    def __init__(self, use_memory: bool = True):
+    def __init__(self, use_memory: bool = False):
         """
         Initialize vector database service.
         
@@ -189,19 +193,30 @@ class VectorDatabaseService:
             return False
     
     async def _insert_with_qdrant_server(self, chunks: List[Document]) -> bool:
-        """Insert chunks using Qdrant server."""
+        """Insert chunks using Qdrant server with both dense and sparse vectors."""
         try:
             # Create collection if it doesn't exist
             await self._ensure_collection_exists()
             
-            # Prepare points for insertion
+            # Prepare points for insertion with both dense and sparse vectors
             points = []
             for i, chunk in enumerate(chunks):
-                embedding = self.embeddings.embed_documents([chunk.page_content])[0]
+                # Generate dense vector (semantic embedding)
+                dense_embedding = self.embeddings.embed_documents([chunk.page_content])[0]
                 
+                # Generate sparse vector (keyword-based)
+                sparse_vector = self._generate_sparse_vector_proper(chunk.page_content)
+                
+                # Create point with both vector types
                 point = PointStruct(
                     id=i,
-                    vector=embedding,
+                    vector={
+                        "": dense_embedding,  # Default dense vector
+                        "text": models.SparseVector(
+                            indices=sparse_vector["indices"],
+                            values=sparse_vector["values"]
+                        )
+                    },
                     payload={
                         "text": chunk.page_content,
                         "metadata": chunk.metadata,
@@ -217,7 +232,7 @@ class VectorDatabaseService:
                 points=points
             )
             
-            logger.info(f"Successfully inserted {len(chunks)} chunks into Qdrant server")
+            logger.info(f"Successfully inserted {len(chunks)} chunks into Qdrant server with hybrid vectors")
             return True
             
         except Exception as e:
@@ -347,13 +362,43 @@ class VectorDatabaseService:
             
             # Convert to standard format
             results = []
-            for result in search_results:
-                results.append({
-                    "chunk_text": result.payload.get("text", ""),
-                    "metadata": result.payload.get("metadata", {}),
-                    "score": float(result.score),
-                    "document_id": result.payload.get("document_id", "unknown")
-                })
+            
+            # Handle different return types from Qdrant
+            search_points = search_results
+            if hasattr(search_results, 'points'):
+                search_points = search_results.points
+            elif isinstance(search_results, tuple):
+                search_points = search_results[0] if search_results else []
+            
+            for result in search_points:
+                # Handle different result structures
+                if hasattr(result, 'payload'):
+                    # Standard PointStruct with payload
+                    results.append({
+                        "chunk_text": result.payload.get("text", ""),
+                        "metadata": result.payload.get("metadata", {}),
+                        "score": float(result.score) if hasattr(result, 'score') else 0.0,
+                        "document_id": result.payload.get("document_id", "unknown")
+                    })
+                elif hasattr(result, 'point'):
+                    # Wrapped point structure
+                    point = result.point
+                    results.append({
+                        "chunk_text": point.payload.get("text", ""),
+                        "metadata": point.payload.get("metadata", {}),
+                        "score": float(result.score) if hasattr(result, 'score') else 0.0,
+                        "document_id": point.payload.get("document_id", "unknown")
+                    })
+                else:
+                    logger.warning(f"Unexpected result structure: {type(result)}, attributes: {dir(result)}")
+                    # Try to handle as dict if possible
+                    if isinstance(result, dict):
+                        results.append({
+                            "chunk_text": result.get("text", ""),
+                            "metadata": result.get("metadata", {}),
+                            "score": float(result.get("score", 0.0)),
+                            "document_id": result.get("document_id", "unknown")
+                        })
             
             logger.info(f"Qdrant server search returned {len(results)} results")
             return results
@@ -371,68 +416,210 @@ class VectorDatabaseService:
         keyword_weight: float = 0.3
     ) -> List[Dict[str, Any]]:
         """
-        Perform hybrid search combining semantic and keyword matching.
+        Perform native Qdrant hybrid search combining vector similarity with BM25 keyword matching.
         
         Args:
             query_text: Search query
             limit: Maximum number of results
             filters: Optional metadata filters
-            semantic_weight: Weight for semantic similarity
-            keyword_weight: Weight for keyword matching
+            semantic_weight: Weight for semantic similarity (0.0-1.0)
+            keyword_weight: Weight for keyword matching (0.0-1.0)
             
         Returns:
-            List of hybrid search results
+            List of hybrid search results with improved relevance
         """
+        try:
+            # If in memory mode, fall back to enhanced semantic search
+            if self.use_memory or self.vector_store:
+                return await self._hybrid_search_memory(query_text, limit, filters, semantic_weight, keyword_weight)
+            
+            # Native Qdrant hybrid search with vector + sparse (BM25) vectors
+            return await self._hybrid_search_qdrant_native(query_text, limit, filters, semantic_weight, keyword_weight)
+            
+        except Exception as e:
+            logger.error(f"Hybrid search failed: {str(e)}")
+            # Fallback to semantic search
+            return await self.semantic_search(query_text, limit, filters=filters)
+    
+    async def _hybrid_search_qdrant_native(
+        self,
+        query_text: str,
+        limit: int,
+        filters: Optional[Dict[str, Any]],
+        semantic_weight: float,
+        keyword_weight: float
+    ) -> List[Dict[str, Any]]:
+        """Native Qdrant hybrid search using vector + sparse vectors with RRF fusion."""
+        try:
+            # Generate dense vector embedding
+            query_embedding = self.embeddings.embed_query(query_text)
+            
+            # Generate sparse vector for keyword matching
+            sparse_vector = self._generate_sparse_vector_proper(query_text)
+            
+            # Build Qdrant filter
+            qdrant_filter = None
+            if filters:
+                qdrant_filter = self._build_qdrant_filter(filters)
+            
+            # Perform native hybrid search with RRF (Reciprocal Rank Fusion)
+            search_results = self.qdrant_client.query_points(
+                collection_name=self.collection_name,
+                prefetch=[
+                    # Dense vector search (semantic)
+                    models.Prefetch(
+                        query=query_embedding,
+                        using="",  # Default dense vector
+                        limit=limit * 3,  # Get more candidates for fusion
+                        filter=qdrant_filter
+                    ),
+                    # Sparse vector search (keyword)
+                    models.Prefetch(
+                        query=models.SparseVector(
+                            indices=sparse_vector["indices"],
+                            values=sparse_vector["values"]
+                        ),
+                        using="text",  # Named sparse vector
+                        limit=limit * 3,  # Get more candidates for fusion
+                        filter=qdrant_filter
+                    )
+                ],
+                query=models.FusionQuery(fusion=models.Fusion.RRF),  # Reciprocal Rank Fusion
+                limit=limit
+            )
+            
+            # Convert results to standard format
+            results = []
+            search_points = search_results
+            if hasattr(search_results, 'points'):
+                search_points = search_results.points
+            elif isinstance(search_results, tuple):
+                search_points = search_results[0] if search_results else []
+            
+            for result in search_points:
+                if hasattr(result, 'payload'):
+                    results.append({
+                        "chunk_text": result.payload.get("text", ""),
+                        "metadata": result.payload.get("metadata", {}),
+                        "score": float(result.score) if hasattr(result, 'score') else 0.0,
+                        "document_id": result.payload.get("document_id", "unknown"),
+                        "search_type": "hybrid_native_rrf"
+                    })
+            
+            logger.info(f"Native hybrid search (RRF) returned {len(results)} results")
+            return results
+            
+        except Exception as e:
+            logger.error(f"Native hybrid search failed: {str(e)}")
+            # Fallback to memory-based hybrid search
+            return await self._hybrid_search_memory(query_text, limit, filters, semantic_weight, keyword_weight)
+    
+    def _generate_sparse_vector_proper(self, text: str) -> Dict[str, Any]:
+        """Generate proper sparse vector for Qdrant native hybrid search."""
+        # Tokenize text with better preprocessing
+        words = re.findall(r'\b\w+\b', text.lower())
+        
+        # Filter out very short words and common stop words
+        stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should'}
+        filtered_words = [word for word in words if len(word) > 2 and word not in stop_words]
+        
+        # Count word frequencies
+        word_counts = Counter(filtered_words)
+        
+        # Convert to sparse vector format with consistent hashing
+        indices = []
+        values = []
+        
+        for word, count in word_counts.items():
+            # Use consistent hash-based mapping for vocabulary
+            # This ensures same words always get same indices across documents
+            word_hash = int(hashlib.md5(word.encode()).hexdigest()[:8], 16) % 50000
+            
+            # Apply TF-IDF-like weighting (simplified)
+            # Higher frequency = higher weight, but with diminishing returns
+            tf_weight = 1 + np.log(count) if count > 0 else 0
+            
+            indices.append(word_hash)
+            values.append(float(tf_weight))
+        
+        # Sort by indices for consistent ordering
+        if indices:
+            sorted_pairs = sorted(zip(indices, values))
+            indices, values = zip(*sorted_pairs)
+            indices = list(indices)
+            values = list(values)
+        
+        return {
+            "indices": indices,
+            "values": values
+        }
+    
+    def _generate_sparse_vector(self, text: str) -> Dict[str, Any]:
+        """Legacy method for fallback compatibility."""
+        return self._generate_sparse_vector_proper(text)
+    
+    async def _hybrid_search_memory(
+        self,
+        query_text: str,
+        limit: int,
+        filters: Optional[Dict[str, Any]],
+        semantic_weight: float,
+        keyword_weight: float
+    ) -> List[Dict[str, Any]]:
+        """Enhanced hybrid search for in-memory mode with BM25 integration."""
         try:
             # Get semantic search results
             semantic_results = await self.semantic_search(
                 query_text=query_text,
                 limit=limit * 2,  # Get more for reranking
                 filters=filters,
-                score_threshold=0.5  # Lower threshold for hybrid
+                score_threshold=0.1  # Lower threshold for hybrid
             )
             
-            # Simple keyword matching for SOX controls and key terms
-            query_lower = query_text.lower()
+            if not semantic_results:
+                return []
             
-            # Enhanced results with hybrid scoring
-            enhanced_results = []
+            # Prepare documents for BM25
+            documents = []
             for result in semantic_results:
-                chunk_text = result["chunk_text"].lower()
-                keyword_bonus = 0.0
+                chunk_text = result.get("chunk_text", "")
+                documents.append(chunk_text.lower().split())
+            
+            # Create BM25 index
+            bm25 = BM25Okapi(documents)
+            
+            # Get BM25 scores
+            query_tokens = query_text.lower().split()
+            bm25_scores = bm25.get_scores(query_tokens)
+            
+            # Combine semantic and BM25 scores
+            enhanced_results = []
+            for i, result in enumerate(semantic_results):
+                semantic_score = result.get("score", 0.0)
+                bm25_score = bm25_scores[i] if i < len(bm25_scores) else 0.0
                 
-                # Keyword matching bonuses
-                if "sox" in query_lower and "sox" in chunk_text:
-                    keyword_bonus += 0.2
-                
-                # SOX control ID matching
-                sox_controls = result.get("sox_control_ids", [])
-                for control_id in sox_controls:
-                    if control_id.lower() in query_lower:
-                        keyword_bonus += 0.3
-                
-                # Quality level matching
-                if "material weakness" in query_lower and result.get("quality_level") == "fail":
-                    keyword_bonus += 0.2
+                # Normalize BM25 score (simple approach)
+                normalized_bm25 = min(bm25_score / 10.0, 1.0) if bm25_score > 0 else 0.0
                 
                 # Calculate hybrid score
-                semantic_score = result["score"]
-                hybrid_score = (semantic_score * semantic_weight) + (keyword_bonus * keyword_weight)
+                hybrid_score = (semantic_weight * semantic_score) + (keyword_weight * normalized_bm25)
                 
-                result["hybrid_score"] = hybrid_score
-                result["keyword_bonus"] = keyword_bonus
-                enhanced_results.append(result)
+                enhanced_results.append({
+                    **result,
+                    "score": hybrid_score,
+                    "semantic_score": semantic_score,
+                    "bm25_score": normalized_bm25,
+                    "search_type": "hybrid_memory"
+                })
             
             # Sort by hybrid score and return top results
-            enhanced_results.sort(key=lambda x: x["hybrid_score"], reverse=True)
-            final_results = enhanced_results[:limit]
-            
-            logger.info(f"Hybrid search returned {len(final_results)} results")
-            return final_results
+            enhanced_results.sort(key=lambda x: x["score"], reverse=True)
+            return enhanced_results[:limit]
             
         except Exception as e:
-            logger.error(f"Hybrid search failed: {str(e)}")
-            return []
+            logger.error(f"Memory hybrid search failed: {str(e)}")
+            # Fallback to semantic search
+            return await self.semantic_search(query_text, limit, filters=filters)
     
     async def get_document_chunks(self, document_id: str) -> List[Dict[str, Any]]:
         """Get all chunks for a specific document."""
@@ -646,7 +833,7 @@ class VectorDatabaseService:
                 self.qdrant_client.create_collection(
                     collection_name=self.collection_name,
                     vectors_config=VectorParams(
-                        size=self.vector_dimension,
+                        size=self.vector_size,
                         distance=Distance.COSINE
                     )
                 )
@@ -657,8 +844,8 @@ class VectorDatabaseService:
             raise
 
 
-# Global vector database instance - use in-memory mode by default
-vector_db_service = VectorDatabaseService(use_memory=True)
+# Global vector database instance - use Qdrant server by default
+vector_db_service = VectorDatabaseService(use_memory=False)
 
 
 async def initialize_vector_database() -> bool:

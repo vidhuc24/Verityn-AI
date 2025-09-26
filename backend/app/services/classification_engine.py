@@ -31,10 +31,28 @@ class ClassificationEngine:
         You are an expert in audit and compliance document classification.
         
         Analyze the following document content and classify it according to:
-        1. Document Type: Choose from: access_review, financial_reconciliation, risk_assessment, control_testing, audit_report, compliance_assessment, policy_document, incident_report, vendor_assessment, or other
+        
+        1. Document Type - Choose the MOST SPECIFIC match from:
+           - access_review: User access reviews, access control assessments
+           - financial_controls: Financial reporting controls, financial reconciliations  
+           - internal_controls: Internal control testing, control assessments
+           - risk_assessment: Risk assessments, risk analysis documents
+           - audit_report: Final audit reports, audit opinions
+           - compliance_assessment: Compliance reviews, regulatory assessments
+           - policy_document: Policies, procedures, standards
+           - incident_report: Security incidents, control failures
+           - vendor_assessment: Third-party assessments
+           - other: If none of the above fit
+        
         2. Compliance Framework: SOX, SOC2, ISO27001, PCI-DSS, HIPAA, or other
         3. Risk Level: high, medium, low based on findings and content
         4. Key Topics: List main topics covered in the document
+        
+        CLASSIFICATION HINTS:
+        - If document mentions "access", "user", "privileges" → access_review
+        - If document mentions "financial", "reconciliation", "GL" → financial_controls  
+        - If document mentions "internal controls", "control testing" → internal_controls
+        - If document mentions "risk", "assessment", "threats" → risk_assessment
         
         Document Content (first 2000 characters):
         {content}
