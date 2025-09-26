@@ -1,13 +1,13 @@
 """
-SOX Document Generator for Verityn AI Testing
+Specialized SOX Compliance Document Generator for Verityn AI
 
-This script creates 3-4 realistic SOX compliance documents:
+This script creates realistic SOX compliance documents for audit test scenarios:
 1. SOX Access Review Report
-2. SOX Risk Assessment Document
+2. SOX Risk Assessment Document  
 3. SOX Financial Controls Assessment
 4. SOX Internal Controls Evaluation
 
-These documents will be used to test the web search functionality and compliance analysis.
+Generates comprehensive test data for web search functionality and compliance analysis.
 """
 
 import json

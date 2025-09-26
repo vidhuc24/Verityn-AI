@@ -1,17 +1,111 @@
 ---
-description: 
-globs: 
+description: Comprehensive backend development rules for Verityn AI production system
+globs: ["backend/**/*.py", "**/*api*.py", "**/*service*.py"]
 alwaysApply: true
 ---
-### Rules for Backend
 
-- You must use FastAPI for the backend framework with proper error handling and validation.
-- You must implement multi-agent architecture using LangChain + LangGraph as specified in the project requirements.
-- You must use Qdrant vector database with OpenAI text-embedding-3-small for document embeddings.
-- You must integrate Tavily API for web-enhanced responses and regulatory guidance.
-- You must set up LangSmith monitoring for debugging and performance tracking.
-- You must implement RAGAS evaluation for chat response quality assessment.
-- You must use Pydantic models for all API request/response schemas.
-- You must follow the multi-agent workflow: Document Processing → Classification → Chat.
-- You must implement advanced retrieval techniques (hybrid search, query expansion).
-- You must ensure proper document processing for PDF, DOCX, TXT, CSV, and XLSX formats.
+# Backend Development Rules for Verityn AI
+
+## 🏗️ **MUST-HAVES (Critical for Production)**
+
+### **Architecture & Design Patterns**
+- Follow clean architecture principles with clear separation of concerns
+- Implement dependency injection for testable, maintainable code
+- Use repository pattern for data access abstraction
+- Apply SOLID principles in service design
+- Maintain single responsibility for each service/agent
+- Implement proper error boundaries between system components
+
+### **Technology Stack Requirements**
+- Use FastAPI for the backend framework with proper error handling and validation
+- Implement multi-agent architecture using LangChain + LangGraph
+- Use Qdrant vector database with OpenAI text-embedding-3-small for document embeddings
+- Integrate Tavily API for web-enhanced responses and regulatory guidance
+- Set up LangSmith monitoring for debugging and performance tracking
+- Implement RAGAS evaluation for chat response quality assessment
+
+### **API Design & Standards**
+- Follow RESTful API conventions with proper HTTP status codes
+- Implement OpenAPI/Swagger documentation for all endpoints
+- Use consistent response formats with proper error structures
+- Implement request/response validation with Pydantic models
+- Apply rate limiting and request size limits for security
+- Use proper HTTP methods (GET, POST, PUT, DELETE) semantically
+
+### **Error Handling & Logging**
+- Implement structured logging with correlation IDs for request tracing
+- Use proper exception hierarchy with custom business exceptions
+- Log errors with context but never log sensitive data (document content)
+- Implement graceful degradation when external services fail
+- Return meaningful error messages without exposing system internals
+- Set up health checks for all critical dependencies
+
+### **Security & Data Protection**
+- Validate and sanitize all input data, especially file uploads
+- Implement proper CORS policies for production deployment
+- Use environment variables for all secrets and configuration
+- Apply input validation at API boundaries with size limits
+- Implement proper authentication/authorization if required
+- Ensure HTTPS for all external API communications
+
+### **Performance & Scalability**
+- Implement async/await patterns for I/O operations
+- Use connection pooling for database connections
+- Implement caching strategies for expensive operations
+- Set timeouts for all external API calls
+- Use streaming for large file processing
+- Monitor memory usage during document processing
+
+## 🎯 **NICE-TO-HAVES (Professional Enhancement)**
+
+### **Code Quality & Maintainability**
+- Use type hints throughout the codebase for better IDE support
+- Implement comprehensive docstrings for all public methods
+- Follow PEP 8 style guidelines with automated formatting
+- Use meaningful variable and function names that express intent
+- Maintain consistent coding patterns across the project
+
+### **Testing & Quality Assurance**
+- Write unit tests for all business logic with real data
+- Implement integration tests for API endpoints
+- Use pytest fixtures for test data management
+- Test error conditions and edge cases thoroughly
+- Use real audit documents for testing, never fabricated data
+
+### **Monitoring & Observability**
+- Implement metrics collection for key business operations
+- Set up alerts for system failures and performance degradation
+- Use distributed tracing for multi-agent workflow debugging
+- Monitor API response times and success rates
+- Track document processing performance and accuracy
+
+### **Configuration & Environment Management**
+- Use configuration classes with validation
+- Implement environment-specific settings (dev/staging/prod)
+- Use feature flags for gradual rollouts
+- Document all configuration options
+
+### **Package Management & Dependencies**
+- **ALWAYS use UV as the package manager** - never use pip directly
+- Use `uv add package_name` for adding dependencies
+- Use `uv remove package_name` for removing dependencies
+- Use `uv sync` for installing dependencies from lock file
+- Use `uv run` for running scripts with proper environment
+
+## 🔒 **Audit Industry Specific Requirements**
+
+### **Compliance & Audit Standards**
+- Follow SOX compliance terminology and standards
+- Implement audit trails for all document processing
+- Ensure data integrity throughout the pipeline
+- Maintain processing logs for compliance reporting
+- Ensure accuracy in compliance analysis - errors have legal implications
+
+### **Data Handling for Sensitive Documents**
+- Treat all documents as potentially sensitive audit information
+- Implement proper data anonymization for logs
+- Use secure temporary storage for document processing
+- Implement proper cleanup of temporary files
+- Follow the multi-agent workflow: Document Processing → Classification → Chat
+- Implement advanced retrieval techniques (hybrid search, query expansion)
+- Ensure proper document processing for PDF, DOCX, TXT, CSV, and XLSX formats

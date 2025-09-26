@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Script to create a test PDF document for Verityn AI testing
+Simple Test Document Creator for Verityn AI
+
+Generates basic SOX Access Review PDFs for quick testing and validation.
 """
 
 from reportlab.lib.pagesizes import letter

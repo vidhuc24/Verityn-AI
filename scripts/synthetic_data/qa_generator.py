@@ -1,9 +1,8 @@
 """
-Synthetic Data Generation for Verityn AI
-Task 3: Subtask 3.4 - Question-Answer Pair Generation
+Question-Answer Pair Generator for Verityn AI
 
 This module creates realistic question-answer pairs for RAGAS evaluation
-based on our synthetic audit documents.
+and chat system testing based on synthetic audit documents.
 """
 
 import json
@@ -12,8 +11,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Tuple
 from pathlib import Path
 
-from synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
-from test_synthetic_generation import MockContentGenerator
+from .synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
 
 class QAGenerator:
     """Generates realistic question-answer pairs for synthetic audit documents"""

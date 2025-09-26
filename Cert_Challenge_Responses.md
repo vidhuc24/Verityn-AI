@@ -1,19 +1,12 @@
-# 🔍 Verityn AI - Bootcamp Challenge Responses
-##  Answers to All 7 Challenge Tasks
+# 🔍 Verityn AI
 
 **Developer:** Vidhu C  
 **Project:** Verityn AI - Intelligent Document Chat for Audit & Compliance  
 **Date:** August 2024  
 
----
-
-## 📹 **Demo Video**
-**🎬 [LOOM VIDEO LINK - https://www.loom.com/share/b215517fc0af4e91bd72fb3268a49c99?sid=8a5019b6-21e2-4b6b-bafd-1aa26af57118]**
-> *Live demonstration of the Verityn AI application showing document upload, classification, smart questions, chat interface, and compliance insights*
 
 ---
 
-## Task 1: Problem & Audience Definition
 
 ### What problem are you solving and for whom?
 
@@ -48,7 +41,6 @@ By solving this problem, we're not just making their jobs easier - we're enablin
 
 ---
 
-## Task 2: Proposed Solution
 
 ### What is your proposed solution and how will you build it?
 
@@ -99,7 +91,6 @@ What makes Verityn AI special is its **audit-specific intelligence**. Unlike gen
 
 ---
 
-## Task 3: Data Strategy
 
 ### What data will you use and how will you get it?
 
@@ -164,7 +155,6 @@ Our system is designed for continuous learning:
 
 ---
 
-## Task 4: Building a Quick End-to-End Agentic RAG Prototype
 
 ### What have you built and how does it work?
 
@@ -287,7 +277,6 @@ The system is functional with:
 
 ---
 
-## Task 5: Creating a Golden Test Data Set
 
 ### What evaluation dataset have you created and how will you use it?
 
@@ -382,7 +371,6 @@ We've created a **sophisticated synthetic evaluation dataset** that comprehensiv
 
 ---
 
-## Task 6: The Benefits of Advanced Retrieval
 
 ### What advanced retrieval techniques have you implemented and tested?
 
@@ -515,7 +503,6 @@ We've implemented and thoroughly tested multiple advanced retrieval techniques s
 
 ---
 
-## Task 7: Assessing Performance
 
 ### How do you measure and compare performance across different approaches?
 

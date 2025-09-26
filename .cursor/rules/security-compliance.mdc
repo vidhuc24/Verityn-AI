@@ -1,0 +1,31 @@
+---
+description: Security and compliance rules for audit document handling
+globs: ["**/*.py", "**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+
+## Security & Compliance Rules
+
+### Data Handling
+- Treat all uploaded documents as potentially sensitive audit information
+- Implement proper error handling to prevent data leakage in error messages
+- Use environment variables for all API keys and sensitive configuration
+- Never log document content or user queries in production
+
+### Audit Industry Standards
+- Follow SOX compliance terminology and standards
+- Implement proper access controls and audit trails
+- Ensure response accuracy - incorrect audit guidance has legal implications
+- Maintain data integrity throughout the document processing pipeline
+
+### API Security
+- Validate all input parameters with Pydantic models
+- Implement proper CORS policies for production deployment
+- Use HTTPS for all external API calls
+- Sanitize file uploads and validate file types
+
+### Error Handling
+- Provide meaningful error messages without exposing system internals
+- Implement graceful degradation when external services are unavailable
+- Log errors appropriately for debugging without compromising data privacy
+- Return appropriate HTTP status codes for different error conditions

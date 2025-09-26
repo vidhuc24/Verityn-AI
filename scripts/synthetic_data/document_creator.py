@@ -1,9 +1,8 @@
 """
-Synthetic Data Generation for Verityn AI
-Task 3: Subtask 3.3 - Document Creation
+Document File Generator for Verityn AI
 
 This module creates actual PDF and CSV files from templates and generated content.
-Produces realistic audit documents ready for RAG pipeline testing.
+Produces realistic audit documents ready for RAG pipeline testing and evaluation.
 """
 
 import os
@@ -21,7 +20,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib import colors
 from reportlab.lib.units import inch
 
-from synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
+from .synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
 from test_synthetic_generation import MockContentGenerator
 
 class DocumentCreator:

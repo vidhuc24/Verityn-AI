@@ -1,13 +1,124 @@
 ---
-description: 
-globs: 
+description: Comprehensive frontend development rules for professional audit software
+globs: ["frontend/**/*.tsx", "frontend/**/*.ts", "**/*.jsx", "**/*.js", "src/**/*"]
 alwaysApply: true
 ---
-### Rules for Frontend
 
-- You must pay attention to visual clarity and contrast. Do not place white text on a white background.
-- You must ensure the UX is pleasant. Boxes should grow to fit their contents, etc. 
-- When asking the user for sensitive information - you must use password style text-entry boxes in the UI.
-- You should use Next.js as it works best with Vercel. 
-- This frontend will ultimately be deployed on Vercel, but it should be possible to test locally. 
-- Always provide users with a way to run the created UI once you have created it.
+# Frontend Development Rules for Verityn AI
+
+## 🎨 **MUST-HAVES (Critical for Production)**
+
+### **Technology Stack & Architecture**
+- Use Next.js 13+ with App Router for modern React development
+- Implement TypeScript throughout for type safety and better developer experience
+- Use Tailwind CSS for consistent, maintainable styling
+- Implement proper component architecture with clear separation of concerns
+- Use React Server Components where appropriate for better performance
+- Follow Next.js best practices for routing, data fetching, and optimization
+
+### **User Experience & Accessibility**
+- Ensure WCAG 2.1 AA compliance for accessibility
+- Implement proper color contrast ratios (minimum 4.5:1 for normal text)
+- Provide keyboard navigation for all interactive elements
+- Use semantic HTML elements for screen reader compatibility
+- Implement proper focus management and visual focus indicators
+- Ensure responsive design works on all device sizes (mobile-first approach)
+
+### **Performance & Optimization**
+- Implement proper code splitting and lazy loading for components
+- Optimize images with Next.js Image component and proper sizing
+- Use React.memo, useMemo, and useCallback for performance optimization
+- Implement proper loading states and skeleton screens
+- Minimize bundle size with tree shaking and proper imports
+- Use Next.js built-in performance optimizations (automatic optimization, prefetching)
+
+### **State Management & Data Flow**
+- Use React Query/TanStack Query for server state management
+- Implement proper error boundaries for graceful error handling
+- Use React Hook Form for form validation and submission
+- Implement proper loading and error states for all async operations
+- Use Context API or Zustand for global client state when needed
+- Implement proper data validation with Zod or similar library
+
+### **Security & Data Protection**
+- Sanitize all user inputs to prevent XSS attacks
+- Implement proper CSRF protection for forms
+- Use environment variables for all configuration (never hardcode API URLs)
+- Implement proper error handling that doesn't expose sensitive information
+- Use HTTPS for all API communications
+- Implement proper file upload validation and size limits
+
+### **Component Design & Consistency**
+- Create a design system with reusable UI components
+- Implement consistent spacing, typography, and color schemes
+- Use proper component composition and prop interfaces
+- Implement proper loading states, empty states, and error states
+- Ensure all interactive elements have proper hover and active states
+- Use consistent iconography and visual language throughout
+
+## 🎯 **NICE-TO-HAVES (Professional Enhancement)**
+
+### **Advanced UX Patterns**
+- Implement drag-and-drop functionality for file uploads
+- Use progressive disclosure for complex forms and workflows
+- Implement proper toast notifications for user feedback
+- Use modal dialogs and overlays appropriately
+- Implement keyboard shortcuts for power users
+- Provide contextual help and tooltips where needed
+
+### **Code Quality & Maintainability**
+- Use ESLint and Prettier for consistent code formatting
+- Implement comprehensive prop types or TypeScript interfaces
+- Write meaningful component names that express their purpose
+- Use custom hooks for reusable logic
+- Implement proper component testing with React Testing Library
+- Document complex components with Storybook
+
+### **Development Experience**
+- Set up hot module replacement for fast development
+- Implement proper development vs production configurations
+- Use proper debugging tools and React DevTools integration
+- Implement proper error logging and monitoring
+- Set up automated testing pipeline
+- Use proper version control practices for UI components
+
+### **Monitoring & Analytics**
+- Implement user analytics to understand usage patterns
+- Monitor Core Web Vitals and performance metrics
+- Set up error tracking for production issues
+- Implement A/B testing capabilities for UX improvements
+- Track user interactions and conversion funnels
+- Monitor bundle sizes and performance regressions
+
+## 🔒 **Audit Industry Specific Requirements**
+
+### **Professional Audit Software UX**
+- Implement professional, trustworthy design suitable for enterprise users
+- Use conservative color schemes appropriate for business software
+- Ensure high information density without overwhelming users
+- Implement proper data visualization for audit findings and metrics
+- Use clear, professional typography that's easy to read for long sessions
+- Implement proper document preview and annotation capabilities
+
+### **Data Handling & Privacy**
+- Never display sensitive document content in browser developer tools
+- Implement proper session management and timeout handling
+- Use secure file upload with progress indicators
+- Implement proper data caching strategies that respect privacy
+- Ensure all forms handle sensitive information appropriately
+- Implement proper audit trails for user actions
+
+### **Deployment & Environment**
+- Deploy to Vercel with proper environment configuration
+- Ensure local development environment matches production
+- Implement proper CI/CD pipeline for frontend deployments
+- Always provide clear instructions for running the UI locally
+- Use proper environment variables for different deployment stages
+- Implement proper error monitoring and logging in production
+
+### **Package Management & Dependencies**
+- **Use UV for Python dependencies** when working with full-stack features
+- For Node.js dependencies, use npm/yarn as appropriate for the frontend
+- When providing setup instructions, always reference UV for Python backend
+- Ensure frontend-backend integration scripts use UV commands
+- Reference both `package.json` (frontend) and `pyproject.toml` (backend) appropriately

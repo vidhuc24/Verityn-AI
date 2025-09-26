@@ -1,9 +1,8 @@
 """
-Synthetic Data Generation for Verityn AI
-Task 3: Subtask 3.2 - Content Generation Setup
+AI-Powered Content Generator for Verityn AI
 
 This module uses OpenAI to generate realistic audit document content
-based on the templates created in Subtask 3.1.
+based on structured templates and company profiles.
 """
 
 import os
@@ -14,7 +13,7 @@ from datetime import datetime
 import openai
 from openai import OpenAI
 
-from synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
+from .synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
 
 class ContentGenerator:
     """Generates realistic audit document content using OpenAI"""

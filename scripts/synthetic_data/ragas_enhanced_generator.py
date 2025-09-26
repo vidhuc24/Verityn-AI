@@ -1,12 +1,11 @@
 """
-RAGAS-Enhanced Synthetic Data Generation for Verityn AI
-Hybrid Approach: Phase 1 Enhancement
+Quality-Stratified Document Generator for Verityn AI
 
-This module enhances our existing synthetic data generation with:
-1. Quality stratification (High, Medium, Low, Fail)
-2. RAGAS-driven gap analysis
-3. SOX control ID mapping
-4. Audit evidence validation
+This module creates quality-stratified synthetic documents with:
+1. Quality levels (High, Medium, Low, Fail compliance scenarios)
+2. RAGAS-driven gap analysis and evaluation
+3. SOX control ID mapping and validation
+4. Comprehensive audit evidence testing
 """
 
 import json
@@ -17,7 +16,7 @@ from pathlib import Path
 from enum import Enum
 
 # Import our existing components
-from synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
+from .synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
 from test_synthetic_generation import MockContentGenerator
 
 class QualityLevel(Enum):

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Get Accurate RAGAS Metrics for Verityn AI.
+RAGAS Performance Metrics Provider for Verityn AI
 
-This script provides accurate RAGAS evaluation metrics based on current system
-performance and recent test results, without running the full RAGAS evaluation
-that may hit rate limits.
+This script provides current RAGAS evaluation metrics based on system
+performance and recent test results, without running full evaluation
+that may hit API rate limits.
 """
 
 import asyncio

@@ -1,0 +1,40 @@
+---
+description: Core project rules for Verityn AI - Intelligent Document Chat for Audit & Compliance
+globs: 
+alwaysApply: true
+---
+
+## Verityn AI Project Rules
+
+### Core Project Guidelines
+- Always reference the comprehensive project analysis in `CODEBASE_ANALYSIS.md` for architectural decisions
+- Follow the multi-agent RAG architecture: Document Processing → Classification → Chat
+- Maintain professional audit industry standards - this is enterprise compliance software
+- Prioritize data accuracy and security - audit documents contain sensitive information
+
+### Code Quality Standards
+- Always explain changes and ask for approval before modifying code
+- Commit changes with descriptive messages following conventional commit format
+- Write self-documenting code with clear comments for complex logic
+- Work on single features at a time and test thoroughly
+- Explain technical decisions thoroughly to the user
+
+### Architecture Compliance
+- Backend: FastAPI + LangChain + LangGraph multi-agent workflow
+- Frontend: Next.js + TypeScript with professional UI/UX
+- Database: Qdrant vector database with OpenAI embeddings
+- Monitoring: LangSmith integration for debugging and performance
+- Evaluation: RAGAS framework for response quality assessment
+
+### Testing Philosophy
+- Use real-world data from `data/sox_test_documents/` for testing
+- Never use hardcoded or fabricated test data
+- Test realistic compliance scenarios with actual audit findings
+- Implement proper error handling and edge cases
+- Document test scenarios and expected outcomes
+
+### Documentation Standards
+- Maintain investor-grade documentation quality
+- Keep technical accuracy while being accessible
+- Update CODEBASE_ANALYSIS.md when making architectural changes
+- Ensure all APIs have proper request/response documentation

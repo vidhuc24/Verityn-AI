@@ -1,6 +1,8 @@
 """
-Enhanced Q&A Generation for RAGAS-Enhanced Synthetic Documents
-Addresses gap analysis findings and generates quality-aware questions
+Advanced Q&A Generator for Verityn AI
+
+Addresses RAGAS evaluation gaps and generates quality-aware test datasets
+for comprehensive chat system evaluation and performance assessment.
 """
 
 import json
@@ -9,8 +11,8 @@ from datetime import datetime
 from typing import Dict, List, Any
 from pathlib import Path
 
-from ragas_enhanced_generator import QualityLevel, SOXControlID
-from synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
+from .ragas_enhanced_generator import QualityLevel, SOXControlID
+from .synthetic_data_generation import DocumentTemplateEngine, CompanyProfile, DocumentType
 
 class EnhancedQAGenerator:
     """Generates comprehensive Q&A pairs addressing RAGAS gap analysis findings"""

@@ -1,0 +1,49 @@
+---
+description: Testing guidelines for Verityn AI after cleanup of compromised test scripts
+globs: ["**/test_*.py", "**/tests/**", "scripts/test_*.py"]
+alwaysApply: true
+---
+
+## Testing Rules for Verityn AI
+
+### Real-World Testing Philosophy
+- **NEVER use hardcoded or fabricated test data** - we removed 25+ compromised scripts for this reason
+- Use actual documents from `data/sox_test_documents/` which contain realistic compliance scenarios
+- Test with real compliance issues, not perfect "no material weaknesses" scenarios
+- Implement tests that reflect actual audit document variability
+
+### Test Data Sources (in priority order)
+1. **Primary**: `data/sox_test_documents/` - High-quality realistic SOX documents
+2. **Secondary**: `data/synthetic_documents/` - Template-based but functional documents  
+3. **Avoid**: Any hardcoded document content with fake company data
+
+### Test Implementation Standards
+- Use pytest fixtures for reusable test data setup
+- Implement property-based testing for document processing edge cases
+- Test error conditions and malformed inputs
+- Validate system behavior with various document sizes and formats
+
+### Performance Testing
+- Use real RAGAS evaluation with actual document content
+- Test response times with realistic document processing loads
+- Validate vector database performance with actual embedding operations
+- Measure end-to-end workflow performance with real multi-agent execution
+
+### Test Coverage Requirements  
+- Document processing: Test all supported formats (PDF, DOCX, TXT, CSV, XLSX)
+- Multi-agent workflow: Test each agent individually and the complete pipeline
+- Error handling: Test network failures, API timeouts, malformed documents
+- Edge cases: Empty documents, very large documents, corrupted files
+
+### What NOT to Test
+- Do not create tests with predetermined perfect outcomes
+- Do not use identical content across multiple test scenarios  
+- Do not hardcode company names, user counts, or compliance results
+- Do not create fake RAGAS scores or performance metrics
+
+### **Package Management & Test Environment**
+- **ALWAYS use UV for running test scripts** - never suggest pip commands
+- Use `uv run python scripts/test_script.py` for executing test scripts
+- Use `uv add --dev package_name` for adding test dependencies
+- Use `uv sync` to ensure test environment is properly set up
+- Reference `pyproject.toml` for test dependencies and configuration

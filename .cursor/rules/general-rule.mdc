@@ -1,15 +1,117 @@
 ---
-description: 
+description: General development rules for professional enterprise software development
 globs: 
 alwaysApply: true
 ---
-## Rules to Follow
 
-- Always explain the changes to the code and ask for approval before making changes to the code
-- You must always commit your changes whenever you update code. 
-- You must always try and write code that is well documented. (self or commented is fine)
-- You must only work on a single feature at a time and test it.
-- You must explain your decisions thouroughly to the user.
-- You must always reference the relevant bootcamp material in `bootcamp_reference/` when building features for Verityn AI.
-- You must check the session-specific notebooks and examples before implementing any new functionality.
-- You must follow the patterns and best practices demonstrated in the bootcamp sessions.
+# General Development Rules for Verityn AI
+
+## 🎯 **MUST-HAVES (Critical for Professional Development)**
+
+### **Communication & Collaboration**
+- Always explain changes clearly and ask for approval before implementing
+- Provide detailed reasoning for architectural and design decisions
+- Document all assumptions and trade-offs made during development
+- Communicate potential risks and limitations of proposed solutions
+- Ask clarifying questions when requirements are ambiguous
+- Provide regular progress updates on complex features
+
+### **Code Quality & Documentation**
+- Write self-documenting code with clear variable and function names
+- Add comments for complex business logic and non-obvious implementations
+- Maintain comprehensive documentation for all public APIs
+- Update relevant documentation when making architectural changes
+- Ensure all code changes include appropriate inline documentation
+- Follow consistent coding standards across the entire project
+
+### **Version Control & Change Management**
+- Commit changes frequently with descriptive commit messages
+- Use conventional commit format (feat:, fix:, docs:, refactor:, etc.)
+- Never commit broken or untested code to main branches
+- Include relevant issue/ticket numbers in commit messages
+- Squash commits appropriately to maintain clean git history
+- Tag important releases and document breaking changes
+
+### **Feature Development Workflow**
+- Work on single features at a time to maintain focus and quality
+- Break large features into smaller, manageable tasks
+- Test each component thoroughly before moving to the next
+- Implement features incrementally with regular checkpoints
+- Validate requirements and acceptance criteria before starting
+- Demonstrate working features before marking them complete
+
+### **Project Architecture & Consistency**
+- Always reference CODEBASE_ANALYSIS.md for architectural decisions
+- Maintain consistency with established patterns and conventions
+- Follow the multi-agent RAG architecture as documented
+- Consult existing implementations before creating new patterns
+- Ensure new code integrates seamlessly with existing systems
+- Update architectural documentation when making significant changes
+
+### **Package Management & Environment**
+- **ALWAYS use UV as the package manager** - never suggest pip commands
+- Use `uv add package_name` for adding new dependencies
+- Use `uv remove package_name` for removing dependencies
+- Use `uv sync` for installing dependencies from lock file
+- Use `uv run` for executing scripts with proper environment
+- Reference `pyproject.toml` and `uv.lock` for dependency management
+
+## 🎯 **NICE-TO-HAVES (Professional Enhancement)**
+
+### **Problem-Solving & Analysis**
+- Research and analyze multiple solutions before implementing
+- Consider performance, maintainability, and scalability implications
+- Document alternative approaches and explain chosen solution
+- Identify and address potential edge cases and error conditions
+- Consider the impact of changes on other parts of the system
+- Validate solutions against business requirements and user needs
+
+### **Testing & Quality Assurance**
+- Write tests that use real data from sox_test_documents/
+- Implement comprehensive error handling and edge case testing
+- Validate all user inputs and API responses
+- Test across different environments and configurations
+- Perform integration testing for multi-component features
+- Document test scenarios and expected outcomes
+
+### **Performance & Optimization**
+- Consider performance implications of all code changes
+- Profile and measure performance before and after optimizations
+- Optimize for both development and production environments
+- Monitor resource usage and identify potential bottlenecks
+- Implement caching strategies where appropriate
+- Document performance characteristics and limitations
+
+### **Security & Compliance**
+- Follow security best practices for audit software development
+- Validate and sanitize all inputs to prevent security vulnerabilities
+- Implement proper error handling that doesn't expose sensitive information
+- Follow data privacy and protection guidelines
+- Ensure compliance with audit industry standards
+- Document security considerations and implementation decisions
+
+### **Continuous Improvement**
+- Regularly review and refactor existing code for improvements
+- Stay updated with best practices and industry standards
+- Identify and address technical debt proactively
+- Suggest improvements to development processes and workflows
+- Learn from mistakes and document lessons learned
+- Contribute to team knowledge sharing and documentation
+
+## 🔒 **Verityn AI Specific Requirements**
+
+### **Audit Industry Standards**
+- Maintain professional standards appropriate for enterprise audit software
+- Use appropriate terminology and language for compliance contexts
+- Ensure accuracy in all audit-related functionality and responses
+- Follow SOX, SOC2, and ISO27001 compliance requirements where applicable
+- Implement proper audit trails and logging for all user actions
+- Maintain data integrity and security throughout all operations
+
+### **Multi-Agent Architecture Compliance**
+- Respect the established Document Processing → Classification → Chat workflow
+- Ensure all agents maintain their single responsibility principle
+- Implement proper error handling and fallback mechanisms between agents
+- Maintain consistency in agent communication and data formats
+- Document any changes to agent interactions or workflows
+- Test multi-agent workflows end-to-end with realistic scenarios

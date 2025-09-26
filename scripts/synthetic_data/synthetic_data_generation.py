@@ -1,13 +1,12 @@
 """
-Synthetic Data Generation for Verityn AI
-Task 3: Subtask 3.1 - Document Template Design
+Core Template Engine for Verityn AI
 
-This module creates realistic audit document templates for:
+This module creates realistic audit document structures and company profiles for:
 - Access Reviews (SOX 404)
 - Financial Reconciliations (SOX 302) 
 - Risk Assessments (SOX 404)
 
-Focused on enterprise companies like Uber, Walmart with medium complexity (7/10)
+Provides comprehensive templates for enterprise companies with configurable complexity levels.
 """
 
 import json
