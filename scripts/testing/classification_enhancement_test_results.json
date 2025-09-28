@@ -1,0 +1,831 @@
+{
+  "test_timestamp": 1759008968.931114,
+  "classifier_info": {
+    "model": "Classification Engine",
+    "confidence_thresholds": {
+      "high_confidence": 0.8,
+      "medium_confidence": 0.6,
+      "low_confidence": 0.4,
+      "minimum_acceptable": 0.3
+    }
+  },
+  "document_classification_tests": {
+    "total_documents": 4,
+    "successful_classifications": 4,
+    "failed_classifications": 0,
+    "type_accuracy": 1.0,
+    "framework_accuracy": 1.0,
+    "confidence_distribution": {
+      "avg_confidence": 0.6,
+      "min_confidence": 0.6,
+      "max_confidence": 0.6,
+      "std_confidence": 0.0
+    },
+    "classification_details": [
+      {
+        "document": "sox_access_review_2024",
+        "format": "json",
+        "classification_time_ms": 3110.445022583008,
+        "success": true,
+        "expected": {
+          "document_type": "access_review",
+          "compliance_framework": "SOX",
+          "expected_confidence_level": "medium"
+        },
+        "actual": {
+          "document_type": "access_review",
+          "confidence": 0.6,
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "risk_level": "medium",
+          "key_topics": [
+            "user access controls",
+            "SOX 404 requirements",
+            "excessive privileges",
+            "orphaned accounts",
+            "access review process",
+            "segregation of duties",
+            "role-based access controls",
+            "privileged user activities",
+            "access request and approval workflows"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 1026,
+            "raw_confidence": 0.95,
+            "confidence_adjustment": "applied"
+          }
+        },
+        "type_correct": true,
+        "framework_correct": true,
+        "confidence": 0.6,
+        "confidence_appropriate": true,
+        "validation_details": {
+          "has_result": true,
+          "has_document_type": "access_review",
+          "has_confidence": true,
+          "confidence_reasonable": true,
+          "has_framework": false
+        }
+      },
+      {
+        "document": "sox_internal_controls_2024",
+        "format": "json",
+        "classification_time_ms": 3064.088821411133,
+        "success": true,
+        "expected": {
+          "document_type": "internal_controls",
+          "compliance_framework": "SOX",
+          "expected_confidence_level": "medium"
+        },
+        "actual": {
+          "document_type": "internal_controls",
+          "confidence": 0.6,
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "risk_level": "low",
+          "key_topics": [
+            "internal controls",
+            "risk assessment",
+            "authorization",
+            "segregation",
+            "documentation",
+            "monitoring",
+            "general controls",
+            "application controls",
+            "data integrity",
+            "security",
+            "ongoing monitoring",
+            "separate evaluations",
+            "deficiency communication"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 1275,
+            "raw_confidence": 0.95,
+            "confidence_adjustment": "applied"
+          }
+        },
+        "type_correct": true,
+        "framework_correct": true,
+        "confidence": 0.6,
+        "confidence_appropriate": true,
+        "validation_details": {
+          "has_result": true,
+          "has_document_type": "internal_controls",
+          "has_confidence": true,
+          "confidence_reasonable": true,
+          "has_framework": false
+        }
+      },
+      {
+        "document": "sox_financial_controls_2024",
+        "format": "txt",
+        "classification_time_ms": 2130.795955657959,
+        "success": true,
+        "expected": {
+          "document_type": "financial_controls",
+          "compliance_framework": "SOX",
+          "expected_confidence_level": "high"
+        },
+        "actual": {
+          "document_type": "financial_controls",
+          "confidence": 0.6,
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "risk_level": "medium",
+          "key_topics": [
+            "financial reporting",
+            "internal controls",
+            "disclosure controls",
+            "remediation status"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 1303,
+            "raw_confidence": 0.95,
+            "confidence_adjustment": "applied"
+          }
+        },
+        "type_correct": true,
+        "framework_correct": true,
+        "confidence": 0.6,
+        "confidence_appropriate": false,
+        "validation_details": {
+          "has_result": true,
+          "has_document_type": "financial_controls",
+          "has_confidence": true,
+          "confidence_reasonable": true,
+          "has_framework": false
+        }
+      },
+      {
+        "document": "sox_risk_assessment_2024",
+        "format": "txt",
+        "classification_time_ms": 3702.6028633117676,
+        "success": true,
+        "expected": {
+          "document_type": "risk_assessment",
+          "compliance_framework": "SOX",
+          "expected_confidence_level": "high"
+        },
+        "actual": {
+          "document_type": "risk_assessment",
+          "confidence": 0.6,
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "risk_level": "high",
+          "key_topics": [
+            "Financial Reporting",
+            "Access Controls",
+            "Change Management",
+            "Vendor Management",
+            "Revenue recognition",
+            "IT system access controls",
+            "Third-party vendor access",
+            "Change management controls",
+            "Financial reporting controls",
+            "Audit trail monitoring",
+            "Access controls",
+            "Vendor management",
+            "Change management controls",
+            "Inadequate change management controls",
+            "Weak vendor access controls and monitoring",
+            "Remediation Plan"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 1222,
+            "raw_confidence": 0.95,
+            "confidence_adjustment": "applied"
+          }
+        },
+        "type_correct": true,
+        "framework_correct": true,
+        "confidence": 0.6,
+        "confidence_appropriate": false,
+        "validation_details": {
+          "has_result": true,
+          "has_document_type": "risk_assessment",
+          "has_confidence": true,
+          "confidence_reasonable": true,
+          "has_framework": false
+        }
+      }
+    ]
+  },
+  "edge_case_tests": {
+    "total_edge_cases": 8,
+    "handled_gracefully": 6,
+    "failed_edge_cases": 2,
+    "edge_case_details": [
+      {
+        "edge_case": "empty_content",
+        "content_length": 0,
+        "classification_time_ms": 1226.8133163452148,
+        "graceful_handling": true,
+        "classification_result": {
+          "document_type": "unknown",
+          "confidence": 0.0,
+          "compliance_frameworks": [
+            "General"
+          ],
+          "risk_level": "low",
+          "key_topics": [],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 0,
+            "classification_method": "fallback_empty"
+          }
+        },
+        "assessment": "Confidence 0.0% - should be very low"
+      },
+      {
+        "edge_case": "minimal_content",
+        "content_length": 12,
+        "classification_time_ms": 1950.059175491333,
+        "graceful_handling": false,
+        "classification_result": {
+          "document_type": "audit_report",
+          "confidence": 0.1,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "low",
+          "key_topics": [
+            "audit"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 12,
+            "raw_confidence": 0.1,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as audit_report with 10.0% confidence"
+      },
+      {
+        "edge_case": "mixed_content",
+        "content_length": 119,
+        "classification_time_ms": 2056.087017059326,
+        "graceful_handling": true,
+        "classification_result": {
+          "document_type": "other",
+          "confidence": 0.6,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "medium",
+          "key_topics": [
+            "access review",
+            "financial reconciliation",
+            "risk assessment"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 119,
+            "raw_confidence": 0.6,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as other with 60.0% confidence - reasonable for mixed content"
+      },
+      {
+        "edge_case": "non_audit_content",
+        "content_length": 64,
+        "classification_time_ms": 1456.624984741211,
+        "graceful_handling": true,
+        "classification_result": {
+          "document_type": "other",
+          "confidence": 0.1,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "low",
+          "key_topics": [
+            "recipe",
+            "chocolate cake"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 64,
+            "raw_confidence": 0.1,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as other with 10.0% confidence - should recognize non-audit content"
+      },
+      {
+        "edge_case": "technical_jargon",
+        "content_length": 110,
+        "classification_time_ms": 2156.3031673431396,
+        "graceful_handling": true,
+        "classification_result": {
+          "document_type": "other",
+          "confidence": 0.3,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "low",
+          "key_topics": [
+            "API endpoint configuration",
+            "microservices architecture",
+            "Docker containers",
+            "Kubernetes orchestration"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 110,
+            "raw_confidence": 0.3,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as other with 30.0% confidence - good for technical content"
+      },
+      {
+        "edge_case": "foreign_language",
+        "content_length": 68,
+        "classification_time_ms": 1851.607084274292,
+        "graceful_handling": true,
+        "classification_result": {
+          "document_type": "internal_controls",
+          "confidence": 0.6,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "medium",
+          "key_topics": [
+            "audit",
+            "internal controls"
+          ],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 68,
+            "raw_confidence": 0.6,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as internal_controls with 60.0% confidence - language barrier handled"
+      },
+      {
+        "edge_case": "corrupted_text",
+        "content_length": 49,
+        "classification_time_ms": 1490.001916885376,
+        "graceful_handling": true,
+        "classification_result": {
+          "document_type": "other",
+          "confidence": 0.1,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "low",
+          "key_topics": [],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 49,
+            "raw_confidence": 0.1,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as other with 10.0% confidence - corruption detected"
+      },
+      {
+        "edge_case": "very_long_content",
+        "content_length": 26000,
+        "classification_time_ms": 1790.5020713806152,
+        "graceful_handling": false,
+        "classification_result": {
+          "document_type": "other",
+          "confidence": 0.1,
+          "compliance_frameworks": [
+            "other"
+          ],
+          "risk_level": "low",
+          "key_topics": [],
+          "metadata": {
+            "analysis_timestamp": "2024-01-15",
+            "content_length": 26000,
+            "raw_confidence": 0.1,
+            "confidence_adjustment": "none"
+          }
+        },
+        "assessment": "Classified as other with 10.0% confidence - handled large content"
+      }
+    ]
+  },
+  "confidence_analysis": {
+    "confidence_calibration": {
+      "avg_confidence": 0.6,
+      "confidence_range": 0.0,
+      "appropriateness_rate": 0.5,
+      "high_confidence_count": 0,
+      "low_confidence_count": 0
+    },
+    "confidence_consistency": {},
+    "edge_case_confidence": {
+      "avg_edge_confidence": 0.2375,
+      "graceful_handling_rate": 0.75
+    }
+  },
+  "performance_metrics": {
+    "overall_success_rate": 0.8333333333333334,
+    "document_type_accuracy": 1.0,
+    "framework_accuracy": 1.0,
+    "edge_case_handling_rate": 0.75,
+    "avg_classification_time_ms": 2165.4942830403647,
+    "max_classification_time_ms": 3702.6028633117676,
+    "min_classification_time_ms": 1226.8133163452148
+  },
+  "detailed_results": [
+    {
+      "document": "sox_access_review_2024",
+      "format": "json",
+      "classification_time_ms": 3110.445022583008,
+      "success": true,
+      "expected": {
+        "document_type": "access_review",
+        "compliance_framework": "SOX",
+        "expected_confidence_level": "medium"
+      },
+      "actual": {
+        "document_type": "access_review",
+        "confidence": 0.6,
+        "compliance_frameworks": [
+          "SOX"
+        ],
+        "risk_level": "medium",
+        "key_topics": [
+          "user access controls",
+          "SOX 404 requirements",
+          "excessive privileges",
+          "orphaned accounts",
+          "access review process",
+          "segregation of duties",
+          "role-based access controls",
+          "privileged user activities",
+          "access request and approval workflows"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 1026,
+          "raw_confidence": 0.95,
+          "confidence_adjustment": "applied"
+        }
+      },
+      "type_correct": true,
+      "framework_correct": true,
+      "confidence": 0.6,
+      "confidence_appropriate": true,
+      "validation_details": {
+        "has_result": true,
+        "has_document_type": "access_review",
+        "has_confidence": true,
+        "confidence_reasonable": true,
+        "has_framework": false
+      }
+    },
+    {
+      "document": "sox_internal_controls_2024",
+      "format": "json",
+      "classification_time_ms": 3064.088821411133,
+      "success": true,
+      "expected": {
+        "document_type": "internal_controls",
+        "compliance_framework": "SOX",
+        "expected_confidence_level": "medium"
+      },
+      "actual": {
+        "document_type": "internal_controls",
+        "confidence": 0.6,
+        "compliance_frameworks": [
+          "SOX"
+        ],
+        "risk_level": "low",
+        "key_topics": [
+          "internal controls",
+          "risk assessment",
+          "authorization",
+          "segregation",
+          "documentation",
+          "monitoring",
+          "general controls",
+          "application controls",
+          "data integrity",
+          "security",
+          "ongoing monitoring",
+          "separate evaluations",
+          "deficiency communication"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 1275,
+          "raw_confidence": 0.95,
+          "confidence_adjustment": "applied"
+        }
+      },
+      "type_correct": true,
+      "framework_correct": true,
+      "confidence": 0.6,
+      "confidence_appropriate": true,
+      "validation_details": {
+        "has_result": true,
+        "has_document_type": "internal_controls",
+        "has_confidence": true,
+        "confidence_reasonable": true,
+        "has_framework": false
+      }
+    },
+    {
+      "document": "sox_financial_controls_2024",
+      "format": "txt",
+      "classification_time_ms": 2130.795955657959,
+      "success": true,
+      "expected": {
+        "document_type": "financial_controls",
+        "compliance_framework": "SOX",
+        "expected_confidence_level": "high"
+      },
+      "actual": {
+        "document_type": "financial_controls",
+        "confidence": 0.6,
+        "compliance_frameworks": [
+          "SOX"
+        ],
+        "risk_level": "medium",
+        "key_topics": [
+          "financial reporting",
+          "internal controls",
+          "disclosure controls",
+          "remediation status"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 1303,
+          "raw_confidence": 0.95,
+          "confidence_adjustment": "applied"
+        }
+      },
+      "type_correct": true,
+      "framework_correct": true,
+      "confidence": 0.6,
+      "confidence_appropriate": false,
+      "validation_details": {
+        "has_result": true,
+        "has_document_type": "financial_controls",
+        "has_confidence": true,
+        "confidence_reasonable": true,
+        "has_framework": false
+      }
+    },
+    {
+      "document": "sox_risk_assessment_2024",
+      "format": "txt",
+      "classification_time_ms": 3702.6028633117676,
+      "success": true,
+      "expected": {
+        "document_type": "risk_assessment",
+        "compliance_framework": "SOX",
+        "expected_confidence_level": "high"
+      },
+      "actual": {
+        "document_type": "risk_assessment",
+        "confidence": 0.6,
+        "compliance_frameworks": [
+          "SOX"
+        ],
+        "risk_level": "high",
+        "key_topics": [
+          "Financial Reporting",
+          "Access Controls",
+          "Change Management",
+          "Vendor Management",
+          "Revenue recognition",
+          "IT system access controls",
+          "Third-party vendor access",
+          "Change management controls",
+          "Financial reporting controls",
+          "Audit trail monitoring",
+          "Access controls",
+          "Vendor management",
+          "Change management controls",
+          "Inadequate change management controls",
+          "Weak vendor access controls and monitoring",
+          "Remediation Plan"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 1222,
+          "raw_confidence": 0.95,
+          "confidence_adjustment": "applied"
+        }
+      },
+      "type_correct": true,
+      "framework_correct": true,
+      "confidence": 0.6,
+      "confidence_appropriate": false,
+      "validation_details": {
+        "has_result": true,
+        "has_document_type": "risk_assessment",
+        "has_confidence": true,
+        "confidence_reasonable": true,
+        "has_framework": false
+      }
+    },
+    {
+      "edge_case": "empty_content",
+      "content_length": 0,
+      "classification_time_ms": 1226.8133163452148,
+      "graceful_handling": true,
+      "classification_result": {
+        "document_type": "unknown",
+        "confidence": 0.0,
+        "compliance_frameworks": [
+          "General"
+        ],
+        "risk_level": "low",
+        "key_topics": [],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 0,
+          "classification_method": "fallback_empty"
+        }
+      },
+      "assessment": "Confidence 0.0% - should be very low"
+    },
+    {
+      "edge_case": "minimal_content",
+      "content_length": 12,
+      "classification_time_ms": 1950.059175491333,
+      "graceful_handling": false,
+      "classification_result": {
+        "document_type": "audit_report",
+        "confidence": 0.1,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "low",
+        "key_topics": [
+          "audit"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 12,
+          "raw_confidence": 0.1,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as audit_report with 10.0% confidence"
+    },
+    {
+      "edge_case": "mixed_content",
+      "content_length": 119,
+      "classification_time_ms": 2056.087017059326,
+      "graceful_handling": true,
+      "classification_result": {
+        "document_type": "other",
+        "confidence": 0.6,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "medium",
+        "key_topics": [
+          "access review",
+          "financial reconciliation",
+          "risk assessment"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 119,
+          "raw_confidence": 0.6,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as other with 60.0% confidence - reasonable for mixed content"
+    },
+    {
+      "edge_case": "non_audit_content",
+      "content_length": 64,
+      "classification_time_ms": 1456.624984741211,
+      "graceful_handling": true,
+      "classification_result": {
+        "document_type": "other",
+        "confidence": 0.1,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "low",
+        "key_topics": [
+          "recipe",
+          "chocolate cake"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 64,
+          "raw_confidence": 0.1,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as other with 10.0% confidence - should recognize non-audit content"
+    },
+    {
+      "edge_case": "technical_jargon",
+      "content_length": 110,
+      "classification_time_ms": 2156.3031673431396,
+      "graceful_handling": true,
+      "classification_result": {
+        "document_type": "other",
+        "confidence": 0.3,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "low",
+        "key_topics": [
+          "API endpoint configuration",
+          "microservices architecture",
+          "Docker containers",
+          "Kubernetes orchestration"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 110,
+          "raw_confidence": 0.3,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as other with 30.0% confidence - good for technical content"
+    },
+    {
+      "edge_case": "foreign_language",
+      "content_length": 68,
+      "classification_time_ms": 1851.607084274292,
+      "graceful_handling": true,
+      "classification_result": {
+        "document_type": "internal_controls",
+        "confidence": 0.6,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "medium",
+        "key_topics": [
+          "audit",
+          "internal controls"
+        ],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 68,
+          "raw_confidence": 0.6,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as internal_controls with 60.0% confidence - language barrier handled"
+    },
+    {
+      "edge_case": "corrupted_text",
+      "content_length": 49,
+      "classification_time_ms": 1490.001916885376,
+      "graceful_handling": true,
+      "classification_result": {
+        "document_type": "other",
+        "confidence": 0.1,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "low",
+        "key_topics": [],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 49,
+          "raw_confidence": 0.1,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as other with 10.0% confidence - corruption detected"
+    },
+    {
+      "edge_case": "very_long_content",
+      "content_length": 26000,
+      "classification_time_ms": 1790.5020713806152,
+      "graceful_handling": false,
+      "classification_result": {
+        "document_type": "other",
+        "confidence": 0.1,
+        "compliance_frameworks": [
+          "other"
+        ],
+        "risk_level": "low",
+        "key_topics": [],
+        "metadata": {
+          "analysis_timestamp": "2024-01-15",
+          "content_length": 26000,
+          "raw_confidence": 0.1,
+          "confidence_adjustment": "none"
+        }
+      },
+      "assessment": "Classified as other with 10.0% confidence - handled large content"
+    }
+  ]
+}

@@ -1,0 +1,639 @@
+{
+  "analysis_timestamp": 1758949043.363778,
+  "test_summary": {
+    "simple_audit": {
+      "queries_tested": 5,
+      "avg_response_time_ms": 11411.3685131073,
+      "slow_queries_count": 4,
+      "memory_usage_avg_mb": -4.746875
+    },
+    "complex_audit": {
+      "queries_tested": 5,
+      "avg_response_time_ms": 10150.893449783325,
+      "slow_queries_count": 2,
+      "memory_usage_avg_mb": -0.753125
+    },
+    "vague_queries": {
+      "queries_tested": 5,
+      "avg_response_time_ms": 11452.038145065308,
+      "slow_queries_count": 4,
+      "memory_usage_avg_mb": -0.89375
+    },
+    "specific_queries": {
+      "queries_tested": 5,
+      "avg_response_time_ms": 11726.98016166687,
+      "slow_queries_count": 4,
+      "memory_usage_avg_mb": -0.415625
+    }
+  },
+  "performance_by_category": {
+    "simple_audit": {
+      "category": "simple_audit",
+      "total_queries": 5,
+      "successful_queries": 5,
+      "failed_queries": 0,
+      "avg_total_time_ms": 11411.3685131073,
+      "avg_retrieval_time_ms": 334.3440055847168,
+      "avg_generation_time_ms": 11076.206970214844,
+      "avg_memory_usage_mb": -4.746875,
+      "slow_queries_count": 4,
+      "query_details": [
+        {
+          "query": "What are the key findings?",
+          "category": "simple_audit",
+          "success": true,
+          "total_time_ms": 12727.00810432434,
+          "retrieval_time_ms": 356.72807693481445,
+          "generation_time_ms": 12368.364810943604,
+          "memory_usage_mb": -21.390625,
+          "chunks_retrieved": 5,
+          "response_length": 2059
+        },
+        {
+          "query": "What controls were tested?",
+          "category": "simple_audit",
+          "success": true,
+          "total_time_ms": 10667.687892913818,
+          "retrieval_time_ms": 225.4037857055664,
+          "generation_time_ms": 10441.764116287231,
+          "memory_usage_mb": -0.578125,
+          "chunks_retrieved": 5,
+          "response_length": 2133
+        },
+        {
+          "query": "What compliance issues were found?",
+          "category": "simple_audit",
+          "success": true,
+          "total_time_ms": 13116.670846939087,
+          "retrieval_time_ms": 589.6141529083252,
+          "generation_time_ms": 12526.808977127075,
+          "memory_usage_mb": -0.65625,
+          "chunks_retrieved": 5,
+          "response_length": 2654
+        },
+        {
+          "query": "What risks were identified?",
+          "category": "simple_audit",
+          "success": true,
+          "total_time_ms": 10921.292066574097,
+          "retrieval_time_ms": 208.88185501098633,
+          "generation_time_ms": 10711.647033691406,
+          "memory_usage_mb": -0.25,
+          "chunks_retrieved": 5,
+          "response_length": 2056
+        },
+        {
+          "query": "What recommendations were made?",
+          "category": "simple_audit",
+          "success": true,
+          "total_time_ms": 9624.183654785156,
+          "retrieval_time_ms": 291.0921573638916,
+          "generation_time_ms": 9332.449913024902,
+          "memory_usage_mb": -0.859375,
+          "chunks_retrieved": 5,
+          "response_length": 2014
+        }
+      ]
+    },
+    "complex_audit": {
+      "category": "complex_audit",
+      "total_queries": 5,
+      "successful_queries": 5,
+      "failed_queries": 0,
+      "avg_total_time_ms": 10150.893449783325,
+      "avg_retrieval_time_ms": 286.85293197631836,
+      "avg_generation_time_ms": 9863.155889511108,
+      "avg_memory_usage_mb": -0.753125,
+      "slow_queries_count": 2,
+      "query_details": [
+        {
+          "query": "What SOX 404 controls were tested for the revenue recognition process?",
+          "category": "complex_audit",
+          "success": true,
+          "total_time_ms": 10193.751096725464,
+          "retrieval_time_ms": 225.15511512756348,
+          "generation_time_ms": 9967.037200927734,
+          "memory_usage_mb": -0.25,
+          "chunks_retrieved": 5,
+          "response_length": 2314
+        },
+        {
+          "query": "How many user access reviews were completed in Q4 2024?",
+          "category": "complex_audit",
+          "success": true,
+          "total_time_ms": 9218.95694732666,
+          "retrieval_time_ms": 313.4019374847412,
+          "generation_time_ms": 8904.892206192017,
+          "memory_usage_mb": -2.203125,
+          "chunks_retrieved": 5,
+          "response_length": 1645
+        },
+        {
+          "query": "What material weaknesses were identified in the financial reporting controls?",
+          "category": "complex_audit",
+          "success": true,
+          "total_time_ms": 9402.859210968018,
+          "retrieval_time_ms": 352.6167869567871,
+          "generation_time_ms": 9049.911975860596,
+          "memory_usage_mb": -1.0625,
+          "chunks_retrieved": 5,
+          "response_length": 2115
+        },
+        {
+          "query": "Which control deficiencies require remediation by year-end?",
+          "category": "complex_audit",
+          "success": true,
+          "total_time_ms": 9972.414016723633,
+          "retrieval_time_ms": 270.0827121734619,
+          "generation_time_ms": 9701.575994491577,
+          "memory_usage_mb": -0.296875,
+          "chunks_retrieved": 5,
+          "response_length": 1747
+        },
+        {
+          "query": "What percentage of IT general controls were found to be effective?",
+          "category": "complex_audit",
+          "success": true,
+          "total_time_ms": 11966.485977172852,
+          "retrieval_time_ms": 273.0081081390381,
+          "generation_time_ms": 11692.362070083618,
+          "memory_usage_mb": 0.046875,
+          "chunks_retrieved": 5,
+          "response_length": 2275
+        }
+      ]
+    },
+    "vague_queries": {
+      "category": "vague_queries",
+      "total_queries": 5,
+      "successful_queries": 5,
+      "failed_queries": 0,
+      "avg_total_time_ms": 11452.038145065308,
+      "avg_retrieval_time_ms": 282.0969581604004,
+      "avg_generation_time_ms": 11169.261646270752,
+      "avg_memory_usage_mb": -0.89375,
+      "slow_queries_count": 4,
+      "query_details": [
+        {
+          "query": "controls",
+          "category": "vague_queries",
+          "success": true,
+          "total_time_ms": 11547.388792037964,
+          "retrieval_time_ms": 253.2060146331787,
+          "generation_time_ms": 11293.189287185669,
+          "memory_usage_mb": -0.828125,
+          "chunks_retrieved": 5,
+          "response_length": 2030
+        },
+        {
+          "query": "findings",
+          "category": "vague_queries",
+          "success": true,
+          "total_time_ms": 11300.652027130127,
+          "retrieval_time_ms": 215.22808074951172,
+          "generation_time_ms": 11085.041046142578,
+          "memory_usage_mb": -0.765625,
+          "chunks_retrieved": 5,
+          "response_length": 2144
+        },
+        {
+          "query": "assessment",
+          "category": "vague_queries",
+          "success": true,
+          "total_time_ms": 10608.77799987793,
+          "retrieval_time_ms": 392.89283752441406,
+          "generation_time_ms": 10215.466976165771,
+          "memory_usage_mb": 0.015625,
+          "chunks_retrieved": 5,
+          "response_length": 2132
+        },
+        {
+          "query": "compliance",
+          "category": "vague_queries",
+          "success": true,
+          "total_time_ms": 9974.963903427124,
+          "retrieval_time_ms": 288.0988121032715,
+          "generation_time_ms": 9686.45191192627,
+          "memory_usage_mb": -0.71875,
+          "chunks_retrieved": 5,
+          "response_length": 1796
+        },
+        {
+          "query": "audit",
+          "category": "vague_queries",
+          "success": true,
+          "total_time_ms": 13828.408002853394,
+          "retrieval_time_ms": 261.059045791626,
+          "generation_time_ms": 13566.159009933472,
+          "memory_usage_mb": -2.171875,
+          "chunks_retrieved": 5,
+          "response_length": 2141
+        }
+      ]
+    },
+    "specific_queries": {
+      "category": "specific_queries",
+      "total_queries": 5,
+      "successful_queries": 5,
+      "failed_queries": 0,
+      "avg_total_time_ms": 11726.98016166687,
+      "avg_retrieval_time_ms": 322.6400852203369,
+      "avg_generation_time_ms": 11403.381538391113,
+      "avg_memory_usage_mb": -0.415625,
+      "slow_queries_count": 4,
+      "query_details": [
+        {
+          "query": "What was the exact date of the last access review completion?",
+          "category": "specific_queries",
+          "success": true,
+          "total_time_ms": 11436.15984916687,
+          "retrieval_time_ms": 412.9488468170166,
+          "generation_time_ms": 11022.54605293274,
+          "memory_usage_mb": -0.171875,
+          "chunks_retrieved": 5,
+          "response_length": 1932
+        },
+        {
+          "query": "Which user had the most privileged access violations?",
+          "category": "specific_queries",
+          "success": true,
+          "total_time_ms": 11171.481132507324,
+          "retrieval_time_ms": 231.02998733520508,
+          "generation_time_ms": 10940.118074417114,
+          "memory_usage_mb": -0.515625,
+          "chunks_retrieved": 5,
+          "response_length": 2166
+        },
+        {
+          "query": "What is the control ID for automated three-way match validation?",
+          "category": "specific_queries",
+          "success": true,
+          "total_time_ms": 13294.721841812134,
+          "retrieval_time_ms": 441.94602966308594,
+          "generation_time_ms": 12852.298974990845,
+          "memory_usage_mb": -0.390625,
+          "chunks_retrieved": 5,
+          "response_length": 1838
+        },
+        {
+          "query": "How many segregation of duties conflicts were identified?",
+          "category": "specific_queries",
+          "success": true,
+          "total_time_ms": 9855.58795928955,
+          "retrieval_time_ms": 269.50979232788086,
+          "generation_time_ms": 9583.85181427002,
+          "memory_usage_mb": -0.953125,
+          "chunks_retrieved": 5,
+          "response_length": 1884
+        },
+        {
+          "query": "What was the sample size used for testing revenue recognition controls?",
+          "category": "specific_queries",
+          "success": true,
+          "total_time_ms": 12876.950025558472,
+          "retrieval_time_ms": 257.7657699584961,
+          "generation_time_ms": 12618.092775344849,
+          "memory_usage_mb": -0.046875,
+          "chunks_retrieved": 5,
+          "response_length": 2048
+        }
+      ]
+    }
+  },
+  "slow_queries": [
+    {
+      "query": "audit",
+      "category": "vague_queries",
+      "total_time_ms": 13828.408002853394,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -2.171875
+    },
+    {
+      "query": "What is the control ID for automated three-way match validation?",
+      "category": "specific_queries",
+      "total_time_ms": 13294.721841812134,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.390625
+    },
+    {
+      "query": "What compliance issues were found?",
+      "category": "simple_audit",
+      "total_time_ms": 13116.670846939087,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.65625
+    },
+    {
+      "query": "What was the sample size used for testing revenue recognition controls?",
+      "category": "specific_queries",
+      "total_time_ms": 12876.950025558472,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.046875
+    },
+    {
+      "query": "What are the key findings?",
+      "category": "simple_audit",
+      "total_time_ms": 12727.00810432434,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -21.390625
+    },
+    {
+      "query": "What percentage of IT general controls were found to be effective?",
+      "category": "complex_audit",
+      "total_time_ms": 11966.485977172852,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": 0.046875
+    },
+    {
+      "query": "controls",
+      "category": "vague_queries",
+      "total_time_ms": 11547.388792037964,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.828125
+    },
+    {
+      "query": "What was the exact date of the last access review completion?",
+      "category": "specific_queries",
+      "total_time_ms": 11436.15984916687,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.171875
+    },
+    {
+      "query": "findings",
+      "category": "vague_queries",
+      "total_time_ms": 11300.652027130127,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.765625
+    },
+    {
+      "query": "Which user had the most privileged access violations?",
+      "category": "specific_queries",
+      "total_time_ms": 11171.481132507324,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.515625
+    },
+    {
+      "query": "What risks were identified?",
+      "category": "simple_audit",
+      "total_time_ms": 10921.292066574097,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.25
+    },
+    {
+      "query": "What controls were tested?",
+      "category": "simple_audit",
+      "total_time_ms": 10667.687892913818,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.578125
+    },
+    {
+      "query": "assessment",
+      "category": "vague_queries",
+      "total_time_ms": 10608.77799987793,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": 0.015625
+    },
+    {
+      "query": "What SOX 404 controls were tested for the revenue recognition process?",
+      "category": "complex_audit",
+      "total_time_ms": 10193.751096725464,
+      "chunks_retrieved": 5,
+      "memory_usage_mb": -0.25
+    }
+  ],
+  "bottleneck_analysis": {
+    "slowest_step_overall": "llm_generation",
+    "most_problematic_step": "llm_generation",
+    "performance_distribution": {},
+    "memory_issues": 0
+  },
+  "optimization_recommendations": [
+    "\ud83d\udea8 LLM generation is the bottleneck - optimize prompt size and context",
+    "\ud83d\udca1 Reduce context chunks or implement context filtering",
+    "\ud83d\udd0d simple_audit queries are consistently slow - analyze query patterns",
+    "\ud83d\udd0d complex_audit queries are consistently slow - analyze query patterns",
+    "\ud83d\udd0d vague_queries queries are consistently slow - analyze query patterns",
+    "\ud83d\udd0d specific_queries queries are consistently slow - analyze query patterns"
+  ],
+  "detailed_results": [
+    {
+      "query": "What are the key findings?",
+      "category": "simple_audit",
+      "success": true,
+      "total_time_ms": 12727.00810432434,
+      "retrieval_time_ms": 356.72807693481445,
+      "generation_time_ms": 12368.364810943604,
+      "memory_usage_mb": -21.390625,
+      "chunks_retrieved": 5,
+      "response_length": 2059
+    },
+    {
+      "query": "What controls were tested?",
+      "category": "simple_audit",
+      "success": true,
+      "total_time_ms": 10667.687892913818,
+      "retrieval_time_ms": 225.4037857055664,
+      "generation_time_ms": 10441.764116287231,
+      "memory_usage_mb": -0.578125,
+      "chunks_retrieved": 5,
+      "response_length": 2133
+    },
+    {
+      "query": "What compliance issues were found?",
+      "category": "simple_audit",
+      "success": true,
+      "total_time_ms": 13116.670846939087,
+      "retrieval_time_ms": 589.6141529083252,
+      "generation_time_ms": 12526.808977127075,
+      "memory_usage_mb": -0.65625,
+      "chunks_retrieved": 5,
+      "response_length": 2654
+    },
+    {
+      "query": "What risks were identified?",
+      "category": "simple_audit",
+      "success": true,
+      "total_time_ms": 10921.292066574097,
+      "retrieval_time_ms": 208.88185501098633,
+      "generation_time_ms": 10711.647033691406,
+      "memory_usage_mb": -0.25,
+      "chunks_retrieved": 5,
+      "response_length": 2056
+    },
+    {
+      "query": "What recommendations were made?",
+      "category": "simple_audit",
+      "success": true,
+      "total_time_ms": 9624.183654785156,
+      "retrieval_time_ms": 291.0921573638916,
+      "generation_time_ms": 9332.449913024902,
+      "memory_usage_mb": -0.859375,
+      "chunks_retrieved": 5,
+      "response_length": 2014
+    },
+    {
+      "query": "What SOX 404 controls were tested for the revenue recognition process?",
+      "category": "complex_audit",
+      "success": true,
+      "total_time_ms": 10193.751096725464,
+      "retrieval_time_ms": 225.15511512756348,
+      "generation_time_ms": 9967.037200927734,
+      "memory_usage_mb": -0.25,
+      "chunks_retrieved": 5,
+      "response_length": 2314
+    },
+    {
+      "query": "How many user access reviews were completed in Q4 2024?",
+      "category": "complex_audit",
+      "success": true,
+      "total_time_ms": 9218.95694732666,
+      "retrieval_time_ms": 313.4019374847412,
+      "generation_time_ms": 8904.892206192017,
+      "memory_usage_mb": -2.203125,
+      "chunks_retrieved": 5,
+      "response_length": 1645
+    },
+    {
+      "query": "What material weaknesses were identified in the financial reporting controls?",
+      "category": "complex_audit",
+      "success": true,
+      "total_time_ms": 9402.859210968018,
+      "retrieval_time_ms": 352.6167869567871,
+      "generation_time_ms": 9049.911975860596,
+      "memory_usage_mb": -1.0625,
+      "chunks_retrieved": 5,
+      "response_length": 2115
+    },
+    {
+      "query": "Which control deficiencies require remediation by year-end?",
+      "category": "complex_audit",
+      "success": true,
+      "total_time_ms": 9972.414016723633,
+      "retrieval_time_ms": 270.0827121734619,
+      "generation_time_ms": 9701.575994491577,
+      "memory_usage_mb": -0.296875,
+      "chunks_retrieved": 5,
+      "response_length": 1747
+    },
+    {
+      "query": "What percentage of IT general controls were found to be effective?",
+      "category": "complex_audit",
+      "success": true,
+      "total_time_ms": 11966.485977172852,
+      "retrieval_time_ms": 273.0081081390381,
+      "generation_time_ms": 11692.362070083618,
+      "memory_usage_mb": 0.046875,
+      "chunks_retrieved": 5,
+      "response_length": 2275
+    },
+    {
+      "query": "controls",
+      "category": "vague_queries",
+      "success": true,
+      "total_time_ms": 11547.388792037964,
+      "retrieval_time_ms": 253.2060146331787,
+      "generation_time_ms": 11293.189287185669,
+      "memory_usage_mb": -0.828125,
+      "chunks_retrieved": 5,
+      "response_length": 2030
+    },
+    {
+      "query": "findings",
+      "category": "vague_queries",
+      "success": true,
+      "total_time_ms": 11300.652027130127,
+      "retrieval_time_ms": 215.22808074951172,
+      "generation_time_ms": 11085.041046142578,
+      "memory_usage_mb": -0.765625,
+      "chunks_retrieved": 5,
+      "response_length": 2144
+    },
+    {
+      "query": "assessment",
+      "category": "vague_queries",
+      "success": true,
+      "total_time_ms": 10608.77799987793,
+      "retrieval_time_ms": 392.89283752441406,
+      "generation_time_ms": 10215.466976165771,
+      "memory_usage_mb": 0.015625,
+      "chunks_retrieved": 5,
+      "response_length": 2132
+    },
+    {
+      "query": "compliance",
+      "category": "vague_queries",
+      "success": true,
+      "total_time_ms": 9974.963903427124,
+      "retrieval_time_ms": 288.0988121032715,
+      "generation_time_ms": 9686.45191192627,
+      "memory_usage_mb": -0.71875,
+      "chunks_retrieved": 5,
+      "response_length": 1796
+    },
+    {
+      "query": "audit",
+      "category": "vague_queries",
+      "success": true,
+      "total_time_ms": 13828.408002853394,
+      "retrieval_time_ms": 261.059045791626,
+      "generation_time_ms": 13566.159009933472,
+      "memory_usage_mb": -2.171875,
+      "chunks_retrieved": 5,
+      "response_length": 2141
+    },
+    {
+      "query": "What was the exact date of the last access review completion?",
+      "category": "specific_queries",
+      "success": true,
+      "total_time_ms": 11436.15984916687,
+      "retrieval_time_ms": 412.9488468170166,
+      "generation_time_ms": 11022.54605293274,
+      "memory_usage_mb": -0.171875,
+      "chunks_retrieved": 5,
+      "response_length": 1932
+    },
+    {
+      "query": "Which user had the most privileged access violations?",
+      "category": "specific_queries",
+      "success": true,
+      "total_time_ms": 11171.481132507324,
+      "retrieval_time_ms": 231.02998733520508,
+      "generation_time_ms": 10940.118074417114,
+      "memory_usage_mb": -0.515625,
+      "chunks_retrieved": 5,
+      "response_length": 2166
+    },
+    {
+      "query": "What is the control ID for automated three-way match validation?",
+      "category": "specific_queries",
+      "success": true,
+      "total_time_ms": 13294.721841812134,
+      "retrieval_time_ms": 441.94602966308594,
+      "generation_time_ms": 12852.298974990845,
+      "memory_usage_mb": -0.390625,
+      "chunks_retrieved": 5,
+      "response_length": 1838
+    },
+    {
+      "query": "How many segregation of duties conflicts were identified?",
+      "category": "specific_queries",
+      "success": true,
+      "total_time_ms": 9855.58795928955,
+      "retrieval_time_ms": 269.50979232788086,
+      "generation_time_ms": 9583.85181427002,
+      "memory_usage_mb": -0.953125,
+      "chunks_retrieved": 5,
+      "response_length": 1884
+    },
+    {
+      "query": "What was the sample size used for testing revenue recognition controls?",
+      "category": "specific_queries",
+      "success": true,
+      "total_time_ms": 12876.950025558472,
+      "retrieval_time_ms": 257.7657699584961,
+      "generation_time_ms": 12618.092775344849,
+      "memory_usage_mb": -0.046875,
+      "chunks_retrieved": 5,
+      "response_length": 2048
+    }
+  ]
+}

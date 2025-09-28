@@ -1,0 +1,426 @@
+{
+  "test_metadata": {
+    "test_name": "Web Research Agent Test (Real Tavily API)",
+    "timestamp": 1759033372.031254,
+    "total_scenarios": 5,
+    "api_used": "Tavily (Real)",
+    "test_type": "Integration"
+  },
+  "results": [
+    {
+      "scenario_name": "sox_404_updates",
+      "query": "SOX 404 internal controls requirements 2024",
+      "scenario_type": "auto_trigger",
+      "start_time": 1759033348.569864,
+      "success": true,
+      "web_research_result": {
+        "success": true,
+        "query": "SOX 404 internal controls requirements 2024 SOX compliance requirements access_review best practices audit compliance guidance 2024",
+        "results": [
+          {
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "title": "SOX Audit-Ready in Minutes: Streamlined Compliance ...",
+            "content": "At its core, audit readiness means having comprehensive, easily accessible evidence of compliance activities. This is particularly vital for SOX, which mandates robust internal controls over financial reporting. This includes maintaining clear audit trails that demonstrate essential governance activities, like separation of duties (SoD) and sensitive access reporting, are performed at the correct frequency and reviewed by risk owners. SOX Section 404 requires companies to attest to the [...] effectiveness of these internal controls, making auditable evidence paramount. For example, best practices involve automatically tracking each access provisioned or revoked, who authorized it, when it was actioned and any associated mitigating controls. This helps maintain zero unmitigated risks, proving adherence to compliance protocols effortlessly. This granular level of detail is exactly what SOX auditors look for when assessing access controls related to financial systems. [...] Following best practices, users should no longer need to dig through numerous screens or manually gather screenshots for audit evidence. Instead, they can rely on pre-built audit trail reports that align with regulatory requirements and are instantly accessible. For SOX, this means having easily generated reports documenting changes to key financial systems and data. Whether for provisioning, access certifications, or elevated access management, each area should have easy-to-run reports that",
+            "score": 0.6353361,
+            "raw_content": null
+          },
+          {
+            "url": "https://pcaobus.org/documents/staff-update-2024-inspection-activities-spotlight.pdf",
+            "title": "Spotlight: Staff Update on 2024 Inspection Activities",
+            "content": "effective as follows: a) For public accounting firms that, during the calendar year ending December 31, 2024, issued audit reports with respect to more than 100 issuers, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years beginning on or after December 15, 2024; and (b) For all other registered public accounting firms, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years [...] I.C discusses instances of potential noncompliance with U.S. Securities and Exchange Commission (SEC) rules or instances of non-compliance with PCAOB rules, if any, related to maintaining independence. [...] completion date. Under amended AS 1215.15, prior to the report release date, (i) the auditor must have completed all necessary auditing procedures and obtained sufficient evidence to support the representations in the auditor\u2019s report, and (ii) the engagement partner and other engagement team members performing supervisory activities must have completed their reviews of audit documentation. A complete and final set of audit documentation should be assembled for retention (i.e., archived) as of",
+            "score": 0.46337196,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket-055/2024-013-firm-reporting.pdf",
+            "title": "Adopting Release: Firm Reporting",
+            "content": "firms to include (on a confidential basis) events that pose a material risk, or represent a material change, to the firm\u2019s organization, operations, liquidity or financial resources, in such a manner that they will affect the provision of audit services (\u201cmaterial event reporting\u201d); and to require material event reporting within 14 days or more promptly as warranted; \uf0b7 Implement new cybersecurity reporting requirements, including reporting of significant cybersecurity incidents within five [...] implications for the operations of audit firms, the degradation of which could impact their provision of audit services, as well as for improper access to confidential data of issuers and individuals by bad actors and other third parties. 6. Rulemaking History On April 9, 2024, the Board proposed to amend its annual and special reporting requirements in the following ways: \uf0b7 Revise Form 2 to require more information regarding a firm\u2019s network arrangements; leadership and governance structure; [...] requirements to reduce disaggregation as compared to the proposal. The final amendments will require that firms report the existing fee disclosure categories in actual amounts (as opposed to percentages), plus broker-dealer fees, and total fees for all clients. These changes are to clarify, reduce burden, and focus the requirement on information that provides insight into a firm\u2019s audit practice. \uf0b7 Financial Statements: We are adopting the requirement for the largest firms to provide financial",
+            "score": 0.37195808,
+            "raw_content": null
+          },
+          {
+            "url": "https://us.aicpa.org/advocacy/issues/section404bofsox",
+            "title": "Sarbanes-Oxley Act Section 404(b) | Advocacy",
+            "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it to. The information does not usually directly identify you, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to find",
+            "score": 0.33359057,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket_041/2024-012-firm-and-engagement-metrics.pdf",
+            "title": "Firm and Engagement Metrics - Nov 20, 2024 FINAL",
+            "content": "with certain individuals and entities with disciplinary or other histories (if not previously identified);38 and \uf0b7 Acquisitions of another public accounting firm or a substantial portion of another firm\u2019s personnel.39 In addition to annual reporting on Form 2, firms are required to file Form 3 within 30 days after the occurrence of certain events, such as when the firm\u2019s legal name has changed while otherwise remaining the same legal entity, the firm has withdrawn an audit report on the [...] with minimal additional effort. Responding to Commenter Concerns After considering commenter input, we have made a number of changes from the proposal. The final rules eliminate four proposed metric areas (Audit Resources\u2014Use of Specialists and Shared Service Centers, Audit Hours and Risk Areas, Quality Performance Ratings and Compensation, and Audit Firms\u2019 Internal Monitoring) and add one new metric area (Training Hours for Audit Personnel). In addition, only firm-level reporting will be [...] and special reporting requirements to facilitate the disclosure of more complete, standardized, and timely information regarding audit firms. Among other new requirements, the updates will (i) require firms to disclose additional information on Form 2 about their fees, leadership and governance structure, and network arrangements; (ii) require, in connection with QC 1000, a one-time update to the statement on a firm\u2019s quality control policies and procedures on a new Form QCPP; and (iii) expand",
+            "score": 0.33222425,
+            "raw_content": null
+          }
+        ],
+        "compliance_insights": [
+          {
+            "title": "SOX Audit-Ready in Minutes: Streamlined Compliance ...",
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "content": "At its core, audit readiness means having comprehensive, easily accessible evidence of compliance activities. This is particularly vital for SOX, which mandates robust internal controls over financial reporting. This includes maintaining clear audit trails that demonstrate essential governance activ...",
+            "relevance_score": 0.6353361,
+            "compliance_focus": "SOX Compliance"
+          },
+          {
+            "title": "Spotlight: Staff Update on 2024 Inspection Activities",
+            "url": "https://pcaobus.org/documents/staff-update-2024-inspection-activities-spotlight.pdf",
+            "content": "effective as follows: a) For public accounting firms that, during the calendar year ending December 31, 2024, issued audit reports with respect to more than 100 issuers, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years beginning on or a...",
+            "relevance_score": 0.46337196,
+            "compliance_focus": "General Compliance"
+          },
+          {
+            "title": "Adopting Release: Firm Reporting",
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket-055/2024-013-firm-reporting.pdf",
+            "content": "firms to include (on a confidential basis) events that pose a material risk, or represent a material change, to the firm\u2019s organization, operations, liquidity or financial resources, in such a manner that they will affect the provision of audit services (\u201cmaterial event reporting\u201d); and to require m...",
+            "relevance_score": 0.37195808,
+            "compliance_focus": "General Compliance"
+          }
+        ],
+        "timestamp": "2025-09-27T23:22:31.698108"
+      },
+      "quality_scores": {
+        "result_quantity": 1.0,
+        "compliance_relevance": 0.44000000000000006,
+        "source_authority": 1.0,
+        "content_freshness": 0.72,
+        "insight_quality": 0.7999999999999999,
+        "overall_quality": 0.764
+      },
+      "errors": [],
+      "execution_time_ms": 3128.3271312713623,
+      "end_time": 1759033351.69943
+    },
+    {
+      "scenario_name": "access_control_best_practices",
+      "query": "access control segregation of duties audit requirements",
+      "scenario_type": "manual_button",
+      "start_time": 1759033352.701387,
+      "success": true,
+      "web_research_result": {
+        "success": true,
+        "query": "access control segregation of duties audit requirements SOX compliance requirements access_review best practices audit compliance guidance 2024",
+        "results": [
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/inspections/documents/104-2025-040-pwc.pdf?sfvrsn=4b65b4c9_2",
+            "title": "2024 Inspection",
+            "content": "The issuer disclosed various material weaknesses, including deficiencies related to segregation of duties. \n\nIn understanding the issuer\u2019s financial reporting process, the firm identified that the general ledger \n\nsystem allowed individuals to both post and approve journal entries and to edit journal entries after \n\nthey have been approved. The firm did not perform any substantive procedures to address these risks \n\nrelated to inappropriate segregation of duties. (AS 2301.08; AS 2401.61) [...] receivable. For certain confirmations that were not returned, the firm did not perform alternative \n\nprocedures that provided sufficient appropriate audit evidence that these balances represented valid \n\nreceivables as of the confirmation date. (AS 2310.31) \n\nIssuer F \u2013 Financials \n\nType of audit and related areas affected \n\nIn our review, we identified deficiencies in the ICFR audit related to the ACL and a Business \n\nCombination .\n\nDescription of the deficiencies identified [...] which the firm did not comply. We identified the following deficiencies: \n\n\uf0b7 In one of 64 audits reviewed, the firm did not include all relevant work papers in the final set of \n\naudit documentation it was required to assemble. In this instance, the firm was non-compliant \n\nwith AS 1215, Audit Documentation .\n\n\uf0b7 In six of 63 audits reviewed, the firm did not make one or more required communications to the",
+            "score": 0.6533265,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.isaca.org/resources/news-and-trends/newsletters/atisaca/2024/volume-6/best-practices-for-auditable-security-controls",
+            "title": "2024 Volume 6 Best Practices for Auditable Security Controls",
+            "content": "It is always recommended to enforce MFA to access the application and underlying cloud infrastructure (where applicable) and follow the principle of least privileged access using granular RBAC \u2013 individuals are provisioned access to only specific resources with the permissions that is required to perform their tasks. The periodic review of user access needs to be done in a complete and timely manner. This would involve a review of the access roles or permissions assigned to every user for [...] different, disparate systems. It\u2019s important to note that having a centralized IAM architecture not only helps to ease administrative, streamline access controls and to consistently apply policies, but also simplifies evidence collection and make audits more efficient. [...] appropriateness. Any changes or removal of permissions must be documented and actioned on immediately.",
+            "score": 0.5455042,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "title": "SOX Audit-Ready in Minutes: Streamlined Compliance ...",
+            "content": "effectiveness of these internal controls, making auditable evidence paramount. For example, best practices involve automatically tracking each access provisioned or revoked, who authorized it, when it was actioned and any associated mitigating controls. This helps maintain zero unmitigated risks, proving adherence to compliance protocols effortlessly. This granular level of detail is exactly what SOX auditors look for when assessing access controls related to financial systems. [...] At its core, audit readiness means having comprehensive, easily accessible evidence of compliance activities. This is particularly vital for SOX, which mandates robust internal controls over financial reporting. This includes maintaining clear audit trails that demonstrate essential governance activities, like separation of duties (SoD) and sensitive access reporting, are performed at the correct frequency and reviewed by risk owners. SOX Section 404 requires companies to attest to the [...] Following best practices, users should no longer need to dig through numerous screens or manually gather screenshots for audit evidence. Instead, they can rely on pre-built audit trail reports that align with regulatory requirements and are instantly accessible. For SOX, this means having easily generated reports documenting changes to key financial systems and data. Whether for provisioning, access certifications, or elevated access management, each area should have easy-to-run reports that",
+            "score": 0.4613328,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket-055/2024-013-firm-reporting.pdf",
+            "title": "Adopting Release: Firm Reporting",
+            "content": "at 1. 37 See id. PCAOB Release No. 2024-013 November 21, 2024 16 outstanding ACAP recommendations.38 For example, during an IAG discussion that was focused on the relationship between a firm\u2019s audit practice and the firm\u2019s overall business, an IAG member urged the PCAOB to revisit ACAP\u2019s recommendations and noted ACAP\u2019s emphasis on governance, leadership, and structure and business model.39 Moreover, the IAG previously discussed the status of ACAP recommendations, including the recommendation [...] implications for the operations of audit firms, the degradation of which could impact their provision of audit services, as well as for improper access to confidential data of issuers and individuals by bad actors and other third parties. 6. Rulemaking History On April 9, 2024, the Board proposed to amend its annual and special reporting requirements in the following ways: \uf0b7 Revise Form 2 to require more information regarding a firm\u2019s network arrangements; leadership and governance structure;",
+            "score": 0.4256297,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket046/2024-005-qc1000.pdf?sfvrsn=355bf24_2",
+            "title": "2024-005-qc1000.pdf",
+            "content": "the QC standards. PCAOB Release No. 2024-005 May 13, 2024 Page 12 A. Overview of Existing Requirements and Current Practice 1. Requirements of the Sarbanes-Oxley Act of 2002 Sarbanes-Oxley requires the Board to establish certain professional standards, including quality control standards, to be used by registered public accounting firms in the preparation and issuance of audit reports for issuers, brokers, and dealers.6 Furthermore, Sarbanes-Oxley requires the PCAOB\u2019s QC standards to address: \uf0b7 [...] Sarbanes-Oxley. See Section 2(a)(7) of Sarbanes-Oxley, 15 U.S.C. \u00a7 7201(7) (defining \u201cissuer\u201d); Sections 110(3) and (4) of Sarbanes-Oxley, 15 U.S.C. \u00a7\u00a7 7220(3), (4) (defining \u201cbroker\u201d and \u201cdealer\u201d); see also PCAOB Rules 1001(b)(iii), (d)(iii), (i)(iii) (defining \u201cbroker,\u201d \u201cdealer,\u201d and \u201cissuer,\u201d respectively). Entities that are brokers or dealers or both are sometimes referred to herein as \u201cbroker-dealers.\u201d 7 See Section 103(a)(2)(B) of Sarbanes-Oxley, 15 U.S.C. \u00a7 7213(a)(2)(B). 8 See paragraph [...] with \u201crestricted entities,\u201d for example, relationships between the restricted entity and the member firm, its benefit plans, and its professionals.44 These relationships include investments, loans, brokerage accounts, business relationships, employment relationships, proscribed services, and fee arrangements.45 Firms should maintain a database that includes all restricted entities (\u201crestricted entity list\u201d) and make the restricted entity list available to the firm\u2019s professionals and to foreign",
+            "score": 0.4031679,
+            "raw_content": null
+          }
+        ],
+        "compliance_insights": [
+          {
+            "title": "2024 Inspection",
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/inspections/documents/104-2025-040-pwc.pdf?sfvrsn=4b65b4c9_2",
+            "content": "The issuer disclosed various material weaknesses, including deficiencies related to segregation of duties. \n\nIn understanding the issuer\u2019s financial reporting process, the firm identified that the general ledger \n\nsystem allowed individuals to both post and approve journal entries and to edit journa...",
+            "relevance_score": 0.6533265,
+            "compliance_focus": "Internal Controls"
+          },
+          {
+            "title": "2024 Volume 6 Best Practices for Auditable Security Controls",
+            "url": "https://www.isaca.org/resources/news-and-trends/newsletters/atisaca/2024/volume-6/best-practices-for-auditable-security-controls",
+            "content": "It is always recommended to enforce MFA to access the application and underlying cloud infrastructure (where applicable) and follow the principle of least privileged access using granular RBAC \u2013 individuals are provisioned access to only specific resources with the permissions that is required to pe...",
+            "relevance_score": 0.5455042,
+            "compliance_focus": "General Compliance"
+          },
+          {
+            "title": "SOX Audit-Ready in Minutes: Streamlined Compliance ...",
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "content": "effectiveness of these internal controls, making auditable evidence paramount. For example, best practices involve automatically tracking each access provisioned or revoked, who authorized it, when it was actioned and any associated mitigating controls. This helps maintain zero unmitigated risks, pr...",
+            "relevance_score": 0.4613328,
+            "compliance_focus": "SOX Compliance"
+          }
+        ],
+        "timestamp": "2025-09-27T23:22:35.893309"
+      },
+      "quality_scores": {
+        "result_quantity": 1.0,
+        "compliance_relevance": 0.64,
+        "source_authority": 1.0,
+        "content_freshness": 0.86,
+        "insight_quality": 0.7666666666666666,
+        "overall_quality": 0.8313333333333334
+      },
+      "errors": [],
+      "execution_time_ms": 3191.8320655822754,
+      "end_time": 1759033355.893774
+    },
+    {
+      "scenario_name": "material_weakness_guidance",
+      "query": "material weakness identification reporting requirements",
+      "scenario_type": "auto_trigger",
+      "start_time": 1759033356.8950999,
+      "success": true,
+      "web_research_result": {
+        "success": true,
+        "query": "material weakness identification reporting requirements SOX compliance requirements audit_report best practices audit compliance guidance 2024",
+        "results": [
+          {
+            "url": "https://pcaobus.org/documents/staff-update-2024-inspection-activities-spotlight.pdf",
+            "title": "Spotlight: Staff Update on 2024 Inspection Activities",
+            "content": "represented a material weakness because it did not identify that the compensating controls did not address all the risks the primary control was designed to detect related to inaccurate and unauthorized sales orders and prices. y The engagement team did not sufficiently evaluate the severity of the identified deficiencies to determine whether these deficiencies, individually or in combination with other deficiencies, constituted a material weakness. y The engagement team did not communicate to [...] which do not require an ICFR report was 59% and 41%, 59% and 41%, and 55% and 45%, respectively. Audits of public companies subject to ICFR audit procedures are primarily in the U.S. and non-U.S. GNF inspection programs. Only accelerated filers that are not emerging growth companies and large accelerated filers (as defined by the SEC) must provide an auditor\u2019s report on ICFR. [...] effective as follows: a) For public accounting firms that, during the calendar year ending December 31, 2024, issued audit reports with respect to more than 100 issuers, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years beginning on or after December 15, 2024; and (b) For all other registered public accounting firms, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years",
+            "score": 0.6122407,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket_041/2024-012-firm-and-engagement-metrics.pdf",
+            "title": "Firm and Engagement Metrics - Nov 20, 2024 FINAL",
+            "content": "investor protection and promote the public interest by enabling stakeholders to make better-informed decisions, promoting auditor accountability, and ultimately enhancing capital allocation and confidence in our capital markets. The new reporting requirements will apply to firms that audit at least one company that is an \u201caccelerated filer\u201d or \u201clarge accelerated filer\u201d (as those terms are defined in the U.S. Securities and Exchange Commission (\u201cSEC\u201d) rules).1 Lack of Consistent, Comparable Data [...] 9. PCAOB Release No. 2024-012 November 21, 2024 Page 8 Filing Requirements As proposed, firm-level reporting is required of every firm that audits at least one \u201caccelerated filer\u201d or \u201clarge accelerated filer\u201d under SEC rules during the reporting period. Engagement-level reporting will be required for every audit of an accelerated or large accelerated filer. The thresholds will apply to the audits, and auditors, of companies that account for the majority of U.S. public company market [...] and special reporting requirements to facilitate the disclosure of more complete, standardized, and timely information regarding audit firms. Among other new requirements, the updates will (i) require firms to disclose additional information on Form 2 about their fees, leadership and governance structure, and network arrangements; (ii) require, in connection with QC 1000, a one-time update to the statement on a firm\u2019s quality control policies and procedures on a new Form QCPP; and (iii) expand",
+            "score": 0.5027105,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket-055/2024-013-firm-reporting.pdf",
+            "title": "Adopting Release: Firm Reporting",
+            "content": "implications for the operations of audit firms, the degradation of which could impact their provision of audit services, as well as for improper access to confidential data of issuers and individuals by bad actors and other third parties. 6. Rulemaking History On April 9, 2024, the Board proposed to amend its annual and special reporting requirements in the following ways: \uf0b7 Revise Form 2 to require more information regarding a firm\u2019s network arrangements; leadership and governance structure; [...] event reporting requirement to those that are annually inspected, i.e., firms that provide audit opinions for more than 100 issuers annually. PCAOB Release No. 2024-013 November 21, 2024 8 \uf0b7 Cybersecurity Incident Reporting: We are adopting the proposed requirements with modifications to language for clarity and to better link disclosures to the firm\u2019s audit practice. Effective Date For annual and special reporting requirements, we are adopting phased implementation to give smaller firms more [...] under the proposed accelerated timeframes. This change is intended to ease the burden, particularly for smaller firms, while still requiring timely reporting of events of sufficient significance and urgency to warrant more prompt reporting. We are adopting the material event reporting requirement with modifications to clarify, ease implementation, and better focus the requirement on information relevant to a firm\u2019s audit practice. In addition, we are limiting the firms subject to the material",
+            "score": 0.49582586,
+            "raw_content": null
+          },
+          {
+            "url": "https://pcaobus.org/standards/auditing/documents/auditing_standards_audits_fyb_after_june_16_2024_before_fyb_december-14-2024.pdf",
+            "title": "Auditing Standards",
+            "content": "Governmental Financial Assistance AS 6115: Reporting on Whether a Previously Reported Material Weakness Continues to Exist For FYE on and after 6/15/2025-12/14/2025 (that is, fiscal years beginning on and after 6/16/2024-12/14/2024) 6 AS 1001: Responsibilities and Functions of the Independent Auditor AS 1001: Responsibilities and Functions of the Independent Auditor Amendments: Amending releases and related SEC approval orders .02 Distinction Between Responsibilities of Auditor and Management [...] a high level of assurance. Therefore, an audit conducted in accordance with the standards of the Public Company Accounting Oversight Board (United States) may not detect a material weakness in internal control over financial reporting or a material misstatement to the financial statements.",
+            "score": 0.49318945,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/inspections/documents/2024-inspections-procedures.pdf?sfvrsn=429634d2_2",
+            "title": "PCAOB 2024 Inspection Procedures:",
+            "content": "statements and/or ICFR\u2014does not necessarily mean that the issuer\u2019s financial statements are materially \n\nmisstated or that undisclosed material weaknesses in ICFR exist. It is often not possible for the Board to \n\nreach a conclusion on those points based on inspection procedures and related deficiencies because, [...] matter for inclusion in the inspection report. If a deficiency is included in Part I.A of the report, it does \n\nnot necessarily mean that the firm has not addressed the deficiency. In many cases, the firm may take \n\nremedial actions, including performing additional audit procedures after the issue is identified, and \n\nmay have completed those actions by the time the PCAOB publishes the inspection report. Depending [...] ii.  Observe whether the audit procedures were responsive to the risks of material misstatement \n\nidentified during this process. \n\nD.  Processes related to the firm\u2019s use of audit work that the firm\u2019s foreign affiliates perform \n\non the foreign operations of the firm\u2019s U.S. issuer audits.  The inspection team may review the \n\nfirm\u2019s policies and procedures related to the work performed by foreign affiliates on the firm\u2019s U.S.",
+            "score": 0.41307515,
+            "raw_content": null
+          }
+        ],
+        "compliance_insights": [
+          {
+            "title": "Spotlight: Staff Update on 2024 Inspection Activities",
+            "url": "https://pcaobus.org/documents/staff-update-2024-inspection-activities-spotlight.pdf",
+            "content": "represented a material weakness because it did not identify that the compensating controls did not address all the risks the primary control was designed to detect related to inaccurate and unauthorized sales orders and prices. y The engagement team did not sufficiently evaluate the severity of the ...",
+            "relevance_score": 0.6122407,
+            "compliance_focus": "General Compliance"
+          },
+          {
+            "title": "Firm and Engagement Metrics - Nov 20, 2024 FINAL",
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket_041/2024-012-firm-and-engagement-metrics.pdf",
+            "content": "investor protection and promote the public interest by enabling stakeholders to make better-informed decisions, promoting auditor accountability, and ultimately enhancing capital allocation and confidence in our capital markets. The new reporting requirements will apply to firms that audit at least ...",
+            "relevance_score": 0.5027105,
+            "compliance_focus": "General Compliance"
+          },
+          {
+            "title": "Adopting Release: Firm Reporting",
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket-055/2024-013-firm-reporting.pdf",
+            "content": "implications for the operations of audit firms, the degradation of which could impact their provision of audit services, as well as for improper access to confidential data of issuers and individuals by bad actors and other third parties. 6. Rulemaking History On April 9, 2024, the Board proposed to...",
+            "relevance_score": 0.49582586,
+            "compliance_focus": "General Compliance"
+          }
+        ],
+        "timestamp": "2025-09-27T23:22:39.988391"
+      },
+      "quality_scores": {
+        "result_quantity": 1.0,
+        "compliance_relevance": 0.48,
+        "source_authority": 1.0,
+        "content_freshness": 1.0,
+        "insight_quality": 0.8999999999999999,
+        "overall_quality": 0.8240000000000001
+      },
+      "errors": [],
+      "execution_time_ms": 3093.3120250701904,
+      "end_time": 1759033359.990101
+    },
+    {
+      "scenario_name": "financial_controls_updates",
+      "query": "financial reporting controls effectiveness testing 2024",
+      "scenario_type": "manual_button",
+      "start_time": 1759033360.991801,
+      "success": true,
+      "web_research_result": {
+        "success": true,
+        "query": "financial reporting controls effectiveness testing 2024 SOX compliance requirements financial_controls best practices audit compliance guidance 2024",
+        "results": [
+          {
+            "url": "https://pcaobus.org/documents/staff-update-2024-inspection-activities-spotlight.pdf",
+            "title": "Spotlight: Staff Update on 2024 Inspection Activities",
+            "content": "effective as follows: a) For public accounting firms that, during the calendar year ending December 31, 2024, issued audit reports with respect to more than 100 issuers, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years beginning on or after December 15, 2024; and (b) For all other registered public accounting firms, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years [...] 9 Effective for audits of financial statements for fiscal years ending on or after December 15, 2024, the PCAOB amended or adopted standards to strengthen requirements for planning and supervising audits involving accounting firms and individual accountants outside the accounting firm that issues the auditor\u2019s report. Please see the following: y AS 1000, General Responsibilities of the Auditor in Conducting an Audit y AS 1201, Supervision of the Audit Engagement y AS 1206, Dividing [...] I. 2024 INSPECTIONS APPROACH The PCAOB continued a rigorous program of inspections in 2024, primarily related to audits of public companies completed in 2024 for financial statements with a 2023 fiscal year-end. Each year, the PCAOB develops an inspection plan informed by, among other things, our inspection experience, current events that have an impact on audits, and other areas of concern. In 2024, our procedures anticipated financial reporting and audit risks driven by economic conditions,",
+            "score": 0.69274646,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "title": "SOX Audit-Ready in Minutes: Streamlined Compliance ...",
+            "content": "effectiveness of these internal controls, making auditable evidence paramount. For example, best practices involve automatically tracking each access provisioned or revoked, who authorized it, when it was actioned and any associated mitigating controls. This helps maintain zero unmitigated risks, proving adherence to compliance protocols effortlessly. This granular level of detail is exactly what SOX auditors look for when assessing access controls related to financial systems. [...] At its core, audit readiness means having comprehensive, easily accessible evidence of compliance activities. This is particularly vital for SOX, which mandates robust internal controls over financial reporting. This includes maintaining clear audit trails that demonstrate essential governance activities, like separation of duties (SoD) and sensitive access reporting, are performed at the correct frequency and reviewed by risk owners. SOX Section 404 requires companies to attest to the [...] Following best practices, users should no longer need to dig through numerous screens or manually gather screenshots for audit evidence. Instead, they can rely on pre-built audit trail reports that align with regulatory requirements and are instantly accessible. For SOX, this means having easily generated reports documenting changes to key financial systems and data. Whether for provisioning, access certifications, or elevated access management, each area should have easy-to-run reports that",
+            "score": 0.643173,
+            "raw_content": null
+          },
+          {
+            "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201",
+            "title": "AS 2201: An Audit of Internal Control Over Financial ...",
+            "content": ".42        The auditor should test the design effectiveness of controls by determining whether the company's controls, if they are operated as prescribed by persons possessing the necessary authority and competence to perform the control effectively, satisfy the company's control objectives and can effectively prevent or detect errors or fraud that could result in material misstatements in the financial statements. [...] > Note: In some circumstances, particularly in some audits of smaller and less complex companies, the auditor might choose not to assess control risk as low for purposes of the audit of the financial statements. In such circumstances, the auditor's tests of the operating effectiveness of controls would be performed principally for the purpose of supporting his or her opinion on whether the company's internal control over financial reporting is effective as of year-end. The results of the [...] .21        The auditor should use a top-down approach to the audit of internal control over financial reporting to select the controls to test. A top-down approach begins at the financial statement level and with the auditor's understanding of the overall risks to internal control over financial reporting. The auditor then focuses on entity-level controls and works down to significant accounts and disclosures and their relevant assertions. This approach directs the auditor's attention to",
+            "score": 0.487918,
+            "raw_content": null
+          },
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/inspections/documents/104-2025-038-gt.pdf",
+            "title": "2024 Inspection Grant Thornton LLP",
+            "content": "Standards 2024 2023 2022 AS 1105, Audit Evidence 6 6 6 AS 2101, Audit Planning 0 1 2 AS 2201, An Audit of Internal Control Over Financial Reporting That Is Integrated with An Audit of Financial Statements 29 23 16 AS 2301, The Auditor\u2019s Responses to the Risks of Material Misstatement 8 13 9 AS 2305, Substantive Analytical Procedures 1 0 0 AS 2310, The Confirmation Process 0 2 0 AS 2315, Audit Sampling 2 4 2 AS 2415, Consideration of an Entity\u2019s Ability to Continue as a Going Concern 1 2 0 AS [...] audits Audits with Part I.A deficiencies 2024 2023 2022 Did not identify and/or sufficiently test controls over the accuracy and completeness of data or reports that the issuer used in the operation of controls 6 2 2 Did not perform sufficient testing of the design and/or operating effectiveness of controls selected for testing 5 6 4 Did not identify and test any controls that addressed the risks related to a significant account or relevant assertion 3 3 3 Grant Thornton LLP, PCAOB Release No. [...] that consisted of the issuer\u2019s monthly comparisons of prior-period results to current-period results. The firm did not evaluate the specific review procedures that the control owners performed to determine whether items identified for follow up had been appropriately resolved. (AS 2201.42 and .44) \uf0b7 For a third segment, the firm selected for testing a control that consisted of the issuer\u2019s quarterly comparisons of prior-period results to current-period results. The firm did not evaluate the",
+            "score": 0.48718598,
+            "raw_content": null
+          },
+          {
+            "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/as-1215--audit-documentation-(effective-on-12-15-2026)",
+            "title": "AS 1215: Audit Documentation (effective on 12/15/2026)",
+            "content": "View the standard effective for audits of financial statements for fiscal years beginning on or after December 15, 2024, not including amendments effective on December 15, 2026.\n\nThe gray boxes highlight amended portions of the standard.\n\nAdopting Release:PCAOB Release No. 2004-006(PDF) [...] For registered firms that, during the calendar year ending Dec. 31, 2024, issued audit reports with respect to more than 100 issuers, for audits of financial statements for fiscal years beginning on or after December 15, 2024; and\n For all other registered firms, for audits of financial statements for fiscal years beginning on or after December 15, 2025.\n\nAmendments: Amending releases and related SEC approval orders",
+            "score": 0.44811285,
+            "raw_content": null
+          }
+        ],
+        "compliance_insights": [
+          {
+            "title": "Spotlight: Staff Update on 2024 Inspection Activities",
+            "url": "https://pcaobus.org/documents/staff-update-2024-inspection-activities-spotlight.pdf",
+            "content": "effective as follows: a) For public accounting firms that, during the calendar year ending December 31, 2024, issued audit reports with respect to more than 100 issuers, the 14-day documentation completion requirement is effective for audits of financial statements for fiscal years beginning on or a...",
+            "relevance_score": 0.69274646,
+            "compliance_focus": "Internal Controls"
+          },
+          {
+            "title": "SOX Audit-Ready in Minutes: Streamlined Compliance ...",
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "content": "effectiveness of these internal controls, making auditable evidence paramount. For example, best practices involve automatically tracking each access provisioned or revoked, who authorized it, when it was actioned and any associated mitigating controls. This helps maintain zero unmitigated risks, pr...",
+            "relevance_score": 0.643173,
+            "compliance_focus": "SOX Compliance"
+          },
+          {
+            "title": "AS 2201: An Audit of Internal Control Over Financial ...",
+            "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201",
+            "content": ".42        The auditor should test the design effectiveness of controls by determining whether the company's controls, if they are operated as prescribed by persons possessing the necessary authority and competence to perform the control effectively, satisfy the company's control objectives and can ...",
+            "relevance_score": 0.487918,
+            "compliance_focus": "Internal Controls"
+          }
+        ],
+        "timestamp": "2025-09-27T23:22:43.679228"
+      },
+      "quality_scores": {
+        "result_quantity": 1.0,
+        "compliance_relevance": 0.6,
+        "source_authority": 1.0,
+        "content_freshness": 0.72,
+        "insight_quality": 0.6333333333333333,
+        "overall_quality": 0.7786666666666667
+      },
+      "errors": [],
+      "execution_time_ms": 2687.3698234558105,
+      "end_time": 1759033363.6798542
+    },
+    {
+      "scenario_name": "risk_assessment_standards",
+      "query": "enterprise risk assessment SOX compliance methodology",
+      "scenario_type": "auto_trigger",
+      "start_time": 1759033364.681628,
+      "success": true,
+      "web_research_result": {
+        "success": true,
+        "query": "enterprise risk assessment SOX compliance methodology SOX compliance requirements risk_assessment best practices audit compliance guidance 2024",
+        "results": [
+          {
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket046/2024-005-qc1000.pdf?sfvrsn=355bf24_2",
+            "title": "2024-005-qc1000.pdf",
+            "content": "changed significantly, as has the role of firm networks. And advances in internal control, quality management, and enterprise risk management suggest that factors such as active involvement of leadership, focus on risk, clearly defined objectives, objective-oriented processes, monitoring, and remediation of identified issues can contribute to more effective QC. These developments have, in part, led to our advisory groups\u2019 general support for strengthening the QC standards, including through [...] risk-based, and to that extent inherently scalable. In addition, it imposes more stringent requirements for the largest firms in some areas, while enabling smaller firms to comply with the core requirements in ways that take into account these firms\u2019 size and the complexity of audits performed by them. Scalability: Larger PCAOB Audit Practice. We believe that firms with a particularly extensive PCAOB audit practice (i.e., those that issue audit reports for more than 100 issuers per year) should [...] WithumSmith+Brown, PC, PCAOB Rel. No. 105-2024-010. 60 See, e.g., PKF O\u2019Connor Davies, LLP, PCAOB Rel. No. 105-2022-001. 61 See, e.g., Alfonse Gregory Giugliano, SEC AAER No. 4458; In the Matter of Deloitte Touche Tohmatsu Certified Public Accountants, LLP, SEC AAER No. 4342 (Sept. 29, 2022); In the Matter of RSM, SEC AAER No. 4346 (Sept. 30, 2022); In the Matter of Mancera, S.C., Alejandro Valdez Mendoza, C.P., and Angel Radames Corral Nieblas, C.P., SEC AAER No. 4198 (Dec. 17, 2020); In the",
+            "score": 0.42090955,
+            "raw_content": null
+          },
+          {
+            "title": "ISACA ISACA Now Blog 2025 SOX Audit Ready in Minutes Streamlined Compliance Reporting",
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "content": "compliance becomes an integral part of day-to-day operations. Any organization seeking to elevate its compliance capabilities should focus on implementing these best practices to guarantee audit readiness with minimal effort, empowering the business to focus on growth and security. For public companies, this proactive approach is essential to meet SOX requirements and maintain investor confidence. [...] effectiveness of these internal controls, making auditable evidence paramount. For example, best practices involve automatically tracking each access provisioned or revoked, who authorized it, when it was actioned and any associated mitigating controls. This helps maintain zero unmitigated risks, proving adherence to compliance protocols effortlessly. This granular level of detail is exactly what SOX auditors look for when assessing access controls related to financial systems. [...] Following best practices, users should no longer need to dig through numerous screens or manually gather screenshots for audit evidence. Instead, they can rely on pre-built audit trail reports that align with regulatory requirements and are instantly accessible. For SOX, this means having easily generated reports documenting changes to key financial systems and data. Whether for provisioning, access certifications, or elevated access management, each area should have easy-to-run reports that",
+            "score": 0.41009519,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.isaca.org/resources/isaca-journal/issues/2024/volume-3/how-to-relieve-the-burden-of-supervisory-bodies-and-reduce-risk-for-investors",
+            "title": "2024 Volume 3 How to Relieve the Burden of Supervisory ...",
+            "content": "Next, it is time to collectively assess the risk factors to which the assets are vulnerable. The final step is to evaluate the controls implemented in the enterprise based on a framework such as PCI DSS, ISO 27001, or NIST SP 800-53. [...] In this context, meticulous digital due diligence (i.e., identifying valuable assets and their protection mechanisms) is not merely a best practice, but an absolute necessity. As enterprises evolve in the digital age, the ability to assess and effectively manage potential cybersecurity risk has become fundamental to ensuring the success, integrity, and sustainability of mergers, acquisitions, and ongoing operations. [...] authorities time, resources, and money. These statements can be checked automatically, similar to the procedure for tax reports. Periodically, an audit is conducted to assess whether an enterprise has indeed provided truthful information, and the accountable persons must sign off on the findings.",
+            "score": 0.37862045,
+            "raw_content": null
+          },
+          {
+            "url": "https://pcaobus.org/standards/auditing/documents/auditing_standards_audits_fyb_after_june_16_2024_before_fyb_december-14-2024.pdf",
+            "title": "Auditing Standards",
+            "content": "7 6 5 4 For FYE on and after 6/15/2025-12/14/2025 (that is, fiscal years beginning on and after 6/16/2024-12/14/2024) 18 AS 1101: Audit Risk .10 The auditor uses the assessed risk of material misstatement to determine the appropriate level of detection risk for a financial statement assertion. The higher the risk of material misstatement, the lower the level of detection risk needs to be in order to reduce audit risk to an appropriately low level. [...] Summary Table of Contents 3 2 1 For FYE on and after 6/15/2025-12/14/2025 (that is, fiscal years beginning on and after 6/16/2024-12/14/2024) 17 AS 1101: Audit Risk Note: The auditor should look to the requirements of the Securities and Exchange Commission for the company under audit with respect to the accounting principles applicable to that company. [...] 4 5 For FYE on and after 6/15/2025-12/14/2025 (that is, fiscal years beginning on and after 6/16/2024-12/14/2024) 16 AS 1101: Audit Risk AS 1101: Audit Risk Adopting Release: PCAOB Release No. 2010-004 Amendments: Amending releases and related SEC approval orders .01 Introduction .02 Objective .03 Audit Risk Introduction .01 This standard discusses the auditor's consideration of audit risk in an audit of financial statements as part of an integrated audit or an audit of financial statements",
+            "score": 0.35824135,
+            "raw_content": null
+          },
+          {
+            "title": "AS 2301: The Auditor's Responses to the Risks of Material ... The Sarbanes-Oxley Act \u2013 Full Text - Sox-Online Standards | PCAOB",
+            "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS2301",
+            "content": "1. To obtain sufficient evidence to support the auditor's control risk7 assessments for purposes of the audit of financial statements; 8 and\n2. To obtain sufficient evidence to support the auditor's opinion on internal control over financial reporting as of year-end.\n\n   Note: AS 2201 establishes requirements for tests of controls in the audit of internal control over financial reporting. [...] Note:  AS 2201 establishes requirements for addressing assessed fraud risks in the audit of internal control over financial reporting.11 [...] to determine the evidence needed during the current year audit to support the auditor's control risk assessments:",
+            "score": 0.3525366,
+            "raw_content": null
+          }
+        ],
+        "compliance_insights": [
+          {
+            "title": "2024-005-qc1000.pdf",
+            "url": "https://assets.pcaobus.org/pcaob-dev/docs/default-source/rulemaking/docket046/2024-005-qc1000.pdf?sfvrsn=355bf24_2",
+            "content": "changed significantly, as has the role of firm networks. And advances in internal control, quality management, and enterprise risk management suggest that factors such as active involvement of leadership, focus on risk, clearly defined objectives, objective-oriented processes, monitoring, and remedi...",
+            "relevance_score": 0.42090955,
+            "compliance_focus": "Risk Management"
+          },
+          {
+            "title": "ISACA ISACA Now Blog 2025 SOX Audit Ready in Minutes Streamlined Compliance Reporting",
+            "url": "https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2025/sox-audit-ready-in-minutes-streamlined-compliance-reporting",
+            "content": "compliance becomes an integral part of day-to-day operations. Any organization seeking to elevate its compliance capabilities should focus on implementing these best practices to guarantee audit readiness with minimal effort, empowering the business to focus on growth and security. For public compan...",
+            "relevance_score": 0.41009519,
+            "compliance_focus": "SOX Compliance"
+          },
+          {
+            "title": "2024 Volume 3 How to Relieve the Burden of Supervisory ...",
+            "url": "https://www.isaca.org/resources/isaca-journal/issues/2024/volume-3/how-to-relieve-the-burden-of-supervisory-bodies-and-reduce-risk-for-investors",
+            "content": "Next, it is time to collectively assess the risk factors to which the assets are vulnerable. The final step is to evaluate the controls implemented in the enterprise based on a framework such as PCI DSS, ISO 27001, or NIST SP 800-53. [...] In this context, meticulous digital due diligence (i.e., ide...",
+            "relevance_score": 0.37862045,
+            "compliance_focus": "General Compliance"
+          }
+        ],
+        "timestamp": "2025-09-27T23:22:51.024637"
+      },
+      "quality_scores": {
+        "result_quantity": 1.0,
+        "compliance_relevance": 0.6,
+        "source_authority": 1.0,
+        "content_freshness": 0.72,
+        "insight_quality": 0.5666666666666668,
+        "overall_quality": 0.7653333333333334
+      },
+      "errors": [],
+      "execution_time_ms": 6342.971086502075,
+      "end_time": 1759033371.0257611
+    }
+  ]
+}

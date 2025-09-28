@@ -1,0 +1,520 @@
+{
+  "test_timestamp": 1759017320.389565,
+  "agent_info": {
+    "agent_type": "AgentType.QUESTION_ANALYZER",
+    "model": "gpt-4",
+    "temperature": 0.3
+  },
+  "edge_case_results": {
+    "total_scenarios": 6,
+    "successful_analyses": 6,
+    "failed_analyses": 0,
+    "accuracy_scores": [
+      1.0,
+      1.0,
+      0.7666666666666666,
+      1.0,
+      1.0,
+      0.7666666666666666
+    ],
+    "scenario_details": [
+      {
+        "scenario": "empty_query",
+        "query": "",
+        "description": "Empty query should trigger graceful fallback",
+        "execution_time_ms": 4057.468891143799,
+        "success": true,
+        "accuracy_score": 1.0,
+        "validation_details": {
+          "has_analysis": true,
+          "graceful_handling": true,
+          "appropriate_fallback": false,
+          "reasonable_defaults": false
+        },
+        "analysis_result": {
+          "question": "",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "access_review"
+            ],
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "entities": [],
+            "search_keywords": []
+          },
+          "analysis_status": "completed"
+        },
+        "expected_behavior": "graceful_fallback"
+      },
+      {
+        "scenario": "single_word",
+        "query": "controls",
+        "description": "Single word should expand to audit context",
+        "execution_time_ms": 1260.1521015167236,
+        "success": true,
+        "accuracy_score": 1.0,
+        "validation_details": {
+          "has_analysis": true,
+          "graceful_handling": false,
+          "appropriate_fallback": true,
+          "reasonable_defaults": false
+        },
+        "analysis_result": {
+          "question": "controls",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "unknown",
+            "complexity": "basic",
+            "required_documents": [],
+            "compliance_frameworks": [],
+            "entities": [],
+            "search_keywords": [
+              "controls"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_behavior": "context_expansion"
+      },
+      {
+        "scenario": "vague_question",
+        "query": "What?",
+        "description": "Vague question should request clarification",
+        "execution_time_ms": 1711.5750312805176,
+        "success": true,
+        "accuracy_score": 0.7666666666666666,
+        "validation_details": {
+          "has_analysis": true,
+          "graceful_handling": false,
+          "appropriate_fallback": false,
+          "reasonable_defaults": false
+        },
+        "analysis_result": {
+          "question": "What?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "unknown",
+            "complexity": "basic",
+            "required_documents": [],
+            "compliance_frameworks": [],
+            "entities": [],
+            "search_keywords": []
+          },
+          "analysis_status": "completed"
+        },
+        "expected_behavior": "clarification_request"
+      },
+      {
+        "scenario": "punctuation_only",
+        "query": "...",
+        "description": "Punctuation-only should trigger fallback",
+        "execution_time_ms": 3513.4201049804688,
+        "success": true,
+        "accuracy_score": 1.0,
+        "validation_details": {
+          "has_analysis": true,
+          "graceful_handling": true,
+          "appropriate_fallback": false,
+          "reasonable_defaults": false
+        },
+        "analysis_result": {
+          "question": "...",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "access_review"
+            ],
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "entities": [],
+            "search_keywords": [
+              "..."
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_behavior": "graceful_fallback"
+      },
+      {
+        "scenario": "minimal_context",
+        "query": "audit stuff things",
+        "description": "Minimal context should infer audit intent",
+        "execution_time_ms": 2807.158946990967,
+        "success": true,
+        "accuracy_score": 1.0,
+        "validation_details": {
+          "has_analysis": true,
+          "graceful_handling": false,
+          "appropriate_fallback": true,
+          "reasonable_defaults": false
+        },
+        "analysis_result": {
+          "question": "audit stuff things",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "access_review"
+            ],
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "entities": [],
+            "search_keywords": [
+              "audit",
+              "stuff",
+              "things"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_behavior": "context_inference"
+      },
+      {
+        "scenario": "help_request",
+        "query": "help me understand",
+        "description": "Help requests should activate guidance mode",
+        "execution_time_ms": 2036.5519523620605,
+        "success": true,
+        "accuracy_score": 0.7666666666666666,
+        "validation_details": {
+          "has_analysis": true,
+          "graceful_handling": false,
+          "appropriate_fallback": false,
+          "reasonable_defaults": false
+        },
+        "analysis_result": {
+          "question": "help me understand",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "unknown",
+            "complexity": "basic",
+            "required_documents": [],
+            "compliance_frameworks": [],
+            "entities": [],
+            "search_keywords": [
+              "help",
+              "understand"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_behavior": "guidance_mode"
+      }
+    ]
+  },
+  "complex_analysis_results": {
+    "total_scenarios": 6,
+    "successful_analyses": 6,
+    "failed_analyses": 0,
+    "accuracy_scores": [
+      0.8571428571428571,
+      0.8571428571428571,
+      0.8571428571428571,
+      0.8571428571428571,
+      0.7428571428571429,
+      0.9047619047619048
+    ],
+    "scenario_details": [
+      {
+        "scenario": "relationship_analysis",
+        "query": "What is the relationship between IT general controls and application controls?",
+        "description": "Should identify relationship analysis intent and advanced complexity",
+        "execution_time_ms": 2570.6188678741455,
+        "success": true,
+        "accuracy_score": 0.8571428571428571,
+        "validation_details": {
+          "has_analysis": true,
+          "correct_intent": true,
+          "correct_complexity": true,
+          "appropriate_frameworks": false,
+          "entity_extraction": true,
+          "sufficient_keywords": true
+        },
+        "analysis_result": {
+          "question": "What is the relationship between IT general controls and application controls?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "relationship_analysis",
+            "complexity": "advanced",
+            "required_documents": [
+              "IT General Controls Documentation",
+              "Application Controls Documentation"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "IT General Controls",
+              "Application Controls"
+            ],
+            "search_keywords": [
+              "IT General Controls",
+              "Application Controls",
+              "relationship"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_intent": "relationship_analysis",
+        "expected_complexity": "advanced"
+      },
+      {
+        "scenario": "multi_relationship",
+        "query": "How do risk assessments connect to control deficiencies and remediation plans?",
+        "description": "Multi-entity relationship analysis",
+        "execution_time_ms": 2451.382875442505,
+        "success": true,
+        "accuracy_score": 0.8571428571428571,
+        "validation_details": {
+          "has_analysis": true,
+          "correct_intent": true,
+          "correct_complexity": true,
+          "appropriate_frameworks": false,
+          "entity_extraction": true,
+          "sufficient_keywords": true
+        },
+        "analysis_result": {
+          "question": "How do risk assessments connect to control deficiencies and remediation plans?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "relationship_analysis",
+            "complexity": "advanced",
+            "required_documents": [
+              "Risk Assessment Report",
+              "Control Deficiency Report",
+              "Remediation Plan"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "Risk Assessments",
+              "Control Deficiencies",
+              "Remediation Plans"
+            ],
+            "search_keywords": [
+              "Risk Assessments",
+              "Control Deficiencies",
+              "Remediation Plans",
+              "Connection"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_intent": "relationship_analysis",
+        "expected_complexity": "advanced"
+      },
+      {
+        "scenario": "comparative_analysis",
+        "query": "Compare the effectiveness of access controls across all subsidiaries",
+        "description": "Comparative analysis should be correctly identified",
+        "execution_time_ms": 3076.209783554077,
+        "success": true,
+        "accuracy_score": 0.8571428571428571,
+        "validation_details": {
+          "has_analysis": true,
+          "correct_intent": true,
+          "correct_complexity": true,
+          "appropriate_frameworks": false,
+          "entity_extraction": true,
+          "sufficient_keywords": true
+        },
+        "analysis_result": {
+          "question": "Compare the effectiveness of access controls across all subsidiaries",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "comparison",
+            "complexity": "advanced",
+            "required_documents": [
+              "Access Control Reports for all subsidiaries"
+            ],
+            "compliance_frameworks": [
+              "ISO 27001",
+              "NIST 800-53"
+            ],
+            "entities": [
+              "Access Controls",
+              "Subsidiaries"
+            ],
+            "search_keywords": [
+              "Effectiveness",
+              "Access Controls",
+              "Subsidiaries",
+              "Comparison"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_intent": "comparison",
+        "expected_complexity": "advanced"
+      },
+      {
+        "scenario": "framework_comparison",
+        "query": "Analyze differences between SOX 404 and SOC2 Type II control requirements",
+        "description": "Framework comparison with specific control types",
+        "execution_time_ms": 2816.6909217834473,
+        "success": true,
+        "accuracy_score": 0.8571428571428571,
+        "validation_details": {
+          "has_analysis": true,
+          "correct_intent": true,
+          "correct_complexity": true,
+          "appropriate_frameworks": false,
+          "entity_extraction": true,
+          "sufficient_keywords": true
+        },
+        "analysis_result": {
+          "question": "Analyze differences between SOX 404 and SOC2 Type II control requirements",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "comparison",
+            "complexity": "advanced",
+            "required_documents": [
+              "SOX 404 compliance document",
+              "SOC2 Type II compliance document"
+            ],
+            "compliance_frameworks": [
+              "SOX 404",
+              "SOC2 Type II"
+            ],
+            "entities": [
+              "SOX 404",
+              "SOC2 Type II",
+              "control requirements"
+            ],
+            "search_keywords": [
+              "SOX 404",
+              "SOC2 Type II",
+              "control requirements",
+              "differences"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_intent": "comparison",
+        "expected_complexity": "advanced"
+      },
+      {
+        "scenario": "multi_part_query",
+        "query": "What material weaknesses were identified in Q3 financial controls and what remediation steps were recommended?",
+        "description": "Multi-part query with temporal and procedural elements",
+        "execution_time_ms": 2232.5098514556885,
+        "success": true,
+        "accuracy_score": 0.7428571428571429,
+        "validation_details": {
+          "has_analysis": true,
+          "correct_intent": true,
+          "correct_complexity": false,
+          "appropriate_frameworks": false,
+          "entity_extraction": true,
+          "sufficient_keywords": false
+        },
+        "analysis_result": {
+          "question": "What material weaknesses were identified in Q3 financial controls and what remediation steps were recommended?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "intermediate",
+            "required_documents": [
+              "Q3 Financial Control Audit Report"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "Material Weaknesses",
+              "Q3 Financial Controls",
+              "Remediation Steps"
+            ],
+            "search_keywords": [
+              "Material Weaknesses",
+              "Q3",
+              "Financial Controls",
+              "Remediation Steps"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_intent": "information_retrieval",
+        "expected_complexity": "advanced"
+      },
+      {
+        "scenario": "process_analysis",
+        "query": "Identify segregation of duties violations in the accounts payable process and assess their impact on SOX compliance",
+        "description": "Process-specific compliance assessment",
+        "execution_time_ms": 3143.9599990844727,
+        "success": true,
+        "accuracy_score": 0.9047619047619048,
+        "validation_details": {
+          "has_analysis": true,
+          "correct_intent": true,
+          "correct_complexity": true,
+          "appropriate_frameworks": true,
+          "entity_extraction": true,
+          "sufficient_keywords": false
+        },
+        "analysis_result": {
+          "question": "Identify segregation of duties violations in the accounts payable process and assess their impact on SOX compliance",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "compliance_assessment",
+            "complexity": "advanced",
+            "required_documents": [
+              "Accounts Payable Process Documentation",
+              "SOX Compliance Report"
+            ],
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "entities": [
+              "Segregation of Duties",
+              "Accounts Payable Process"
+            ],
+            "search_keywords": [
+              "Segregation of Duties Violations",
+              "SOX Compliance",
+              "Impact",
+              "Accounts Payable"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "expected_intent": "compliance_assessment",
+        "expected_complexity": "advanced"
+      }
+    ]
+  },
+  "performance_analysis": {
+    "edge_case_performance": {
+      "current_accuracy": 0.9222222222222222,
+      "target_accuracy": 0.7,
+      "baseline_accuracy": 0.25,
+      "improvement_from_baseline": 0.6722222222222222,
+      "gap_to_target": -0.2222222222222222,
+      "meets_target": true
+    },
+    "complex_analysis_performance": {
+      "current_accuracy": 0.846031746031746,
+      "target_accuracy": 0.8,
+      "baseline_accuracy": 0.375,
+      "improvement_from_baseline": 0.471031746031746,
+      "gap_to_target": -0.04603174603174598,
+      "meets_target": true
+    },
+    "overall_performance": {
+      "total_scenarios": 12,
+      "successful_scenarios": 12,
+      "success_rate": 1.0,
+      "overall_accuracy": 0.8841269841269841,
+      "target_accuracy": 0.85,
+      "gap_to_target": -0.03412698412698412,
+      "meets_target": true
+    },
+    "improvement_needed": {}
+  },
+  "improvement_recommendations": [],
+  "detailed_failures": []
+}

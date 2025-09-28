@@ -1,0 +1,53 @@
+{
+  "test_timestamp": 1759020603.0416079,
+  "improvements_applied": [
+    "Enhanced Question Analysis Agent (88.4% accuracy)",
+    "Fixed Context Retrieval Agent (metadata filtering, zero results)",
+    "Improved Classification Engine (edge cases, confidence)",
+    "Better error handling and fallback mechanisms"
+  ],
+  "workflow_results": {
+    "total_scenarios": 6,
+    "successful_workflows": 5,
+    "success_rate": 0.8333333333333334,
+    "avg_workflow_time_ms": 5744.784879684448,
+    "max_workflow_time_ms": 6655.968904495239,
+    "min_workflow_time_ms": 4984.77578163147
+  },
+  "component_performance": {
+    "question_analysis": {
+      "success_rate": 1.0,
+      "avg_time_ms": 2934.380292892456,
+      "max_time_ms": 4430.567026138306,
+      "common_errors": []
+    },
+    "context_retrieval": {
+      "success_rate": 1.0,
+      "avg_time_ms": 892.9404815038046,
+      "max_time_ms": 1651.7910957336426,
+      "common_errors": []
+    },
+    "classification": {
+      "success_rate": 1.0,
+      "avg_time_ms": 2106.2116225560508,
+      "max_time_ms": 2388.6847496032715,
+      "common_errors": []
+    }
+  },
+  "integration_analysis": {
+    "data_flow_success": 0.8333333333333334,
+    "error_recovery_rate": 1.0,
+    "component_compatibility": "needs_improvement"
+  },
+  "improvement_validation": {
+    "improvements_validated": {
+      "question_analysis_improved": true,
+      "context_retrieval_improved": true,
+      "classification_improved": true,
+      "workflow_success_improved": false,
+      "performance_improved": true
+    },
+    "overall_improvement_success": false,
+    "improvement_score": 0.8
+  }
+}

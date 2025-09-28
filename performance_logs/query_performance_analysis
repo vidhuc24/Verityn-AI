@@ -1,0 +1,321 @@
+{
+  "timestamp": "2025-09-27T00:01:07.125627",
+  "analysis": {
+    "summary": {
+      "total_queries": 20,
+      "avg_total_time_ms": 11185.3200674057,
+      "median_total_time_ms": 11171.481132507324,
+      "slow_queries_count": 14
+    },
+    "step_performance": {
+      "retrieval": {
+        "avg_ms": 306.4834952354431,
+        "count": 20
+      },
+      "generation": {
+        "avg_ms": 10878.001511096954,
+        "count": 20
+      }
+    },
+    "memory_usage": {
+      "avg_delta_mb": -1.70234375,
+      "max_delta_mb": 0.046875
+    },
+    "recommendations": [
+      "\ud83d\udea8 LLM generation slow (10878.0ms avg) - consider prompt optimization",
+      "\u26a0\ufe0f 14 slow queries detected - investigate bottlenecks"
+    ]
+  },
+  "sample_logs": [
+    {
+      "query_id": "ef36c514-3de7-498c-8e2a-c6f448445105",
+      "query_text": "controls",
+      "start_time": 1758949151.198046,
+      "start_memory": 36.40625,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 253.2060146331787,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 11293.189287185669,
+          "success": true,
+          "metadata": {
+            "response_length": 2030
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949162.7454348,
+      "total_duration_ms": 11547.388792037964,
+      "end_memory_mb": 35.578125,
+      "total_memory_delta_mb": -0.828125
+    },
+    {
+      "query_id": "51d661ac-3fa3-4a5a-8748-9808172ab724",
+      "query_text": "findings",
+      "start_time": 1758949162.748449,
+      "start_memory": 36.078125,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 215.22808074951172,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 11085.041046142578,
+          "success": true,
+          "metadata": {
+            "response_length": 2144
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949174.049101,
+      "total_duration_ms": 11300.652027130127,
+      "end_memory_mb": 35.3125,
+      "total_memory_delta_mb": -0.765625
+    },
+    {
+      "query_id": "cbbb5462-9b8b-4beb-a073-1bd3a8f2d64a",
+      "query_text": "assessment",
+      "start_time": 1758949174.050496,
+      "start_memory": 35.84375,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 392.89283752441406,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 10215.466976165771,
+          "success": true,
+          "metadata": {
+            "response_length": 2132
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949184.659274,
+      "total_duration_ms": 10608.77799987793,
+      "end_memory_mb": 35.859375,
+      "total_memory_delta_mb": 0.015625
+    },
+    {
+      "query_id": "86a59458-dd34-4ca2-99f6-70ee9d1e8c41",
+      "query_text": "compliance",
+      "start_time": 1758949184.66004,
+      "start_memory": 36.265625,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 288.0988121032715,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 9686.45191192627,
+          "success": true,
+          "metadata": {
+            "response_length": 1796
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949194.6350038,
+      "total_duration_ms": 9974.963903427124,
+      "end_memory_mb": 35.546875,
+      "total_memory_delta_mb": -0.71875
+    },
+    {
+      "query_id": "050b46d2-baef-4c3f-915e-b56450950da7",
+      "query_text": "audit",
+      "start_time": 1758949194.63571,
+      "start_memory": 35.921875,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 261.059045791626,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 13566.159009933472,
+          "success": true,
+          "metadata": {
+            "response_length": 2141
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949208.464118,
+      "total_duration_ms": 13828.408002853394,
+      "end_memory_mb": 33.75,
+      "total_memory_delta_mb": -2.171875
+    },
+    {
+      "query_id": "c075a828-0ad0-4e4b-86f1-2028d0dd2a52",
+      "query_text": "What was the exact date of the last access review completion?",
+      "start_time": 1758949208.472542,
+      "start_memory": 34.515625,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 412.9488468170166,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 11022.54605293274,
+          "success": true,
+          "metadata": {
+            "response_length": 1932
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949219.908702,
+      "total_duration_ms": 11436.15984916687,
+      "end_memory_mb": 34.34375,
+      "total_memory_delta_mb": -0.171875
+    },
+    {
+      "query_id": "d3c0343e-35b9-4198-9d65-64e936a583b7",
+      "query_text": "Which user had the most privileged access violations?",
+      "start_time": 1758949219.909228,
+      "start_memory": 34.65625,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 231.02998733520508,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 10940.118074417114,
+          "success": true,
+          "metadata": {
+            "response_length": 2166
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949231.0807092,
+      "total_duration_ms": 11171.481132507324,
+      "end_memory_mb": 34.140625,
+      "total_memory_delta_mb": -0.515625
+    },
+    {
+      "query_id": "1cf77f89-50d0-4c02-ba79-e1305055b056",
+      "query_text": "What is the control ID for automated three-way match validation?",
+      "start_time": 1758949231.081316,
+      "start_memory": 34.5625,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 441.94602966308594,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 12852.298974990845,
+          "success": true,
+          "metadata": {
+            "response_length": 1838
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949244.3760378,
+      "total_duration_ms": 13294.721841812134,
+      "end_memory_mb": 34.171875,
+      "total_memory_delta_mb": -0.390625
+    },
+    {
+      "query_id": "253d109b-9baa-4e0e-9ba5-6b9336df1a28",
+      "query_text": "How many segregation of duties conflicts were identified?",
+      "start_time": 1758949244.377114,
+      "start_memory": 34.640625,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 269.50979232788086,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 9583.85181427002,
+          "success": true,
+          "metadata": {
+            "response_length": 1884
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949254.232702,
+      "total_duration_ms": 9855.58795928955,
+      "end_memory_mb": 33.6875,
+      "total_memory_delta_mb": -0.953125
+    },
+    {
+      "query_id": "6acb513f-e42e-40dd-a27f-8484698cb7e2",
+      "query_text": "What was the sample size used for testing revenue recognition controls?",
+      "start_time": 1758949254.234366,
+      "start_memory": 34.078125,
+      "steps": {
+        "document_retrieval": {
+          "step_name": "document_retrieval",
+          "duration_ms": 257.7657699584961,
+          "success": true,
+          "metadata": {
+            "chunks_retrieved": 5
+          }
+        },
+        "llm_generation": {
+          "step_name": "llm_generation",
+          "duration_ms": 12618.092775344849,
+          "success": true,
+          "metadata": {
+            "response_length": 2048
+          }
+        }
+      },
+      "status": "completed",
+      "end_time": 1758949267.111316,
+      "total_duration_ms": 12876.950025558472,
+      "end_memory_mb": 34.03125,
+      "total_memory_delta_mb": -0.046875
+    }
+  ]
+}

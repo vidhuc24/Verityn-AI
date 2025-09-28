@@ -1,0 +1,255 @@
+{
+  "test_metadata": {
+    "test_name": "Compliance Analyzer Agent Test (Real Audit Documents)",
+    "timestamp": 1759035357.385656,
+    "total_scenarios": 5,
+    "documents_used": [
+      "sox_access_review_2024",
+      "sox_risk_assessment_2024",
+      "sox_financial_controls_2024",
+      "sox_internal_controls_2024"
+    ],
+    "test_type": "Integration"
+  },
+  "results": [
+    {
+      "scenario_name": "access_review_material_weakness",
+      "question": "Analyze the access control findings for material weaknesses and SOX compliance risks",
+      "document_used": "sox_access_review_2024",
+      "start_time": 1759035330.130773,
+      "success": true,
+      "compliance_analysis": {
+        "risk_assessment": {
+          "overall_risk": "medium",
+          "material_weaknesses": [
+            "Excessive administrative privileges without business justification"
+          ],
+          "significant_deficiencies": [
+            "Access review process needs enhancement for quarterly reviews"
+          ],
+          "control_gaps": [
+            "Lack of role-based access controls (RBAC)",
+            "Inadequate monitoring for privileged user activities"
+          ]
+        },
+        "sox_analysis": {
+          "sox_404_compliance": "requires_review",
+          "control_effectiveness": "needs_improvement",
+          "remediation_required": true
+        },
+        "recommendations": [
+          "Implement role-based access controls (RBAC) by Q1 2025",
+          "Establish quarterly access review process",
+          "Enhance monitoring for privileged user activities",
+          "Update access request and approval workflows"
+        ],
+        "regulatory_implications": [
+          "Potential non-compliance with SOX 404 due to identified control weaknesses",
+          "Possible penalties or sanctions if remediation is not completed by Q1 2025"
+        ]
+      },
+      "quality_scores": {
+        "risk_accuracy": 1.0,
+        "material_weakness_detection": 0.0,
+        "sox_compliance_accuracy": 1.0,
+        "recommendation_completeness": 1.0,
+        "content_relevance": 0.3333333333333333,
+        "structure_completeness": 1.0,
+        "overall_quality": 0.7333333333333333
+      },
+      "errors": [],
+      "execution_time_ms": 6063.829183578491,
+      "end_time": 1759035336.194747
+    },
+    {
+      "scenario_name": "risk_assessment_comprehensive",
+      "question": "Evaluate the enterprise risk assessment for SOX 404 compliance and control effectiveness",
+      "document_used": "sox_risk_assessment_2024",
+      "start_time": 1759035336.1948779,
+      "success": true,
+      "compliance_analysis": {
+        "risk_assessment": {
+          "overall_risk": "high",
+          "material_weaknesses": [
+            "Inadequate change management controls for financial systems",
+            "Weak vendor access controls and monitoring"
+          ],
+          "significant_deficiencies": [
+            "IT system access controls and segregation of duties",
+            "Third-party vendor access to financial systems"
+          ],
+          "control_gaps": [
+            "Access controls",
+            "Vendor management"
+          ]
+        },
+        "sox_analysis": {
+          "sox_404_compliance": "non_compliant",
+          "control_effectiveness": "needs_improvement",
+          "remediation_required": true
+        },
+        "recommendations": [
+          "Implement a robust change management process for financial systems with clear roles, responsibilities, and approval workflows",
+          "Strengthen vendor access controls by implementing stringent access policies, regular access reviews, and monitoring mechanisms",
+          "Improve IT system access controls and segregation of duties to prevent unauthorized access and potential fraud",
+          "Establish a comprehensive third-party vendor management program to manage and monitor vendor access to financial systems"
+        ],
+        "regulatory_implications": [
+          "Failure to remediate identified material weaknesses and significant deficiencies may lead to non-compliance with SOX 404, potentially resulting in penalties and reputational damage",
+          "Inadequate change management controls and weak vendor access controls could lead to financial misstatements, impacting the reliability of financial reporting and regulatory disclosures"
+        ]
+      },
+      "quality_scores": {
+        "risk_accuracy": 1.0,
+        "material_weakness_detection": 1.0,
+        "sox_compliance_accuracy": 1.0,
+        "recommendation_completeness": 1.0,
+        "content_relevance": 0.3333333333333333,
+        "structure_completeness": 1.0,
+        "overall_quality": 0.9333333333333333
+      },
+      "errors": [],
+      "execution_time_ms": 6455.51323890686,
+      "end_time": 1759035342.650792
+    },
+    {
+      "scenario_name": "financial_controls_effectiveness",
+      "question": "Assess the financial controls for effectiveness and identify any significant deficiencies",
+      "document_used": "sox_financial_controls_2024",
+      "start_time": 1759035342.6508958,
+      "success": true,
+      "compliance_analysis": {
+        "risk_assessment": {
+          "overall_risk": "medium",
+          "material_weaknesses": [],
+          "significant_deficiencies": [
+            "Financial close procedures need standardization",
+            "Documentation of control activities incomplete"
+          ],
+          "control_gaps": [
+            "Standardization of financial close procedures",
+            "Completion of control activities documentation"
+          ]
+        },
+        "sox_analysis": {
+          "sox_404_compliance": "requires_review",
+          "control_effectiveness": "needs_improvement",
+          "remediation_required": true
+        },
+        "recommendations": [
+          "Standardize the financial close procedures to ensure consistency and accuracy",
+          "Complete the documentation of control activities to provide evidence of control effectiveness",
+          "Conduct a comprehensive review of SOX 404 compliance given the identified deficiencies"
+        ],
+        "regulatory_implications": [
+          "Potential penalties for non-compliance with SOX 404 if deficiencies are not addressed",
+          "Possible impact on financial reporting accuracy, which could lead to regulatory scrutiny"
+        ]
+      },
+      "quality_scores": {
+        "risk_accuracy": 1.0,
+        "material_weakness_detection": 1.0,
+        "sox_compliance_accuracy": 1.0,
+        "recommendation_completeness": 1.0,
+        "content_relevance": 1.0,
+        "structure_completeness": 1.0,
+        "overall_quality": 1.0
+      },
+      "errors": [],
+      "execution_time_ms": 4997.385025024414,
+      "end_time": 1759035347.648447
+    },
+    {
+      "scenario_name": "internal_controls_review",
+      "question": "Review internal controls for SOX compliance and identify areas requiring remediation",
+      "document_used": "sox_internal_controls_2024",
+      "start_time": 1759035347.648544,
+      "success": true,
+      "compliance_analysis": {
+        "risk_assessment": {
+          "overall_risk": "low",
+          "material_weaknesses": [],
+          "significant_deficiencies": [
+            "Minor deficiencies in internal controls"
+          ],
+          "control_gaps": []
+        },
+        "sox_analysis": {
+          "sox_404_compliance": "compliant",
+          "control_effectiveness": "effective",
+          "remediation_required": true
+        },
+        "recommendations": [
+          "Address minor deficiencies in internal controls",
+          "Continue to monitor and evaluate the effectiveness of internal controls",
+          "Ensure ongoing training for personnel to maintain competence and understanding of SOX compliance requirements"
+        ],
+        "regulatory_implications": [
+          "Failure to address minor deficiencies could lead to more significant issues in the future, potentially resulting in non-compliance with SOX regulations",
+          "Continued compliance with SOX regulations is necessary to avoid potential penalties and maintain investor confidence"
+        ]
+      },
+      "quality_scores": {
+        "risk_accuracy": 1.0,
+        "material_weakness_detection": 1.0,
+        "sox_compliance_accuracy": 1.0,
+        "recommendation_completeness": 1.0,
+        "content_relevance": 1.0,
+        "structure_completeness": 1.0,
+        "overall_quality": 1.0
+      },
+      "errors": [],
+      "execution_time_ms": 4505.900859832764,
+      "end_time": 1759035352.154639
+    },
+    {
+      "scenario_name": "cross_document_risk_analysis",
+      "question": "What are the most critical compliance risks across all audit findings?",
+      "document_used": "sox_access_review_2024",
+      "start_time": 1759035352.1547132,
+      "success": true,
+      "compliance_analysis": {
+        "risk_assessment": {
+          "overall_risk": "medium",
+          "material_weaknesses": [
+            "Excessive administrative privileges without business justification"
+          ],
+          "significant_deficiencies": [
+            "Incomplete access review process"
+          ],
+          "control_gaps": [
+            "Lack of role-based access controls",
+            "Inadequate monitoring for privileged user activities"
+          ]
+        },
+        "sox_analysis": {
+          "sox_404_compliance": "requires_review",
+          "control_effectiveness": "needs_improvement",
+          "remediation_required": true
+        },
+        "recommendations": [
+          "Implement role-based access controls (RBAC) by Q1 2025",
+          "Establish a robust quarterly access review process",
+          "Enhance monitoring for privileged user activities",
+          "Update access request and approval workflows"
+        ],
+        "regulatory_implications": [
+          "Potential non-compliance with SOX 404 if remediation is not completed by Q1 2025",
+          "Possible penalties or sanctions due to excessive administrative privileges"
+        ]
+      },
+      "quality_scores": {
+        "risk_accuracy": 0.5,
+        "material_weakness_detection": 1.0,
+        "sox_compliance_accuracy": 0.5,
+        "recommendation_completeness": 1.0,
+        "content_relevance": 0.3333333333333333,
+        "structure_completeness": 1.0,
+        "overall_quality": 0.7083333333333334
+      },
+      "errors": [],
+      "execution_time_ms": 5229.308128356934,
+      "end_time": 1759035357.3842812
+    }
+  ]
+}

@@ -1,0 +1,519 @@
+{
+  "test_categories": {
+    "non_existent": {
+      "category": "non_existent",
+      "total_queries": 5,
+      "queries_with_suggestions": 2,
+      "queries_with_fallbacks": 2,
+      "query_details": [
+        {
+          "query": "What is the company's marketing budget?",
+          "enhancement": {
+            "has_suggestions": false,
+            "has_fallbacks": false,
+            "suggestions_count": 0,
+            "fallback_count": 0,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": false,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 0.75
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": true,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": true,
+              "message_informative": false,
+              "provides_tips": true,
+              "overall_score": 0.5
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "How many employees work in HR?",
+          "enhancement": {
+            "has_suggestions": false,
+            "has_fallbacks": false,
+            "suggestions_count": 0,
+            "fallback_count": 0,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": false,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 0.75
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": true,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": true,
+              "message_informative": false,
+              "provides_tips": true,
+              "overall_score": 0.5
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "What are the quarterly sales figures?",
+          "enhancement": {
+            "has_suggestions": false,
+            "has_fallbacks": false,
+            "suggestions_count": 0,
+            "fallback_count": 0,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": false,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 0.75
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": true,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": true,
+              "message_informative": true,
+              "provides_tips": true,
+              "overall_score": 0.75
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "Tell me about the company's social media strategy",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 3,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "What is the office location address?",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 3,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        }
+      ]
+    },
+    "too_vague": {
+      "category": "too_vague",
+      "total_queries": 5,
+      "queries_with_suggestions": 5,
+      "queries_with_fallbacks": 5,
+      "query_details": [
+        {
+          "query": "controls",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 1,
+            "domain_category": "sox_compliance",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "findings",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 1,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "what happened",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 1,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "show me results",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 2,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "audit",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 1,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        }
+      ]
+    },
+    "too_specific": {
+      "category": "too_specific",
+      "total_queries": 3,
+      "queries_with_suggestions": 3,
+      "queries_with_fallbacks": 3,
+      "query_details": [
+        {
+          "query": "What were the exact timestamps of user login attempts by John Smith on December 15th at 3:47 PM for the SAP financial reporting module?",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 3,
+            "domain_category": "access_controls",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "Show me the detailed reconciliation differences for account 123456789 in the general ledger subsystem for Q3 2024",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 3,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "What is the precise control ID for the automated three-way match validation in the procurement system?",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 3,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        }
+      ]
+    },
+    "with_typos": {
+      "category": "with_typos",
+      "total_queries": 4,
+      "queries_with_suggestions": 4,
+      "queries_with_fallbacks": 4,
+      "query_details": [
+        {
+          "query": "What are the complience issues?",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 2,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "Show me controll deficiensies",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 3,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "What risks were identifed?",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 2,
+            "domain_category": "risk_assessment",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        },
+        {
+          "query": "What are the audet findings?",
+          "enhancement": {
+            "has_suggestions": true,
+            "has_fallbacks": true,
+            "suggestions_count": 4,
+            "fallback_count": 2,
+            "domain_category": "general",
+            "message_quality": {
+              "length_appropriate": true,
+              "mentions_alternatives": true,
+              "user_friendly": true,
+              "provides_guidance": true,
+              "overall_score": 1.0
+            }
+          },
+          "chat_integration": {
+            "has_no_results_data": false,
+            "response_helpful": {
+              "has_suggestions": false,
+              "has_guidance": false,
+              "message_informative": true,
+              "provides_tips": false,
+              "overall_score": 0.25
+            },
+            "suggestions_provided": 0
+          }
+        }
+      ]
+    }
+  },
+  "overall_stats": {
+    "total_queries": 17,
+    "queries_with_suggestions": 14,
+    "queries_with_fallbacks": 14,
+    "enhancement_success_rate": 0.8235294117647058
+  },
+  "detailed_results": []
+}

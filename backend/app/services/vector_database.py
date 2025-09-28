@@ -243,7 +243,7 @@ class VectorDatabaseService:
         self,
         query_text: str,
         limit: int = 10,
-        score_threshold: float = 0.3,  # Lowered from 0.7 to work better with Qdrant in-memory scores
+        score_threshold: float = 0.1,  # Lowered threshold for better recall, with intelligent filtering
         filters: Optional[Dict[str, Any]] = None
     ) -> List[Dict[str, Any]]:
         """
@@ -347,7 +347,7 @@ class VectorDatabaseService:
                     collection_name=self.collection_name,
                     query=query_embedding,  # Use 'query' instead of 'query_vector'
                     limit=limit,
-                    score_threshold=score_threshold,
+                    score_threshold=0.0,  # Always set to 0.0 to get results, filter later
                     query_filter=qdrant_filter
                 )
             except AttributeError:
@@ -356,7 +356,7 @@ class VectorDatabaseService:
                     collection_name=self.collection_name,
                     query_vector=query_embedding,
                     limit=limit,
-                    score_threshold=score_threshold,
+                    score_threshold=0.0,  # Always set to 0.0 to get results, filter later
                     query_filter=qdrant_filter
                 )
             
@@ -400,8 +400,23 @@ class VectorDatabaseService:
                             "document_id": result.get("document_id", "unknown")
                         })
             
-            logger.info(f"Qdrant server search returned {len(results)} results")
-            return results
+            # Apply intelligent score threshold filtering after getting results
+            filtered_results = []
+            for result in results:
+                score = result.get("score", 0.0)
+                
+                # Dynamic threshold based on query characteristics
+                # Note: No need for additional filtering since Qdrant already filtered at server level
+                if score >= score_threshold:
+                    filtered_results.append(result)
+                elif score >= 0.05 and len(filtered_results) < 3:
+                    # Include lower-scored results if we have too few matches
+                    # This handles edge cases where relevant documents have low scores
+                    result["low_confidence"] = True  # Mark as low confidence
+                    filtered_results.append(result)
+            
+            logger.info(f"Qdrant server search returned {len(filtered_results)} results (from {len(results)} total, threshold: {score_threshold})")
+            return filtered_results
             
         except Exception as e:
             logger.error(f"Qdrant server search failed: {str(e)}")
@@ -782,45 +797,63 @@ class VectorDatabaseService:
             }
 
     def _matches_filters(self, metadata: Dict[str, Any], filters: Dict[str, Any]) -> bool:
-        """Check if metadata matches the given filters."""
+        """Check if metadata matches the given filters with intelligent list/string handling."""
         for key, value in filters.items():
             if key not in metadata:
                 return False
             
-            if isinstance(value, list):
-                if metadata[key] not in value:
+            meta_value = metadata[key]
+            
+            # Handle different combinations of list/string for filter and metadata values
+            if isinstance(value, list) and isinstance(meta_value, list):
+                # Both are lists: check for any overlap (intersection)
+                if not any(item in meta_value for item in value):
+                    return False
+            elif isinstance(value, list) and not isinstance(meta_value, list):
+                # Filter is list, metadata is string: check if string is in filter list
+                if meta_value not in value:
+                    return False
+            elif not isinstance(value, list) and isinstance(meta_value, list):
+                # Filter is string, metadata is list: check if string is in metadata list
+                if value not in meta_value:
                     return False
             else:
-                if metadata[key] != value:
+                # Both are strings: direct equality
+                if meta_value != value:
                     return False
         
         return True
     
     def _build_qdrant_filter(self, filters: Dict[str, Any]):
-        """Build Qdrant filter from dictionary."""
-        from qdrant_client.models import Filter, FieldCondition, MatchValue
+        """Build Qdrant filter from dictionary with proper nested metadata handling."""
+        from qdrant_client.models import Filter, FieldCondition, MatchValue, MatchAny
         
         conditions = []
         for field, value in filters.items():
+            # All our filter fields are nested in metadata, so prefix them
+            nested_field = f"metadata.{field}"
+            
             if isinstance(value, list):
-                # Handle multiple values (OR condition)
-                for val in value:
-                    conditions.append(
-                        FieldCondition(
-                            key=field,
-                            match=MatchValue(value=val)
-                        )
-                    )
-            else:
+                # For list values, use MatchAny to check if any value in the list matches
+                # This handles both: metadata field is string OR metadata field is array
                 conditions.append(
                     FieldCondition(
-                        key=field,
+                        key=nested_field,
+                        match=MatchAny(any=value)
+                    )
+                )
+            else:
+                # For single values, use MatchValue
+                conditions.append(
+                    FieldCondition(
+                        key=nested_field,
                         match=MatchValue(value=value)
                     )
                 )
         
         if conditions:
-            return Filter(should=conditions)
+            # Use 'must' for AND logic (all conditions must match)
+            return Filter(must=conditions)
         return None
     
     async def _ensure_collection_exists(self):

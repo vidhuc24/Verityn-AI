@@ -1,0 +1,1241 @@
+{
+  "test_timestamp": 1759008900.3260942,
+  "agent_info": {
+    "agent_type": "AgentType.QUESTION_ANALYZER",
+    "model": "gpt-4",
+    "temperature": 0.3
+  },
+  "test_categories": {
+    "basic_information": {
+      "category": "basic_information",
+      "total_questions": 3,
+      "successful_analyses": 3,
+      "failed_analyses": 0,
+      "analysis_times": [
+        2311.8557929992676,
+        2736.2260818481445,
+        1998.9960193634033
+      ],
+      "accuracy_scores": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "question_details": [
+        {
+          "question": "What are the key findings?",
+          "category": "basic_information",
+          "analysis_time_ms": 2311.8557929992676,
+          "success": true,
+          "analysis_result": {
+            "question": "What are the key findings?",
+            "conversation_id": "test_basic_information_1",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "basic",
+              "required_documents": [
+                "audit_report"
+              ],
+              "compliance_frameworks": [],
+              "entities": [],
+              "search_keywords": [
+                "key findings"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.75
+        },
+        {
+          "question": "What controls were tested?",
+          "category": "basic_information",
+          "analysis_time_ms": 2736.2260818481445,
+          "success": true,
+          "analysis_result": {
+            "question": "What controls were tested?",
+            "conversation_id": "test_basic_information_2",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "basic",
+              "required_documents": [
+                "audit_report"
+              ],
+              "compliance_frameworks": [],
+              "entities": [],
+              "search_keywords": [
+                "controls",
+                "tested"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.75
+        },
+        {
+          "question": "What compliance issues were found?",
+          "category": "basic_information",
+          "analysis_time_ms": 1998.9960193634033,
+          "success": true,
+          "analysis_result": {
+            "question": "What compliance issues were found?",
+            "conversation_id": "test_basic_information_3",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "basic",
+              "required_documents": [
+                "audit_report"
+              ],
+              "compliance_frameworks": [],
+              "entities": [],
+              "search_keywords": [
+                "compliance",
+                "issues",
+                "found"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.75
+        }
+      ]
+    },
+    "compliance_specific": {
+      "category": "compliance_specific",
+      "total_questions": 2,
+      "successful_analyses": 2,
+      "failed_analyses": 0,
+      "analysis_times": [
+        3428.7869930267334,
+        2563.1771087646484
+      ],
+      "accuracy_scores": [
+        0.8125,
+        0.5625
+      ],
+      "question_details": [
+        {
+          "question": "What SOX 404 controls were tested for revenue recognition?",
+          "category": "compliance_specific",
+          "analysis_time_ms": 3428.7869930267334,
+          "success": true,
+          "analysis_result": {
+            "question": "What SOX 404 controls were tested for revenue recognition?",
+            "conversation_id": "test_compliance_specific_1",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "advanced",
+              "required_documents": [
+                "SOX 404 control testing documentation",
+                "revenue recognition policy"
+              ],
+              "compliance_frameworks": [
+                "SOX"
+              ],
+              "entities": [
+                "SOX 404",
+                "revenue recognition"
+              ],
+              "search_keywords": [
+                "SOX 404 controls",
+                "tested",
+                "revenue recognition"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.8125
+        },
+        {
+          "question": "Are there any material weaknesses in financial reporting controls?",
+          "category": "compliance_specific",
+          "analysis_time_ms": 2563.1771087646484,
+          "success": true,
+          "analysis_result": {
+            "question": "Are there any material weaknesses in financial reporting controls?",
+            "conversation_id": "test_compliance_specific_2",
+            "analysis": {
+              "intent": "compliance_check",
+              "complexity": "advanced",
+              "required_documents": [
+                "financial_reconciliation",
+                "internal_audit_report"
+              ],
+              "compliance_frameworks": [
+                "SOX"
+              ],
+              "entities": [],
+              "search_keywords": [
+                "material weaknesses",
+                "financial reporting controls"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.5625
+        }
+      ]
+    },
+    "entity_extraction": {
+      "category": "entity_extraction",
+      "total_questions": 2,
+      "successful_analyses": 2,
+      "failed_analyses": 0,
+      "analysis_times": [
+        1930.9189319610596,
+        3390.606164932251
+      ],
+      "accuracy_scores": [
+        0.75,
+        0.75
+      ],
+      "question_details": [
+        {
+          "question": "What access violations did John Smith have in December 2024?",
+          "category": "entity_extraction",
+          "analysis_time_ms": 1930.9189319610596,
+          "success": true,
+          "analysis_result": {
+            "question": "What access violations did John Smith have in December 2024?",
+            "conversation_id": "test_entity_extraction_1",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "intermediate",
+              "required_documents": [
+                "access_review"
+              ],
+              "compliance_frameworks": [],
+              "entities": [
+                "John Smith",
+                "December 2024"
+              ],
+              "search_keywords": [
+                "access",
+                "violations",
+                "John Smith",
+                "December 2024"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.75
+        },
+        {
+          "question": "Show me Amazon's quarterly financial reconciliation results",
+          "category": "entity_extraction",
+          "analysis_time_ms": 3390.606164932251,
+          "success": true,
+          "analysis_result": {
+            "question": "Show me Amazon's quarterly financial reconciliation results",
+            "conversation_id": "test_entity_extraction_2",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "intermediate",
+              "required_documents": [
+                "financial_reconciliation"
+              ],
+              "compliance_frameworks": [],
+              "entities": [
+                "Amazon",
+                "quarterly"
+              ],
+              "search_keywords": [
+                "Amazon",
+                "quarterly",
+                "financial reconciliation",
+                "results"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.75
+        }
+      ]
+    },
+    "complex_analysis": {
+      "category": "complex_analysis",
+      "total_questions": 2,
+      "successful_analyses": 2,
+      "failed_analyses": 0,
+      "analysis_times": [
+        2073.629856109619,
+        3564.680814743042
+      ],
+      "accuracy_scores": [
+        0.75,
+        0.375
+      ],
+      "question_details": [
+        {
+          "question": "Compare the effectiveness of access controls across all subsidiaries",
+          "category": "complex_analysis",
+          "analysis_time_ms": 2073.629856109619,
+          "success": true,
+          "analysis_result": {
+            "question": "Compare the effectiveness of access controls across all subsidiaries",
+            "conversation_id": "test_complex_analysis_1",
+            "analysis": {
+              "intent": "comparison",
+              "complexity": "advanced",
+              "required_documents": [
+                "access_review"
+              ],
+              "compliance_frameworks": [],
+              "entities": [
+                "all subsidiaries"
+              ],
+              "search_keywords": [
+                "access controls",
+                "effectiveness",
+                "subsidiaries"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.75
+        },
+        {
+          "question": "What is the relationship between IT general controls and application controls?",
+          "category": "complex_analysis",
+          "analysis_time_ms": 3564.680814743042,
+          "success": true,
+          "analysis_result": {
+            "question": "What is the relationship between IT general controls and application controls?",
+            "conversation_id": "test_complex_analysis_2",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "intermediate",
+              "required_documents": [
+                "IT_controls_documentation"
+              ],
+              "compliance_frameworks": [
+                "SOX",
+                "ISO27001"
+              ],
+              "entities": [
+                "IT general controls",
+                "application controls"
+              ],
+              "search_keywords": [
+                "IT general controls",
+                "application controls",
+                "relationship"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.375
+        }
+      ]
+    },
+    "edge_cases": {
+      "category": "edge_cases",
+      "total_questions": 3,
+      "successful_analyses": 2,
+      "failed_analyses": 1,
+      "analysis_times": [
+        1471.3399410247803,
+        1700.7532119750977
+      ],
+      "accuracy_scores": [
+        0.25,
+        0.25
+      ],
+      "question_details": [
+        {
+          "question": "",
+          "category": "edge_cases",
+          "analysis_time_ms": 1471.3399410247803,
+          "success": true,
+          "analysis_result": {
+            "question": "",
+            "conversation_id": "test_edge_cases_1",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "intermediate",
+              "required_documents": [
+                "access_review"
+              ],
+              "compliance_frameworks": [
+                "SOX"
+              ],
+              "entities": [],
+              "search_keywords": []
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": false,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.25
+        },
+        {
+          "question": "controls",
+          "category": "edge_cases",
+          "analysis_time_ms": 1700.7532119750977,
+          "success": true,
+          "analysis_result": {
+            "question": "controls",
+            "conversation_id": "test_edge_cases_2",
+            "analysis": {
+              "intent": "information_retrieval",
+              "complexity": "basic",
+              "required_documents": [],
+              "compliance_frameworks": [],
+              "entities": [],
+              "search_keywords": [
+                "controls"
+              ]
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": true,
+              "complexity_valid": true,
+              "has_search_keywords": true,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.25
+        },
+        {
+          "question": "What?",
+          "category": "edge_cases",
+          "analysis_time_ms": 1958.9948654174805,
+          "success": false,
+          "analysis_result": {
+            "question": "What?",
+            "conversation_id": "test_edge_cases_3",
+            "analysis": {
+              "intent": "unknown",
+              "complexity": "unknown",
+              "required_documents": [],
+              "compliance_frameworks": [],
+              "entities": [],
+              "search_keywords": []
+            },
+            "analysis_status": "completed"
+          },
+          "validation_details": {
+            "has_analysis": true,
+            "required_fields": {
+              "intent": true,
+              "complexity": true,
+              "required_documents": true,
+              "compliance_frameworks": true,
+              "entities": true,
+              "search_keywords": true
+            },
+            "json_structure": true,
+            "reasonable_values": {
+              "intent_valid": false,
+              "complexity_valid": false,
+              "has_search_keywords": false,
+              "frameworks_reasonable": true,
+              "entities_reasonable": true
+            }
+          },
+          "accuracy_score": 0.25
+        }
+      ]
+    }
+  },
+  "performance_metrics": {
+    "total_questions": 12,
+    "success_rate": 0.9166666666666666,
+    "avg_analysis_time_ms": 2470.088265158913,
+    "max_analysis_time_ms": 3564.680814743042,
+    "min_analysis_time_ms": 1471.3399410247803
+  },
+  "accuracy_analysis": {
+    "overall_accuracy": 0.6136363636363636,
+    "accuracy_by_category": {
+      "basic_information": {
+        "avg_accuracy": 0.75,
+        "success_rate": 1.0
+      },
+      "compliance_specific": {
+        "avg_accuracy": 0.6875,
+        "success_rate": 1.0
+      },
+      "edge_cases": {
+        "avg_accuracy": 0.25,
+        "success_rate": 0.6666666666666666
+      },
+      "complex_analysis": {
+        "avg_accuracy": 0.5625,
+        "success_rate": 1.0
+      },
+      "entity_extraction": {
+        "avg_accuracy": 0.75,
+        "success_rate": 1.0
+      }
+    },
+    "common_failures": [
+      "Low accuracy in complex_analysis questions",
+      "Low accuracy in edge_cases questions",
+      "Low accuracy in edge_cases questions"
+    ],
+    "high_performing_patterns": [
+      "High accuracy in compliance_specific questions"
+    ],
+    "improvement_areas": []
+  },
+  "edge_case_handling": {
+    "empty_query_handling": true,
+    "single_word_handling": true,
+    "vague_query_handling": false,
+    "overly_broad_handling": false,
+    "overly_specific_handling": false,
+    "overall_robustness": 0.4
+  },
+  "detailed_results": [
+    {
+      "question": "What are the key findings?",
+      "category": "basic_information",
+      "analysis_time_ms": 2311.8557929992676,
+      "success": true,
+      "analysis_result": {
+        "question": "What are the key findings?",
+        "conversation_id": "test_basic_information_1",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "basic",
+          "required_documents": [
+            "audit_report"
+          ],
+          "compliance_frameworks": [],
+          "entities": [],
+          "search_keywords": [
+            "key findings"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.75
+    },
+    {
+      "question": "What controls were tested?",
+      "category": "basic_information",
+      "analysis_time_ms": 2736.2260818481445,
+      "success": true,
+      "analysis_result": {
+        "question": "What controls were tested?",
+        "conversation_id": "test_basic_information_2",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "basic",
+          "required_documents": [
+            "audit_report"
+          ],
+          "compliance_frameworks": [],
+          "entities": [],
+          "search_keywords": [
+            "controls",
+            "tested"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.75
+    },
+    {
+      "question": "What compliance issues were found?",
+      "category": "basic_information",
+      "analysis_time_ms": 1998.9960193634033,
+      "success": true,
+      "analysis_result": {
+        "question": "What compliance issues were found?",
+        "conversation_id": "test_basic_information_3",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "basic",
+          "required_documents": [
+            "audit_report"
+          ],
+          "compliance_frameworks": [],
+          "entities": [],
+          "search_keywords": [
+            "compliance",
+            "issues",
+            "found"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.75
+    },
+    {
+      "question": "What SOX 404 controls were tested for revenue recognition?",
+      "category": "compliance_specific",
+      "analysis_time_ms": 3428.7869930267334,
+      "success": true,
+      "analysis_result": {
+        "question": "What SOX 404 controls were tested for revenue recognition?",
+        "conversation_id": "test_compliance_specific_1",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "advanced",
+          "required_documents": [
+            "SOX 404 control testing documentation",
+            "revenue recognition policy"
+          ],
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "entities": [
+            "SOX 404",
+            "revenue recognition"
+          ],
+          "search_keywords": [
+            "SOX 404 controls",
+            "tested",
+            "revenue recognition"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.8125
+    },
+    {
+      "question": "Are there any material weaknesses in financial reporting controls?",
+      "category": "compliance_specific",
+      "analysis_time_ms": 2563.1771087646484,
+      "success": true,
+      "analysis_result": {
+        "question": "Are there any material weaknesses in financial reporting controls?",
+        "conversation_id": "test_compliance_specific_2",
+        "analysis": {
+          "intent": "compliance_check",
+          "complexity": "advanced",
+          "required_documents": [
+            "financial_reconciliation",
+            "internal_audit_report"
+          ],
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "entities": [],
+          "search_keywords": [
+            "material weaknesses",
+            "financial reporting controls"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.5625
+    },
+    {
+      "question": "What access violations did John Smith have in December 2024?",
+      "category": "entity_extraction",
+      "analysis_time_ms": 1930.9189319610596,
+      "success": true,
+      "analysis_result": {
+        "question": "What access violations did John Smith have in December 2024?",
+        "conversation_id": "test_entity_extraction_1",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "intermediate",
+          "required_documents": [
+            "access_review"
+          ],
+          "compliance_frameworks": [],
+          "entities": [
+            "John Smith",
+            "December 2024"
+          ],
+          "search_keywords": [
+            "access",
+            "violations",
+            "John Smith",
+            "December 2024"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.75
+    },
+    {
+      "question": "Show me Amazon's quarterly financial reconciliation results",
+      "category": "entity_extraction",
+      "analysis_time_ms": 3390.606164932251,
+      "success": true,
+      "analysis_result": {
+        "question": "Show me Amazon's quarterly financial reconciliation results",
+        "conversation_id": "test_entity_extraction_2",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "intermediate",
+          "required_documents": [
+            "financial_reconciliation"
+          ],
+          "compliance_frameworks": [],
+          "entities": [
+            "Amazon",
+            "quarterly"
+          ],
+          "search_keywords": [
+            "Amazon",
+            "quarterly",
+            "financial reconciliation",
+            "results"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.75
+    },
+    {
+      "question": "Compare the effectiveness of access controls across all subsidiaries",
+      "category": "complex_analysis",
+      "analysis_time_ms": 2073.629856109619,
+      "success": true,
+      "analysis_result": {
+        "question": "Compare the effectiveness of access controls across all subsidiaries",
+        "conversation_id": "test_complex_analysis_1",
+        "analysis": {
+          "intent": "comparison",
+          "complexity": "advanced",
+          "required_documents": [
+            "access_review"
+          ],
+          "compliance_frameworks": [],
+          "entities": [
+            "all subsidiaries"
+          ],
+          "search_keywords": [
+            "access controls",
+            "effectiveness",
+            "subsidiaries"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.75
+    },
+    {
+      "question": "What is the relationship between IT general controls and application controls?",
+      "category": "complex_analysis",
+      "analysis_time_ms": 3564.680814743042,
+      "success": true,
+      "analysis_result": {
+        "question": "What is the relationship between IT general controls and application controls?",
+        "conversation_id": "test_complex_analysis_2",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "intermediate",
+          "required_documents": [
+            "IT_controls_documentation"
+          ],
+          "compliance_frameworks": [
+            "SOX",
+            "ISO27001"
+          ],
+          "entities": [
+            "IT general controls",
+            "application controls"
+          ],
+          "search_keywords": [
+            "IT general controls",
+            "application controls",
+            "relationship"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.375
+    },
+    {
+      "question": "",
+      "category": "edge_cases",
+      "analysis_time_ms": 1471.3399410247803,
+      "success": true,
+      "analysis_result": {
+        "question": "",
+        "conversation_id": "test_edge_cases_1",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "intermediate",
+          "required_documents": [
+            "access_review"
+          ],
+          "compliance_frameworks": [
+            "SOX"
+          ],
+          "entities": [],
+          "search_keywords": []
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": false,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.25
+    },
+    {
+      "question": "controls",
+      "category": "edge_cases",
+      "analysis_time_ms": 1700.7532119750977,
+      "success": true,
+      "analysis_result": {
+        "question": "controls",
+        "conversation_id": "test_edge_cases_2",
+        "analysis": {
+          "intent": "information_retrieval",
+          "complexity": "basic",
+          "required_documents": [],
+          "compliance_frameworks": [],
+          "entities": [],
+          "search_keywords": [
+            "controls"
+          ]
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": true,
+          "complexity_valid": true,
+          "has_search_keywords": true,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.25
+    },
+    {
+      "question": "What?",
+      "category": "edge_cases",
+      "analysis_time_ms": 1958.9948654174805,
+      "success": false,
+      "analysis_result": {
+        "question": "What?",
+        "conversation_id": "test_edge_cases_3",
+        "analysis": {
+          "intent": "unknown",
+          "complexity": "unknown",
+          "required_documents": [],
+          "compliance_frameworks": [],
+          "entities": [],
+          "search_keywords": []
+        },
+        "analysis_status": "completed"
+      },
+      "validation_details": {
+        "has_analysis": true,
+        "required_fields": {
+          "intent": true,
+          "complexity": true,
+          "required_documents": true,
+          "compliance_frameworks": true,
+          "entities": true,
+          "search_keywords": true
+        },
+        "json_structure": true,
+        "reasonable_values": {
+          "intent_valid": false,
+          "complexity_valid": false,
+          "has_search_keywords": false,
+          "frameworks_reasonable": true,
+          "entities_reasonable": true
+        }
+      },
+      "accuracy_score": 0.25
+    }
+  ]
+}

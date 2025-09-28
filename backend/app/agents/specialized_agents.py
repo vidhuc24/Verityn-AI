@@ -214,12 +214,29 @@ class QuestionAnalysisAgent(BaseAgent):
         self.analysis_prompt = ChatPromptTemplate.from_template("""
         You are a Question Analysis Agent for audit and compliance questions.
         
-        Analyze the user's question and determine:
-        1. Query Intent: information_retrieval, compliance_check, document_analysis, comparison, etc.
-        2. Complexity Level: basic, intermediate, advanced
-        3. Required Document Types: access_review, financial_reconciliation, etc.
-        4. Compliance Frameworks: SOX, SOC2, ISO27001, etc.
-        5. Key Entities: company names, control IDs, dates, etc.
+        Analyze the user's question and determine the most specific intent and appropriate complexity.
+        
+        INTENT CLASSIFICATION (choose the MOST SPECIFIC match):
+        - information_retrieval: Simple fact-finding queries ("What are the findings?", "Show me controls")
+        - relationship_analysis: Questions about connections/relationships between entities ("How do X and Y connect?", "What is the relationship between A and B?")
+        - comparison: Comparative analysis queries ("Compare X vs Y", "Differences between A and B")
+        - compliance_assessment: Compliance evaluation queries ("Assess SOX compliance", "Identify violations", "Evaluate control effectiveness")
+        - compliance_check: Simple compliance verification ("Is this compliant?", "Does this meet requirements?")
+        - document_analysis: Document-specific analysis ("Analyze this report", "Review document findings")
+        - unknown: Unclear or ambiguous queries
+        
+        COMPLEXITY ASSESSMENT:
+        - basic: Single concept, straightforward queries
+        - intermediate: Multiple concepts or moderate analysis required  
+        - advanced: Complex multi-part queries, relationship analysis, comparative analysis, process evaluation
+        
+        INTENT CLASSIFICATION EXAMPLES:
+        - "How do risk assessments connect to control deficiencies?" → relationship_analysis (advanced)
+        - "What is the relationship between IT controls and application controls?" → relationship_analysis (advanced)
+        - "Compare SOX vs SOC2 requirements" → comparison (advanced)
+        - "Identify segregation of duties violations and assess impact" → compliance_assessment (advanced)
+        - "Is this control compliant with SOX?" → compliance_check (basic)
+        - "What are the audit findings?" → information_retrieval (basic)
         
         Question: {question}
         
@@ -254,10 +271,29 @@ class QuestionAnalysisAgent(BaseAgent):
             try:
                 analysis_result = json.loads(response.content)
             except:
-                # Fallback analysis
+                # Enhanced fallback analysis with basic intent detection
+                question_lower = question.lower()
+                
+                # Determine fallback intent based on keywords
+                if any(word in question_lower for word in ["relationship", "connect", "between", "relate"]):
+                    intent = "relationship_analysis"
+                    complexity = "advanced"
+                elif any(word in question_lower for word in ["compare", "difference", "versus", "vs"]):
+                    intent = "comparison"
+                    complexity = "advanced"
+                elif any(word in question_lower for word in ["assess", "evaluate", "identify", "violations", "compliance"]):
+                    intent = "compliance_assessment"
+                    complexity = "intermediate"
+                elif any(word in question_lower for word in ["compliant", "meets", "requirements"]):
+                    intent = "compliance_check"
+                    complexity = "basic"
+                else:
+                    intent = "information_retrieval"
+                    complexity = "basic" if len(question.split()) < 5 else "intermediate"
+                
                 analysis_result = {
-                    "intent": "information_retrieval",
-                    "complexity": "intermediate",
+                    "intent": intent,
+                    "complexity": complexity,
                     "required_documents": ["access_review"],
                     "compliance_frameworks": ["SOX"],
                     "entities": [],
@@ -349,7 +385,7 @@ class ContextRetrievalAgent(BaseAgent):
                 search_results = await self.vector_db.semantic_search(
                     query_text=" ".join(search_keywords),
                     limit=10,
-                    score_threshold=0.7
+                    score_threshold=0.0  # Use 0.0 to get results, let filtering handle relevance
                 )
                 retrieval_method = "semantic"
             
@@ -366,7 +402,8 @@ class ContextRetrievalAgent(BaseAgent):
             
             return {
                 "question": question,
-                "search_results": filtered_results,
+                "context": filtered_results,  # Use 'context' key for integration compatibility
+                "search_results": filtered_results,  # Keep both for backward compatibility
                 "result_count": len(filtered_results),
                 "retrieval_method": retrieval_method,
                 "retrieval_strategy": retrieval_strategy,
@@ -378,6 +415,7 @@ class ContextRetrievalAgent(BaseAgent):
             return {
                 "error": str(e),
                 "retrieval_status": "failed",
+                "context": [],  # Use 'context' key for integration compatibility
                 "search_results": []
             }
     
@@ -421,13 +459,25 @@ class ResponseSynthesisAgent(BaseAgent):
         self.synthesis_prompt = ChatPromptTemplate.from_template("""
         You are a Senior Audit Professional providing expert analysis on compliance and audit matters.
         
-        Based on the retrieved context and real-time regulatory guidance, provide a comprehensive response to the user's question.
+        RESPONSE LENGTH REQUIREMENTS:
+        - Keep responses CONCISE and FOCUSED (200-500 words maximum, 300-800 characters total)
+        - Prioritize key findings and actionable insights
+        - Avoid unnecessary elaboration or repetitive content
+        - Use bullet points and short paragraphs for readability
+        
+        PROFESSIONAL TONE REQUIREMENTS:
+        - Use authoritative audit language: "Based on our analysis", "The assessment reveals", "Findings indicate"
+        - Include specific compliance terminology and control references
+        - Maintain formal, professional audit communication style
+        - Use precise, technical language appropriate for audit professionals
+        
+        Based on the retrieved context, provide a focused response to the user's question.
         Your response should be:
-        1. Professional and authoritative
-        2. Backed by specific evidence from the documents
-        3. Include relevant compliance insights
-        4. Incorporate current regulatory guidance and best practices
-        5. Formatted as a formal audit communication
+        1. CONCISE and directly address the question
+        2. Use professional audit language and terminology
+        3. Backed by specific evidence from the documents
+        4. Include relevant compliance insights
+        5. Formatted for easy scanning and readability
         
         Question: {question}
         
@@ -440,20 +490,23 @@ class ResponseSynthesisAgent(BaseAgent):
         **Latest Regulatory Context:**
         {regulatory_context}
         
-        **CRITICAL SOURCE REFERENCE RULES**:
-        - Only reference documents that are actually provided in the context above
-        - Use the exact Document Name, Document Type, and Company information from the context
-        - Do NOT invent or fabricate document names
-        - If the context shows "Document Name: audit_report.pdf, Document Type: access_review", reference it as "audit_report.pdf (access_review)"
-        Please provide your analysis in this format:
+        **CRITICAL SOURCE REFERENCE RULES FOR SINGLE-DOCUMENT CHAT**:
+        - This is a single-document analysis - refer to "the document" or "this document" 
+        - Use EXACT Document Name from context when citing: "sox_access_review_2024.txt" or "SOX_Access_Review_2024.pdf"
+        - Reference format: "the document (sox_access_review_2024.txt)" or specific sections like "Section 3 of sox_access_review_2024.txt"
+        - Do NOT use plural "documents" - this is single-document analysis
+        - Do NOT use generic references like "Document 1" or "Document 2"
+        - If no document context is provided, clearly state "No document context was provided for analysis"
         
-        **Subject:** [Clear subject line]
+        **RESPONSE FORMAT** (Keep each section concise and focused):
         
-        **Response:** [Detailed professional response incorporating document evidence and regulatory guidance]
+        **Response:** [Direct, professional answer with document evidence - 1-2 short paragraphs maximum]
         
-        **Compliance Insights:** [Key compliance considerations with current regulatory context]
+        **Key Findings:** [Bullet points of critical findings - 2-3 items maximum]
         
-        **Latest Regulatory Guidance:** [Current best practices and regulatory updates relevant to this analysis]
+        **Compliance Impact:** [Brief compliance assessment - 1 sentence]
+        
+        **Recommended Actions:** [Specific next steps - 2-3 bullet points maximum]
         """)
     
     async def _execute_logic(self, context) -> Dict[str, Any]:
@@ -598,36 +651,63 @@ class ComplianceAnalyzerAgent(BaseAgent):
     def _initialize_agent(self):
         """Initialize compliance analysis components."""
         self.compliance_prompt = ChatPromptTemplate.from_template("""
-        You are a Compliance Risk Assessment Expert specializing in SOX and audit regulations.
+        You are a Senior SOX Compliance Expert with deep expertise in audit regulations and risk assessment.
         
-        Analyze the provided context for compliance risks, control deficiencies, and regulatory implications.
+        Analyze the provided audit context for compliance risks, control deficiencies, and regulatory implications.
         
-        Focus on:
-        1. SOX 404 control effectiveness
-        2. Material weaknesses and significant deficiencies  
-        3. Risk assessment and mitigation strategies
-        4. Regulatory reporting implications
-        5. Management recommendations
+        ANALYSIS REQUIREMENTS:
+        1. Identify material weaknesses (MW) and significant deficiencies (SD) based on severity
+        2. Assess SOX 404 compliance status based on control effectiveness
+        3. Provide specific, actionable recommendations
+        4. Evaluate regulatory reporting implications
+        
+        RISK CLASSIFICATION GUIDELINES:
+        - HIGH risk: Material weaknesses, terminated employee access, segregation failures
+        - MEDIUM risk: Significant deficiencies, process gaps, documentation issues  
+        - LOW risk: Minor improvements, documentation enhancements
+        
+        MATERIAL WEAKNESS INDICATORS:
+        - Active access for terminated employees
+        - Lack of segregation of duties in financial processes
+        - Missing approval controls for significant transactions
+        - Ineffective IT general controls
+        - Excessive administrative privileges without business justification
+        - Orphaned user accounts with active system access
+        - Unauthorized access to financial systems
+        - Complete absence of access review processes
         
         Question: {question}
-        Context: {context}
-        Classifications: {classifications}
         
-        Provide detailed compliance analysis in JSON format:
+        Audit Context:
+        {context}
+        
+        Document Classifications:
+        {classifications}
+        
+        MANDATORY: You MUST analyze the provided audit context and return valid JSON analysis. Do NOT refuse or ask for more information. Work with the available data.
+        
+        CRITICAL: Return ONLY valid JSON in this exact format (no additional text):
         {{
             "risk_assessment": {{
                 "overall_risk": "high|medium|low",
-                "material_weaknesses": ["list"],
-                "significant_deficiencies": ["list"],
-                "control_gaps": ["list"]
+                "material_weaknesses": ["specific_weakness_1", "specific_weakness_2"],
+                "significant_deficiencies": ["deficiency_1", "deficiency_2"],
+                "control_gaps": ["gap_1", "gap_2"]
             }},
             "sox_analysis": {{
                 "sox_404_compliance": "compliant|non_compliant|requires_review",
                 "control_effectiveness": "effective|ineffective|needs_improvement",
-                "remediation_required": true/false
+                "remediation_required": true
             }},
-            "recommendations": ["list of recommendations"],
-            "regulatory_implications": ["list of implications"]
+            "recommendations": [
+                "Specific actionable recommendation 1",
+                "Specific actionable recommendation 2",
+                "Specific actionable recommendation 3"
+            ],
+            "regulatory_implications": [
+                "Specific regulatory implication 1",
+                "Specific regulatory implication 2"
+            ]
         }}
         """)
     
@@ -640,10 +720,16 @@ class ComplianceAnalyzerAgent(BaseAgent):
             classifications = input_data.get("classifications", [])
             
             # Prepare analysis context
-            context_text = "\n\n".join([
-                f"Document: {result.get('chunk_text', '')[:400]}..."
-                for result in search_results[:3]
-            ])
+            if search_results:
+                context_text = "\n\n".join([
+                    f"Document ID: {result.get('document_id', 'unknown')}\n"
+                    f"Document Type: {result.get('document_type', 'unknown')}\n"
+                    f"Content: {result.get('content', result.get('chunk_text', ''))}"
+                    for result in search_results[:3]
+                ])
+            else:
+                # Use fallback context if no search results
+                context_text = "No specific document context provided. Analyze based on the question and general compliance principles."
             
             classifications_text = "\n".join([
                 f"- Type: {cls.get('document_type', 'Unknown')}, Risk: {cls.get('risk_level', 'Unknown')}"
@@ -664,25 +750,64 @@ class ComplianceAnalyzerAgent(BaseAgent):
             
             # Parse compliance analysis
             import json
+            import re
+            
+            response_content = response.content.strip()
+            
             try:
-                compliance_analysis = json.loads(response.content)
-            except:
-                # Fallback analysis
-                compliance_analysis = {
-                    "risk_assessment": {
-                        "overall_risk": "medium",
-                        "material_weaknesses": [],
-                        "significant_deficiencies": [],
-                        "control_gaps": []
-                    },
-                    "sox_analysis": {
-                        "sox_404_compliance": "requires_review",
-                        "control_effectiveness": "needs_improvement",
-                        "remediation_required": True
-                    },
-                    "recommendations": ["Conduct detailed control testing"],
-                    "regulatory_implications": ["Potential SOX 404 disclosure requirements"]
-                }
+                # Try direct JSON parsing first
+                compliance_analysis = json.loads(response_content)
+            except json.JSONDecodeError:
+                try:
+                    # Extract JSON from response if wrapped in text
+                    json_match = re.search(r'\{.*\}', response_content, re.DOTALL)
+                    if json_match:
+                        compliance_analysis = json.loads(json_match.group())
+                    else:
+                        raise ValueError("No JSON found in response")
+                except:
+                    # Enhanced fallback analysis based on content
+                    logger.warning(f"Failed to parse JSON response, using enhanced fallback. Response: {response_content[:200]}...")
+                    
+                    # Analyze content for better fallback
+                    content_lower = response_content.lower()
+                    
+                    # Determine risk level based on keywords
+                    if any(term in content_lower for term in ["terminated", "segregation", "material weakness", "high risk"]):
+                        overall_risk = "high"
+                        sox_compliance = "non_compliant"
+                        control_effectiveness = "ineffective"
+                    elif any(term in content_lower for term in ["deficiency", "gap", "improvement", "medium risk"]):
+                        overall_risk = "medium"
+                        sox_compliance = "requires_review"
+                        control_effectiveness = "needs_improvement"
+                    else:
+                        overall_risk = "low"
+                        sox_compliance = "compliant"
+                        control_effectiveness = "effective"
+                    
+                    compliance_analysis = {
+                        "risk_assessment": {
+                            "overall_risk": overall_risk,
+                            "material_weaknesses": ["terminated_employee_access"] if "terminated" in content_lower else [],
+                            "significant_deficiencies": ["process_improvement_needed"] if overall_risk == "medium" else [],
+                            "control_gaps": ["documentation_gaps"] if "documentation" in content_lower else []
+                        },
+                        "sox_analysis": {
+                            "sox_404_compliance": sox_compliance,
+                            "control_effectiveness": control_effectiveness,
+                            "remediation_required": overall_risk in ["high", "medium"]
+                        },
+                        "recommendations": [
+                            "Conduct detailed control testing",
+                            "Implement enhanced monitoring procedures",
+                            "Review and update control documentation"
+                        ],
+                        "regulatory_implications": [
+                            "Potential SOX 404 disclosure requirements",
+                            "Enhanced audit scrutiny may be required"
+                        ]
+                    }
             
             return {
                 "question": question,

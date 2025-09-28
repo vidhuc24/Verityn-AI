@@ -7,7 +7,8 @@ and following bootcamp best practices.
 """
 
 import uuid
-from typing import Dict, List, Optional, Any
+import time
+from typing import Dict, List, Optional, Any, Tuple
 from datetime import datetime
 import asyncio
 import logging
@@ -20,6 +21,8 @@ from langchain.schema.output_parser import StrOutputParser
 
 from backend.app.config import settings
 from backend.app.services.vector_database import vector_db_service
+from backend.app.services.query_enhancement import query_enhancement_service
+from backend.app.services.performance_tracker import performance_tracker
 
 logger = logging.getLogger(__name__)
 
@@ -126,30 +129,32 @@ RESPONSE:"""
         search_filters: Optional[Dict[str, Any]] = None,
     ) -> Dict:
         """
-        Process a chat message using RAG pipeline.
-        
+        Process a chat message using RAG pipeline with comprehensive performance tracking.
+
         Args:
             message: The user's message/question
             document_id: Specific document to search (optional)
             conversation_id: Conversation ID for context
             include_web_search: Whether to include web search (future feature)
             search_filters: Additional filters for document retrieval
-            
+
         Returns:
             Dictionary containing the response and metadata
         """
+        # Start performance tracking for this query
+        query_id = performance_tracker.start_query(query_text=message)
+        conversation_id = conversation_id or f"conv_{str(uuid.uuid4())[:8]}"
+
         try:
-            # Generate or use existing conversation ID
-            if not conversation_id:
-                conversation_id = f"conv_{str(uuid.uuid4())[:8]}"
-            
             # Step 1: Retrieve relevant context from vector database
-            context_results = await self._retrieve_context(
+            retrieval_start = time.time()
+            context_results, no_results_enhancement = await self._retrieve_context(
                 query=message,
                 document_id=document_id,
                 filters=search_filters
             )
-            
+            retrieval_time = (time.time() - retrieval_start) * 1000  # Convert to milliseconds
+
             # Step 2: Format context for the LLM
             formatted_context = self._format_context(context_results)
             
@@ -157,18 +162,20 @@ RESPONSE:"""
             chat_history = self._get_conversation_history(conversation_id)
             
             # Step 4: Generate response using RAG pipeline
+            generation_start = time.time()
             response = await self._generate_response(
                 question=message,
                 context=formatted_context,
                 chat_history=chat_history
             )
-            
+            generation_time = (time.time() - generation_start) * 1000  # Convert to milliseconds
+
             # Step 5: Extract compliance insights
             compliance_insights = self._extract_compliance_insights(context_results, response)
-            
+
             # Step 6: Generate suggested questions
             suggested_questions = self._generate_suggested_questions(context_results, message)
-            
+
             # Step 7: Store conversation
             self._store_conversation_turn(
                 conversation_id=conversation_id,
@@ -176,8 +183,9 @@ RESPONSE:"""
                 assistant_response=response,
                 context_used=context_results
             )
-            
-            return {
+
+            # Prepare response with enhanced no-results handling and performance data
+            response_data = {
                 "message": {
                     "role": "assistant",
                     "content": response,
@@ -193,6 +201,52 @@ RESPONSE:"""
                     "avg_relevance_score": sum(r["score"] for r in context_results) / len(context_results) if context_results else 0
                 }
             }
+
+            # Add no-results enhancement data if applicable
+            if no_results_enhancement:
+                response_data["no_results_enhancement"] = {
+                    "has_suggestions": True,
+                    "alternative_queries": no_results_enhancement["suggestions"]["alternative_queries"],
+                    "query_tips": no_results_enhancement["suggestions"]["query_tips"],
+                    "related_terms": no_results_enhancement["suggestions"]["related_terms"],
+                    "domain_guidance": no_results_enhancement["domain_guidance"],
+                    "enhancement_message": no_results_enhancement["message"]
+                }
+
+                # If we used fallback results, indicate this in the message
+                if no_results_enhancement.get("has_results"):
+                    response_data["message"]["content"] = (
+                        f"{no_results_enhancement['message']}\n\n{response}"
+                    )
+                    response_data["message"]["is_fallback_result"] = True
+
+            # Manually record step timings
+            with performance_tracker.lock:
+                if query_id in performance_tracker.active_queries:
+                    performance_tracker.active_queries[query_id]['steps']['document_retrieval'] = {
+                        'step_name': 'document_retrieval',
+                        'duration_ms': retrieval_time,
+                        'success': True,
+                        'metadata': {'chunks_retrieved': len(context_results)}
+                    }
+                    performance_tracker.active_queries[query_id]['steps']['llm_generation'] = {
+                        'step_name': 'llm_generation',
+                        'duration_ms': generation_time,
+                        'success': True,
+                        'metadata': {'response_length': len(response)}
+                    }
+
+            # Add performance tracking data
+            query_performance = performance_tracker.end_query(query_id)
+            if query_performance:
+                response_data["performance"] = {
+                    "query_id": query_id,
+                    "total_time_ms": query_performance["total_duration_ms"],
+                    "step_breakdown": query_performance["steps"],
+                    "memory_usage_mb": query_performance.get("total_memory_delta_mb", 0)
+                }
+
+            return response_data
             
         except Exception as e:
             logger.error(f"Chat processing failed: {str(e)}")
@@ -214,56 +268,118 @@ RESPONSE:"""
             }
     
     async def _retrieve_context(
-        self, 
-        query: str, 
+        self,
+        query: str,
         document_id: Optional[str] = None,
         filters: Optional[Dict[str, Any]] = None
-    ) -> List[Dict[str, Any]]:
-        """Retrieve relevant context from vector database."""
+    ) -> Tuple[List[Dict[str, Any]], Optional[Dict[str, Any]]]:
+        """
+        Retrieve relevant context from vector database with intelligent no-results handling.
+        
+        Returns:
+            Tuple of (results, no_results_enhancement) where no_results_enhancement 
+            is present if no results were found and contains suggestions/fallbacks.
+        """
         try:
             # Build search filters
             search_filters = filters or {}
             if document_id:
                 search_filters["document_id"] = document_id
             
-            # Use hybrid search for better results
-            results = await vector_db_service.hybrid_search(
-                query_text=query,
-                limit=5,  # Top 5 most relevant chunks
-                filters=search_filters if search_filters else None,
-                semantic_weight=0.7,
-                keyword_weight=0.3
-            )
+                # Use hybrid search for better results (optimized for speed)
+                results = await vector_db_service.hybrid_search(
+                    query_text=query,
+                    limit=3,  # Reduced from 5 to 3 for faster LLM processing
+                    filters=search_filters if search_filters else None,
+                    semantic_weight=0.7,
+                    keyword_weight=0.3
+                )
             
             logger.info(f"Retrieved {len(results)} context chunks for query: {query[:50]}...")
-            return results
+
+            # Apply intelligent chunk selection for better performance
+            results = self._select_optimal_chunks(results)
+
+            # If no results found, use query enhancement service
+            if not results:
+                logger.info(f"No results found for query: {query[:50]}... - Using query enhancement")
+                enhancement = await query_enhancement_service.handle_no_results(
+                    original_query=query,
+                    search_metadata={
+                        "filters": search_filters,
+                        "document_id": document_id
+                    }
+                )
+                
+                # If enhancement found fallback results, use them
+                if enhancement.get("fallback_results"):
+                    logger.info(f"Query enhancement found {len(enhancement['fallback_results'])} fallback results")
+                    return enhancement["fallback_results"], enhancement
+                else:
+                    # No results even with fallbacks
+                    return [], enhancement
+            
+            # Normal results found
+            return results, None
             
         except Exception as e:
             logger.error(f"Context retrieval failed: {str(e)}")
-            return []
+            return [], None
     
     def _format_context(self, context_results: List[Dict[str, Any]]) -> str:
-        """Format retrieved context for LLM consumption."""
+        """Format retrieved context for LLM consumption (optimized for speed)."""
         if not context_results:
             return "No relevant document context found."
-        
-        formatted_chunks = []
-        for i, result in enumerate(context_results, 1):
-            chunk_info = f"""
-Document {i} (Score: {result['score']:.3f}):
-- Document ID: {result['document_id']}
-- Document Type: {result.get('document_type', 'Unknown')}
-- Company: {result.get('company', 'Unknown')}
-- Quality Level: {result.get('quality_level', 'Unknown')}
-- SOX Controls: {', '.join(result.get('sox_control_ids', []))}
 
-Content:
-{result['chunk_text']}
-"""
-            formatted_chunks.append(chunk_info)
-        
-        return "\n" + "="*50 + "\n".join(formatted_chunks)
-    
+        # Sort by relevance score for better context ordering
+        sorted_results = sorted(context_results, key=lambda x: x['score'], reverse=True)
+
+        formatted_chunks = []
+        for i, result in enumerate(sorted_results, 1):
+            # Optimized formatting - reduced metadata to essential info only
+            doc_info = f"[{result['document_id']} - Score: {result['score']:.3f}]"
+            content = result['chunk_text'].strip()
+
+            # Limit content length to prevent excessive token usage
+            if len(content) > 800:  # Truncate very long chunks
+                content = content[:800] + "..."
+
+            formatted_chunks.append(f"{doc_info}\n{content}")
+
+        return "\n\n".join(formatted_chunks)
+
+    def _select_optimal_chunks(self, results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Intelligently select optimal chunks for LLM processing based on relevance and content quality.
+
+        Args:
+            results: Raw search results from vector database
+
+        Returns:
+            Filtered and optimized list of chunks
+        """
+        if not results:
+            return results
+
+        if len(results) <= 3:  # Already optimal
+            return results
+
+        # Sort by relevance score (highest first)
+        sorted_results = sorted(results, key=lambda x: x['score'], reverse=True)
+
+        # Apply relevance threshold - only keep chunks above 0.4 score
+        threshold_results = [r for r in sorted_results if r['score'] >= 0.4]
+
+        # If we have enough high-quality results, use them
+        if len(threshold_results) >= 2:
+            return threshold_results[:3]  # Top 3 high-quality chunks
+
+        # Otherwise, supplement with lower-scoring chunks
+        remaining_slots = 3 - len(threshold_results)
+        additional_chunks = sorted_results[len(threshold_results):len(threshold_results) + remaining_slots]
+
+        return threshold_results + additional_chunks
+
     def _get_conversation_history(self, conversation_id: str) -> str:
         """Get formatted conversation history."""
         if conversation_id not in self.conversations:
@@ -279,9 +395,9 @@ Content:
         return "\n".join(formatted_history) if formatted_history else "No previous conversation history."
     
     async def _generate_response(
-        self, 
-        question: str, 
-        context: str, 
+        self,
+        question: str,
+        context: str,
         chat_history: str
     ) -> str:
         """Generate response using the RAG pipeline."""

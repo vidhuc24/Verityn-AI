@@ -1,0 +1,1806 @@
+{
+  "test_timestamp": 1759028061.003011,
+  "thresholds_tested": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "queries_tested": [
+    "What are the key findings from the access review?",
+    "Are there any SOX 404 material weaknesses?",
+    "What controls need improvement?",
+    "What are the high-risk findings?",
+    "What remediation actions are recommended?",
+    "How effective are the current internal controls?",
+    "What segregation of duties issues were identified?",
+    "Are there any terminated employee access concerns?"
+  ],
+  "threshold_results": {
+    "0.0": {
+      "threshold": 0.0,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 515.8970355987549
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1329.0810585021973
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 569.4618225097656
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 195.23286819458008
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 203.15790176391602
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 377.69031524658203
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 194.57602500915527
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 216.9351577758789
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 450.25402307510376
+    },
+    "0.05": {
+      "threshold": 0.05,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.2548694610595703
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1270.9622383117676
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 478.13868522644043
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 371.3107109069824
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47529164,
+            0.37925723,
+            0.3181171,
+            0.30703524,
+            0.29339078,
+            0.29090455,
+            0.27316672,
+            0.24143404,
+            0.15862778
+          ],
+          "avg_score": 0.30413612,
+          "min_score": 0.15862778,
+          "max_score": 0.47529164,
+          "execution_time_ms": 376.223087310791
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 614.954948425293
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 330.873966217041
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 402.6639461517334
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680138758490566,
+        "median": 0.35877165,
+        "min": 0.15862778,
+        "max": 0.5950166,
+        "std_dev": 0.10767586777791478
+      },
+      "performance_ms": 480.67280650138855
+    },
+    "0.1": {
+      "threshold": 0.1,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.26106834411621094
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1325.8469104766846
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 420.9458827972412
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 177.2921085357666
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 212.40687370300293
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 408.86473655700684
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.54305816,
+            0.4799138,
+            0.45175633,
+            0.42545295,
+            0.39782304,
+            0.36054754,
+            0.35653502,
+            0.34766543,
+            0.29671335
+          ],
+          "avg_score": 0.4066072911111111,
+          "min_score": 0.29671335,
+          "max_score": 0.54305816,
+          "execution_time_ms": 634.7949504852295
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 184.57698822021484
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680137816981132,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10766852357477166
+      },
+      "performance_ms": 420.62368988990784
+    },
+    "0.15": {
+      "threshold": 0.15,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.1800060272216797
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 878.3469200134277
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 403.67913246154785
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 167.74725914001465
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 179.66389656066895
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 419.8317527770996
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 222.91207313537598
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 199.99003410339355
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 309.04388427734375
+    },
+    "0.2": {
+      "threshold": 0.2,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.12993812561035156
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1051.5100955963135
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 396.87204360961914
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 155.2882194519043
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 192.1708583831787
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 393.38088035583496
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 149.51181411743164
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 149.65295791625977
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 311.06460094451904
+    },
+    "0.25": {
+      "threshold": 0.25,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.16999244689941406
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1215.9950733184814
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 391.0362720489502
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 198.3480453491211
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 178.98917198181152
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 396.13890647888184
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 147.8593349456787
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 200.38986206054688
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 341.1158323287964
+    },
+    "0.3": {
+      "threshold": 0.3,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.25391578674316406
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1100.998878479004
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 407.00697898864746
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 152.48727798461914
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 147.53007888793945
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 351.1021137237549
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 199.88298416137695
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 152.27389335632324
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 313.942015171051
+    },
+    "0.35": {
+      "threshold": 0.35,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.18095970153808594
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 991.6417598724365
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 396.13795280456543
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 209.92398262023926
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 180.31001091003418
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 403.933048248291
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5432044,
+            0.4799675,
+            0.45190763,
+            0.42554256,
+            0.39781994,
+            0.3605828,
+            0.35655868,
+            0.34772652,
+            0.29671213
+          ],
+          "avg_score": 0.4066691288888889,
+          "min_score": 0.29671213,
+          "max_score": 0.5432044,
+          "execution_time_ms": 331.1271667480469
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 306.9620132446289
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680242824528302,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767703743798411
+      },
+      "performance_ms": 352.52711176872253
+    },
+    "0.4": {
+      "threshold": 0.4,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.3619194030761719
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1007.5139999389648
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 520.427942276001
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 167.28758811950684
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 168.81918907165527
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 416.8210029602051
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 207.26609230041504
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 181.95700645446777
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 333.8068425655365
+    },
+    "0.45": {
+      "threshold": 0.45,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.3457069396972656
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950166,
+            0.59259176
+          ],
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 848.8767147064209
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 385.761022567749
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 152.83703804016113
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 214.95509147644043
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 343.41883659362793
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 223.82807731628418
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462
+          ],
+          "avg_score": 0.3162732877777778,
+          "min_score": 0.18647462,
+          "max_score": 0.42919177,
+          "execution_time_ms": 186.56182289123535
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.3680174158490566,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950166,
+        "std_dev": 0.10767365173529475
+      },
+      "performance_ms": 294.573038816452
+    },
+    "0.5": {
+      "threshold": 0.5,
+      "query_results": [
+        {
+          "query": "What are the key findings from the access review?",
+          "result_count": 2,
+          "scores": [
+            0.4052719,
+            0.18542491
+          ],
+          "avg_score": 0.29534840500000004,
+          "min_score": 0.18542491,
+          "max_score": 0.4052719,
+          "execution_time_ms": 0.1780986785888672
+        },
+        {
+          "query": "Are there any SOX 404 material weaknesses?",
+          "result_count": 2,
+          "scores": [
+            0.5950587,
+            0.592647
+          ],
+          "avg_score": 0.59385285,
+          "min_score": 0.592647,
+          "max_score": 0.5950587,
+          "execution_time_ms": 1131.2849521636963
+        },
+        {
+          "query": "What controls need improvement?",
+          "result_count": 7,
+          "scores": [
+            0.5313848,
+            0.4999958,
+            0.45586663,
+            0.44711155,
+            0.44423747,
+            0.37359494,
+            0.34196338
+          ],
+          "avg_score": 0.4420220814285714,
+          "min_score": 0.34196338,
+          "max_score": 0.5313848,
+          "execution_time_ms": 364.1090393066406
+        },
+        {
+          "query": "What are the high-risk findings?",
+          "result_count": 9,
+          "scores": [
+            0.35877165,
+            0.32489252,
+            0.31520614,
+            0.31021357,
+            0.29831856,
+            0.26782188,
+            0.25075817,
+            0.21400677,
+            0.19824818
+          ],
+          "avg_score": 0.2820263822222222,
+          "min_score": 0.19824818,
+          "max_score": 0.35877165,
+          "execution_time_ms": 190.70792198181152
+        },
+        {
+          "query": "What remediation actions are recommended?",
+          "result_count": 9,
+          "scores": [
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111
+          ],
+          "avg_score": 0.3041569666666667,
+          "min_score": 0.15865111,
+          "max_score": 0.47531536,
+          "execution_time_ms": 140.52677154541016
+        },
+        {
+          "query": "How effective are the current internal controls?",
+          "result_count": 6,
+          "scores": [
+            0.51548797,
+            0.5135156,
+            0.48969933,
+            0.45831513,
+            0.44614136,
+            0.42753595
+          ],
+          "avg_score": 0.47511589,
+          "min_score": 0.42753595,
+          "max_score": 0.51548797,
+          "execution_time_ms": 344.52199935913086
+        },
+        {
+          "query": "What segregation of duties issues were identified?",
+          "result_count": 9,
+          "scores": [
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668
+          ],
+          "avg_score": 0.4066286922222222,
+          "min_score": 0.296668,
+          "max_score": 0.5431092,
+          "execution_time_ms": 180.1741123199463
+        },
+        {
+          "query": "Are there any terminated employee access concerns?",
+          "result_count": 9,
+          "scores": [
+            0.4292478,
+            0.42051056,
+            0.3879601,
+            0.32876474,
+            0.30354506,
+            0.26787362,
+            0.26645786,
+            0.25566262,
+            0.18649393
+          ],
+          "avg_score": 0.31627958777777776,
+          "min_score": 0.18649393,
+          "max_score": 0.4292478,
+          "execution_time_ms": 186.57517433166504
+        }
+      ],
+      "total_results": 53,
+      "avg_results_per_query": 6.625,
+      "score_stats": {
+        "count": 53,
+        "mean": 0.36802032226415093,
+        "median": 0.35877165,
+        "min": 0.15865111,
+        "max": 0.5950587,
+        "std_dev": 0.10767996282907395
+      },
+      "performance_ms": 317.2597587108612
+    }
+  },
+  "score_analysis": {
+    "threshold_comparison": [
+      {
+        "threshold": 0.0,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 450.25402307510376
+      },
+      {
+        "threshold": 0.05,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680138758490566,
+        "score_range": 0.43638882,
+        "performance_ms": 480.67280650138855
+      },
+      {
+        "threshold": 0.1,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680137816981132,
+        "score_range": 0.43636549,
+        "performance_ms": 420.62368988990784
+      },
+      {
+        "threshold": 0.15,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 309.04388427734375
+      },
+      {
+        "threshold": 0.2,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 311.06460094451904
+      },
+      {
+        "threshold": 0.25,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 341.1158323287964
+      },
+      {
+        "threshold": 0.3,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 313.942015171051
+      },
+      {
+        "threshold": 0.35,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680242824528302,
+        "score_range": 0.43636549,
+        "performance_ms": 352.52711176872253
+      },
+      {
+        "threshold": 0.4,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 333.8068425655365
+      },
+      {
+        "threshold": 0.45,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.3680174158490566,
+        "score_range": 0.43636549,
+        "performance_ms": 294.573038816452
+      },
+      {
+        "threshold": 0.5,
+        "avg_results": 6.625,
+        "total_results": 53,
+        "avg_score": 0.36802032226415093,
+        "score_range": 0.43640759000000007,
+        "performance_ms": 317.2597587108612
+      }
+    ],
+    "optimal_range": {
+      "recommended_threshold": 0.35,
+      "reason": "Best balance of quality (0.368) and results (6.6)",
+      "alternatives": [
+        {
+          "threshold": 0.0,
+          "combined_score": 0.005517415849056573,
+          "avg_results": 6.625,
+          "total_results": 53,
+          "avg_score": 0.3680174158490566,
+          "score_range": 0.43636549,
+          "performance_ms": 450.25402307510376
+        },
+        {
+          "threshold": 0.05,
+          "combined_score": 0.005513875849056549,
+          "avg_results": 6.625,
+          "total_results": 53,
+          "avg_score": 0.3680138758490566,
+          "score_range": 0.43638882,
+          "performance_ms": 480.67280650138855
+        },
+        {
+          "threshold": 0.1,
+          "combined_score": 0.005513781698113174,
+          "avg_results": 6.625,
+          "total_results": 53,
+          "avg_score": 0.3680137816981132,
+          "score_range": 0.43636549,
+          "performance_ms": 420.62368988990784
+        }
+      ]
+    },
+    "score_distribution": {}
+  },
+  "recommendations": {
+    "current_assessment": {
+      "current_threshold": 0.1,
+      "recommended_threshold": 0.35,
+      "improvement_expected": true
+    },
+    "suggested_changes": [
+      "INCREASE threshold from 0.1 to 0.35 for better precision"
+    ],
+    "considerations": [
+      "Higher threshold = fewer but more relevant results"
+    ]
+  }
+}

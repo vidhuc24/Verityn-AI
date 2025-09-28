@@ -1,0 +1,3553 @@
+{
+  "test_timestamp": 1759032631.962445,
+  "test_approach": "real_documents_and_integration",
+  "agent_info": {
+    "agent_type": "AgentType.RESPONSE_SYNTHESIZER",
+    "model": "gpt-4",
+    "temperature": 0.4
+  },
+  "query_results": [
+    {
+      "query_number": 1,
+      "query": "What are the key findings from the access review?",
+      "start_time": 1759032636.459201,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "What are the key findings from the access review?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "Access Review Report"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "Access Review"
+            ],
+            "search_keywords": [
+              "key findings",
+              "access review"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "What are the key findings from the access review?",
+          "context": [],
+          "search_results": [],
+          "result_count": 0,
+          "retrieval_method": "hybrid",
+          "retrieval_strategy": "hybrid",
+          "retrieval_status": "completed"
+        },
+        "classifications": []
+      },
+      "synthesis_result": {
+        "question": "What are the key findings from the access review?",
+        "response": "Response: Based on the information provided, it is not possible to provide a detailed analysis of the key findings from the access review as no document context was provided for analysis. \n\nKey Findings: \n- No document context was provided, thus no key findings can be determined at this time.\n\nCompliance Impact: \n- Without the necessary document context, it is not feasible to assess the compliance impact.\n\nRecommended Actions: \n- Provide the document \"SOX_Access_Review_2024.txt\" or any relevant document for a comprehensive analysis.\n- Ensure all relevant documents are accessible for a thorough audit review. \n- Conduct a new access review if the document cannot be retrieved.",
+        "compliance_insights": {},
+        "sources_used": 0,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 0.3333333333333333,
+        "citation_accuracy": 1.0,
+        "response_completeness": 0.7999999999999999,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 0.7933333333333333
+      },
+      "errors": [],
+      "execution_time_ms": 6305.530786514282
+    },
+    {
+      "query_number": 2,
+      "query": "Are there any SOX 404 material weaknesses identified?",
+      "start_time": 1759032642.7649448,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "Are there any SOX 404 material weaknesses identified?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "SOX 404 Audit Report"
+            ],
+            "compliance_frameworks": [
+              "SOX 404"
+            ],
+            "entities": [
+              "Material Weaknesses"
+            ],
+            "search_keywords": [
+              "SOX 404",
+              "Material Weaknesses",
+              "Identified"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "Are there any SOX 404 material weaknesses identified?",
+          "context": [
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.63358295,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.6194588,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Document Type: SOX Access Review Report\nFramework: SOX 404\nCompany: TechCorp Solutions Inc.\nPeriod: Q4 2024\nDate: 2024-12-15\nPrepared By: Sarah Johnson, Senior Auditor\nApproved By: Michael Chen, Audit Director",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 0
+              },
+              "score": 0.6148483,
+              "document_id": "sox_access_review_2024"
+            }
+          ],
+          "search_results": [
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.63358295,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.6194588,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Document Type: SOX Access Review Report\nFramework: SOX 404\nCompany: TechCorp Solutions Inc.\nPeriod: Q4 2024\nDate: 2024-12-15\nPrepared By: Sarah Johnson, Senior Auditor\nApproved By: Michael Chen, Audit Director",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 0
+              },
+              "score": 0.6148483,
+              "document_id": "sox_access_review_2024"
+            }
+          ],
+          "result_count": 3,
+          "retrieval_method": "query_expansion",
+          "retrieval_strategy": "query_expansion",
+          "retrieval_status": "completed"
+        },
+        "classifications": [
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "user access management",
+              "segregation of duties",
+              "financial reporting",
+              "control deficiencies"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 309,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "low",
+            "key_topics": [
+              "quarterly access reviews",
+              "SOX 404 Compliance Assessment",
+              "access control environment"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 262,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "SOX Access Review",
+              "TechCorp Solutions Inc.",
+              "Q4 2024"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 209,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          }
+        ]
+      },
+      "synthesis_result": {
+        "question": "Are there any SOX 404 material weaknesses identified?",
+        "response": "**Response:** \nBased on our analysis of the document (SOX_Access_Review_2024), there are material weaknesses identified in relation to SOX 404 compliance. These weaknesses are specifically linked to deficiencies in user access management and segregation of duties, which could potentially impact the reliability of financial reporting.\n\n**Key Findings:** \n- Identified deficiencies in user access management and segregation of duties\n- The access control environment is rated as \"Needs Improvement\" with a risk level of \"Medium\"\n- The organization's current access control environment requires improvement to fully comply with SOX 404 requirements\n\n**Compliance Impact:** \nThe identified material weaknesses indicate a potential non-compliance with SOX 404 requirements, impacting the reliability of financial reporting.\n\n**Recommended Actions:** \n- Implement measures to improve user access management and segregation of duties\n- Conduct quarterly access reviews to ensure ongoing compliance\n- Develop a remediation plan to address the identified material weaknesses and improve SOX 404 compliance.",
+        "compliance_insights": {
+          "material_weaknesses_identified": true,
+          "sox_404_related": true
+        },
+        "sources_used": 3,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 1.0,
+        "citation_accuracy": 1.0,
+        "response_completeness": 1.0,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 1.0
+      },
+      "errors": [],
+      "execution_time_ms": 17320.70827484131
+    },
+    {
+      "query_number": 3,
+      "query": "What controls need improvement based on the audit?",
+      "start_time": 1759032660.0858738,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "What controls need improvement based on the audit?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "intermediate",
+            "required_documents": [
+              "audit_report"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "controls",
+              "audit"
+            ],
+            "search_keywords": [
+              "controls",
+              "improvement",
+              "audit"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "What controls need improvement based on the audit?",
+          "context": [
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.42617932,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.39363703,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting\ndocumentation attached and filed, (4) Electronic signatures captured per company policy, (5) All\nvariances exceeding $10,000 threshold investigated and documented..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 4
+              },
+              "score": 0.37345695,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.36660957,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.35947102,
+              "document_id": "sox_access_review_2024"
+            }
+          ],
+          "search_results": [
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.42617932,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.39363703,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting\ndocumentation attached and filed, (4) Electronic signatures captured per company policy, (5) All\nvariances exceeding $10,000 threshold investigated and documented..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 4
+              },
+              "score": 0.37345695,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.36660957,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.35947102,
+              "document_id": "sox_access_review_2024"
+            }
+          ],
+          "result_count": 5,
+          "retrieval_method": "query_expansion",
+          "retrieval_strategy": "query_expansion",
+          "retrieval_status": "completed"
+        },
+        "classifications": [
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "low",
+            "key_topics": [
+              "access reviews",
+              "SOX 404 Compliance",
+              "access control"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 262,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "inactive user accounts",
+              "access approval workflow",
+              "segregation of duties",
+              "audit logging"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 292,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "financial_controls",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "reconciliation",
+              "approval",
+              "variances",
+              "electronic signatures"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 255,
+              "raw_confidence": 0.9,
+              "confidence_adjustment": "applied"
+            }
+          }
+        ]
+      },
+      "synthesis_result": {
+        "question": "What controls need improvement based on the audit?",
+        "response": "Response: Based on our analysis of the documents, it is evident that the organization's access control environment needs improvement to fully comply with SOX 404 requirements. The identified deficiencies in user access management and segregation of duties represent material weaknesses that could impact the reliability of financial reporting.\n\nKey Findings:\n- The organization's current access control environment requires improvement.\n- There are deficiencies in user access management and segregation of duties.\n- The access control environment is rated as \"Needs Improvement\" with a risk level of \"Medium\".\n\nCompliance Impact: These deficiencies could potentially lead to non-compliance with SOX 404 requirements, posing a medium risk to the organization.\n\nRecommended Actions:\n- Implement role-based access controls (RBAC) by Q1 2025 as suggested in the document (sox_access_review_2024.txt).\n- Establish a quarterly access review process.\n- Enhance monitoring for privileged user activities and update access request and approval workflows.",
+        "compliance_insights": {
+          "material_weaknesses_identified": true,
+          "sox_404_related": true
+        },
+        "sources_used": 5,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 1.0,
+        "citation_accuracy": 1.0,
+        "response_completeness": 1.0,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 1.0
+      },
+      "errors": [],
+      "execution_time_ms": 14458.48822593689
+    },
+    {
+      "query_number": 4,
+      "query": "What are the high-risk findings in the compliance assessment?",
+      "start_time": 1759032674.544929,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "What are the high-risk findings in the compliance assessment?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "Compliance Assessment Report"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "High-risk findings"
+            ],
+            "search_keywords": [
+              "high-risk",
+              "findings",
+              "compliance assessment"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "What are the high-risk findings in the compliance assessment?",
+          "context": [],
+          "search_results": [],
+          "result_count": 0,
+          "retrieval_method": "query_expansion",
+          "retrieval_strategy": "query_expansion",
+          "retrieval_status": "completed"
+        },
+        "classifications": []
+      },
+      "synthesis_result": {
+        "question": "What are the high-risk findings in the compliance assessment?",
+        "response": "Response: As no document context was provided for analysis, it is not possible to identify any high-risk findings in the compliance assessment. \n\nKey Findings: \n- No high-risk findings can be identified due to lack of document context.\n\nCompliance Impact: \n- Without specific document context, the impact on SOX compliance cannot be assessed.\n\nRecommended Actions: \n- Provide the necessary document context for a detailed analysis.\n- Ensure all relevant SOX compliance documents are readily available for review.\n- Conduct an internal review to identify potential high-risk areas in the interim.",
+        "compliance_insights": {},
+        "sources_used": 0,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 0.3333333333333333,
+        "citation_accuracy": 1.0,
+        "response_completeness": 0.7999999999999999,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 0.7933333333333333
+      },
+      "errors": [],
+      "execution_time_ms": 9277.215957641602
+    },
+    {
+      "query_number": 5,
+      "query": "What remediation actions are recommended?",
+      "start_time": 1759032683.822248,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "What remediation actions are recommended?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "audit_report"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "remediation_actions"
+            ],
+            "search_keywords": [
+              "recommended",
+              "remediation_actions"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "What remediation actions are recommended?",
+          "context": [
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.41985577,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Scope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.\n\nKey Findings:\n\u2022 3 users identified with excessive privileges requiring immediate remediation\n\u2022 2 orphaned accounts found and disabled\n\u2022 Access review process needs enhancement for quarterly reviews",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 2
+              },
+              "score": 0.34044775,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.3393607,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting\ndocumentation attached and filed, (4) Electronic signatures captured per company policy, (5) All\nvariances exceeding $10,000 threshold investigated and documented..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 4
+              },
+              "score": 0.30828482,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.3052177,
+              "document_id": "SOX_Access_Review_2024"
+            }
+          ],
+          "search_results": [
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.41985577,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Scope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.\n\nKey Findings:\n\u2022 3 users identified with excessive privileges requiring immediate remediation\n\u2022 2 orphaned accounts found and disabled\n\u2022 Access review process needs enhancement for quarterly reviews",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 2
+              },
+              "score": 0.34044775,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.3393607,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting\ndocumentation attached and filed, (4) Electronic signatures captured per company policy, (5) All\nvariances exceeding $10,000 threshold investigated and documented..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 4
+              },
+              "score": 0.30828482,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.3052177,
+              "document_id": "SOX_Access_Review_2024"
+            }
+          ],
+          "result_count": 5,
+          "retrieval_method": "semantic",
+          "retrieval_strategy": "semantic",
+          "retrieval_status": "completed"
+        },
+        "classifications": [
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "inactive user accounts",
+              "access approval workflow",
+              "segregation of duties",
+              "audit logging"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 292,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "ERP system access",
+              "financial reporting platform access",
+              "treasury management system access",
+              "excessive privileges",
+              "orphaned accounts",
+              "access review process"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 312,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "Risk Assessment",
+              "Access Control",
+              "Privileged User Activities",
+              "Access Review"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 337,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          }
+        ]
+      },
+      "synthesis_result": {
+        "question": "What remediation actions are recommended?",
+        "response": "Response: Based on our analysis of the document (SOX_Access_Review_2024), several remediation actions are recommended to address identified compliance gaps and enhance SOX compliance. These recommendations are aimed at improving access control, segregation of duties, and monitoring capabilities.\n\nKey Findings:\n- The document reveals inactive user accounts and excessive privileges that require immediate remediation.\n- The assessment also identifies a need for improved access review processes and enhanced audit logging capabilities.\n\nCompliance Impact: The current state of access control presents a medium risk level, indicating partial compliance with SOX regulations.\n\nRecommended Actions: \n- Remove all inactive user accounts within 30 days.\n- Implement formal access approval workflow within 30 days.\n- Review and update segregation of duties matrix within 60 days.\n- Enhance audit logging capabilities and implement role-based access controls (RBAC) by Q1 2025.\n- Establish a robust quarterly access review process.",
+        "compliance_insights": {},
+        "sources_used": 5,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 1.0,
+        "citation_accuracy": 1.0,
+        "response_completeness": 1.0,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 1.0
+      },
+      "errors": [],
+      "execution_time_ms": 13946.420907974243
+    },
+    {
+      "query_number": 6,
+      "query": "How effective are the current internal controls?",
+      "start_time": 1759032697.768831,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "How effective are the current internal controls?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "compliance_assessment",
+            "complexity": "intermediate",
+            "required_documents": [
+              "Internal Control Reports"
+            ],
+            "compliance_frameworks": [
+              "SOX",
+              "COSO"
+            ],
+            "entities": [
+              "Internal Controls"
+            ],
+            "search_keywords": [
+              "Internal Controls",
+              "Effectiveness"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "How effective are the current internal controls?",
+          "context": [
+            {
+              "chunk_text": "Document Type: SOX Access Review Report\nFramework: SOX 404\nCompany: TechCorp Solutions Inc.\nPeriod: Q4 2024\nDate: 2024-12-15\nPrepared By: Sarah Johnson, Senior Auditor\nApproved By: Michael Chen, Audit Director",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 0
+              },
+              "score": 0.5628192,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.5133914,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.49935472,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "================================================================================\n\nExecutive Summary:\nThis access review evaluates user access controls across critical financial systems to ensure compliance with SOX 404 requirements for the quarter ending December 31, 2024.\n\nScope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 1
+              },
+              "score": 0.47370106,
+              "document_id": "sox_access_review_2024"
+            }
+          ],
+          "search_results": [
+            {
+              "chunk_text": "Document Type: SOX Access Review Report\nFramework: SOX 404\nCompany: TechCorp Solutions Inc.\nPeriod: Q4 2024\nDate: 2024-12-15\nPrepared By: Sarah Johnson, Senior Auditor\nApproved By: Michael Chen, Audit Director",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 0
+              },
+              "score": 0.5628192,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.5133914,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.49935472,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "================================================================================\n\nExecutive Summary:\nThis access review evaluates user access controls across critical financial systems to ensure compliance with SOX 404 requirements for the quarter ending December 31, 2024.\n\nScope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 1
+              },
+              "score": 0.47370106,
+              "document_id": "sox_access_review_2024"
+            }
+          ],
+          "result_count": 4,
+          "retrieval_method": "query_expansion",
+          "retrieval_strategy": "query_expansion",
+          "retrieval_status": "completed"
+        },
+        "classifications": [
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "SOX Access Review",
+              "TechCorp Solutions Inc.",
+              "Q4 2024"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 209,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "low",
+            "key_topics": [
+              "quarterly access reviews",
+              "SOX 404 Compliance Assessment",
+              "access control environment"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 262,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "user access management",
+              "segregation of duties",
+              "financial reporting",
+              "control deficiencies"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 309,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          }
+        ]
+      },
+      "synthesis_result": {
+        "question": "How effective are the current internal controls?",
+        "response": "Response: Based on our analysis of the document (sox_access_review_2024), the effectiveness of the current internal controls at TechCorp Solutions Inc. is deemed to require improvement. The document reveals material weaknesses in user access management and segregation of duties, impacting the reliability of financial reporting. \n\nKey Findings: \n- The access control environment is rated as \"Needs Improvement\" with a risk level of \"Medium\".\n- Deficiencies in user access management and segregation of duties were identified.\n- The organization's current access control environment does not fully comply with SOX 404 requirements.\n\nCompliance Impact: These findings indicate potential non-compliance with SOX 404, which may affect the integrity of financial reporting.\n\nRecommended Actions: \n- Implement quarterly access reviews to monitor and manage user access controls.\n- Address the identified deficiencies in user access management and segregation of duties.\n- Enhance the access control environment to ensure full compliance with SOX 404 requirements.",
+        "compliance_insights": {
+          "material_weaknesses_identified": true,
+          "sox_404_related": true
+        },
+        "sources_used": 4,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 1.0,
+        "citation_accuracy": 0.6,
+        "response_completeness": 1.0,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 0.9
+      },
+      "errors": [],
+      "execution_time_ms": 14124.336004257202
+    },
+    {
+      "query_number": 7,
+      "query": "What segregation of duties issues were identified?",
+      "start_time": 1759032711.893826,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "What segregation of duties issues were identified?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "information_retrieval",
+            "complexity": "basic",
+            "required_documents": [
+              "Audit Report"
+            ],
+            "compliance_frameworks": [],
+            "entities": [
+              "Segregation of Duties"
+            ],
+            "search_keywords": [
+              "Segregation of Duties",
+              "issues",
+              "identified"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "What segregation of duties issues were identified?",
+          "context": [
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.54226196,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Scope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.\n\nKey Findings:\n\u2022 3 users identified with excessive privileges requiring immediate remediation\n\u2022 2 orphaned accounts found and disabled\n\u2022 Access review process needs enhancement for quarterly reviews",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 2
+              },
+              "score": 0.50419307,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.5021733,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.47855368,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.46071896,
+              "document_id": "SOX_Access_Review_2024"
+            }
+          ],
+          "search_results": [
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.54226196,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Scope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.\n\nKey Findings:\n\u2022 3 users identified with excessive privileges requiring immediate remediation\n\u2022 2 orphaned accounts found and disabled\n\u2022 Access review process needs enhancement for quarterly reviews",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 2
+              },
+              "score": 0.50419307,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.5021733,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.47855368,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.46071896,
+              "document_id": "SOX_Access_Review_2024"
+            }
+          ],
+          "result_count": 5,
+          "retrieval_method": "semantic",
+          "retrieval_strategy": "semantic",
+          "retrieval_status": "completed"
+        },
+        "classifications": [
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "user access management",
+              "segregation of duties",
+              "financial reporting",
+              "control deficiencies"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 309,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "ERP system access",
+              "financial reporting platform access",
+              "treasury management system access",
+              "excessive privileges",
+              "orphaned accounts",
+              "access review process enhancement"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 312,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "inactive user accounts",
+              "access approval workflow",
+              "segregation of duties",
+              "audit logging"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 292,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          }
+        ]
+      },
+      "synthesis_result": {
+        "question": "What segregation of duties issues were identified?",
+        "response": "Response: Based on our analysis of the document (SOX_Access_Review_2024), it is evident that there are significant issues concerning segregation of duties. The document reveals material weaknesses in user access management and segregation of duties that could impact the reliability of financial reporting. The access control environment is rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.\n\nKey Findings:\n- Deficiencies in user access management and segregation of duties represent material weaknesses.\n- Three users were identified with excessive privileges requiring immediate remediation.\n- The review and update of the segregation of duties matrix are recommended within 60 days.\n\nCompliance Impact: These issues could potentially affect the organization's compliance with SOX 404 requirements.\n\nRecommended Actions:\n- Immediate remediation of users with excessive privileges.\n- Review and update the segregation of duties matrix within the suggested timeline.\n- Implement a formal access approval workflow to prevent future segregation of duties issues.",
+        "compliance_insights": {
+          "material_weaknesses_identified": true,
+          "sox_404_related": true
+        },
+        "sources_used": 5,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 1.0,
+        "citation_accuracy": 1.0,
+        "response_completeness": 1.0,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 1.0
+      },
+      "errors": [],
+      "execution_time_ms": 13822.870016098022
+    },
+    {
+      "query_number": 8,
+      "query": "Are there any terminated employee access concerns?",
+      "start_time": 1759032725.7169962,
+      "success": true,
+      "phase2_results": {
+        "question_analysis": {
+          "question": "Are there any terminated employee access concerns?",
+          "conversation_id": null,
+          "analysis": {
+            "intent": "compliance_assessment",
+            "complexity": "basic",
+            "required_documents": [
+              "Access Control Policy",
+              "Termination Procedure"
+            ],
+            "compliance_frameworks": [
+              "ISO 27001",
+              "SOX"
+            ],
+            "entities": [
+              "Terminated Employee",
+              "Access Control"
+            ],
+            "search_keywords": [
+              "Terminated Employee",
+              "Access Concerns"
+            ]
+          },
+          "analysis_status": "completed"
+        },
+        "context_retrieval": {
+          "question": "Are there any terminated employee access concerns?",
+          "context": [
+            {
+              "chunk_text": "Scope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.\n\nKey Findings:\n\u2022 3 users identified with excessive privileges requiring immediate remediation\n\u2022 2 orphaned accounts found and disabled\n\u2022 Access review process needs enhancement for quarterly reviews",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 2
+              },
+              "score": 0.48332047,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.43978035,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "================================================================================\n\nExecutive Summary:\nThis access review evaluates user access controls across critical financial systems to ensure compliance with SOX 404 requirements for the quarter ending December 31, 2024.\n\nScope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 1
+              },
+              "score": 0.4191839,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.40569958,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Document Type: SOX Access Review Report\nFramework: SOX 404\nCompany: TechCorp Solutions Inc.\nPeriod: Q4 2024\nDate: 2024-12-15\nPrepared By: Sarah Johnson, Senior Auditor\nApproved By: Michael Chen, Audit Director",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 0
+              },
+              "score": 0.3919701,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.3797457,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.3744087,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting\ndocumentation attached and filed, (4) Electronic signatures captured per company policy, (5) All\nvariances exceeding $10,000 threshold investigated and documented..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 4
+              },
+              "score": 0.2688744,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "Management Review\nThe Assistant Controller reviewed and approved this reconciliation on March 31, 2024.\nAll supporting documentation has been reviewed and variance explanations validated.\nThe reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 5
+              },
+              "score": 0.2619739,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "The reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness..\nVariance Analysis\nVariance analysis confirms all differences are timing-related with no unexplained discrepancies.\nThe $34,445 net difference falls within acceptable tolerance levels and has been properly documented\nwith management approval..\nSOX Compliance Section: 302\nGenerated:",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 6
+              },
+              "score": 0.23278943,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            }
+          ],
+          "search_results": [
+            {
+              "chunk_text": "Scope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.\n\nKey Findings:\n\u2022 3 users identified with excessive privileges requiring immediate remediation\n\u2022 2 orphaned accounts found and disabled\n\u2022 Access review process needs enhancement for quarterly reviews",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 2
+              },
+              "score": 0.48332047,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "compliance purposes.\nRecommendations\nPriority\nRecommendation\nTimeline\nHigh\nRemove all inactive user accounts within 30 days\nImmediate\nHigh\nImplement formal access approval workflow\n30 days\nMedium\nReview and update segregation of duties matrix\n60 days\nMedium\nEnhance audit logging capabilities",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 7
+              },
+              "score": 0.43978035,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "================================================================================\n\nExecutive Summary:\nThis access review evaluates user access controls across critical financial systems to ensure compliance with SOX 404 requirements for the quarter ending December 31, 2024.\n\nScope:\nReview covers ERP system, financial reporting platform, and treasury management system access for Q4 2024.",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 1
+              },
+              "score": 0.4191839,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 8
+              },
+              "score": 0.40569958,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Document Type: SOX Access Review Report\nFramework: SOX 404\nCompany: TechCorp Solutions Inc.\nPeriod: Q4 2024\nDate: 2024-12-15\nPrepared By: Sarah Johnson, Senior Auditor\nApproved By: Michael Chen, Audit Director",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 0
+              },
+              "score": 0.3919701,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "deficiencies in user access management and segregation of duties represent material weaknesses that\ncould impact the reliability of financial reporting. Overall Assessment: The access control environment\nis rated as \"Needs Improvement\" with a risk level of \"Medium\" due to the identified control deficiencies.",
+              "metadata": {
+                "filename": "SOX_Access_Review_2024.pdf",
+                "display_name": "SOX_Access_Review_2024.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:45.808309",
+                "file_extension": "pdf",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "high",
+                "key_topics": [
+                  "user access controls",
+                  "segregation of duties",
+                  "access approval process",
+                  "audit logging"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 2667,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "SOX_Access_Review_2024",
+                "chunk_index": 9
+              },
+              "score": 0.3797457,
+              "document_id": "SOX_Access_Review_2024"
+            },
+            {
+              "chunk_text": "Risk Assessment:\nMedium risk level due to excessive privileges and process gaps\n\nRecommendations:\n\u2022 Implement role-based access controls (RBAC) by Q1 2025\n\u2022 Establish quarterly access review process\n\u2022 Enhance monitoring for privileged user activities\n\u2022 Update access request and approval workflows\n\nCompliance Status:\nPartially compliant",
+              "metadata": {
+                "filename": "sox_access_review_2024.txt",
+                "display_name": "sox_access_review_2024.txt",
+                "file_size": null,
+                "content_type": "text/plain",
+                "description": null,
+                "upload_timestamp": "2025-09-27T23:10:31.967011",
+                "file_extension": "txt",
+                "document_type": "access_review",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "medium",
+                "key_topics": [
+                  "user access controls",
+                  "SOX 404 compliance",
+                  "excessive privileges",
+                  "orphaned accounts",
+                  "access review process",
+                  "segregation of duties",
+                  "role-based access controls",
+                  "privileged user activities",
+                  "access request and approval workflows"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1219,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "sox_access_review_2024",
+                "chunk_index": 3
+              },
+              "score": 0.3744087,
+              "document_id": "sox_access_review_2024"
+            },
+            {
+              "chunk_text": "reconciling items, (2) Assistant Controller review and approval documented, (3) Supporting\ndocumentation attached and filed, (4) Electronic signatures captured per company policy, (5) All\nvariances exceeding $10,000 threshold investigated and documented..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 4
+              },
+              "score": 0.2688744,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "Management Review\nThe Assistant Controller reviewed and approved this reconciliation on March 31, 2024.\nAll supporting documentation has been reviewed and variance explanations validated.\nThe reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness..",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 5
+              },
+              "score": 0.2619739,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            },
+            {
+              "chunk_text": "The reconciliation meets SOX 302 requirements for financial reporting accuracy and completeness..\nVariance Analysis\nVariance analysis confirms all differences are timing-related with no unexplained discrepancies.\nThe $34,445 net difference falls within acceptable tolerance levels and has been properly documented\nwith management approval..\nSOX Compliance Section: 302\nGenerated:",
+              "metadata": {
+                "filename": "amazon_financial_reconciliation_20250804.pdf",
+                "display_name": "amazon_financial_reconciliation_20250804.pdf",
+                "file_size": null,
+                "content_type": "application/pdf",
+                "description": null,
+                "upload_timestamp": "2025-09-27T22:54:50.622103",
+                "file_extension": "pdf",
+                "document_type": "financial_controls",
+                "quality_level": "medium",
+                "company": "unknown",
+                "sox_control_ids": [],
+                "compliance_framework": "SOX",
+                "created_by": "system",
+                "compliance_frameworks": [
+                  "SOX"
+                ],
+                "risk_level": "low",
+                "key_topics": [
+                  "Bank Reconciliation",
+                  "SOX Controls",
+                  "Variance Analysis",
+                  "Reconciling Items Analysis",
+                  "Outstanding Items"
+                ],
+                "classification_confidence": 0.6,
+                "classification_metadata": {
+                  "analysis_timestamp": "2024-01-15",
+                  "content_length": 1954,
+                  "raw_confidence": 0.95,
+                  "confidence_adjustment": "applied"
+                },
+                "document_id": "amazon_financial_reconciliation_20250804",
+                "chunk_index": 6
+              },
+              "score": 0.23278943,
+              "document_id": "amazon_financial_reconciliation_20250804"
+            }
+          ],
+          "result_count": 10,
+          "retrieval_method": "semantic",
+          "retrieval_strategy": "semantic",
+          "retrieval_status": "completed"
+        },
+        "classifications": [
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "ERP system access",
+              "financial reporting platform access",
+              "treasury management system access",
+              "excessive privileges",
+              "orphaned accounts",
+              "access review process enhancement"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 312,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.6,
+            "compliance_frameworks": [
+              "other"
+            ],
+            "risk_level": "high",
+            "key_topics": [
+              "inactive user accounts",
+              "access approval workflow",
+              "segregation of duties",
+              "audit logging"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 292,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          },
+          {
+            "document_type": "access_review",
+            "confidence": 0.4,
+            "compliance_frameworks": [
+              "SOX"
+            ],
+            "risk_level": "medium",
+            "key_topics": [
+              "user access controls",
+              "financial systems",
+              "SOX 404 requirements",
+              "ERP system",
+              "financial reporting platform",
+              "treasury management system"
+            ],
+            "metadata": {
+              "analysis_timestamp": "2024-01-15",
+              "content_length": 388,
+              "raw_confidence": 0.95,
+              "confidence_adjustment": "applied"
+            }
+          }
+        ]
+      },
+      "synthesis_result": {
+        "question": "Are there any terminated employee access concerns?",
+        "response": "Response: Based on our analysis of the document (sox_access_review_2024), there are indeed concerns related to terminated employee access. The document reveals that there were two orphaned accounts identified, which have since been disabled. These accounts represent a potential security risk as they could have been used by former employees or unauthorized individuals. \n\nKey Findings:\n- The document identifies three users with excessive privileges that require immediate remediation.\n- Two orphaned accounts were found and disabled, indicating a potential gap in the process of revoking access for terminated employees.\n\nCompliance Impact: \nThese findings indicate non-compliance with SOX 404 requirements, specifically in the area of access control.\n\nRecommended Actions:\n- Implement a formal process to ensure timely revocation of access rights for terminated employees.\n- Enhance the quarterly access review process to better identify and manage excessive privileges and orphaned accounts.\n- Follow the document's high-priority recommendation to remove all inactive user accounts within 30 days.",
+        "compliance_insights": {
+          "sox_404_related": true
+        },
+        "sources_used": 10,
+        "regulatory_context_used": true,
+        "synthesis_status": "completed"
+      },
+      "quality_scores": {
+        "professional_tone": 1.0,
+        "citation_accuracy": 0.6,
+        "response_completeness": 1.0,
+        "structured_format": 1.0,
+        "audit_terminology": 1.0,
+        "overall_quality": 0.9
+      },
+      "errors": [],
+      "execution_time_ms": 14029.125690460205
+    }
+  ],
+  "performance_analysis": {
+    "total_queries": 8,
+    "successful_queries": 8,
+    "success_rate": 1.0,
+    "quality_metrics": {
+      "professional_tone": 0.8333333333333334,
+      "citation_accuracy": 0.9,
+      "response_completeness": 0.95,
+      "structured_format": 1.0,
+      "audit_terminology": 1.0,
+      "overall_quality": 0.9233333333333333
+    },
+    "average_execution_time_ms": 12910.58698296547,
+    "meets_quality_targets": true
+  },
+  "quality_assessment": {
+    "assessment": "comprehensive_analysis",
+    "quality_metrics": {
+      "professional_tone": {
+        "average": 0.8333333333333334,
+        "target": 0.8,
+        "meets_target": true,
+        "gap": 0
+      },
+      "citation_accuracy": {
+        "average": 0.9,
+        "target": 0.9,
+        "meets_target": true,
+        "gap": 0
+      },
+      "response_completeness": {
+        "average": 0.95,
+        "target": 0.85,
+        "meets_target": true,
+        "gap": 0
+      },
+      "structured_format": {
+        "average": 1.0,
+        "target": 0.9,
+        "meets_target": true,
+        "gap": 0
+      },
+      "audit_terminology": {
+        "average": 1.0,
+        "target": 0.85,
+        "meets_target": true,
+        "gap": 0
+      },
+      "overall_quality": {
+        "average": 0.9233333333333333,
+        "target": 0.85,
+        "meets_target": true,
+        "gap": 0
+      }
+    },
+    "overall_assessment": "meets_targets"
+  },
+  "improvement_recommendations": []
+}

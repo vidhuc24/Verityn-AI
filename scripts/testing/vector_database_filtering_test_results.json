@@ -1,0 +1,417 @@
+{
+  "test_timestamp": 1759027787.400373,
+  "filter_tests": {
+    "test_1": {
+      "filter": {
+        "compliance_framework": "SOX"
+      },
+      "expected_min": 1,
+      "actual_count": 9,
+      "success": true,
+      "execution_time_ms": 548.2487678527832,
+      "sample_results": [
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3972243,
+          "metadata_subset": {
+            "compliance_framework": "SOX"
+          }
+        },
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3824135,
+          "metadata_subset": {
+            "compliance_framework": "SOX"
+          }
+        }
+      ]
+    },
+    "test_2": {
+      "filter": {
+        "document_type": "access_review"
+      },
+      "expected_min": 1,
+      "actual_count": 3,
+      "success": true,
+      "execution_time_ms": 566.2899017333984,
+      "sample_results": [
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3972243,
+          "metadata_subset": {
+            "document_type": "access_review"
+          }
+        },
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3824135,
+          "metadata_subset": {
+            "document_type": "access_review"
+          }
+        }
+      ]
+    },
+    "test_3": {
+      "filter": {
+        "risk_level": "low"
+      },
+      "expected_min": 1,
+      "actual_count": 7,
+      "success": true,
+      "execution_time_ms": 424.468994140625,
+      "sample_results": [
+        {
+          "document_id": "amazon_financial_reconciliation_20250804",
+          "score": 0.3591407,
+          "metadata_subset": {
+            "risk_level": "low"
+          }
+        },
+        {
+          "document_id": "amazon_financial_reconciliation_20250804",
+          "score": 0.3391473,
+          "metadata_subset": {
+            "risk_level": "low"
+          }
+        }
+      ]
+    },
+    "test_4": {
+      "filter": {
+        "company": "AnotherCorp"
+      },
+      "expected_min": 1,
+      "actual_count": 1,
+      "success": true,
+      "execution_time_ms": 511.5199089050293,
+      "sample_results": [
+        {
+          "document_id": "filter_test_doc_3",
+          "score": 0.33398992,
+          "metadata_subset": {
+            "company": "AnotherCorp"
+          }
+        }
+      ]
+    },
+    "test_5": {
+      "filter": {
+        "compliance_framework": [
+          "SOX"
+        ]
+      },
+      "expected_min": 2,
+      "actual_count": 9,
+      "success": true,
+      "execution_time_ms": 289.1249656677246,
+      "sample_results": [
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3972243,
+          "metadata_subset": {
+            "compliance_framework": "SOX"
+          }
+        },
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3824135,
+          "metadata_subset": {
+            "compliance_framework": "SOX"
+          }
+        }
+      ]
+    },
+    "test_6": {
+      "filter": {
+        "compliance_frameworks": [
+          "SOX"
+        ]
+      },
+      "expected_min": 2,
+      "actual_count": 9,
+      "success": true,
+      "execution_time_ms": 188.17400932312012,
+      "sample_results": [
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3972243,
+          "metadata_subset": {
+            "compliance_frameworks": [
+              "SOX"
+            ]
+          }
+        },
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3824135,
+          "metadata_subset": {
+            "compliance_frameworks": [
+              "SOX"
+            ]
+          }
+        }
+      ]
+    },
+    "test_7": {
+      "filter": {
+        "document_type": [
+          "access_review",
+          "financial_controls"
+        ]
+      },
+      "expected_min": 2,
+      "actual_count": 9,
+      "success": true,
+      "execution_time_ms": 163.4688377380371,
+      "sample_results": [
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3972243,
+          "metadata_subset": {
+            "document_type": "access_review"
+          }
+        },
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3824135,
+          "metadata_subset": {
+            "document_type": "access_review"
+          }
+        }
+      ]
+    },
+    "test_8": {
+      "filter": {
+        "compliance_frameworks": [
+          "SOX",
+          "ISO27001"
+        ]
+      },
+      "expected_min": 3,
+      "actual_count": 9,
+      "success": true,
+      "execution_time_ms": 176.04899406433105,
+      "sample_results": [
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3972243,
+          "metadata_subset": {
+            "compliance_frameworks": [
+              "SOX"
+            ]
+          }
+        },
+        {
+          "document_id": "SOX_Access_Review_2024",
+          "score": 0.3824135,
+          "metadata_subset": {
+            "compliance_frameworks": [
+              "SOX"
+            ]
+          }
+        }
+      ]
+    },
+    "test_9": {
+      "filter": {
+        "compliance_framework": "ISO27001",
+        "risk_level": "low"
+      },
+      "expected_min": 1,
+      "actual_count": 1,
+      "success": true,
+      "execution_time_ms": 219.8798656463623,
+      "sample_results": [
+        {
+          "document_id": "filter_test_doc_3",
+          "score": 0.33398992,
+          "metadata_subset": {
+            "compliance_framework": "ISO27001",
+            "risk_level": "low"
+          }
+        }
+      ]
+    },
+    "test_10": {
+      "filter": {
+        "document_type": "risk_assessment",
+        "company": "AnotherCorp"
+      },
+      "expected_min": 1,
+      "actual_count": 1,
+      "success": true,
+      "execution_time_ms": 194.2892074584961,
+      "sample_results": [
+        {
+          "document_id": "filter_test_doc_3",
+          "score": 0.33398992,
+          "metadata_subset": {
+            "document_type": "risk_assessment",
+            "company": "AnotherCorp"
+          }
+        }
+      ]
+    },
+    "test_11": {
+      "filter": {
+        "compliance_framework": "NonExistent"
+      },
+      "expected_min": 0,
+      "actual_count": 0,
+      "success": true,
+      "execution_time_ms": 210.09325981140137,
+      "sample_results": []
+    },
+    "test_12": {
+      "filter": {
+        "document_type": "unknown_type"
+      },
+      "expected_min": 0,
+      "actual_count": 0,
+      "success": true,
+      "execution_time_ms": 177.18219757080078,
+      "sample_results": []
+    }
+  },
+  "performance_metrics": {
+    "simple_string_filter": {
+      "filters": {
+        "compliance_framework": "SOX"
+      },
+      "avg_time_ms": 250.03561973571777,
+      "min_time_ms": 188.47012519836426,
+      "max_time_ms": 324.0048885345459,
+      "iterations": 5
+    },
+    "multi_value_list_filter": {
+      "filters": {
+        "compliance_frameworks": [
+          "SOX",
+          "SOC2",
+          "ISO27001"
+        ]
+      },
+      "avg_time_ms": 224.8856544494629,
+      "min_time_ms": 143.69821548461914,
+      "max_time_ms": 409.69014167785645,
+      "iterations": 5
+    },
+    "multi_field_filter": {
+      "filters": {
+        "compliance_framework": "ISO27001",
+        "document_type": "risk_assessment",
+        "risk_level": "low"
+      },
+      "avg_time_ms": 209.61122512817383,
+      "min_time_ms": 157.93633460998535,
+      "max_time_ms": 264.44172859191895,
+      "iterations": 5
+    }
+  },
+  "regression_tests": {
+    "regression_test_1": {
+      "query": "What are the key findings from the access review?",
+      "filters": {
+        "compliance_framework": [
+          "SOX"
+        ]
+      },
+      "filtered_count": 5,
+      "unfiltered_count": 5,
+      "regression_detected": false,
+      "success": true
+    },
+    "regression_test_2": {
+      "query": "compliance framework SOX",
+      "filters": {
+        "compliance_frameworks": [
+          "SOX"
+        ]
+      },
+      "filtered_count": 5,
+      "unfiltered_count": 5,
+      "regression_detected": false,
+      "success": true
+    },
+    "regression_test_3": {
+      "query": "document type access review",
+      "filters": {
+        "document_type": "access_review"
+      },
+      "filtered_count": 3,
+      "unfiltered_count": 5,
+      "regression_detected": false,
+      "success": true
+    },
+    "regression_test_4": {
+      "query": "risk assessment",
+      "filters": {
+        "document_type": "risk_assessment"
+      },
+      "filtered_count": 1,
+      "unfiltered_count": 5,
+      "regression_detected": false,
+      "success": true
+    }
+  },
+  "edge_cases": {
+    "empty_filters": {
+      "filters": {},
+      "success": true,
+      "result_count": 5,
+      "error": null
+    },
+    "none_value_filter": {
+      "filters": {
+        "compliance_framework": null
+      },
+      "success": true,
+      "result_count": 0,
+      "error": null
+    },
+    "empty_string_filter": {
+      "filters": {
+        "compliance_framework": ""
+      },
+      "success": true,
+      "result_count": 0,
+      "error": null
+    },
+    "empty_list_filter": {
+      "filters": {
+        "compliance_frameworks": []
+      },
+      "success": true,
+      "result_count": 0,
+      "error": null
+    },
+    "non_existent_field": {
+      "filters": {
+        "non_existent_field": "value"
+      },
+      "success": true,
+      "result_count": 0,
+      "error": null
+    },
+    "very_long_value": {
+      "filters": {
+        "compliance_framework": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "success": true,
+      "result_count": 0,
+      "error": null
+    },
+    "special_characters": {
+      "filters": {
+        "compliance_framework": "SOX & ISO27001"
+      },
+      "success": true,
+      "result_count": 0,
+      "error": null
+    }
+  },
+  "overall_success": true,
+  "success_rate": 1.0,
+  "passed_tests": 23,
+  "total_tests": 23
+}
