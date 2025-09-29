@@ -1,0 +1,196 @@
+{
+  "chunking_analysis": {
+    "small_chunks": {
+      "config": {
+        "chunk_size": 200,
+        "chunk_overlap": 50
+      },
+      "documents": {
+        "sox_access_review_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_risk_assessment_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_financial_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_internal_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        }
+      },
+      "summary": {
+        "status": "no_successful_documents"
+      }
+    },
+    "medium_chunks": {
+      "config": {
+        "chunk_size": 500,
+        "chunk_overlap": 100
+      },
+      "documents": {
+        "sox_access_review_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_risk_assessment_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_financial_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_internal_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        }
+      },
+      "summary": {
+        "status": "no_successful_documents"
+      }
+    },
+    "large_chunks": {
+      "config": {
+        "chunk_size": 1000,
+        "chunk_overlap": 200
+      },
+      "documents": {
+        "sox_access_review_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_risk_assessment_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_financial_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_internal_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        }
+      },
+      "summary": {
+        "status": "no_successful_documents"
+      }
+    },
+    "no_overlap": {
+      "config": {
+        "chunk_size": 500,
+        "chunk_overlap": 0
+      },
+      "documents": {
+        "sox_access_review_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_risk_assessment_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_financial_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_internal_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        }
+      },
+      "summary": {
+        "status": "no_successful_documents"
+      }
+    },
+    "high_overlap": {
+      "config": {
+        "chunk_size": 500,
+        "chunk_overlap": 250
+      },
+      "documents": {
+        "sox_access_review_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_risk_assessment_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_financial_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        },
+        "sox_internal_controls_2024.txt": {
+          "status": "error",
+          "error": "'str' object has no attribute 'page_content'"
+        }
+      },
+      "summary": {
+        "status": "no_successful_documents"
+      }
+    }
+  },
+  "embedding_analysis": {
+    "queries": {
+      "What are the key findings from the access review?": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "SOX compliance requirements": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "material weaknesses": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "internal controls assessment": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "risk management procedures": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "financial reporting controls": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "audit findings and recommendations": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      },
+      "control deficiencies identified": {
+        "query_embedding_shape": null,
+        "score_analysis": {
+          "error": "'dict' object has no attribute 'score'"
+        }
+      }
+    },
+    "score_distribution": {},
+    "sample_embeddings": {
+      "error": "'dict' object has no attribute 'score'"
+    }
+  },
+  "recommendations": []
+}

@@ -337,69 +337,102 @@ class ContextRetrievalAgent(BaseAgent):
         try:
             question = input_data.get("question", "")
             analysis = input_data.get("analysis", {})
-            
+
             # Extract search parameters from analysis
             search_keywords = analysis.get("search_keywords", [question])
             required_frameworks = analysis.get("compliance_frameworks", ["SOX"])
             complexity = analysis.get("complexity", "intermediate")
-            
+
+            # Use original question as primary search query, not keyword fragments
+            search_query = question  # Use full question instead of split keywords
+
             # Determine retrieval strategy based on complexity and query type
             retrieval_strategy = self._determine_retrieval_strategy(question, complexity, analysis)
-            
-            # Perform advanced retrieval
-            if retrieval_strategy == "hybrid":
-                search_results = await advanced_retrieval_service.hybrid_search(
-                    query=" ".join(search_keywords),
-                    limit=10,
-                    filters={"compliance_framework": required_frameworks},
-                    semantic_weight=0.7,
-                    keyword_weight=0.3
-                )
-                retrieval_method = "hybrid"
-                
-            elif retrieval_strategy == "query_expansion":
-                search_results = await advanced_retrieval_service.query_expansion_search(
-                    query=" ".join(search_keywords),
-                    limit=10,
-                    expansion_terms=required_frameworks
-                )
-                retrieval_method = "query_expansion"
-                
-            elif retrieval_strategy == "multi_hop":
-                search_results = await advanced_retrieval_service.multi_hop_retrieval(
-                    query=" ".join(search_keywords),
-                    limit=10,
-                    max_hops=2
-                )
-                retrieval_method = "multi_hop"
-                
-            elif retrieval_strategy == "ensemble":
-                search_results = await advanced_retrieval_service.ensemble_retrieval(
-                    query=" ".join(search_keywords),
-                    limit=10
-                )
-                retrieval_method = "ensemble"
-                
-            else:
-                # Fallback to basic semantic search
+
+            logger.info(f"Context Retrieval - Query: '{search_query}', Strategy: {retrieval_strategy}")
+
+            search_results = []
+            retrieval_method = "semantic"  # Default fallback
+
+            try:
+                # Try advanced retrieval strategies first
+                if retrieval_strategy == "hybrid":
+                    # Build proper filters based on actual metadata structure
+                    proper_filters = self._build_proper_filters(required_frameworks)
+                    search_results = await advanced_retrieval_service.hybrid_search(
+                        query=search_query,
+                        limit=10,
+                        filters=proper_filters,
+                        semantic_weight=0.7,
+                        keyword_weight=0.3
+                    )
+                    retrieval_method = "hybrid"
+
+                elif retrieval_strategy == "query_expansion":
+                    search_results = await advanced_retrieval_service.query_expansion_search(
+                        query=search_query,
+                        limit=10,
+                        expansion_terms=required_frameworks
+                    )
+                    retrieval_method = "query_expansion"
+
+                elif retrieval_strategy == "multi_hop":
+                    search_results = await advanced_retrieval_service.multi_hop_retrieval(
+                        query=search_query,
+                        limit=10,
+                        max_hops=2
+                    )
+                    retrieval_method = "multi_hop"
+
+                elif retrieval_strategy == "ensemble":
+                    search_results = await advanced_retrieval_service.ensemble_retrieval(
+                        query=search_query,
+                        limit=10
+                    )
+                    retrieval_method = "ensemble"
+
+                else:
+                    # Use basic semantic search as fallback
+                    proper_filters = self._build_proper_filters(required_frameworks)
                 search_results = await self.vector_db.semantic_search(
-                    query_text=" ".join(search_keywords),
+                    query_text=search_query,
                     limit=10,
-                    score_threshold=0.0  # Use 0.0 to get results, let filtering handle relevance
+                    score_threshold=0.1,
+                    filters=proper_filters
                 )
                 retrieval_method = "semantic"
-            
-            # Filter results based on compliance frameworks if needed
-            filtered_results = []
-            for result in search_results:
-                metadata = result.get("metadata", {})
-                if any(framework in str(metadata) for framework in required_frameworks):
-                    filtered_results.append(result)
-            
-            # Use top results if filtering yields too few results
-            if len(filtered_results) < 3 and len(search_results) >= 3:
-                filtered_results = search_results[:5]
-            
+
+            except Exception as advanced_error:
+                logger.warning(f"Advanced retrieval failed: {str(advanced_error)}, falling back to basic search")
+                # Fallback to basic semantic search
+                try:
+                    proper_filters = self._build_proper_filters(required_frameworks)
+                    search_results = await self.vector_db.semantic_search(
+                        query_text=search_query,
+                        limit=10,
+                        score_threshold=0.1,
+                        filters=proper_filters
+                    )
+                    retrieval_method = "semantic_fallback"
+                except Exception as fallback_error:
+                    logger.error(f"Basic search also failed: {str(fallback_error)}")
+                    return {
+                        "error": f"Both advanced and basic retrieval failed: {str(advanced_error)}, {str(fallback_error)}",
+                        "retrieval_status": "failed",
+                        "context": [],
+                        "search_results": []
+                    }
+
+            # Apply robust filtering based on compliance frameworks
+            filtered_results = self._filter_results_by_frameworks(search_results, required_frameworks)
+
+            # Ensure we have at least some results
+            if not filtered_results and search_results:
+                logger.warning("Framework filtering removed all results, using top results anyway")
+                filtered_results = search_results[:5]  # Use top 5 even if they don't match frameworks
+
+            logger.info(f"Context Retrieval - Found {len(filtered_results)} relevant results")
+
             return {
                 "question": question,
                 "context": filtered_results,  # Use 'context' key for integration compatibility
@@ -407,11 +440,12 @@ class ContextRetrievalAgent(BaseAgent):
                 "result_count": len(filtered_results),
                 "retrieval_method": retrieval_method,
                 "retrieval_strategy": retrieval_strategy,
+                "search_query_used": search_query,
                 "retrieval_status": "completed"
             }
-            
+
         except Exception as e:
-            logger.error(f"Advanced context retrieval failed: {str(e)}")
+            logger.error(f"Context retrieval failed: {str(e)}")
             return {
                 "error": str(e),
                 "retrieval_status": "failed",
@@ -419,26 +453,97 @@ class ContextRetrievalAgent(BaseAgent):
                 "search_results": []
             }
     
+    def _filter_results_by_frameworks(self, search_results: List[Dict], required_frameworks: List[str]) -> List[Dict]:
+        """Filter search results based on compliance frameworks with robust matching."""
+        if not required_frameworks or not search_results:
+            return search_results
+
+        filtered_results = []
+
+        for result in search_results:
+            metadata = result.get("metadata", {})
+            if not metadata:
+                continue
+
+            # Check multiple metadata fields for framework matches
+            framework_matches = []
+
+            # Check compliance_framework field (singular)
+            if "compliance_framework" in metadata:
+                framework_matches.append(str(metadata["compliance_framework"]).upper())
+
+            # Check compliance_frameworks field (plural)
+            if "compliance_frameworks" in metadata:
+                frameworks = metadata["compliance_frameworks"]
+                if isinstance(frameworks, list):
+                    framework_matches.extend([str(f).upper() for f in frameworks])
+                else:
+                    framework_matches.append(str(frameworks).upper())
+
+            # Check document_type for SOX-related documents
+            if "document_type" in metadata:
+                doc_type = str(metadata["document_type"]).lower()
+                if any(sox_term in doc_type for sox_term in ["sox", "access_review", "financial", "control"]):
+                    framework_matches.append("SOX")
+
+            # Check if any required framework matches
+            for required_framework in required_frameworks:
+                required_upper = str(required_framework).upper()
+                if any(required_upper in match for match in framework_matches):
+                    filtered_results.append(result)
+                    break
+
+        logger.info(f"Framework filtering: {len(search_results)} -> {len(filtered_results)} results")
+        return filtered_results
+
+    def _build_proper_filters(self, required_frameworks: List[str]) -> Dict[str, Any]:
+        """Build proper filters that match the actual metadata structure."""
+        # Based on our investigation, the metadata has these fields:
+        # - compliance_frameworks (plural array)
+        # - compliance_framework (singular string)
+        # - document_type (can contain SOX-related terms)
+
+        filters = {}
+
+        if required_frameworks:
+            # Check both compliance_frameworks (array) and compliance_framework (string)
+            framework_filters = []
+
+            for framework in required_frameworks:
+                framework_upper = str(framework).upper()
+                framework_filters.append(framework_upper)
+
+            # Also check for SOX in document_type
+            if any("SOX" in str(f) for f in required_frameworks):
+                filters["document_type"] = ["access_review", "financial", "control", "sox"]
+
+            # Set the compliance framework filters
+            if framework_filters:
+                filters["compliance_frameworks"] = framework_filters
+                filters["compliance_framework"] = framework_filters  # Also check singular form
+
+        return filters
+
     def _determine_retrieval_strategy(self, question: str, complexity: str, analysis: Dict) -> str:
         """Determine the best retrieval strategy based on question characteristics."""
         question_lower = question.lower()
-        
+
         # Multi-hop for complex questions requiring multiple document references
         if complexity == "advanced" and any(term in question_lower for term in ["compare", "relationship", "connection", "across"]):
             return "multi_hop"
-        
+
         # Query expansion for compliance-specific questions
         if any(term in question_lower for term in ["SOX", "compliance", "material weakness", "controls"]):
             return "query_expansion"
-        
+
         # Hybrid for questions with specific terminology
         if any(term in question_lower for term in ["access review", "financial reconciliation", "risk assessment"]):
             return "hybrid"
-        
+
         # Ensemble for general questions
         if complexity == "intermediate":
             return "ensemble"
-        
+
         # Default to semantic search
         return "semantic"
 
@@ -458,55 +563,69 @@ class ResponseSynthesisAgent(BaseAgent):
         """Initialize response synthesis components."""
         self.synthesis_prompt = ChatPromptTemplate.from_template("""
         You are a Senior Audit Professional providing expert analysis on compliance and audit matters.
-        
-        RESPONSE LENGTH REQUIREMENTS:
-        - Keep responses CONCISE and FOCUSED (200-500 words maximum, 300-800 characters total)
-        - Prioritize key findings and actionable insights
-        - Avoid unnecessary elaboration or repetitive content
-        - Use bullet points and short paragraphs for readability
-        
+
+        RESPONSE ADAPTATION REQUIREMENTS:
+        - ADAPT response format based on question complexity and context availability
+        - For SIMPLE/FACTUAL questions: Provide direct, concise answers without heavy formatting
+        - For COMPLEX/ANALYTICAL questions: Use structured format with sections
+        - For FOLLOW-UP questions: Keep responses focused and avoid repeating previous structure
+        - Always prioritize CLARITY and RELEVANCE over comprehensiveness
+
         PROFESSIONAL TONE REQUIREMENTS:
         - Use authoritative audit language: "Based on our analysis", "The assessment reveals", "Findings indicate"
-        - Include specific compliance terminology and control references
+        - Include specific compliance terminology and control references when relevant
         - Maintain formal, professional audit communication style
         - Use precise, technical language appropriate for audit professionals
-        
-        Based on the retrieved context, provide a focused response to the user's question.
-        Your response should be:
-        1. CONCISE and directly address the question
-        2. Use professional audit language and terminology
-        3. Backed by specific evidence from the documents
-        4. Include relevant compliance insights
-        5. Formatted for easy scanning and readability
-        
+
         Question: {question}
-        
+        Question Intent: {intent}
+        Question Complexity: {complexity}
+        Context Count: {context_count}
+        Is Follow-up: {is_followup}
+
         Retrieved Context:
         {context}
-        
+
         Document Classifications:
         {classifications}
-        
+
         **Latest Regulatory Context:**
         {regulatory_context}
-        
+
         **CRITICAL SOURCE REFERENCE RULES FOR SINGLE-DOCUMENT CHAT**:
-        - This is a single-document analysis - refer to "the document" or "this document" 
+        - This is a single-document analysis - refer to "the document" or "this document"
         - Use EXACT Document Name from context when citing: "sox_access_review_2024.txt" or "SOX_Access_Review_2024.pdf"
-        - Reference format: "the document (sox_access_review_2024.txt)" or specific sections like "Section 3 of sox_access_review_2024.txt"
+        - Reference format: "the document (sox_access_review_2024.txt)" or specific sections
         - Do NOT use plural "documents" - this is single-document analysis
-        - Do NOT use generic references like "Document 1" or "Document 2"
         - If no document context is provided, clearly state "No document context was provided for analysis"
-        
-        **RESPONSE FORMAT** (Keep each section concise and focused):
-        
-        **Response:** [Direct, professional answer with document evidence - 1-2 short paragraphs maximum]
-        
-        **Key Findings:** [Bullet points of critical findings - 2-3 items maximum]
-        
-        **Compliance Impact:** [Brief compliance assessment - 1 sentence]
-        
-        **Recommended Actions:** [Specific next steps - 2-3 bullet points maximum]
+
+        **ADAPTIVE RESPONSE FORMATS**:
+
+        FOR SIMPLE/FACTUAL QUESTIONS (basic complexity, information_retrieval intent):
+        - Provide DIRECT answer in 1-2 sentences
+        - Include brief evidence reference if needed
+        - Skip formal sections unless critical information requires structure
+
+        FOR COMPLEX/ANALYTICAL QUESTIONS (intermediate/advanced complexity):
+        - Use structured format with relevant sections
+        - Include Key Findings, Compliance Impact, and Recommended Actions only when substantial analysis is needed
+
+        FOR FOLLOW-UP/CLARIFICATION QUESTIONS (is_followup = "Yes"):
+        - Provide DIRECT, concise answers (1-2 sentences maximum)
+        - Reference the specific aspect being clarified
+        - Avoid repeating previous structure or comprehensive formatting
+        - Focus only on the clarification requested
+
+        FOR SIMPLE/FACTUAL QUESTIONS (basic complexity, information_retrieval intent):
+        - Provide DIRECT answer in 1-2 sentences
+        - Include brief evidence reference if needed
+        - Skip formal sections unless critical information requires structure
+
+        FOR COMPLEX/ANALYTICAL QUESTIONS (intermediate/advanced complexity):
+        - Use structured format with relevant sections
+        - Include Key Findings, Compliance Impact, and Recommended Actions only when substantial analysis is needed
+
+        **Response:** [Adaptive response based on question type, complexity, and follow-up status]
         """)
     
     async def _execute_logic(self, context) -> Dict[str, Any]:
@@ -548,14 +667,30 @@ class ResponseSynthesisAgent(BaseAgent):
             if not regulatory_context:
                 regulatory_context = await self._get_regulatory_context(question, classifications)
             
-            # Synthesize response
+            # Extract question analysis for adaptive formatting
+            intent = analysis.get("intent", "unknown")
+            complexity = analysis.get("complexity", "intermediate")
+            context_count = len(search_results)
+
+            # Check for follow-up indicators
+            conversation_history = input_data.get("conversation_history", [])
+            is_followup = (
+                len(conversation_history) > 0 or
+                any(term in question.lower() for term in ["elaborate", "explain", "clarify", "previous", "before", "follow-up", "what about", "regarding", "concerning"])
+            )
+
+            # Synthesize response with adaptive formatting
             messages = [
-                SystemMessage(content="You are a senior audit professional with expertise in SOX compliance. Only reference actual documents provided in the context."),
+                SystemMessage(content="You are a senior audit professional with expertise in SOX compliance. Adapt your response format based on question complexity, context availability, and whether this is a follow-up question. Only reference actual documents provided in the context."),
                 HumanMessage(content=self.synthesis_prompt.format(
                     question=question,
+                    intent=intent,
+                    complexity=complexity,
+                    context_count=context_count,
                     context=context_text,
                     classifications=classifications_text,
-                    regulatory_context=regulatory_context
+                    regulatory_context=regulatory_context,
+                    is_followup="Yes" if is_followup else "No"
                 ))
             ]
             

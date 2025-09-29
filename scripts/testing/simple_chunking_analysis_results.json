@@ -1,0 +1,60 @@
+{
+  "current_analysis": {
+    "chunking_analysis": {},
+    "similarity_analysis": {
+      "What are the key findings from the access review?": {
+        "error": "'dict' object has no attribute 'score'"
+      },
+      "SOX compliance requirements": {
+        "error": "'dict' object has no attribute 'score'"
+      },
+      "material weaknesses": {
+        "error": "'dict' object has no attribute 'score'"
+      },
+      "internal controls assessment": {
+        "error": "'dict' object has no attribute 'score'"
+      },
+      "risk management procedures": {
+        "error": "'dict' object has no attribute 'score'"
+      }
+    },
+    "sample_chunks": {
+      "error": "'dict' object has no attribute 'score'"
+    },
+    "recommendations": []
+  },
+  "chunk_size_tests": {
+    "size_200_overlap_20": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_200_overlap_40": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_200_overlap_60": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_500_overlap_50": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_500_overlap_100": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_500_overlap_150": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_1000_overlap_100": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_1000_overlap_200": {
+      "error": "'str' object has no attribute 'page_content'"
+    },
+    "size_1000_overlap_300": {
+      "error": "'str' object has no attribute 'page_content'"
+    }
+  },
+  "summary": {
+    "similarity_score_issues": [],
+    "chunking_issues": [],
+    "recommendations": []
+  }
+}

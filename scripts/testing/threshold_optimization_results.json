@@ -1,5 +1,5 @@
 {
-  "test_timestamp": 1759028061.003011,
+  "test_timestamp": 1759095218.72033,
   "thresholds_tested": [
     0.0,
     0.05,
@@ -37,7 +37,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 515.8970355987549
+          "execution_time_ms": 874.1190433502197
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -49,28 +49,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 1329.0810585021973
+          "execution_time_ms": 2975.5218029022217
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
-            0.44711155,
-            0.44423747,
-            0.37359494,
-            0.34196338
+            0.4471832,
+            0.44429657,
+            0.37360412,
+            0.3419677,
+            0.2845006
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.41125765999999997,
+          "min_score": 0.2845006,
           "max_score": 0.5313848,
-          "execution_time_ms": 569.4618225097656
+          "execution_time_ms": 1870.1021671295166
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -80,16 +80,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 195.23286819458008
+          "execution_time_ms": 237.5330924987793
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -99,12 +100,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 203.15790176391602
+          "execution_time_ms": 619.5509433746338
         },
         {
           "query": "How effective are the current internal controls?",
@@ -120,11 +122,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 377.69031524658203
+          "execution_time_ms": 1157.7510833740234
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -134,16 +136,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 194.57602500915527
+          "execution_time_ms": 670.612096786499
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -153,25 +156,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 216.9351577758789
+          "execution_time_ms": 204.26487922668457
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.35091476877192984,
+        "median": 0.3419677,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "std_dev": 0.11376278501350873
       },
-      "performance_ms": 450.25402307510376
+      "performance_ms": 1076.1818885803223
     },
     "0.05": {
       "threshold": 0.05,
@@ -186,7 +190,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.2548694610595703
+          "execution_time_ms": 0.5428791046142578
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -198,28 +202,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 1270.9622383117676
+          "execution_time_ms": 2872.2100257873535
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112396328571429,
+          "min_score": 0.28451866,
           "max_score": 0.5313848,
-          "execution_time_ms": 478.13868522644043
+          "execution_time_ms": 922.2249984741211
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -229,31 +233,33 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 371.3107109069824
+          "execution_time_ms": 217.93532371520996
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.47529164,
-            0.37925723,
-            0.3181171,
-            0.30703524,
-            0.29339078,
-            0.29090455,
-            0.27316672,
-            0.24143404,
-            0.15862778
+            0.47531536,
+            0.37927306,
+            0.3181604,
+            0.30704722,
+            0.29339504,
+            0.29091245,
+            0.27319267,
+            0.24146539,
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.30413612,
-          "min_score": 0.15862778,
-          "max_score": 0.47529164,
-          "execution_time_ms": 376.223087310791
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
+          "max_score": 0.47531536,
+          "execution_time_ms": 204.13994789123535
         },
         {
           "query": "How effective are the current internal controls?",
@@ -269,11 +275,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 614.954948425293
+          "execution_time_ms": 521.3658809661865
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -283,16 +289,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 330.873966217041
+          "execution_time_ms": 402.74715423583984
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -302,25 +309,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 402.6639461517334
+          "execution_time_ms": 165.543794631958
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680138758490566,
-        "median": 0.35877165,
-        "min": 0.15862778,
+        "count": 57,
+        "mean": 0.3509125549122807,
+        "median": 0.34196338,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767586777791478
+        "std_dev": 0.11376062178455207
       },
-      "performance_ms": 480.67280650138855
+      "performance_ms": 663.3387506008148
     },
     "0.1": {
       "threshold": 0.1,
@@ -335,7 +343,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.26106834411621094
+          "execution_time_ms": 0.1881122589111328
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -347,28 +355,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 1325.8469104766846
+          "execution_time_ms": 869.8608875274658
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
-            0.44711155,
-            0.44423747,
-            0.37359494,
-            0.34196338
+            0.44714916,
+            0.444286,
+            0.37361896,
+            0.34193102,
+            0.28449115
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.41124681714285716,
+          "min_score": 0.28449115,
           "max_score": 0.5313848,
-          "execution_time_ms": 420.9458827972412
+          "execution_time_ms": 1000.9779930114746
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -378,16 +386,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 177.2921085357666
+          "execution_time_ms": 186.95688247680664
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -397,12 +406,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 212.40687370300293
+          "execution_time_ms": 592.069149017334
         },
         {
           "query": "How effective are the current internal controls?",
@@ -418,30 +428,31 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 408.86473655700684
+          "execution_time_ms": 366.73688888549805
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.54305816,
-            0.4799138,
-            0.45175633,
-            0.42545295,
-            0.39782304,
-            0.36054754,
-            0.35653502,
-            0.34766543,
-            0.29671335
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066072911111111,
-          "min_score": 0.29671335,
-          "max_score": 0.54305816,
-          "execution_time_ms": 634.7949504852295
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
+          "max_score": 0.5431092,
+          "execution_time_ms": 182.00111389160156
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -451,25 +462,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 184.57698822021484
+          "execution_time_ms": 211.60125732421875
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680137816981132,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.35091343719298246,
+        "median": 0.34193102,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10766852357477166
+        "std_dev": 0.11376231879987946
       },
-      "performance_ms": 420.62368988990784
+      "performance_ms": 426.2990355491638
     },
     "0.15": {
       "threshold": 0.15,
@@ -484,7 +496,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.1800060272216797
+          "execution_time_ms": 0.4189014434814453
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -496,28 +508,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 878.3469200134277
+          "execution_time_ms": 1103.1749248504639
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112396328571429,
+          "min_score": 0.28451866,
           "max_score": 0.5313848,
-          "execution_time_ms": 403.67913246154785
+          "execution_time_ms": 370.88513374328613
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -527,16 +539,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 167.74725914001465
+          "execution_time_ms": 178.7881851196289
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -546,12 +559,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 179.66389656066895
+          "execution_time_ms": 187.6530647277832
         },
         {
           "query": "How effective are the current internal controls?",
@@ -567,11 +581,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 419.8317527770996
+          "execution_time_ms": 549.2312908172607
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -581,16 +595,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 222.91207313537598
+          "execution_time_ms": 217.9121971130371
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -600,25 +615,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 199.99003410339355
+          "execution_time_ms": 192.15059280395508
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.3509125549122807,
+        "median": 0.34196338,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "std_dev": 0.11376062178455207
       },
-      "performance_ms": 309.04388427734375
+      "performance_ms": 350.02678632736206
     },
     "0.2": {
       "threshold": 0.2,
@@ -633,7 +649,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.12993812561035156
+          "execution_time_ms": 0.3829002380371094
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -645,28 +661,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 1051.5100955963135
+          "execution_time_ms": 1590.5308723449707
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112396328571429,
+          "min_score": 0.28451866,
           "max_score": 0.5313848,
-          "execution_time_ms": 396.87204360961914
+          "execution_time_ms": 379.5650005340576
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -676,31 +692,33 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 155.2882194519043
+          "execution_time_ms": 209.428071975708
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.47531536,
-            0.37927306,
-            0.3181604,
-            0.30704722,
-            0.29339504,
-            0.29091245,
-            0.27319267,
-            0.24146539,
-            0.15865111
+            0.475342,
+            0.37929508,
+            0.3181644,
+            0.3070889,
+            0.29344308,
+            0.29094148,
+            0.27322933,
+            0.24149211,
+            0.15867761,
+            0.14315239
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
-          "max_score": 0.47531536,
-          "execution_time_ms": 192.1708583831787
+          "avg_score": 0.288082638,
+          "min_score": 0.14315239,
+          "max_score": 0.475342,
+          "execution_time_ms": 263.599157333374
         },
         {
           "query": "How effective are the current internal controls?",
@@ -716,11 +734,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 393.38088035583496
+          "execution_time_ms": 374.2709159851074
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -730,16 +748,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 149.51181411743164
+          "execution_time_ms": 240.77677726745605
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -749,25 +768,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 149.65295791625977
+          "execution_time_ms": 253.90291213989258
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.3509166849122807,
+        "median": 0.34196338,
+        "min": 0.14315239,
         "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "std_dev": 0.11375936384209702
       },
-      "performance_ms": 311.06460094451904
+      "performance_ms": 414.05707597732544
     },
     "0.25": {
       "threshold": 0.25,
@@ -782,7 +802,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.16999244689941406
+          "execution_time_ms": 0.18525123596191406
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -794,28 +814,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 1215.9950733184814
+          "execution_time_ms": 1481.4362525939941
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112396328571429,
+          "min_score": 0.28451866,
           "max_score": 0.5313848,
-          "execution_time_ms": 391.0362720489502
+          "execution_time_ms": 357.24592208862305
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -825,16 +845,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 198.3480453491211
+          "execution_time_ms": 158.19787979125977
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -844,12 +865,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 178.98917198181152
+          "execution_time_ms": 194.89097595214844
         },
         {
           "query": "How effective are the current internal controls?",
@@ -865,30 +887,31 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 396.13890647888184
+          "execution_time_ms": 301.8639087677002
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.5431092,
-            0.47996384,
-            0.45187843,
-            0.42549002,
-            0.39779234,
-            0.3605057,
-            0.35655785,
-            0.34769285,
-            0.296668
+            0.54305816,
+            0.4799138,
+            0.45175633,
+            0.42545295,
+            0.39782304,
+            0.36054754,
+            0.35653502,
+            0.34766543,
+            0.29671335,
+            0.23455825
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
-          "max_score": 0.5431092,
-          "execution_time_ms": 147.8593349456787
+          "avg_score": 0.389402387,
+          "min_score": 0.23455825,
+          "max_score": 0.54305816,
+          "execution_time_ms": 290.905237197876
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -898,25 +921,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 200.38986206054688
+          "execution_time_ms": 147.2797393798828
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.3509097780701754,
+        "median": 0.34196338,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "std_dev": 0.11375497044348057
       },
-      "performance_ms": 341.1158323287964
+      "performance_ms": 366.5006458759308
     },
     "0.3": {
       "threshold": 0.3,
@@ -931,40 +955,40 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.25391578674316406
+          "execution_time_ms": 0.14710426330566406
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
           "result_count": 2,
           "scores": [
-            0.5950166,
-            0.59259176
+            0.59498143,
+            0.59257597
           ],
-          "avg_score": 0.59380418,
-          "min_score": 0.59259176,
-          "max_score": 0.5950166,
-          "execution_time_ms": 1100.998878479004
+          "avg_score": 0.5937787,
+          "min_score": 0.59257597,
+          "max_score": 0.59498143,
+          "execution_time_ms": 1289.8533344268799
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112396328571429,
+          "min_score": 0.28451866,
           "max_score": 0.5313848,
-          "execution_time_ms": 407.00697898864746
+          "execution_time_ms": 368.8619136810303
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -974,16 +998,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 152.48727798461914
+          "execution_time_ms": 170.1500415802002
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -993,12 +1018,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 147.53007888793945
+          "execution_time_ms": 203.22895050048828
         },
         {
           "query": "How effective are the current internal controls?",
@@ -1014,11 +1040,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 351.1021137237549
+          "execution_time_ms": 480.0550937652588
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -1028,16 +1054,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 199.88298416137695
+          "execution_time_ms": 196.95186614990234
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -1047,25 +1074,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 152.27389335632324
+          "execution_time_ms": 189.62574005126953
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
-        "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "count": 57,
+        "mean": 0.350911660877193,
+        "median": 0.34196338,
+        "min": 0.14317827,
+        "max": 0.59498143,
+        "std_dev": 0.11375867524109562
       },
-      "performance_ms": 313.942015171051
+      "performance_ms": 362.35925555229187
     },
     "0.35": {
       "threshold": 0.35,
@@ -1080,7 +1108,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.18095970153808594
+          "execution_time_ms": 0.78582763671875
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -1092,28 +1120,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 991.6417598724365
+          "execution_time_ms": 970.8511829376221
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112396328571429,
+          "min_score": 0.28451866,
           "max_score": 0.5313848,
-          "execution_time_ms": 396.13795280456543
+          "execution_time_ms": 596.8477725982666
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -1123,16 +1151,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 209.92398262023926
+          "execution_time_ms": 513.441801071167
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -1142,12 +1171,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 180.31001091003418
+          "execution_time_ms": 172.9412078857422
         },
         {
           "query": "How effective are the current internal controls?",
@@ -1163,30 +1193,31 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 403.933048248291
+          "execution_time_ms": 520.686149597168
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.5432044,
-            0.4799675,
-            0.45190763,
-            0.42554256,
-            0.39781994,
-            0.3605828,
-            0.35655868,
-            0.34772652,
-            0.29671213
+            0.5431092,
+            0.47996384,
+            0.45187843,
+            0.42549002,
+            0.39779234,
+            0.3605057,
+            0.35655785,
+            0.34769285,
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066691288888889,
-          "min_score": 0.29671213,
-          "max_score": 0.5432044,
-          "execution_time_ms": 331.1271667480469
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
+          "max_score": 0.5431092,
+          "execution_time_ms": 362.78700828552246
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -1196,25 +1227,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 306.9620132446289
+          "execution_time_ms": 308.53724479675293
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680242824528302,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.3509125549122807,
+        "median": 0.34196338,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767703743798411
+        "std_dev": 0.11376062178455207
       },
-      "performance_ms": 352.52711176872253
+      "performance_ms": 430.85977435112
     },
     "0.4": {
       "threshold": 0.4,
@@ -1229,7 +1261,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.3619194030761719
+          "execution_time_ms": 0.2658367156982422
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -1241,28 +1273,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 1007.5139999389648
+          "execution_time_ms": 1192.4748420715332
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
             0.5313848,
-            0.4999958,
             0.45586663,
-            0.44711155,
-            0.44423747,
-            0.37359494,
-            0.34196338
+            0.44714114,
+            0.44433576,
+            0.3736217,
+            0.3418972,
+            0.28448138
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
+          "avg_score": 0.4112469442857143,
+          "min_score": 0.28448138,
           "max_score": 0.5313848,
-          "execution_time_ms": 520.427942276001
+          "execution_time_ms": 709.773063659668
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -1272,16 +1304,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 167.28758811950684
+          "execution_time_ms": 183.68196487426758
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -1291,12 +1324,13 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 168.81918907165527
+          "execution_time_ms": 190.19389152526855
         },
         {
           "query": "How effective are the current internal controls?",
@@ -1312,11 +1346,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 416.8210029602051
+          "execution_time_ms": 681.3340187072754
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -1326,16 +1360,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 207.26609230041504
+          "execution_time_ms": 324.160099029541
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -1345,25 +1380,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 181.95700645446777
+          "execution_time_ms": 286.12804412841797
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.3509134528070175,
+        "median": 0.3418972,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "std_dev": 0.1137630865706582
       },
-      "performance_ms": 333.8068425655365
+      "performance_ms": 446.00147008895874
     },
     "0.45": {
       "threshold": 0.45,
@@ -1378,7 +1414,7 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.3457069396972656
+          "execution_time_ms": 0.5857944488525391
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
@@ -1390,28 +1426,28 @@
           "avg_score": 0.59380418,
           "min_score": 0.59259176,
           "max_score": 0.5950166,
-          "execution_time_ms": 848.8767147064209
+          "execution_time_ms": 1283.6790084838867
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
-            0.5313848,
-            0.4999958,
-            0.45586663,
+            0.5313824,
+            0.4558816,
             0.44711155,
             0.44423747,
             0.37359494,
-            0.34196338
+            0.34196338,
+            0.28451866
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
-          "max_score": 0.5313848,
-          "execution_time_ms": 385.761022567749
+          "avg_score": 0.4112414285714286,
+          "min_score": 0.28451866,
+          "max_score": 0.5313824,
+          "execution_time_ms": 518.5368061065674
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -1421,16 +1457,17 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 152.83703804016113
+          "execution_time_ms": 227.59222984313965
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.47531536,
             0.37927306,
@@ -1440,32 +1477,33 @@
             0.29091245,
             0.27319267,
             0.24146539,
-            0.15865111
+            0.15865111,
+            0.14317827
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
+          "avg_score": 0.288059097,
+          "min_score": 0.14317827,
           "max_score": 0.47531536,
-          "execution_time_ms": 214.95509147644043
+          "execution_time_ms": 197.648286819458
         },
         {
           "query": "How effective are the current internal controls?",
           "result_count": 6,
           "scores": [
             0.51548797,
-            0.5135156,
+            0.5134064,
             0.48969933,
             0.45831513,
             0.44614136,
             0.42753595
           ],
-          "avg_score": 0.47511589,
+          "avg_score": 0.47509769,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 343.41883659362793
+          "execution_time_ms": 621.7348575592041
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -1475,16 +1513,17 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 223.82807731628418
+          "execution_time_ms": 209.80596542358398
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.42919177,
             0.4204721,
@@ -1494,25 +1533,26 @@
             0.26790154,
             0.26648536,
             0.25570852,
-            0.18647462
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.3162732877777778,
-          "min_score": 0.18647462,
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
           "max_score": 0.42919177,
-          "execution_time_ms": 186.56182289123535
+          "execution_time_ms": 238.1577491760254
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.3680174158490566,
-        "median": 0.35877165,
-        "min": 0.15865111,
+        "count": 57,
+        "mean": 0.35091085964912283,
+        "median": 0.34196338,
+        "min": 0.14317827,
         "max": 0.5950166,
-        "std_dev": 0.10767365173529475
+        "std_dev": 0.11375801411306581
       },
-      "performance_ms": 294.573038816452
+      "performance_ms": 412.2175872325897
     },
     "0.5": {
       "threshold": 0.5,
@@ -1527,40 +1567,40 @@
           "avg_score": 0.29534840500000004,
           "min_score": 0.18542491,
           "max_score": 0.4052719,
-          "execution_time_ms": 0.1780986785888672
+          "execution_time_ms": 0.19621849060058594
         },
         {
           "query": "Are there any SOX 404 material weaknesses?",
           "result_count": 2,
           "scores": [
-            0.5950587,
-            0.592647
+            0.5950166,
+            0.59259176
           ],
-          "avg_score": 0.59385285,
-          "min_score": 0.592647,
-          "max_score": 0.5950587,
-          "execution_time_ms": 1131.2849521636963
+          "avg_score": 0.59380418,
+          "min_score": 0.59259176,
+          "max_score": 0.5950166,
+          "execution_time_ms": 1311.9409084320068
         },
         {
           "query": "What controls need improvement?",
           "result_count": 7,
           "scores": [
-            0.5313848,
-            0.4999958,
-            0.45586663,
-            0.44711155,
-            0.44423747,
-            0.37359494,
-            0.34196338
+            0.5313672,
+            0.45584017,
+            0.4471485,
+            0.4442917,
+            0.3736298,
+            0.34196186,
+            0.2844687
           ],
-          "avg_score": 0.4420220814285714,
-          "min_score": 0.34196338,
-          "max_score": 0.5313848,
-          "execution_time_ms": 364.1090393066406
+          "avg_score": 0.41124399,
+          "min_score": 0.2844687,
+          "max_score": 0.5313672,
+          "execution_time_ms": 643.9988613128662
         },
         {
           "query": "What are the high-risk findings?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.35877165,
             0.32489252,
@@ -1570,31 +1610,33 @@
             0.26782188,
             0.25075817,
             0.21400677,
-            0.19824818
+            0.19824818,
+            0.15915188
           ],
-          "avg_score": 0.2820263822222222,
-          "min_score": 0.19824818,
+          "avg_score": 0.269738932,
+          "min_score": 0.15915188,
           "max_score": 0.35877165,
-          "execution_time_ms": 190.70792198181152
+          "execution_time_ms": 257.4450969696045
         },
         {
           "query": "What remediation actions are recommended?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.47531536,
-            0.37927306,
-            0.3181604,
-            0.30704722,
-            0.29339504,
-            0.29091245,
-            0.27319267,
-            0.24146539,
-            0.15865111
+            0.475342,
+            0.37929508,
+            0.3181644,
+            0.3070889,
+            0.29344308,
+            0.29094148,
+            0.27322933,
+            0.24149211,
+            0.15867761,
+            0.14315239
           ],
-          "avg_score": 0.3041569666666667,
-          "min_score": 0.15865111,
-          "max_score": 0.47531536,
-          "execution_time_ms": 140.52677154541016
+          "avg_score": 0.288082638,
+          "min_score": 0.14315239,
+          "max_score": 0.475342,
+          "execution_time_ms": 481.90999031066895
         },
         {
           "query": "How effective are the current internal controls?",
@@ -1610,11 +1652,11 @@
           "avg_score": 0.47511589,
           "min_score": 0.42753595,
           "max_score": 0.51548797,
-          "execution_time_ms": 344.52199935913086
+          "execution_time_ms": 355.571985244751
         },
         {
           "query": "What segregation of duties issues were identified?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
             0.5431092,
             0.47996384,
@@ -1624,167 +1666,169 @@
             0.3605057,
             0.35655785,
             0.34769285,
-            0.296668
+            0.296668,
+            0.23452392
           ],
-          "avg_score": 0.4066286922222222,
-          "min_score": 0.296668,
+          "avg_score": 0.389418215,
+          "min_score": 0.23452392,
           "max_score": 0.5431092,
-          "execution_time_ms": 180.1741123199463
+          "execution_time_ms": 250.48494338989258
         },
         {
           "query": "Are there any terminated employee access concerns?",
-          "result_count": 9,
+          "result_count": 10,
           "scores": [
-            0.4292478,
-            0.42051056,
-            0.3879601,
-            0.32876474,
-            0.30354506,
-            0.26787362,
-            0.26645786,
-            0.25566262,
-            0.18649393
+            0.42919177,
+            0.4204721,
+            0.3879146,
+            0.32877672,
+            0.30353436,
+            0.26790154,
+            0.26648536,
+            0.25570852,
+            0.18647462,
+            0.17571566
           ],
-          "avg_score": 0.31627958777777776,
-          "min_score": 0.18649393,
-          "max_score": 0.4292478,
-          "execution_time_ms": 186.57517433166504
+          "avg_score": 0.302217525,
+          "min_score": 0.17571566,
+          "max_score": 0.42919177,
+          "execution_time_ms": 208.38189125061035
         }
       ],
-      "total_results": 53,
-      "avg_results_per_query": 6.625,
+      "total_results": 57,
+      "avg_results_per_query": 7.125,
       "score_stats": {
-        "count": 53,
-        "mean": 0.36802032226415093,
-        "median": 0.35877165,
-        "min": 0.15865111,
-        "max": 0.5950587,
-        "std_dev": 0.10767996282907395
+        "count": 57,
+        "mean": 0.35091722000000003,
+        "median": 0.34196186,
+        "min": 0.14315239,
+        "max": 0.5950166,
+        "std_dev": 0.11376042935332481
       },
-      "performance_ms": 317.2597587108612
+      "performance_ms": 438.7412369251251
     }
   },
   "score_analysis": {
     "threshold_comparison": [
       {
         "threshold": 0.0,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 450.25402307510376
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.35091476877192984,
+        "score_range": 0.45183833,
+        "performance_ms": 1076.1818885803223
       },
       {
         "threshold": 0.05,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680138758490566,
-        "score_range": 0.43638882,
-        "performance_ms": 480.67280650138855
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.3509125549122807,
+        "score_range": 0.45183833,
+        "performance_ms": 663.3387506008148
       },
       {
         "threshold": 0.1,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680137816981132,
-        "score_range": 0.43636549,
-        "performance_ms": 420.62368988990784
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.35091343719298246,
+        "score_range": 0.45183833,
+        "performance_ms": 426.2990355491638
       },
       {
         "threshold": 0.15,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 309.04388427734375
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.3509125549122807,
+        "score_range": 0.45183833,
+        "performance_ms": 350.02678632736206
       },
       {
         "threshold": 0.2,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 311.06460094451904
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.3509166849122807,
+        "score_range": 0.45186421,
+        "performance_ms": 414.05707597732544
       },
       {
         "threshold": 0.25,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 341.1158323287964
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.3509097780701754,
+        "score_range": 0.45183833,
+        "performance_ms": 366.5006458759308
       },
       {
         "threshold": 0.3,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 313.942015171051
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.350911660877193,
+        "score_range": 0.45180316000000004,
+        "performance_ms": 362.35925555229187
       },
       {
         "threshold": 0.35,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680242824528302,
-        "score_range": 0.43636549,
-        "performance_ms": 352.52711176872253
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.3509125549122807,
+        "score_range": 0.45183833,
+        "performance_ms": 430.85977435112
       },
       {
         "threshold": 0.4,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 333.8068425655365
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.3509134528070175,
+        "score_range": 0.45183833,
+        "performance_ms": 446.00147008895874
       },
       {
         "threshold": 0.45,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.3680174158490566,
-        "score_range": 0.43636549,
-        "performance_ms": 294.573038816452
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.35091085964912283,
+        "score_range": 0.45183833,
+        "performance_ms": 412.2175872325897
       },
       {
         "threshold": 0.5,
-        "avg_results": 6.625,
-        "total_results": 53,
-        "avg_score": 0.36802032226415093,
-        "score_range": 0.43640759000000007,
-        "performance_ms": 317.2597587108612
+        "avg_results": 7.125,
+        "total_results": 57,
+        "avg_score": 0.35091722000000003,
+        "score_range": 0.45186421,
+        "performance_ms": 438.7412369251251
       }
     ],
     "optimal_range": {
-      "recommended_threshold": 0.35,
-      "reason": "Best balance of quality (0.368) and results (6.6)",
+      "recommended_threshold": 0.5,
+      "reason": "Best balance of quality (0.351) and results (7.1)",
       "alternatives": [
         {
           "threshold": 0.0,
-          "combined_score": 0.005517415849056573,
-          "avg_results": 6.625,
-          "total_results": 53,
-          "avg_score": 0.3680174158490566,
-          "score_range": 0.43636549,
-          "performance_ms": 450.25402307510376
+          "combined_score": -0.06158523122807019,
+          "avg_results": 7.125,
+          "total_results": 57,
+          "avg_score": 0.35091476877192984,
+          "score_range": 0.45183833,
+          "performance_ms": 1076.1818885803223
         },
         {
           "threshold": 0.05,
-          "combined_score": 0.005513875849056549,
-          "avg_results": 6.625,
-          "total_results": 53,
-          "avg_score": 0.3680138758490566,
-          "score_range": 0.43638882,
-          "performance_ms": 480.67280650138855
+          "combined_score": -0.06158744508771935,
+          "avg_results": 7.125,
+          "total_results": 57,
+          "avg_score": 0.3509125549122807,
+          "score_range": 0.45183833,
+          "performance_ms": 663.3387506008148
         },
         {
           "threshold": 0.1,
-          "combined_score": 0.005513781698113174,
-          "avg_results": 6.625,
-          "total_results": 53,
-          "avg_score": 0.3680137816981132,
-          "score_range": 0.43636549,
-          "performance_ms": 420.62368988990784
+          "combined_score": -0.061586562807017575,
+          "avg_results": 7.125,
+          "total_results": 57,
+          "avg_score": 0.35091343719298246,
+          "score_range": 0.45183833,
+          "performance_ms": 426.2990355491638
         }
       ]
     },
@@ -1793,11 +1837,11 @@
   "recommendations": {
     "current_assessment": {
       "current_threshold": 0.1,
-      "recommended_threshold": 0.35,
+      "recommended_threshold": 0.5,
       "improvement_expected": true
     },
     "suggested_changes": [
-      "INCREASE threshold from 0.1 to 0.35 for better precision"
+      "INCREASE threshold from 0.1 to 0.5 for better precision"
     ],
     "considerations": [
       "Higher threshold = fewer but more relevant results"

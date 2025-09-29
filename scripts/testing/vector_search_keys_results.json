@@ -1,0 +1,48 @@
+{
+  "result_type": "dict",
+  "keys": [
+    "chunk_text",
+    "metadata",
+    "score",
+    "document_id"
+  ],
+  "sample_result": {
+    "chunk_text": "Low\nImplement quarterly access reviews\nOngoing\nSOX 404 Compliance Assessment\nBased on the findings of this access control review, the organization's current access control\nenvironment requires improvement to fully comply with SOX 404 requirements. The identified",
+    "metadata": {
+      "filename": "SOX_Access_Review_2024.pdf",
+      "display_name": "SOX_Access_Review_2024.pdf",
+      "file_size": 4453,
+      "content_type": "application/pdf",
+      "description": null,
+      "upload_timestamp": "2025-09-28T01:10:58.033179",
+      "file_extension": "pdf",
+      "document_type": "access_review",
+      "quality_level": "medium",
+      "company": "unknown",
+      "sox_control_ids": [],
+      "compliance_framework": "SOX",
+      "created_by": "system",
+      "compliance_frameworks": [
+        "SOX"
+      ],
+      "risk_level": "high",
+      "key_topics": [
+        "user access controls",
+        "segregation of duties",
+        "access approval process",
+        "audit logging"
+      ],
+      "classification_confidence": 0.6,
+      "classification_metadata": {
+        "analysis_timestamp": "2024-01-15",
+        "content_length": 2667,
+        "raw_confidence": 0.95,
+        "confidence_adjustment": "applied"
+      },
+      "document_id": "18655c99-a1d6-4d03-bc5b-98ebe27257c5",
+      "chunk_index": 8
+    },
+    "score": 0.62095565,
+    "document_id": "18655c99-a1d6-4d03-bc5b-98ebe27257c5"
+  }
+}
